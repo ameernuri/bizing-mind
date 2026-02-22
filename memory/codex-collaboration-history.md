@@ -271,7 +271,7 @@ The schema now supports:
 
 - [[memory/schema-evolution-history|Schema Evolution History]] — Technical details
 - [[memory/sessions/2026-02-22-major-restructure|Feb 22 Session]] — Repo restructure
-- [[workspace/uc-testing-report-uc1-20.md|UC Testing Report]] — Detailed results
+- [[uc-testing-report-uc1-20|UC Testing Report]] — Detailed results
 - [[evolution/2026-02-22|Evolution Epoch]] — Repository separation
 
 ---
