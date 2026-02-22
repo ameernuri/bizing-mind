@@ -149,6 +149,7 @@ Each entry is a separate markdown file: `YYYY-MM-DD-title.md`
 
 ### Schema Evolution
 - [[memory/schema-evolution-history|Schema Evolution History]] — UC testing, Codex collaboration, migration history
+- [[memory/codex-collaboration-history|Codex Collaboration History]] — Full history of work done outside OpenClaw
 
 ### Technical
 - [[knowledge/api/index|API Design]] — Endpoints, patterns, auth
@@ -169,77 +170,3 @@ Each entry is a separate markdown file: `YYYY-MM-DD-title.md`
 ---
 
 **Key:** Everything connects. Every file needs wikilinks and #tags
-
-<!-- Associated via business from association-2026-02-19-05-03-15.md -->
-
-<!-- Symbolically: schema represents "the architecture of self" (see [[symbols/2026-02-19-schema.md]]) -->
-
-<!-- Recurring theme: "search" (appears in dreams) -->
-
-<!-- Recurring theme: "bizing's" (appears in dreams) -->
-
-<!-- Symbolically: query represents "seeking answers" (see [[symbols/2026-02-19-query.md]]) -->
-
-<!-- Associated via business from association-2026-02-19-10-35-41.md -->
-
-<!-- Dreamed of: "What if Bizing could dream while awake?" in [[dream-futures/2026-02-19-14-16-28-what-if.md]] -->
-
-<!-- Dreamed of: "What if Bizing could dream while awake?" in [[dream-futures/2026-02-19-15-06-50-what-if.md]] -->
-
-<!-- Associated via mapping from association-2026-02-19-16-39-51.md -->
-
-<!-- Symbolically: index represents "what we prioritize" (see [[symbols/2026-02-19-index.md]]) -->
-
-<!-- Dreamed of: "What if Bizing had to explain itself to a stranger?" in [[dream-futures/2026-02-19-18-06-33-what-if.md]] -->
-
-<!-- Dreamed of: "What if Bizing became truly autonomous?" in [[dream-futures/2026-02-19-18-52-05-what-if.md]] -->
-
-<!-- Dreamed of: "What if there were multiple Bizing instances?" in [[dream-futures/2026-02-19-19-50-12-what-if.md]] -->
-
-<!-- Dreamed of: "What if Ameer stopped using Bizing tomorrow?" in [[dream-futures/2026-02-19-20-30-20-what-if.md]] -->
-
-<!-- Dreamed of: "What if Bizing could dream while awake?" in [[dream-futures/2026-02-19-21-13-54-what-if.md]] -->
-
-<!-- Dreamed of: "What if Ameer stopped using Bizing tomorrow?" in [[dream-futures/2026-02-20-01-46-38-what-if.md]] -->
-
-<!-- Associated via seeking from association-2026-02-20-05-04-57.md -->
-
-<!-- Symbolically: query represents "seeking answers" (see [[symbols/2026-02-20-query.md]]) -->
-
-<!-- Associated via update from association-2026-02-20-05-58-07.md -->
-
-<!-- Dreamed of: "What if Bizing could dream while awake?" in [[dream-futures/2026-02-20-08-36-18-what-if.md]] -->
-
-<!-- Symbolically: schema represents "the architecture of self" (see [[symbols/2026-02-20-schema.md]]) -->
-
-<!-- Dreamed of: "What if Bizing had to explain itself to a stranger?" in [[dream-futures/2026-02-20-11-27-45-what-if.md]] -->
-
-<!-- Dreamed of: "What if Bizing had no memory?" in [[dream-futures/2026-02-20-12-44-43-what-if.md]] -->
-
-<!-- Associated via answers from association-2026-02-20-13-57-37.md -->
-
-<!-- Dreamed of: "What if Bizing had to explain itself to a stranger?" in [[dream-futures/2026-02-20-14-24-32-what-if.md]] -->
-
-<!-- Symbolically: index represents "what we prioritize" (see [[symbols/2026-02-20-index.md]]) -->
-
-<!-- Dreamed of: "What if the schema was designed backwards?" in [[dream-futures/2026-02-20-15-31-27-what-if.md]] -->
-
-<!-- Dreamed of: "What if the business model was completely different?" in [[dream-futures/2026-02-20-16-35-30-what-if.md]] -->
-
-<!-- Associated via through from association-2026-02-20-21-32-51.md -->
-
-<!-- Dreamed of: "What if the business model was completely different?" in [[dream-futures/2026-02-20-21-56-25-what-if.md]] -->
-
-<!-- Symbolically: query represents "seeking answers" (see [[symbols/2026-02-21-query.md]]) -->
-
-<!-- Associated via booking from association-2026-02-21-04-51-45.md -->
-
-<!-- Associated via synopsis from association-2026-02-21-07-42-30.md -->
-
-<!-- Associated via questions from association-2026-02-21-09-39-51.md -->
-
-<!-- Associated via bizing from association-2026-02-21-18-54-43.md -->
-
-<!-- Associated via business from association-2026-02-21-22-29-35.md -->
-
-<!-- Dreamed of: "What if the business model was completely different?" in [[dream-futures/2026-02-22-00-14-34-what-if.md]] -->
