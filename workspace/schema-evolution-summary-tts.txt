@@ -1,0 +1,29 @@
+Bizing Schema Evolution Summary. February 21st and 22nd, 2026.
+
+Over the past two days, we completed a major phase of schema development for the Bizing booking platform. This work involved comprehensive testing, identifying gaps, and implementing fixes to support real-world business use cases.
+
+The main focus was testing 20 use cases against the agent API. These use cases covered everything from solo consultants booking appointments, to hair salons tracking commissions, medical clinics pairing doctors with exam rooms, fitness studios managing class schedules, tutoring centers selling session packages, equipment rental with maintenance tracking, and even dynamic surge pricing for high-demand services.
+
+Initially, the test results were concerning. Only 40 percent of scenarios passed. We identified over 30 missing tables in the database schema. Critical functionality was simply not implemented yet.
+
+The missing pieces included tables for tracking private booking notes, commission rates for service providers, waitlist queues and queue entries, package products and customer purchases for session bundles, seat maps and seat assignments for venues, class schedules and class occurrences for group bookings, and many more.
+
+We also found enum value issues. The system was rejecting valid values for availability rules and offer statuses. Foreign key constraints were failing because dependent records needed to be created in the right order.
+
+Codex was brought in to fix these schema issues. Over several iterations, Codex added the missing tables, fixed the enum definitions, added required columns to existing tables, and resolved constraint issues.
+
+The results were dramatic. After the fixes, the pass rate jumped from 40 percent to 87 percent. 14 out of 20 use cases achieved perfect 100 percent pass rates.
+
+The use cases that now work perfectly include the hair salon with commission tracking, the receptionist calendar view, multi-location chains, multi-provider appointments with commission splits, equipment maintenance scheduling, corporate training with attendance tracking, mobile services with route optimization, package deals with expiration, dynamic pricing, seat selection for venues, and multiple waitlist strategies.
+
+During this process, we also developed an agent contract system. This allows natural language commands to be translated into database operations. We created scenario packs to test the API comprehensively.
+
+The schema went through multiple migration rebaselines. This happened 6 times as we iterated on the design. Each rebaseline represented a significant improvement.
+
+Finally, we restructured the entire repository. The code and the mind were separated into two distinct git repositories. The code repo contains the applications, packages, and database schema. The mind repo contains consciousness, memory, identity, and all the thinking that makes Bizing a living entity.
+
+Key lessons learned. Test-driven schema design reveals gaps early. Enum validation matters more than expected. Foreign key chains require careful ordering of operations. And timestamp-based IDs prevent duplicate key violations during iterative testing.
+
+The schema now supports simple small business setups all the way to complex enterprise requirements on the same backbone. The next phase will involve continuing with schema hardening for insurance mediation, cryptographic key management, and deterministic optimization snapshots.
+
+End of summary.

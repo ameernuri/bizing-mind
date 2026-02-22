@@ -147,6 +147,9 @@ Each entry is a separate markdown file: `YYYY-MM-DD-title.md`
 - [[knowledge/domain/business-model|Business Model]] — 6.9% commission
 - [[knowledge/domain/landing-pages|Landing Pages]] — Templates
 
+### Schema Evolution
+- [[memory/schema-evolution-history|Schema Evolution History]] — UC testing, Codex collaboration, migration history
+
 ### Technical
 - [[knowledge/api/index|API Design]] — Endpoints, patterns, auth
 - [[knowledge/tech/index|Tech Hub]] — Stack documentation
