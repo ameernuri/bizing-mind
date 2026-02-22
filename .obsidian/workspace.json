@@ -1,0 +1,344 @@
+{
+  "main": {
+    "id": "main",
+    "type": "split",
+    "children": [
+      {
+        "id": "7a741c3c24cbaf88",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "f84d789ab6d398e2",
+            "type": "leaf",
+            "pinned": true,
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "mind/INDEX.md",
+                "mode": "source",
+                "source": false
+              },
+              "pinned": true,
+              "icon": "lucide-file",
+              "title": "INDEX"
+            }
+          },
+          {
+            "id": "8fcc00e512a6e012",
+            "type": "leaf",
+            "pinned": true,
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "README.md",
+                "mode": "source",
+                "source": false
+              },
+              "pinned": true,
+              "icon": "lucide-file",
+              "title": "README"
+            }
+          },
+          {
+            "id": "dccdc7cfcfee2dcd",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "mind/workspace/extended-persona-report.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "extended-persona-report"
+            }
+          }
+        ],
+        "currentTab": 2
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "left",
+    "type": "split",
+    "children": [
+      {
+        "id": "aa7ad66acbb4d97f",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "file-explorer",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "search",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 361.5
+  },
+  "right": {
+    "id": "right",
+    "type": "split",
+    "children": [
+      {
+        "id": "73c401ce8eabfdd8",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "backlinks",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "mind/memory/RAM.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for RAM"
+            }
+          },
+          {
+            "id": "3c67ccfabb41ba4e",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links"
+            }
+          },
+          {
+            "id": "a452a2bb9c8761a6",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "0c2235fffb1a06b6",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "b429d79b4eaa4130",
+            "type": "leaf",
+            "state": {
+              "type": "footnotes",
+              "state": {
+                "file": "mind/memory/RAM.md"
+              },
+              "icon": "lucide-file-signature",
+              "title": "Footnotes"
+            }
+          },
+          {
+            "id": "ad8661d6e0b0234e",
+            "type": "leaf",
+            "state": {
+              "type": "smart-connections-view",
+              "state": {},
+              "icon": "smart-connections",
+              "title": "Connections"
+            }
+          },
+          {
+            "id": "35c091831e4d18ef",
+            "type": "leaf",
+            "state": {
+              "type": "BC-matrix",
+              "state": {},
+              "icon": "lucide-ghost",
+              "title": "BC-matrix"
+            }
+          },
+          {
+            "id": "a26a6d5b1bf5b6ef",
+            "type": "leaf",
+            "state": {
+              "type": "BC-tree",
+              "state": {},
+              "icon": "lucide-ghost",
+              "title": "BC-tree"
+            }
+          }
+        ],
+        "currentTab": 7
+      },
+      {
+        "id": "d8b79329e0081fbe",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "outline",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "mind/memory/RAM.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of RAM"
+            }
+          }
+        ]
+      },
+      {
+        "id": "7682741fe762fc7f",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "bookmarks",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "templater-obsidian:Templater": false,
+      "obsidian-kanban:Create new board": false,
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false,
+      "table-editor-obsidian:Advanced Tables Toolbar": false,
+      "obsidian-excalidraw-plugin:New drawing": false,
+      "audio-recorder:Start/stop recording": false,
+      "markdown-importer:Open format converter": false,
+      "random-note:Open random note": false,
+      "obsidian-git:Open Git source control": false,
+      "smart-connections:Smart Connections: Open connections view": false,
+      "smart-connections:Smart Lookup: Open lookup view": false,
+      "smart-connections:Smart Connections: Open random connection": false,
+      "zk-prefixer:Create new unique note": false
+    }
+  },
+  "active": "file-explorer",
+  "lastOpenFiles": [
+    "mind/mind/skills/mock-ui-generation/MockUIGeneration.md",
+    "mind/mind/skills/mock-ui-generation",
+    "mind/workspace/extended-persona-report.md",
+    "mind/Untitled.md",
+    "mind/workspace/reports/lifecycle-examples-agent-fitness.md",
+    "mind/workspace/reports/lifecycle-examples-agent-fitness.json",
+    "mind/workspace/run-lifecycle-examples.sh",
+    "mind/workspace/lifecycle-scenarios-full-description-v0.md",
+    "mind/workspace/agent-fitness-loop-lifecycle-examples-v0.json",
+    "mind/workspace/agent-api-lifecycle-example-03-gift-transfer-v0.json",
+    "mind/workspace/agent-api-lifecycle-example-02-queue-walkin-v0.json",
+    "mind/workspace/agent-api-lifecycle-example-01-slot-booking-v0.json",
+    "mind/mind/skills/tts-friendly-generation/TTSFriendlyGeneration.md",
+    "mind/mind/skills/tts-friendly-generation",
+    "mind/mind/skills",
+    "mind/mind",
+    "mind/workspace/agent-testing-workflow-definitive-v0.md",
+    "mind/workspace/reports/latest-agent-fitness.md",
+    "mind/workspace/agent-testing-infra-combo-guide.md",
+    "mind/workspace/agent-lifecycle-testing-playbook.md",
+    "mind/workspace/final-test-report-100-percent.md",
+    "mind/INDEX.md",
+    "mind/workspace/uc-test-failure-report.md",
+    "mind/memory/2026-02-22-update.md",
+    "mind/memory/codex-collaboration-history.md",
+    "mind/evolution/2026-02-22.md",
+    "mind/evolution/2026-02-16.md",
+    "mind/evolution/2026-02-13.md",
+    "mind/memory/sessions/2026-02-22-major-restructure.md",
+    "mind/workspace/schema-unified-commerce-evolution-plan-v0.md",
+    "mind/workspace/uc-testing-report-uc1-20.md",
+    "mind/workspace/tester-personas.md",
+    "mind/workspace/schema-uc-fitness-v1.md",
+    "mind/workspace/schema-hardening-plan-v0-to-10.md",
+    "mind/workspace/schema-hardening-backlog-v0.md",
+    "mind/workspace/feature-space.md",
+    "canvas/event-driven-architecture.canvas",
+    "canvas/consciousness-map.canvas",
+    "canvas/booking-schema-map-v1.canvas",
+    "canvas/booking-domain-architecture.canvas",
+    "canvas/bizing-consciousness.canvas",
+    "canvas/architecture-overview.canvas",
+    "canvas/api-first-design.canvas",
+    "canvas/api-design.canvas",
+    "canvas/api-architecture.canvas",
+    "_openclaw/ui/src/ui/__screenshots__/config-form.browser.test.ts/config-form-renderer-renders-union-literals-as-select-options-1.png",
+    "_openclaw/ui/src/ui/__screenshots__/config-form.browser.test.ts/config-form-renderer-renders-inputs-and-patches-values-1.png",
+    "_openclaw/ui/src/ui/__screenshots__/config-form.browser.test.ts/config-form-renderer-flags-unsupported-unions-1.png",
+    "_openclaw/ui/src/ui/__screenshots__/navigation.browser.test.ts/control-UI-routing-auto-scrolls-chat-history-to-the-latest-message-1.png",
+    "_openclaw/node_modules/istanbul-reports/lib/html-spa/assets/sort-arrow-sprite.png",
+    "_openclaw/node_modules/istanbul-reports/lib/html/assets/sort-arrow-sprite.png",
+    "_openclaw/node_modules/istanbul-reports/lib/html/assets/favicon.png",
+    "_openclaw/apps/ios/Sources/Assets.xcassets/AppIcon.appiconset/icon-83.5@2x.png",
+    "_openclaw/apps/ios/Sources/Assets.xcassets/AppIcon.appiconset/icon-76@2x.png",
+    "_openclaw/apps/ios/Sources/Assets.xcassets/AppIcon.appiconset/icon-60@3x.png",
+    "mind/canvas/booking-schema-map-v1.canvas"
+  ]
+}

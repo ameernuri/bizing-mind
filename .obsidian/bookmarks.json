@@ -1,0 +1,34 @@
+{
+  "items": [
+    {
+      "type": "file",
+      "path": "brain/README.md",
+      "title": "🧠 Brain Entry"
+    },
+    {
+      "type": "file",
+      "path": "brain/STATUS.md",
+      "title": "📊 Status"
+    },
+    {
+      "type": "file",
+      "path": "brain/GOALS.md",
+      "title": "🎯 Goals"
+    },
+    {
+      "type": "file",
+      "path": "brain/01-design/VISION.md",
+      "title": "👁️ Vision"
+    },
+    {
+      "type": "file",
+      "path": "brain/03-operations/WORKFLOW.md",
+      "title": "⚙️ Workflow"
+    },
+    {
+      "type": "folder",
+      "path": "brain/daily",
+      "title": "📅 Daily Notes"
+    }
+  ]
+}

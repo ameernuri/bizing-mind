@@ -1,0 +1,30 @@
+{
+  "spellcheck": true,
+  "spellcheckLanguages": [
+    "en-US"
+  ],
+  "vimMode": true,
+  "lineNumbers": false,
+  "readableLineLength": true,
+  "strictLineBreaks": false,
+  "foldHeading": true,
+  "foldIndent": true,
+  "showLineNumbers": false,
+  "rightToLeft": false,
+  "useTab": false,
+  "tabSize": 4,
+  "autoPairBrackets": true,
+  "autoPairMarkdown": true,
+  "livePreview": true,
+  "showFrontmatter": true,
+  "newFileLocation": "folder",
+  "newFileFolderPath": "mind",
+  "attachmentFolderPath": "mind/attachments",
+  "alwaysUpdateLinks": true,
+  "useMarkdownLinks": false,
+  "newLinkFormat": "shortest",
+  "showLineNumber": true,
+  "userIgnoreFilters": [
+    "node_modules/"
+  ]
+}
