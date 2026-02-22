@@ -1,0 +1,177 @@
+{
+  "defaults": {
+    "dryRun": true,
+    "scope": {
+      "bizId": "{{id:biz_slot}}"
+    },
+    "continueOnFailure": true
+  },
+  "variables": {
+    "timezone": "America/Los_Angeles",
+    "offerSlug": "slot-offer-{{runId}}"
+  },
+  "options": {
+    "rollbackOnFailure": false,
+    "includeStepTrace": true
+  },
+  "phases": [
+    {
+      "id": "slot-setup",
+      "name": "Setup Supply + Calendar",
+      "continueOnFailure": false,
+      "steps": [
+        {
+          "id": "slot-01",
+          "name": "Create owner user",
+          "prompt": "insert into users id = {{id:owner_user}} email = slot.owner.{{runId}}@example.com name = SlotOwner status = active",
+          "expect": { "success": true, "rowCountEq": 1 }
+        },
+        {
+          "id": "slot-02",
+          "name": "Create customer user",
+          "prompt": "insert into users id = {{id:customer_user}} email = slot.customer.{{runId}}@example.com name = SlotCustomer status = active",
+          "expect": { "success": true, "rowCountEq": 1 }
+        },
+        {
+          "id": "slot-03",
+          "name": "Create biz",
+          "prompt": "insert into bizes id = {{id:biz_slot}} name = Slot Booking Example slug = slot-booking-{{runId}} status = active timezone = {{timezone}}",
+          "scope": { "actorUserId": "{{id:owner_user}}" },
+          "expect": { "success": true }
+        },
+        {
+          "id": "slot-04",
+          "name": "Create location",
+          "prompt": "insert into locations id = {{id:location}} biz_id = {{id:biz_slot}} name = Main Location slug = main-location-{{runId}} timezone = {{timezone}}",
+          "scope": { "actorUserId": "{{id:owner_user}}" },
+          "expect": { "success": true }
+        },
+        {
+          "id": "slot-05",
+          "name": "Create host resource",
+          "prompt": "insert into resources id = {{id:resource}} biz_id = {{id:biz_slot}} location_id = {{id:location}} type = host host_user_id = {{id:owner_user}} name = Main Host slug = main-host-{{runId}} timezone = {{timezone}} capacity = 1 allow_simultaneous_bookings = false buffer_before_minutes = 10 buffer_after_minutes = 10",
+          "scope": { "actorUserId": "{{id:owner_user}}" },
+          "expect": { "success": true }
+        },
+        {
+          "id": "slot-06",
+          "name": "Create calendar",
+          "prompt": "insert into calendars id = {{id:calendar}} biz_id = {{id:biz_slot}} name = Host Calendar timezone = {{timezone}} slot_duration_min = 50 slot_interval_min = 50 min_advance_booking_hours = 24 max_advance_booking_days = 45 status = active",
+          "scope": { "actorUserId": "{{id:owner_user}}" },
+          "expect": { "success": true }
+        },
+        {
+          "id": "slot-07",
+          "name": "Bind calendar to resource",
+          "prompt": "insert into calendar_bindings id = {{id:binding}} biz_id = {{id:biz_slot}} calendar_id = {{id:calendar}} owner_type = resource resource_id = {{id:resource}} owner_ref_key = resource:{{id:resource}} is_primary = true is_active = true",
+          "scope": { "actorUserId": "{{id:owner_user}}" },
+          "expect": { "success": true }
+        },
+        {
+          "id": "slot-08",
+          "name": "Create weekday availability",
+          "prompt": "insert into availability_rules id = {{id:rule}} biz_id = {{id:biz_slot}} calendar_id = {{id:calendar}} name = Weekday Rule mode = recurring frequency = weekly day_of_week = 1 start_time = 09:00:00 end_time = 17:00:00 action = available is_active = true priority = 100",
+          "scope": { "actorUserId": "{{id:owner_user}}" },
+          "expect": { "success": true }
+        }
+      ]
+    },
+    {
+      "id": "slot-catalog",
+      "name": "Publish Offer",
+      "steps": [
+        {
+          "id": "slot-09",
+          "name": "Create offer",
+          "prompt": "insert into offers id = {{id:offer}} biz_id = {{id:biz_slot}} name = Slot Session slug = {{offerSlug}} execution_mode = slot status = active is_published = true timezone = {{timezone}}",
+          "scope": { "actorUserId": "{{id:owner_user}}" },
+          "expect": { "success": true }
+        },
+        {
+          "id": "slot-10",
+          "name": "Create offer version",
+          "prompt": "insert into offer_versions id = {{id:offer_version}} biz_id = {{id:biz_slot}} offer_id = {{id:offer}} version = 1 status = published duration_mode = fixed default_duration_min = 50 min_duration_min = 50 max_duration_min = 50 base_price_minor = 15000 currency = USD",
+          "scope": { "actorUserId": "{{id:owner_user}}" },
+          "expect": { "success": true }
+        }
+      ]
+    },
+    {
+      "id": "slot-book",
+      "name": "Book + Assign",
+      "steps": [
+        {
+          "id": "slot-11",
+          "name": "Create first booking",
+          "prompt": "insert into booking_orders id = {{id:order1}} biz_id = {{id:biz_slot}} offer_id = {{id:offer}} offer_version_id = {{id:offer_version}} customer_user_id = {{id:customer_user}} status = confirmed currency = USD subtotal_minor = 15000 total_minor = 15000 requested_start_at = 2026-03-11T17:00:00Z requested_end_at = 2026-03-11T17:50:00Z confirmed_start_at = 2026-03-11T17:00:00Z confirmed_end_at = 2026-03-11T17:50:00Z",
+          "scope": { "actorUserId": "{{id:owner_user}}" },
+          "expect": { "success": true }
+        },
+        {
+          "id": "slot-12",
+          "name": "Create first unit",
+          "prompt": "insert into fulfillment_units id = {{id:unit1}} biz_id = {{id:biz_slot}} booking_order_id = {{id:order1}} kind = service_task status = planned planned_start_at = 2026-03-11T17:00:00Z planned_end_at = 2026-03-11T17:50:00Z location_id = {{id:location}}",
+          "scope": { "actorUserId": "{{id:owner_user}}" },
+          "expect": { "success": true }
+        },
+        {
+          "id": "slot-13",
+          "name": "Assign host",
+          "prompt": "insert into fulfillment_assignments id = {{id:assign1}} biz_id = {{id:biz_slot}} fulfillment_unit_id = {{id:unit1}} resource_id = {{id:resource}} status = confirmed starts_at = 2026-03-11T17:00:00Z ends_at = 2026-03-11T17:50:00Z is_primary = true",
+          "scope": { "actorUserId": "{{id:owner_user}}" },
+          "expect": { "success": true }
+        }
+      ]
+    },
+    {
+      "id": "slot-edge",
+      "name": "Edge Case: Double Booking Guard",
+      "steps": [
+        {
+          "id": "slot-14",
+          "name": "Create overlapping booking",
+          "prompt": "insert into booking_orders id = {{id:order2}} biz_id = {{id:biz_slot}} offer_id = {{id:offer}} offer_version_id = {{id:offer_version}} customer_user_id = {{id:customer_user}} status = confirmed currency = USD subtotal_minor = 15000 total_minor = 15000 requested_start_at = 2026-03-11T17:15:00Z requested_end_at = 2026-03-11T18:05:00Z confirmed_start_at = 2026-03-11T17:15:00Z confirmed_end_at = 2026-03-11T18:05:00Z",
+          "scope": { "actorUserId": "{{id:owner_user}}" },
+          "expect": { "success": true }
+        },
+        {
+          "id": "slot-15",
+          "name": "Create overlapping unit",
+          "prompt": "insert into fulfillment_units id = {{id:unit2}} biz_id = {{id:biz_slot}} booking_order_id = {{id:order2}} kind = service_task status = planned planned_start_at = 2026-03-11T17:15:00Z planned_end_at = 2026-03-11T18:05:00Z location_id = {{id:location}}",
+          "scope": { "actorUserId": "{{id:owner_user}}" },
+          "expect": { "success": true }
+        },
+        {
+          "id": "slot-16",
+          "name": "Attempt overlapping assignment",
+          "prompt": "insert into fulfillment_assignments id = {{id:assign2}} biz_id = {{id:biz_slot}} fulfillment_unit_id = {{id:unit2}} resource_id = {{id:resource}} status = confirmed starts_at = 2026-03-11T17:15:00Z ends_at = 2026-03-11T18:05:00Z is_primary = true",
+          "scope": { "actorUserId": "{{id:owner_user}}" },
+          "expect": {
+            "success": false,
+            "errorContains": ["overlap"]
+          }
+        }
+      ]
+    },
+    {
+      "id": "slot-verify",
+      "name": "Verify State",
+      "steps": [
+        {
+          "id": "slot-17",
+          "name": "Only one confirmed assignment exists",
+          "prompt": "list fulfillment_assignments where biz_id = {{id:biz_slot}} and resource_id = {{id:resource}} and status = confirmed",
+          "scope": { "actorUserId": "{{id:owner_user}}" },
+          "expect": { "success": true, "rowCountEq": 1 }
+        },
+        {
+          "id": "slot-18",
+          "name": "Resource calendar binding visible",
+          "prompt": "list calendar_bindings where biz_id = {{id:biz_slot}} and owner_ref_key = resource:{{id:resource}}",
+          "scope": { "actorUserId": "{{id:owner_user}}" },
+          "expect": { "success": true, "rowCountEq": 1 }
+        }
+      ]
+    }
+  ]
+}

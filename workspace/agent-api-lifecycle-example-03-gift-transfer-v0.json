@@ -1,0 +1,111 @@
+{
+  "defaults": {
+    "dryRun": true,
+    "scope": {
+      "bizId": "{{id:biz_gift}}"
+    },
+    "continueOnFailure": true
+  },
+  "variables": {
+    "timezone": "America/Los_Angeles"
+  },
+  "options": {
+    "rollbackOnFailure": false,
+    "includeStepTrace": true
+  },
+  "phases": [
+    {
+      "id": "gift-setup",
+      "name": "Setup Identities + Biz",
+      "continueOnFailure": false,
+      "steps": [
+        {
+          "id": "gift-01",
+          "name": "Create issuer user",
+          "prompt": "insert into users id = {{id:issuer_user}} email = gift.issuer.{{runId}}@example.com name = GiftIssuer status = active",
+          "expect": { "success": true, "rowCountEq": 1 }
+        },
+        {
+          "id": "gift-02",
+          "name": "Create recipient user",
+          "prompt": "insert into users id = {{id:recipient_user}} email = gift.recipient.{{runId}}@example.com name = GiftRecipient status = active",
+          "expect": { "success": true, "rowCountEq": 1 }
+        },
+        {
+          "id": "gift-03",
+          "name": "Create biz",
+          "prompt": "insert into bizes id = {{id:biz_gift}} name = Gift Transfer Example slug = gift-transfer-{{runId}} status = active timezone = {{timezone}}",
+          "scope": { "actorUserId": "{{id:issuer_user}}" },
+          "expect": { "success": true }
+        }
+      ]
+    },
+    {
+      "id": "gift-issue",
+      "name": "Issue Gift Instrument",
+      "steps": [
+        {
+          "id": "gift-04",
+          "name": "Issue active gift",
+          "prompt": "insert into gift_instruments id = {{id:gift}} biz_id = {{id:biz_gift}} code = GIFT-{{runId}} status = active source_type = manual currency = USD initial_amount_minor = 5000 remaining_amount_minor = 5000 owner_user_id = {{id:issuer_user}}",
+          "scope": { "actorUserId": "{{id:issuer_user}}" },
+          "expect": { "success": true }
+        },
+        {
+          "id": "gift-05",
+          "name": "Verify issuer owns gift",
+          "prompt": "list gift_instruments where biz_id = {{id:biz_gift}} and id = {{id:gift}} and owner_user_id = {{id:issuer_user}}",
+          "scope": { "actorUserId": "{{id:issuer_user}}" },
+          "expect": { "success": true, "rowCountEq": 1 }
+        }
+      ]
+    },
+    {
+      "id": "gift-transfer",
+      "name": "Transfer Gift Ownership",
+      "steps": [
+        {
+          "id": "gift-06",
+          "name": "Create pending full transfer",
+          "prompt": "insert into gift_transfers id = {{id:transfer}} biz_id = {{id:biz_gift}} gift_instrument_id = {{id:gift}} mode = full_transfer status = pending amount_minor = 5000 currency = USD from_user_id = {{id:issuer_user}} to_user_id = {{id:recipient_user}}",
+          "scope": { "actorUserId": "{{id:issuer_user}}" },
+          "expect": { "success": true }
+        },
+        {
+          "id": "gift-07",
+          "name": "Complete transfer row",
+          "prompt": "update gift_transfers set status = completed transferred_at = 2026-03-13T19:00:00Z where id = {{id:transfer}} and biz_id = {{id:biz_gift}}",
+          "scope": { "actorUserId": "{{id:issuer_user}}" },
+          "expect": { "success": true, "rowCountEq": 1 }
+        },
+        {
+          "id": "gift-08",
+          "name": "Reassign gift owner",
+          "prompt": "update gift_instruments set owner_user_id = {{id:recipient_user}} where id = {{id:gift}} and biz_id = {{id:biz_gift}}",
+          "scope": { "actorUserId": "{{id:issuer_user}}" },
+          "expect": { "success": true, "rowCountEq": 1 }
+        }
+      ]
+    },
+    {
+      "id": "gift-verify",
+      "name": "Verify Traceability",
+      "steps": [
+        {
+          "id": "gift-09",
+          "name": "Recipient now owns gift",
+          "prompt": "list gift_instruments where biz_id = {{id:biz_gift}} and id = {{id:gift}} and owner_user_id = {{id:recipient_user}}",
+          "scope": { "actorUserId": "{{id:recipient_user}}" },
+          "expect": { "success": true, "rowCountEq": 1 }
+        },
+        {
+          "id": "gift-10",
+          "name": "Completed transfer exists",
+          "prompt": "list gift_transfers where biz_id = {{id:biz_gift}} and id = {{id:transfer}} and status = completed",
+          "scope": { "actorUserId": "{{id:issuer_user}}" },
+          "expect": { "success": true, "rowCountEq": 1 }
+        }
+      ]
+    }
+  ]
+}

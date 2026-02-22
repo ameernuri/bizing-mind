@@ -1,0 +1,39 @@
+{
+  "defaults": {
+    "dryRun": true,
+    "continueOnFailure": true
+  },
+  "variables": {
+    "timezone": "America/Los_Angeles"
+  },
+  "suites": [
+    {
+      "id": "example_slot_booking",
+      "name": "Lifecycle Example 01 - Slot Booking",
+      "kind": "lifecycle",
+      "source": {
+        "filePath": "agent-api-lifecycle-example-01-slot-booking-v0.json"
+      }
+    },
+    {
+      "id": "example_queue_walkin",
+      "name": "Lifecycle Example 02 - Queue Walk-in",
+      "kind": "lifecycle",
+      "source": {
+        "filePath": "agent-api-lifecycle-example-02-queue-walkin-v0.json"
+      }
+    },
+    {
+      "id": "example_gift_transfer",
+      "name": "Lifecycle Example 03 - Gift Transfer",
+      "kind": "lifecycle",
+      "source": {
+        "filePath": "agent-api-lifecycle-example-03-gift-transfer-v0.json"
+      }
+    }
+  ],
+  "output": {
+    "writeJsonPath": "reports/lifecycle-examples-agent-fitness.json",
+    "writeMarkdownPath": "reports/lifecycle-examples-agent-fitness.md"
+  }
+}

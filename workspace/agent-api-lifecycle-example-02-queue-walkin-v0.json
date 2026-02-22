@@ -1,0 +1,153 @@
+{
+  "defaults": {
+    "dryRun": true,
+    "scope": {
+      "bizId": "{{id:biz_queue}}"
+    },
+    "continueOnFailure": true
+  },
+  "variables": {
+    "timezone": "America/Los_Angeles"
+  },
+  "options": {
+    "rollbackOnFailure": false,
+    "includeStepTrace": true
+  },
+  "phases": [
+    {
+      "id": "queue-setup",
+      "name": "Setup Queue",
+      "continueOnFailure": false,
+      "steps": [
+        {
+          "id": "queue-01",
+          "name": "Create operator",
+          "prompt": "insert into users id = {{id:operator_user}} email = queue.operator.{{runId}}@example.com name = QueueOperator status = active",
+          "expect": { "success": true, "rowCountEq": 1 }
+        },
+        {
+          "id": "queue-02",
+          "name": "Create customer",
+          "prompt": "insert into users id = {{id:customer_user}} email = queue.customer.{{runId}}@example.com name = QueueCustomer status = active",
+          "expect": { "success": true, "rowCountEq": 1 }
+        },
+        {
+          "id": "queue-03",
+          "name": "Create biz",
+          "prompt": "insert into bizes id = {{id:biz_queue}} name = Queue Walkin Example slug = queue-walkin-{{runId}} status = active timezone = {{timezone}}",
+          "scope": { "actorUserId": "{{id:operator_user}}" },
+          "expect": { "success": true }
+        },
+        {
+          "id": "queue-04",
+          "name": "Create location",
+          "prompt": "insert into locations id = {{id:location}} biz_id = {{id:biz_queue}} name = Front Desk slug = front-desk-{{runId}} timezone = {{timezone}}",
+          "scope": { "actorUserId": "{{id:operator_user}}" },
+          "expect": { "success": true }
+        },
+        {
+          "id": "queue-05",
+          "name": "Create queue",
+          "prompt": "insert into queues id = {{id:queue}} biz_id = {{id:biz_queue}} location_id = {{id:location}} name = Walk In Queue slug = walk-in-queue-{{runId}} strategy = fifo status = active is_self_join_enabled = true",
+          "scope": { "actorUserId": "{{id:operator_user}}" },
+          "expect": { "success": true }
+        }
+      ]
+    },
+    {
+      "id": "queue-join",
+      "name": "Customer Joins Queue",
+      "steps": [
+        {
+          "id": "queue-06",
+          "name": "Create queue entry",
+          "prompt": "insert into queue_entries id = {{id:entry}} biz_id = {{id:biz_queue}} queue_id = {{id:queue}} customer_user_id = {{id:customer_user}} status = waiting priority_score = 0 display_code = A101",
+          "scope": { "actorUserId": "{{id:customer_user}}" },
+          "expect": { "success": true }
+        },
+        {
+          "id": "queue-07",
+          "name": "Emit joined event",
+          "prompt": "insert into queue_events id = {{id:event_joined}} biz_id = {{id:biz_queue}} queue_entry_id = {{id:entry}} event_type = joined actor_user_id = {{id:customer_user}}",
+          "scope": { "actorUserId": "{{id:customer_user}}" },
+          "expect": { "success": true }
+        },
+        {
+          "id": "queue-08",
+          "name": "Issue queue ticket",
+          "prompt": "insert into queue_tickets id = {{id:ticket}} biz_id = {{id:biz_queue}} queue_entry_id = {{id:entry}} queue_id = {{id:queue}} ticket_number = 101 status = issued",
+          "scope": { "actorUserId": "{{id:operator_user}}" },
+          "expect": { "success": true }
+        }
+      ]
+    },
+    {
+      "id": "queue-serve",
+      "name": "Offer, Claim, Serve",
+      "steps": [
+        {
+          "id": "queue-09",
+          "name": "Mark offered",
+          "prompt": "update queue_entries set status = offered offered_at = 2026-03-12T17:20:00Z offer_expires_at = 2026-03-12T17:30:00Z estimated_wait_min = 10 where id = {{id:entry}} and biz_id = {{id:biz_queue}}",
+          "scope": { "actorUserId": "{{id:operator_user}}" },
+          "expect": { "success": true, "rowCountEq": 1 }
+        },
+        {
+          "id": "queue-10",
+          "name": "Mark claimed",
+          "prompt": "update queue_entries set status = claimed where id = {{id:entry}} and biz_id = {{id:biz_queue}}",
+          "scope": { "actorUserId": "{{id:customer_user}}" },
+          "expect": { "success": true, "rowCountEq": 1 }
+        },
+        {
+          "id": "queue-11",
+          "name": "Update ticket to completed timeline",
+          "prompt": "update queue_tickets set status = completed called_at = 2026-03-12T17:22:00Z service_started_at = 2026-03-12T17:23:00Z service_ended_at = 2026-03-12T17:32:00Z where id = {{id:ticket}} and biz_id = {{id:biz_queue}}",
+          "scope": { "actorUserId": "{{id:operator_user}}" },
+          "expect": { "success": true, "rowCountEq": 1 }
+        },
+        {
+          "id": "queue-12",
+          "name": "Mark entry served",
+          "prompt": "update queue_entries set status = served served_at = 2026-03-12T17:32:00Z where id = {{id:entry}} and biz_id = {{id:biz_queue}}",
+          "scope": { "actorUserId": "{{id:operator_user}}" },
+          "expect": { "success": true, "rowCountEq": 1 }
+        },
+        {
+          "id": "queue-13",
+          "name": "Emit served event",
+          "prompt": "insert into queue_events id = {{id:event_served}} biz_id = {{id:biz_queue}} queue_entry_id = {{id:entry}} event_type = served actor_user_id = {{id:operator_user}}",
+          "scope": { "actorUserId": "{{id:operator_user}}" },
+          "expect": { "success": true }
+        }
+      ]
+    },
+    {
+      "id": "queue-verify",
+      "name": "Verify Queue Outcome",
+      "steps": [
+        {
+          "id": "queue-14",
+          "name": "No waiting entries",
+          "prompt": "list queue_entries where biz_id = {{id:biz_queue}} and queue_id = {{id:queue}} and status = waiting",
+          "scope": { "actorUserId": "{{id:operator_user}}" },
+          "expect": { "success": true, "rowCountEq": 0 }
+        },
+        {
+          "id": "queue-15",
+          "name": "One served entry",
+          "prompt": "list queue_entries where biz_id = {{id:biz_queue}} and queue_id = {{id:queue}} and status = served",
+          "scope": { "actorUserId": "{{id:operator_user}}" },
+          "expect": { "success": true, "rowCountEq": 1 }
+        },
+        {
+          "id": "queue-16",
+          "name": "Ticket completed",
+          "prompt": "list queue_tickets where biz_id = {{id:biz_queue}} and id = {{id:ticket}} and status = completed",
+          "scope": { "actorUserId": "{{id:operator_user}}" },
+          "expect": { "success": true, "rowCountEq": 1 }
+        }
+      ]
+    }
+  ]
+}
