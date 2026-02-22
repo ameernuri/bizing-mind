@@ -2,49 +2,54 @@
   "defaults": {
     "dryRun": false,
     "scope": {
-      "bizId": "biz_3A23yO9NhzDuZXe139vIxEzV1tE"
+      "bizId": "biz_e76999ea1b644fd397719d573cb"
     }
   },
   "scenarios": [
     {
       "id": "uc24-01",
       "name": "Create Mechanic business",
-      "prompt": "insert into bizes id = biz_3A23yO9NhzDuZXe139vIxEzV1tE name = Quick Fix Motors slug = quick-fix-motors-202502220816 status = active timezone = America/Los_Angeles"
+      "prompt": "insert into bizes id = biz_e76999ea1b644fd397719d573cb name = Quick Fix Motors slug = quick-fix-motors-20260222163127 status = active timezone = America/Los_Angeles"
     },
     {
       "id": "uc24-02",
       "name": "Create location",
-      "prompt": "insert into locations id = loc_3A23ySaKuulSElJwH8TpJMSh4Rw biz_id = biz_3A23yO9NhzDuZXe139vIxEzV1tE name = Main Location slug = main-24-202502220816 timezone = America/Los_Angeles"
+      "prompt": "insert into locations id = loc_a554f3709d7e44fea2c9cac25c8 biz_id = biz_e76999ea1b644fd397719d573cb name = Main Location slug = main-24-20260222163127 timezone = America/Los_Angeles"
     },
     {
       "id": "uc24-03",
-      "name": "Create Auto Shop as resource",
-      "prompt": "insert into resources id = res_3A23yN7IlMufE7rIzAGxXHHBZMz biz_id = biz_3A23yO9NhzDuZXe139vIxEzV1tE location_id = loc_3A23ySaKuulSElJwH8TpJMSh4Rw type = host name = Auto Shop slug = quick-fix-motors-resource-202502220816 timezone = America/Los_Angeles capacity = 1"
+      "name": "Create host user",
+      "prompt": "insert into users id = usr_694646d909d14691ad14b6ceb82 email = quick-fix-motors-20260222163127@example.com name = Auto Shop status = active"
     },
     {
       "id": "uc24-04",
-      "name": "Create calendar",
-      "prompt": "insert into calendars id = cal_3A23yLuiErsRYSc3fvFvcsN1F4q biz_id = biz_3A23yO9NhzDuZXe139vIxEzV1tE name = Booking Calendar timezone = America/Los_Angeles slot_duration_min = 60 status = active"
+      "name": "Create Auto Shop as resource",
+      "prompt": "insert into resources id = res_8038c44446064ea29b987aa7460 biz_id = biz_e76999ea1b644fd397719d573cb location_id = loc_a554f3709d7e44fea2c9cac25c8 type = host host_user_id = usr_694646d909d14691ad14b6ceb82 name = Auto Shop slug = quick-fix-motors-resource-20260222163127 timezone = America/Los_Angeles capacity = 1 buffer_before_minutes = 5 buffer_after_minutes = 5"
     },
     {
       "id": "uc24-05",
-      "name": "Create service offer",
-      "prompt": "insert into offers id = ofr_3A23yO9jxr3JngcDrCheYKCLbNt biz_id = biz_3A23yO9NhzDuZXe139vIxEzV1tE type = service name = Mechanic Service slug = quick-fix-motors-offer-202502220816 status = active"
+      "name": "Create calendar",
+      "prompt": "insert into calendars id = cal_bd50ed5f044244b0bfc4768b773 biz_id = biz_e76999ea1b644fd397719d573cb name = Booking Calendar timezone = America/Los_Angeles slot_duration_min = 60 status = active"
     },
     {
       "id": "uc24-06",
-      "name": "Query business",
-      "prompt": "list bizes where id = biz_3A23yO9NhzDuZXe139vIxEzV1tE"
+      "name": "Create service offer",
+      "prompt": "insert into offers id = ofr_758135dfc2fd4021a97b8139977 biz_id = biz_e76999ea1b644fd397719d573cb name = Mechanic Service slug = quick-fix-motors-offer-20260222163127 execution_mode = slot status = active"
     },
     {
       "id": "uc24-07",
-      "name": "Query resources",
-      "prompt": "list resources where biz_id = biz_3A23yO9NhzDuZXe139vIxEzV1tE"
+      "name": "Query business",
+      "prompt": "list bizes where id = biz_e76999ea1b644fd397719d573cb"
     },
     {
       "id": "uc24-08",
+      "name": "Query resources",
+      "prompt": "list resources where biz_id = biz_e76999ea1b644fd397719d573cb"
+    },
+    {
+      "id": "uc24-09",
       "name": "Count offers",
-      "prompt": "count offers where biz_id = biz_3A23yO9NhzDuZXe139vIxEzV1tE"
+      "prompt": "count offers where biz_id = biz_e76999ea1b644fd397719d573cb"
     }
   ]
 }

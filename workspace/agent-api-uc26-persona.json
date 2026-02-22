@@ -2,49 +2,54 @@
   "defaults": {
     "dryRun": false,
     "scope": {
-      "bizId": "biz_3A23yPUV5l1eloVEqixDIFi3xU3"
+      "bizId": "biz_d4fe1244f3194fdd99927d9029e"
     }
   },
   "scenarios": [
     {
       "id": "uc26-01",
       "name": "Create B2B business",
-      "prompt": "insert into bizes id = biz_3A23yPUV5l1eloVEqixDIFi3xU3 name = StratEdge Consulting slug = stratedge-202502220816 status = active timezone = America/Los_Angeles"
+      "prompt": "insert into bizes id = biz_d4fe1244f3194fdd99927d9029e name = StratEdge Consulting slug = stratedge-20260222163127 status = active timezone = America/Los_Angeles"
     },
     {
       "id": "uc26-02",
       "name": "Create location",
-      "prompt": "insert into locations id = loc_3A23yQm59HADZaWIeZpuyZ3C0XA biz_id = biz_3A23yPUV5l1eloVEqixDIFi3xU3 name = Main Location slug = main-26-202502220816 timezone = America/Los_Angeles"
+      "prompt": "insert into locations id = loc_59f689b5eefc4d438fb137bf750 biz_id = biz_d4fe1244f3194fdd99927d9029e name = Main Location slug = main-26-20260222163127 timezone = America/Los_Angeles"
     },
     {
       "id": "uc26-03",
-      "name": "Create Consulting Firm as resource",
-      "prompt": "insert into resources id = res_3A23yRF3XSSYg3Emn9Pjg1qOsQz biz_id = biz_3A23yPUV5l1eloVEqixDIFi3xU3 location_id = loc_3A23yQm59HADZaWIeZpuyZ3C0XA type = host name = Consulting Firm slug = stratedge-resource-202502220816 timezone = America/Los_Angeles capacity = 1"
+      "name": "Create host user",
+      "prompt": "insert into users id = usr_dcbea89f1d624bae96eac5980f9 email = stratedge-20260222163127@example.com name = Consulting Firm status = active"
     },
     {
       "id": "uc26-04",
-      "name": "Create calendar",
-      "prompt": "insert into calendars id = cal_3A23yPjJOigfRjXv9bpi7D8P49l biz_id = biz_3A23yPUV5l1eloVEqixDIFi3xU3 name = Booking Calendar timezone = America/Los_Angeles slot_duration_min = 60 status = active"
+      "name": "Create Consulting Firm as resource",
+      "prompt": "insert into resources id = res_f8a3eb1c5ec6449ead69ec27c02 biz_id = biz_d4fe1244f3194fdd99927d9029e location_id = loc_59f689b5eefc4d438fb137bf750 type = host host_user_id = usr_dcbea89f1d624bae96eac5980f9 name = Consulting Firm slug = stratedge-resource-20260222163127 timezone = America/Los_Angeles capacity = 1 buffer_before_minutes = 5 buffer_after_minutes = 5"
     },
     {
       "id": "uc26-05",
-      "name": "Create service offer",
-      "prompt": "insert into offers id = ofr_3A23yLeWSIwl9k9mZK7Cnn5oR9J biz_id = biz_3A23yPUV5l1eloVEqixDIFi3xU3 type = service name = B2B Service slug = stratedge-offer-202502220816 status = active"
+      "name": "Create calendar",
+      "prompt": "insert into calendars id = cal_522249aa0de24dba809f66fb370 biz_id = biz_d4fe1244f3194fdd99927d9029e name = Booking Calendar timezone = America/Los_Angeles slot_duration_min = 60 status = active"
     },
     {
       "id": "uc26-06",
-      "name": "Query business",
-      "prompt": "list bizes where id = biz_3A23yPUV5l1eloVEqixDIFi3xU3"
+      "name": "Create service offer",
+      "prompt": "insert into offers id = ofr_dfcb404607384e80b5d5e9120cc biz_id = biz_d4fe1244f3194fdd99927d9029e name = B2B Service slug = stratedge-offer-20260222163127 execution_mode = slot status = active"
     },
     {
       "id": "uc26-07",
-      "name": "Query resources",
-      "prompt": "list resources where biz_id = biz_3A23yPUV5l1eloVEqixDIFi3xU3"
+      "name": "Query business",
+      "prompt": "list bizes where id = biz_d4fe1244f3194fdd99927d9029e"
     },
     {
       "id": "uc26-08",
+      "name": "Query resources",
+      "prompt": "list resources where biz_id = biz_d4fe1244f3194fdd99927d9029e"
+    },
+    {
+      "id": "uc26-09",
       "name": "Count offers",
-      "prompt": "count offers where biz_id = biz_3A23yPUV5l1eloVEqixDIFi3xU3"
+      "prompt": "count offers where biz_id = biz_d4fe1244f3194fdd99927d9029e"
     }
   ]
 }

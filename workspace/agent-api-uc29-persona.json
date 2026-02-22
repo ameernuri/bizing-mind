@@ -2,49 +2,54 @@
   "defaults": {
     "dryRun": false,
     "scope": {
-      "bizId": "biz_3A23yMJhbSROkbITO5oNB8HVO3x"
+      "bizId": "biz_2c782cbbb9ee442982c718521b4"
     }
   },
   "scenarios": [
     {
       "id": "uc29-01",
       "name": "Create Space Rental business",
-      "prompt": "insert into bizes id = biz_3A23yMJhbSROkbITO5oNB8HVO3x name = The Hub slug = the-hub-coworking-202502220816 status = active timezone = America/Los_Angeles"
+      "prompt": "insert into bizes id = biz_2c782cbbb9ee442982c718521b4 name = The Hub slug = the-hub-coworking-20260222163127 status = active timezone = America/Los_Angeles"
     },
     {
       "id": "uc29-02",
       "name": "Create location",
-      "prompt": "insert into locations id = loc_3A23yMCrUOzTuLdkvUtmafA1FgS biz_id = biz_3A23yMJhbSROkbITO5oNB8HVO3x name = Main Location slug = main-29-202502220816 timezone = America/Los_Angeles"
+      "prompt": "insert into locations id = loc_583b5aa5adc34a9f8ce00777a42 biz_id = biz_2c782cbbb9ee442982c718521b4 name = Main Location slug = main-29-20260222163127 timezone = America/Los_Angeles"
     },
     {
       "id": "uc29-03",
-      "name": "Create Coworking as resource",
-      "prompt": "insert into resources id = res_3A23yRvPFkXvDdEZKQaQzjpxhEU biz_id = biz_3A23yMJhbSROkbITO5oNB8HVO3x location_id = loc_3A23yMCrUOzTuLdkvUtmafA1FgS type = host name = Coworking slug = the-hub-coworking-resource-202502220816 timezone = America/Los_Angeles capacity = 1"
+      "name": "Create host user",
+      "prompt": "insert into users id = usr_b2fe5e1c5191465d866013a0893 email = the-hub-coworking-20260222163127@example.com name = Coworking status = active"
     },
     {
       "id": "uc29-04",
-      "name": "Create calendar",
-      "prompt": "insert into calendars id = cal_3A23yLutvdzv1soWNLP5IoBrUSd biz_id = biz_3A23yMJhbSROkbITO5oNB8HVO3x name = Booking Calendar timezone = America/Los_Angeles slot_duration_min = 60 status = active"
+      "name": "Create Coworking as resource",
+      "prompt": "insert into resources id = res_e39128e5ece74266b2c88dce7a9 biz_id = biz_2c782cbbb9ee442982c718521b4 location_id = loc_583b5aa5adc34a9f8ce00777a42 type = host host_user_id = usr_b2fe5e1c5191465d866013a0893 name = Coworking slug = the-hub-coworking-resource-20260222163127 timezone = America/Los_Angeles capacity = 1 buffer_before_minutes = 5 buffer_after_minutes = 5"
     },
     {
       "id": "uc29-05",
-      "name": "Create service offer",
-      "prompt": "insert into offers id = ofr_3A23yOW5uJe3NIjb4f986T0JbGB biz_id = biz_3A23yMJhbSROkbITO5oNB8HVO3x type = service name = Space Rental Service slug = the-hub-coworking-offer-202502220816 status = active"
+      "name": "Create calendar",
+      "prompt": "insert into calendars id = cal_376a4f74147a49569df29f1112d biz_id = biz_2c782cbbb9ee442982c718521b4 name = Booking Calendar timezone = America/Los_Angeles slot_duration_min = 60 status = active"
     },
     {
       "id": "uc29-06",
-      "name": "Query business",
-      "prompt": "list bizes where id = biz_3A23yMJhbSROkbITO5oNB8HVO3x"
+      "name": "Create service offer",
+      "prompt": "insert into offers id = ofr_0e20860d06de4a4caea06bb6817 biz_id = biz_2c782cbbb9ee442982c718521b4 name = Space Rental Service slug = the-hub-coworking-offer-20260222163127 execution_mode = slot status = active"
     },
     {
       "id": "uc29-07",
-      "name": "Query resources",
-      "prompt": "list resources where biz_id = biz_3A23yMJhbSROkbITO5oNB8HVO3x"
+      "name": "Query business",
+      "prompt": "list bizes where id = biz_2c782cbbb9ee442982c718521b4"
     },
     {
       "id": "uc29-08",
+      "name": "Query resources",
+      "prompt": "list resources where biz_id = biz_2c782cbbb9ee442982c718521b4"
+    },
+    {
+      "id": "uc29-09",
       "name": "Count offers",
-      "prompt": "count offers where biz_id = biz_3A23yMJhbSROkbITO5oNB8HVO3x"
+      "prompt": "count offers where biz_id = biz_2c782cbbb9ee442982c718521b4"
     }
   ]
 }

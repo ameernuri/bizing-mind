@@ -2,49 +2,54 @@
   "defaults": {
     "dryRun": false,
     "scope": {
-      "bizId": "biz_3A23yQyxUn6r30mUJUdnZCpAUsm"
+      "bizId": "biz_dd6b7b3988084707b3fb6b7f5a8"
     }
   },
   "scenarios": [
     {
       "id": "uc33-01",
       "name": "Create Financial business",
-      "prompt": "insert into bizes id = biz_3A23yQyxUn6r30mUJUdnZCpAUsm name = Number Crunchers slug = number-crunchers-202502220816 status = active timezone = America/Los_Angeles"
+      "prompt": "insert into bizes id = biz_dd6b7b3988084707b3fb6b7f5a8 name = Number Crunchers slug = number-crunchers-20260222163127 status = active timezone = America/Los_Angeles"
     },
     {
       "id": "uc33-02",
       "name": "Create location",
-      "prompt": "insert into locations id = loc_3A23yPtDpUCq0bRqghJy3KRTW8l biz_id = biz_3A23yQyxUn6r30mUJUdnZCpAUsm name = Main Location slug = main-33-202502220816 timezone = America/Los_Angeles"
+      "prompt": "insert into locations id = loc_5acc7c1a89f34970930e59269bc biz_id = biz_dd6b7b3988084707b3fb6b7f5a8 name = Main Location slug = main-33-20260222163127 timezone = America/Los_Angeles"
     },
     {
       "id": "uc33-03",
-      "name": "Create Tax Accountant as resource",
-      "prompt": "insert into resources id = res_3A23yRMKFbHmpqsXOwPAYSFWYBD biz_id = biz_3A23yQyxUn6r30mUJUdnZCpAUsm location_id = loc_3A23yPtDpUCq0bRqghJy3KRTW8l type = host name = Tax Accountant slug = number-crunchers-resource-202502220816 timezone = America/Los_Angeles capacity = 1"
+      "name": "Create host user",
+      "prompt": "insert into users id = usr_303c7f2fb6a24dbd98076559668 email = number-crunchers-20260222163127@example.com name = Tax Accountant status = active"
     },
     {
       "id": "uc33-04",
-      "name": "Create calendar",
-      "prompt": "insert into calendars id = cal_3A23yORQ2yfXffMYQXQ6rkTDJaY biz_id = biz_3A23yQyxUn6r30mUJUdnZCpAUsm name = Booking Calendar timezone = America/Los_Angeles slot_duration_min = 60 status = active"
+      "name": "Create Tax Accountant as resource",
+      "prompt": "insert into resources id = res_df5afdc0568e4a9a8c19f64dd4e biz_id = biz_dd6b7b3988084707b3fb6b7f5a8 location_id = loc_5acc7c1a89f34970930e59269bc type = host host_user_id = usr_303c7f2fb6a24dbd98076559668 name = Tax Accountant slug = number-crunchers-resource-20260222163127 timezone = America/Los_Angeles capacity = 1 buffer_before_minutes = 5 buffer_after_minutes = 5"
     },
     {
       "id": "uc33-05",
-      "name": "Create service offer",
-      "prompt": "insert into offers id = ofr_3A23yRfEFbnokwhswgjHluJzGuf biz_id = biz_3A23yQyxUn6r30mUJUdnZCpAUsm type = service name = Financial Service slug = number-crunchers-offer-202502220816 status = active"
+      "name": "Create calendar",
+      "prompt": "insert into calendars id = cal_055a2c0af9da48c1840a56db030 biz_id = biz_dd6b7b3988084707b3fb6b7f5a8 name = Booking Calendar timezone = America/Los_Angeles slot_duration_min = 60 status = active"
     },
     {
       "id": "uc33-06",
-      "name": "Query business",
-      "prompt": "list bizes where id = biz_3A23yQyxUn6r30mUJUdnZCpAUsm"
+      "name": "Create service offer",
+      "prompt": "insert into offers id = ofr_58f242f9533244a799820db2b85 biz_id = biz_dd6b7b3988084707b3fb6b7f5a8 name = Financial Service slug = number-crunchers-offer-20260222163127 execution_mode = slot status = active"
     },
     {
       "id": "uc33-07",
-      "name": "Query resources",
-      "prompt": "list resources where biz_id = biz_3A23yQyxUn6r30mUJUdnZCpAUsm"
+      "name": "Query business",
+      "prompt": "list bizes where id = biz_dd6b7b3988084707b3fb6b7f5a8"
     },
     {
       "id": "uc33-08",
+      "name": "Query resources",
+      "prompt": "list resources where biz_id = biz_dd6b7b3988084707b3fb6b7f5a8"
+    },
+    {
+      "id": "uc33-09",
       "name": "Count offers",
-      "prompt": "count offers where biz_id = biz_3A23yQyxUn6r30mUJUdnZCpAUsm"
+      "prompt": "count offers where biz_id = biz_dd6b7b3988084707b3fb6b7f5a8"
     }
   ]
 }

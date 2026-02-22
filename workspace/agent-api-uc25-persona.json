@@ -2,49 +2,54 @@
   "defaults": {
     "dryRun": false,
     "scope": {
-      "bizId": "biz_3A23yRJ2eRRoXid0LAIPsxojZYb"
+      "bizId": "biz_c0d77ee5b1bc45c9a53971c061f"
     }
   },
   "scenarios": [
     {
       "id": "uc25-01",
       "name": "Create Creative business",
-      "prompt": "insert into bizes id = biz_3A23yRJ2eRRoXid0LAIPsxojZYb name = Lens and Light slug = lens-light-202502220816 status = active timezone = America/Los_Angeles"
+      "prompt": "insert into bizes id = biz_c0d77ee5b1bc45c9a53971c061f name = Lens and Light slug = lens-light-20260222163127 status = active timezone = America/Los_Angeles"
     },
     {
       "id": "uc25-02",
       "name": "Create location",
-      "prompt": "insert into locations id = loc_3A23ySQWe4kHdn7UwT2rioqfdLD biz_id = biz_3A23yRJ2eRRoXid0LAIPsxojZYb name = Main Location slug = main-25-202502220816 timezone = America/Los_Angeles"
+      "prompt": "insert into locations id = loc_a537c09fc7ad470ea7856cd0d8c biz_id = biz_c0d77ee5b1bc45c9a53971c061f name = Main Location slug = main-25-20260222163127 timezone = America/Los_Angeles"
     },
     {
       "id": "uc25-03",
-      "name": "Create Photographer as resource",
-      "prompt": "insert into resources id = res_3A23yS9gRBUc2ahy7rqg1oFs37A biz_id = biz_3A23yRJ2eRRoXid0LAIPsxojZYb location_id = loc_3A23ySQWe4kHdn7UwT2rioqfdLD type = host name = Photographer slug = lens-light-resource-202502220816 timezone = America/Los_Angeles capacity = 1"
+      "name": "Create host user",
+      "prompt": "insert into users id = usr_b94519161d4f4387aca23a69fbb email = lens-light-20260222163127@example.com name = Photographer status = active"
     },
     {
       "id": "uc25-04",
-      "name": "Create calendar",
-      "prompt": "insert into calendars id = cal_3A23yM3Y9ttPmxwHYanRAo1gZjl biz_id = biz_3A23yRJ2eRRoXid0LAIPsxojZYb name = Booking Calendar timezone = America/Los_Angeles slot_duration_min = 60 status = active"
+      "name": "Create Photographer as resource",
+      "prompt": "insert into resources id = res_c84beb9ec7ae47be8f380df9f5b biz_id = biz_c0d77ee5b1bc45c9a53971c061f location_id = loc_a537c09fc7ad470ea7856cd0d8c type = host host_user_id = usr_b94519161d4f4387aca23a69fbb name = Photographer slug = lens-light-resource-20260222163127 timezone = America/Los_Angeles capacity = 1 buffer_before_minutes = 5 buffer_after_minutes = 5"
     },
     {
       "id": "uc25-05",
-      "name": "Create service offer",
-      "prompt": "insert into offers id = ofr_3A23ySvyCIL8sg8VwfhVSsp4SXX biz_id = biz_3A23yRJ2eRRoXid0LAIPsxojZYb type = service name = Creative Service slug = lens-light-offer-202502220816 status = active"
+      "name": "Create calendar",
+      "prompt": "insert into calendars id = cal_4c8460b55676410781542301bf5 biz_id = biz_c0d77ee5b1bc45c9a53971c061f name = Booking Calendar timezone = America/Los_Angeles slot_duration_min = 60 status = active"
     },
     {
       "id": "uc25-06",
-      "name": "Query business",
-      "prompt": "list bizes where id = biz_3A23yRJ2eRRoXid0LAIPsxojZYb"
+      "name": "Create service offer",
+      "prompt": "insert into offers id = ofr_69793e8b84564580a8aac752717 biz_id = biz_c0d77ee5b1bc45c9a53971c061f name = Creative Service slug = lens-light-offer-20260222163127 execution_mode = slot status = active"
     },
     {
       "id": "uc25-07",
-      "name": "Query resources",
-      "prompt": "list resources where biz_id = biz_3A23yRJ2eRRoXid0LAIPsxojZYb"
+      "name": "Query business",
+      "prompt": "list bizes where id = biz_c0d77ee5b1bc45c9a53971c061f"
     },
     {
       "id": "uc25-08",
+      "name": "Query resources",
+      "prompt": "list resources where biz_id = biz_c0d77ee5b1bc45c9a53971c061f"
+    },
+    {
+      "id": "uc25-09",
       "name": "Count offers",
-      "prompt": "count offers where biz_id = biz_3A23yRJ2eRRoXid0LAIPsxojZYb"
+      "prompt": "count offers where biz_id = biz_c0d77ee5b1bc45c9a53971c061f"
     }
   ]
 }

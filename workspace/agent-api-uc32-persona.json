@@ -2,49 +2,54 @@
   "defaults": {
     "dryRun": false,
     "scope": {
-      "bizId": "biz_3A23yOYp0fwqPaAGQ6YLWOgKhbJ"
+      "bizId": "biz_5b766f74dac847a79cd394c47bb"
     }
   },
   "scenarios": [
     {
       "id": "uc32-01",
       "name": "Create Wellness business",
-      "prompt": "insert into bizes id = biz_3A23yOYp0fwqPaAGQ6YLWOgKhbJ name = Serenity Touch slug = serenity-touch-202502220816 status = active timezone = America/Los_Angeles"
+      "prompt": "insert into bizes id = biz_5b766f74dac847a79cd394c47bb name = Serenity Touch slug = serenity-touch-20260222163127 status = active timezone = America/Los_Angeles"
     },
     {
       "id": "uc32-02",
       "name": "Create location",
-      "prompt": "insert into locations id = loc_3A23yPC0vlQwrvs1QXL7Z8UfsJC biz_id = biz_3A23yOYp0fwqPaAGQ6YLWOgKhbJ name = Main Location slug = main-32-202502220816 timezone = America/Los_Angeles"
+      "prompt": "insert into locations id = loc_a6d2424f45e542488251579ff5b biz_id = biz_5b766f74dac847a79cd394c47bb name = Main Location slug = main-32-20260222163127 timezone = America/Los_Angeles"
     },
     {
       "id": "uc32-03",
-      "name": "Create Massage Spa as resource",
-      "prompt": "insert into resources id = res_3A23yQsBOqlR3v4oL9bqOVqK8ZC biz_id = biz_3A23yOYp0fwqPaAGQ6YLWOgKhbJ location_id = loc_3A23yPC0vlQwrvs1QXL7Z8UfsJC type = host name = Massage Spa slug = serenity-touch-resource-202502220816 timezone = America/Los_Angeles capacity = 1"
+      "name": "Create host user",
+      "prompt": "insert into users id = usr_7572abd7407543c1bee89c1999a email = serenity-touch-20260222163127@example.com name = Massage Spa status = active"
     },
     {
       "id": "uc32-04",
-      "name": "Create calendar",
-      "prompt": "insert into calendars id = cal_3A23yPFjdG5TkXL2SjCcearAo2A biz_id = biz_3A23yOYp0fwqPaAGQ6YLWOgKhbJ name = Booking Calendar timezone = America/Los_Angeles slot_duration_min = 60 status = active"
+      "name": "Create Massage Spa as resource",
+      "prompt": "insert into resources id = res_ca6e19dc580f422bb929420c6db biz_id = biz_5b766f74dac847a79cd394c47bb location_id = loc_a6d2424f45e542488251579ff5b type = host host_user_id = usr_7572abd7407543c1bee89c1999a name = Massage Spa slug = serenity-touch-resource-20260222163127 timezone = America/Los_Angeles capacity = 1 buffer_before_minutes = 5 buffer_after_minutes = 5"
     },
     {
       "id": "uc32-05",
-      "name": "Create service offer",
-      "prompt": "insert into offers id = ofr_3A23yPk9MMBQdkZzTRMlYAV1jHv biz_id = biz_3A23yOYp0fwqPaAGQ6YLWOgKhbJ type = service name = Wellness Service slug = serenity-touch-offer-202502220816 status = active"
+      "name": "Create calendar",
+      "prompt": "insert into calendars id = cal_fb10aa24fb8c4431bc8abb5842e biz_id = biz_5b766f74dac847a79cd394c47bb name = Booking Calendar timezone = America/Los_Angeles slot_duration_min = 60 status = active"
     },
     {
       "id": "uc32-06",
-      "name": "Query business",
-      "prompt": "list bizes where id = biz_3A23yOYp0fwqPaAGQ6YLWOgKhbJ"
+      "name": "Create service offer",
+      "prompt": "insert into offers id = ofr_dcc4a06cbbb44d9694cd45ffca2 biz_id = biz_5b766f74dac847a79cd394c47bb name = Wellness Service slug = serenity-touch-offer-20260222163127 execution_mode = slot status = active"
     },
     {
       "id": "uc32-07",
-      "name": "Query resources",
-      "prompt": "list resources where biz_id = biz_3A23yOYp0fwqPaAGQ6YLWOgKhbJ"
+      "name": "Query business",
+      "prompt": "list bizes where id = biz_5b766f74dac847a79cd394c47bb"
     },
     {
       "id": "uc32-08",
+      "name": "Query resources",
+      "prompt": "list resources where biz_id = biz_5b766f74dac847a79cd394c47bb"
+    },
+    {
+      "id": "uc32-09",
       "name": "Count offers",
-      "prompt": "count offers where biz_id = biz_3A23yOYp0fwqPaAGQ6YLWOgKhbJ"
+      "prompt": "count offers where biz_id = biz_5b766f74dac847a79cd394c47bb"
     }
   ]
 }

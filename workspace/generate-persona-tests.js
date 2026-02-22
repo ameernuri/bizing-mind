@@ -1,5 +1,7 @@
-const KSUID = require('ksuid');
-function id(tag) { return tag + '_' + KSUID.randomSync().string; }
+const { randomUUID } = require('node:crypto');
+function id(tag) {
+  return `${tag}_${randomUUID().replace(/-/g, '').slice(0, 27)}`;
+}
 
 const personas = [
   { uc: 21, name: "Dr. Emma", type: "Therapist", biz: "Mindful Therapy", slug: "mindful-therapy" },
@@ -24,6 +26,7 @@ const ts = new Date().toISOString().replace(/[-:T.Z]/g, '').slice(0, 14);
 personas.forEach(p => {
   const biz = id('biz');
   const loc = id('loc');
+  const usr = id('usr');
   const res = id('res');
   const cal = id('cal');
   const ofr = id('ofr');
@@ -33,12 +36,13 @@ personas.forEach(p => {
     scenarios: [
       { id: `uc${p.uc}-01`, name: `Create ${p.type} business`, prompt: `insert into bizes id = ${biz} name = ${p.biz} slug = ${p.slug}-${ts} status = active timezone = America/Los_Angeles` },
       { id: `uc${p.uc}-02`, name: 'Create location', prompt: `insert into locations id = ${loc} biz_id = ${biz} name = Main Location slug = main-${p.uc}-${ts} timezone = America/Los_Angeles` },
-      { id: `uc${p.uc}-03`, name: `Create ${p.name} as resource`, prompt: `insert into resources id = ${res} biz_id = ${biz} location_id = ${loc} type = host name = ${p.name} slug = ${p.slug}-resource-${ts} timezone = America/Los_Angeles capacity = 1` },
-      { id: `uc${p.uc}-04`, name: 'Create calendar', prompt: `insert into calendars id = ${cal} biz_id = ${biz} name = Booking Calendar timezone = America/Los_Angeles slot_duration_min = 60 status = active` },
-      { id: `uc${p.uc}-05`, name: 'Create service offer', prompt: `insert into offers id = ${ofr} biz_id = ${biz} type = service name = ${p.type} Service slug = ${p.slug}-offer-${ts} status = active` },
-      { id: `uc${p.uc}-06`, name: 'Query business', prompt: `list bizes where id = ${biz}` },
-      { id: `uc${p.uc}-07`, name: 'Query resources', prompt: `list resources where biz_id = ${biz}` },
-      { id: `uc${p.uc}-08`, name: 'Count offers', prompt: `count offers where biz_id = ${biz}` }
+      { id: `uc${p.uc}-03`, name: 'Create host user', prompt: `insert into users id = ${usr} email = ${p.slug}-${ts}@example.com name = ${p.name} status = active` },
+      { id: `uc${p.uc}-04`, name: `Create ${p.name} as resource`, prompt: `insert into resources id = ${res} biz_id = ${biz} location_id = ${loc} type = host host_user_id = ${usr} name = ${p.name} slug = ${p.slug}-resource-${ts} timezone = America/Los_Angeles capacity = 1 buffer_before_minutes = 5 buffer_after_minutes = 5` },
+      { id: `uc${p.uc}-05`, name: 'Create calendar', prompt: `insert into calendars id = ${cal} biz_id = ${biz} name = Booking Calendar timezone = America/Los_Angeles slot_duration_min = 60 status = active` },
+      { id: `uc${p.uc}-06`, name: 'Create service offer', prompt: `insert into offers id = ${ofr} biz_id = ${biz} name = ${p.type} Service slug = ${p.slug}-offer-${ts} execution_mode = slot status = active` },
+      { id: `uc${p.uc}-07`, name: 'Query business', prompt: `list bizes where id = ${biz}` },
+      { id: `uc${p.uc}-08`, name: 'Query resources', prompt: `list resources where biz_id = ${biz}` },
+      { id: `uc${p.uc}-09`, name: 'Count offers', prompt: `count offers where biz_id = ${biz}` }
     ]
   };
   

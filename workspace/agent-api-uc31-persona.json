@@ -2,49 +2,54 @@
   "defaults": {
     "dryRun": false,
     "scope": {
-      "bizId": "biz_3A23yQ2HDFnBcXrCKgSmU9g3Jh1"
+      "bizId": "biz_4dd8d1da95cb4dc5a46604d4194"
     }
   },
   "scenarios": [
     {
       "id": "uc31-01",
       "name": "Create Education business",
-      "prompt": "insert into bizes id = biz_3A23yQ2HDFnBcXrCKgSmU9g3Jh1 name = Global Tongues slug = global-tongues-202502220816 status = active timezone = America/Los_Angeles"
+      "prompt": "insert into bizes id = biz_4dd8d1da95cb4dc5a46604d4194 name = Global Tongues slug = global-tongues-20260222163127 status = active timezone = America/Los_Angeles"
     },
     {
       "id": "uc31-02",
       "name": "Create location",
-      "prompt": "insert into locations id = loc_3A23yLQXbR1YzcqBCBsueZFKcTT biz_id = biz_3A23yQ2HDFnBcXrCKgSmU9g3Jh1 name = Main Location slug = main-31-202502220816 timezone = America/Los_Angeles"
+      "prompt": "insert into locations id = loc_36077113a5b34752918834a8e3b biz_id = biz_4dd8d1da95cb4dc5a46604d4194 name = Main Location slug = main-31-20260222163127 timezone = America/Los_Angeles"
     },
     {
       "id": "uc31-03",
-      "name": "Create Language Tutor as resource",
-      "prompt": "insert into resources id = res_3A23yNHmOzqf6pUQhtMhmH3cB7S biz_id = biz_3A23yQ2HDFnBcXrCKgSmU9g3Jh1 location_id = loc_3A23yLQXbR1YzcqBCBsueZFKcTT type = host name = Language Tutor slug = global-tongues-resource-202502220816 timezone = America/Los_Angeles capacity = 1"
+      "name": "Create host user",
+      "prompt": "insert into users id = usr_79afb78115d94677a6ed0f3ea0a email = global-tongues-20260222163127@example.com name = Language Tutor status = active"
     },
     {
       "id": "uc31-04",
-      "name": "Create calendar",
-      "prompt": "insert into calendars id = cal_3A23yRCckqC4FSSH8fccSIwZu0S biz_id = biz_3A23yQ2HDFnBcXrCKgSmU9g3Jh1 name = Booking Calendar timezone = America/Los_Angeles slot_duration_min = 60 status = active"
+      "name": "Create Language Tutor as resource",
+      "prompt": "insert into resources id = res_fa0286c9ca8a4bf98d48294e08c biz_id = biz_4dd8d1da95cb4dc5a46604d4194 location_id = loc_36077113a5b34752918834a8e3b type = host host_user_id = usr_79afb78115d94677a6ed0f3ea0a name = Language Tutor slug = global-tongues-resource-20260222163127 timezone = America/Los_Angeles capacity = 1 buffer_before_minutes = 5 buffer_after_minutes = 5"
     },
     {
       "id": "uc31-05",
-      "name": "Create service offer",
-      "prompt": "insert into offers id = ofr_3A23ySG8BuJ8qM9ul4KZcDuLxLO biz_id = biz_3A23yQ2HDFnBcXrCKgSmU9g3Jh1 type = service name = Education Service slug = global-tongues-offer-202502220816 status = active"
+      "name": "Create calendar",
+      "prompt": "insert into calendars id = cal_7f44bc419acd42d48ed7d42d6b1 biz_id = biz_4dd8d1da95cb4dc5a46604d4194 name = Booking Calendar timezone = America/Los_Angeles slot_duration_min = 60 status = active"
     },
     {
       "id": "uc31-06",
-      "name": "Query business",
-      "prompt": "list bizes where id = biz_3A23yQ2HDFnBcXrCKgSmU9g3Jh1"
+      "name": "Create service offer",
+      "prompt": "insert into offers id = ofr_c51836aa68fa46fc955d69e9720 biz_id = biz_4dd8d1da95cb4dc5a46604d4194 name = Education Service slug = global-tongues-offer-20260222163127 execution_mode = slot status = active"
     },
     {
       "id": "uc31-07",
-      "name": "Query resources",
-      "prompt": "list resources where biz_id = biz_3A23yQ2HDFnBcXrCKgSmU9g3Jh1"
+      "name": "Query business",
+      "prompt": "list bizes where id = biz_4dd8d1da95cb4dc5a46604d4194"
     },
     {
       "id": "uc31-08",
+      "name": "Query resources",
+      "prompt": "list resources where biz_id = biz_4dd8d1da95cb4dc5a46604d4194"
+    },
+    {
+      "id": "uc31-09",
       "name": "Count offers",
-      "prompt": "count offers where biz_id = biz_3A23yQ2HDFnBcXrCKgSmU9g3Jh1"
+      "prompt": "count offers where biz_id = biz_4dd8d1da95cb4dc5a46604d4194"
     }
   ]
 }

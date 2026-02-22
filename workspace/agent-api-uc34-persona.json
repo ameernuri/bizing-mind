@@ -2,49 +2,54 @@
   "defaults": {
     "dryRun": false,
     "scope": {
-      "bizId": "biz_3A23yMDUtfobFlrsyUI8xdMp2xL"
+      "bizId": "biz_483b23f9b01f4fad809189ac1c8"
     }
   },
   "scenarios": [
     {
       "id": "uc34-01",
       "name": "Create Arts business",
-      "prompt": "insert into bizes id = biz_3A23yMDUtfobFlrsyUI8xdMp2xL name = Rhythm Nation slug = rhythm-nation-202502220816 status = active timezone = America/Los_Angeles"
+      "prompt": "insert into bizes id = biz_483b23f9b01f4fad809189ac1c8 name = Rhythm Nation slug = rhythm-nation-20260222163127 status = active timezone = America/Los_Angeles"
     },
     {
       "id": "uc34-02",
       "name": "Create location",
-      "prompt": "insert into locations id = loc_3A23yShT1Ht3SfEef5rX8Gdpt4D biz_id = biz_3A23yMDUtfobFlrsyUI8xdMp2xL name = Main Location slug = main-34-202502220816 timezone = America/Los_Angeles"
+      "prompt": "insert into locations id = loc_9330a744a302444fb93beb09786 biz_id = biz_483b23f9b01f4fad809189ac1c8 name = Main Location slug = main-34-20260222163127 timezone = America/Los_Angeles"
     },
     {
       "id": "uc34-03",
-      "name": "Create Dance Studio as resource",
-      "prompt": "insert into resources id = res_3A23yNQAAL9o7skaqj20OEe2mB4 biz_id = biz_3A23yMDUtfobFlrsyUI8xdMp2xL location_id = loc_3A23yShT1Ht3SfEef5rX8Gdpt4D type = host name = Dance Studio slug = rhythm-nation-resource-202502220816 timezone = America/Los_Angeles capacity = 1"
+      "name": "Create host user",
+      "prompt": "insert into users id = usr_f4185047e5a14839898bf71b769 email = rhythm-nation-20260222163127@example.com name = Dance Studio status = active"
     },
     {
       "id": "uc34-04",
-      "name": "Create calendar",
-      "prompt": "insert into calendars id = cal_3A23ySQoYekJtc88Cia7ElKYwuz biz_id = biz_3A23yMDUtfobFlrsyUI8xdMp2xL name = Booking Calendar timezone = America/Los_Angeles slot_duration_min = 60 status = active"
+      "name": "Create Dance Studio as resource",
+      "prompt": "insert into resources id = res_71938555197a43478aaa900bd64 biz_id = biz_483b23f9b01f4fad809189ac1c8 location_id = loc_9330a744a302444fb93beb09786 type = host host_user_id = usr_f4185047e5a14839898bf71b769 name = Dance Studio slug = rhythm-nation-resource-20260222163127 timezone = America/Los_Angeles capacity = 1 buffer_before_minutes = 5 buffer_after_minutes = 5"
     },
     {
       "id": "uc34-05",
-      "name": "Create service offer",
-      "prompt": "insert into offers id = ofr_3A23yPqnq9VVT1T22LNveeD2IaK biz_id = biz_3A23yMDUtfobFlrsyUI8xdMp2xL type = service name = Arts Service slug = rhythm-nation-offer-202502220816 status = active"
+      "name": "Create calendar",
+      "prompt": "insert into calendars id = cal_49ea3dfb3fa843668b0ddc05db4 biz_id = biz_483b23f9b01f4fad809189ac1c8 name = Booking Calendar timezone = America/Los_Angeles slot_duration_min = 60 status = active"
     },
     {
       "id": "uc34-06",
-      "name": "Query business",
-      "prompt": "list bizes where id = biz_3A23yMDUtfobFlrsyUI8xdMp2xL"
+      "name": "Create service offer",
+      "prompt": "insert into offers id = ofr_5a7620f436e342b9bfc322c709c biz_id = biz_483b23f9b01f4fad809189ac1c8 name = Arts Service slug = rhythm-nation-offer-20260222163127 execution_mode = slot status = active"
     },
     {
       "id": "uc34-07",
-      "name": "Query resources",
-      "prompt": "list resources where biz_id = biz_3A23yMDUtfobFlrsyUI8xdMp2xL"
+      "name": "Query business",
+      "prompt": "list bizes where id = biz_483b23f9b01f4fad809189ac1c8"
     },
     {
       "id": "uc34-08",
+      "name": "Query resources",
+      "prompt": "list resources where biz_id = biz_483b23f9b01f4fad809189ac1c8"
+    },
+    {
+      "id": "uc34-09",
       "name": "Count offers",
-      "prompt": "count offers where biz_id = biz_3A23yMDUtfobFlrsyUI8xdMp2xL"
+      "prompt": "count offers where biz_id = biz_483b23f9b01f4fad809189ac1c8"
     }
   ]
 }

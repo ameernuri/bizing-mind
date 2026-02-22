@@ -2,49 +2,54 @@
   "defaults": {
     "dryRun": false,
     "scope": {
-      "bizId": "biz_3A23yR4axlqc59ngVvdWjHRRa8I"
+      "bizId": "biz_ca44055bfd70457fb3a0cb2156e"
     }
   },
   "scenarios": [
     {
       "id": "uc22-01",
       "name": "Create Private Chef business",
-      "prompt": "insert into bizes id = biz_3A23yR4axlqc59ngVvdWjHRRa8I name = Marco Kitchen slug = marcos-kitchen-202502220816 status = active timezone = America/Los_Angeles"
+      "prompt": "insert into bizes id = biz_ca44055bfd70457fb3a0cb2156e name = Marco's Kitchen slug = marcos-kitchen-20260222163127 status = active timezone = America/Los_Angeles"
     },
     {
       "id": "uc22-02",
       "name": "Create location",
-      "prompt": "insert into locations id = loc_3A23yRnIl1ua9WPrDcFwGVl9XsO biz_id = biz_3A23yR4axlqc59ngVvdWjHRRa8I name = Main Location slug = main-22-202502220816 timezone = America/Los_Angeles"
+      "prompt": "insert into locations id = loc_442cb9771c60403c9c4a77ebefc biz_id = biz_ca44055bfd70457fb3a0cb2156e name = Main Location slug = main-22-20260222163127 timezone = America/Los_Angeles"
     },
     {
       "id": "uc22-03",
-      "name": "Create Chef Marco as resource",
-      "prompt": "insert into resources id = res_3A23yQyT30NypWPn6Im8XI4pvSR biz_id = biz_3A23yR4axlqc59ngVvdWjHRRa8I location_id = loc_3A23yRnIl1ua9WPrDcFwGVl9XsO type = host name = Chef Marco slug = marcos-kitchen-resource-202502220816 timezone = America/Los_Angeles capacity = 1"
+      "name": "Create host user",
+      "prompt": "insert into users id = usr_3b503af004e94509acdf15f0206 email = marcos-kitchen-20260222163127@example.com name = Chef Marco status = active"
     },
     {
       "id": "uc22-04",
-      "name": "Create calendar",
-      "prompt": "insert into calendars id = cal_3A23yQnO0mci8DVUHVhY6UbXVnY biz_id = biz_3A23yR4axlqc59ngVvdWjHRRa8I name = Booking Calendar timezone = America/Los_Angeles slot_duration_min = 60 status = active"
+      "name": "Create Chef Marco as resource",
+      "prompt": "insert into resources id = res_38c7993862d544e69ceda6068c2 biz_id = biz_ca44055bfd70457fb3a0cb2156e location_id = loc_442cb9771c60403c9c4a77ebefc type = host host_user_id = usr_3b503af004e94509acdf15f0206 name = Chef Marco slug = marcos-kitchen-resource-20260222163127 timezone = America/Los_Angeles capacity = 1 buffer_before_minutes = 5 buffer_after_minutes = 5"
     },
     {
       "id": "uc22-05",
-      "name": "Create service offer",
-      "prompt": "insert into offers id = ofr_3A23yRQH8krWqVvT9AJA9sLAJwP biz_id = biz_3A23yR4axlqc59ngVvdWjHRRa8I type = service name = Private Chef Service slug = marcos-kitchen-offer-202502220816 status = active"
+      "name": "Create calendar",
+      "prompt": "insert into calendars id = cal_59f1bf7fdcbe40d6b960b1983af biz_id = biz_ca44055bfd70457fb3a0cb2156e name = Booking Calendar timezone = America/Los_Angeles slot_duration_min = 60 status = active"
     },
     {
       "id": "uc22-06",
-      "name": "Query business",
-      "prompt": "list bizes where id = biz_3A23yR4axlqc59ngVvdWjHRRa8I"
+      "name": "Create service offer",
+      "prompt": "insert into offers id = ofr_033310768398470ba277c318a9a biz_id = biz_ca44055bfd70457fb3a0cb2156e name = Private Chef Service slug = marcos-kitchen-offer-20260222163127 execution_mode = slot status = active"
     },
     {
       "id": "uc22-07",
-      "name": "Query resources",
-      "prompt": "list resources where biz_id = biz_3A23yR4axlqc59ngVvdWjHRRa8I"
+      "name": "Query business",
+      "prompt": "list bizes where id = biz_ca44055bfd70457fb3a0cb2156e"
     },
     {
       "id": "uc22-08",
+      "name": "Query resources",
+      "prompt": "list resources where biz_id = biz_ca44055bfd70457fb3a0cb2156e"
+    },
+    {
+      "id": "uc22-09",
       "name": "Count offers",
-      "prompt": "count offers where biz_id = biz_3A23yR4axlqc59ngVvdWjHRRa8I"
+      "prompt": "count offers where biz_id = biz_ca44055bfd70457fb3a0cb2156e"
     }
   ]
 }

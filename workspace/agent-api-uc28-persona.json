@@ -2,49 +2,54 @@
   "defaults": {
     "dryRun": false,
     "scope": {
-      "bizId": "biz_3A23yOuR3pXivV3hD4ftQngRwHF"
+      "bizId": "biz_47ffe5dea5184f8e92e2ace8360"
     }
   },
   "scenarios": [
     {
       "id": "uc28-01",
       "name": "Create Education business",
-      "prompt": "insert into bizes id = biz_3A23yOuR3pXivV3hD4ftQngRwHF name = Harmony Academy slug = harmony-academy-202502220816 status = active timezone = America/Los_Angeles"
+      "prompt": "insert into bizes id = biz_47ffe5dea5184f8e92e2ace8360 name = Harmony Academy slug = harmony-academy-20260222163127 status = active timezone = America/Los_Angeles"
     },
     {
       "id": "uc28-02",
       "name": "Create location",
-      "prompt": "insert into locations id = loc_3A23yMoIuqOvDl43kcXPQBGcNmL biz_id = biz_3A23yOuR3pXivV3hD4ftQngRwHF name = Main Location slug = main-28-202502220816 timezone = America/Los_Angeles"
+      "prompt": "insert into locations id = loc_385bf3492bed4b16abfe1618cd3 biz_id = biz_47ffe5dea5184f8e92e2ace8360 name = Main Location slug = main-28-20260222163127 timezone = America/Los_Angeles"
     },
     {
       "id": "uc28-03",
-      "name": "Create Music School as resource",
-      "prompt": "insert into resources id = res_3A23yR9AZiVxqD66MJNqelSI4oO biz_id = biz_3A23yOuR3pXivV3hD4ftQngRwHF location_id = loc_3A23yMoIuqOvDl43kcXPQBGcNmL type = host name = Music School slug = harmony-academy-resource-202502220816 timezone = America/Los_Angeles capacity = 1"
+      "name": "Create host user",
+      "prompt": "insert into users id = usr_cf1c0356d8e64951bdac0f9f154 email = harmony-academy-20260222163127@example.com name = Music School status = active"
     },
     {
       "id": "uc28-04",
-      "name": "Create calendar",
-      "prompt": "insert into calendars id = cal_3A23yRAa8cAEJqA7d6y5VfnWiXU biz_id = biz_3A23yOuR3pXivV3hD4ftQngRwHF name = Booking Calendar timezone = America/Los_Angeles slot_duration_min = 60 status = active"
+      "name": "Create Music School as resource",
+      "prompt": "insert into resources id = res_bbf37cb6855740c0ae3034046a1 biz_id = biz_47ffe5dea5184f8e92e2ace8360 location_id = loc_385bf3492bed4b16abfe1618cd3 type = host host_user_id = usr_cf1c0356d8e64951bdac0f9f154 name = Music School slug = harmony-academy-resource-20260222163127 timezone = America/Los_Angeles capacity = 1 buffer_before_minutes = 5 buffer_after_minutes = 5"
     },
     {
       "id": "uc28-05",
-      "name": "Create service offer",
-      "prompt": "insert into offers id = ofr_3A23yQlKP1NIl1a9Pp2RwDOh9RF biz_id = biz_3A23yOuR3pXivV3hD4ftQngRwHF type = service name = Education Service slug = harmony-academy-offer-202502220816 status = active"
+      "name": "Create calendar",
+      "prompt": "insert into calendars id = cal_7c1965a7b9b44571b0f03c34db1 biz_id = biz_47ffe5dea5184f8e92e2ace8360 name = Booking Calendar timezone = America/Los_Angeles slot_duration_min = 60 status = active"
     },
     {
       "id": "uc28-06",
-      "name": "Query business",
-      "prompt": "list bizes where id = biz_3A23yOuR3pXivV3hD4ftQngRwHF"
+      "name": "Create service offer",
+      "prompt": "insert into offers id = ofr_5227246217de48cdaa6b0a2d93d biz_id = biz_47ffe5dea5184f8e92e2ace8360 name = Education Service slug = harmony-academy-offer-20260222163127 execution_mode = slot status = active"
     },
     {
       "id": "uc28-07",
-      "name": "Query resources",
-      "prompt": "list resources where biz_id = biz_3A23yOuR3pXivV3hD4ftQngRwHF"
+      "name": "Query business",
+      "prompt": "list bizes where id = biz_47ffe5dea5184f8e92e2ace8360"
     },
     {
       "id": "uc28-08",
+      "name": "Query resources",
+      "prompt": "list resources where biz_id = biz_47ffe5dea5184f8e92e2ace8360"
+    },
+    {
+      "id": "uc28-09",
       "name": "Count offers",
-      "prompt": "count offers where biz_id = biz_3A23yOuR3pXivV3hD4ftQngRwHF"
+      "prompt": "count offers where biz_id = biz_47ffe5dea5184f8e92e2ace8360"
     }
   ]
 }

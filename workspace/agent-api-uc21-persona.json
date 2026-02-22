@@ -2,49 +2,54 @@
   "defaults": {
     "dryRun": false,
     "scope": {
-      "bizId": "biz_3A23ySoOv8cmHVT1SjUbobRFynf"
+      "bizId": "biz_f4ddbe5b8a0d41fc9905e5dbe23"
     }
   },
   "scenarios": [
     {
       "id": "uc21-01",
       "name": "Create Therapist business",
-      "prompt": "insert into bizes id = biz_3A23ySoOv8cmHVT1SjUbobRFynf name = Mindful Therapy slug = mindful-therapy-202502220816 status = active timezone = America/Los_Angeles"
+      "prompt": "insert into bizes id = biz_f4ddbe5b8a0d41fc9905e5dbe23 name = Mindful Therapy slug = mindful-therapy-20260222163127 status = active timezone = America/Los_Angeles"
     },
     {
       "id": "uc21-02",
       "name": "Create location",
-      "prompt": "insert into locations id = loc_3A23yNgh4xzVAGSGyU7iASfSMpQ biz_id = biz_3A23ySoOv8cmHVT1SjUbobRFynf name = Main Location slug = main-21-202502220816 timezone = America/Los_Angeles"
+      "prompt": "insert into locations id = loc_9c3b6e97222e4c6ca91bfd39658 biz_id = biz_f4ddbe5b8a0d41fc9905e5dbe23 name = Main Location slug = main-21-20260222163127 timezone = America/Los_Angeles"
     },
     {
       "id": "uc21-03",
-      "name": "Create Dr. Emma as resource",
-      "prompt": "insert into resources id = res_3A23yPj6OyANldiGfpy48tD6oAQ biz_id = biz_3A23ySoOv8cmHVT1SjUbobRFynf location_id = loc_3A23yNgh4xzVAGSGyU7iASfSMpQ type = host name = Dr. Emma slug = mindful-therapy-resource-202502220816 timezone = America/Los_Angeles capacity = 1"
+      "name": "Create host user",
+      "prompt": "insert into users id = usr_e0d02404608043b1b4b65a55dda email = mindful-therapy-20260222163127@example.com name = Dr. Emma status = active"
     },
     {
       "id": "uc21-04",
-      "name": "Create calendar",
-      "prompt": "insert into calendars id = cal_3A23yR472fHmmJ1Vsk7XjmwfjRQ biz_id = biz_3A23ySoOv8cmHVT1SjUbobRFynf name = Booking Calendar timezone = America/Los_Angeles slot_duration_min = 60 status = active"
+      "name": "Create Dr. Emma as resource",
+      "prompt": "insert into resources id = res_14536f1fa258456facdc46a9f8d biz_id = biz_f4ddbe5b8a0d41fc9905e5dbe23 location_id = loc_9c3b6e97222e4c6ca91bfd39658 type = host host_user_id = usr_e0d02404608043b1b4b65a55dda name = Dr. Emma slug = mindful-therapy-resource-20260222163127 timezone = America/Los_Angeles capacity = 1 buffer_before_minutes = 5 buffer_after_minutes = 5"
     },
     {
       "id": "uc21-05",
-      "name": "Create service offer",
-      "prompt": "insert into offers id = ofr_3A23yQmB5Dk4P5phVBZNyej1E6v biz_id = biz_3A23ySoOv8cmHVT1SjUbobRFynf type = service name = Therapist Service slug = mindful-therapy-offer-202502220816 status = active"
+      "name": "Create calendar",
+      "prompt": "insert into calendars id = cal_5512b21245d94750a63305a4219 biz_id = biz_f4ddbe5b8a0d41fc9905e5dbe23 name = Booking Calendar timezone = America/Los_Angeles slot_duration_min = 60 status = active"
     },
     {
       "id": "uc21-06",
-      "name": "Query business",
-      "prompt": "list bizes where id = biz_3A23ySoOv8cmHVT1SjUbobRFynf"
+      "name": "Create service offer",
+      "prompt": "insert into offers id = ofr_56ffe29e1ebf4059a42bae9907c biz_id = biz_f4ddbe5b8a0d41fc9905e5dbe23 name = Therapist Service slug = mindful-therapy-offer-20260222163127 execution_mode = slot status = active"
     },
     {
       "id": "uc21-07",
-      "name": "Query resources",
-      "prompt": "list resources where biz_id = biz_3A23ySoOv8cmHVT1SjUbobRFynf"
+      "name": "Query business",
+      "prompt": "list bizes where id = biz_f4ddbe5b8a0d41fc9905e5dbe23"
     },
     {
       "id": "uc21-08",
+      "name": "Query resources",
+      "prompt": "list resources where biz_id = biz_f4ddbe5b8a0d41fc9905e5dbe23"
+    },
+    {
+      "id": "uc21-09",
       "name": "Count offers",
-      "prompt": "count offers where biz_id = biz_3A23ySoOv8cmHVT1SjUbobRFynf"
+      "prompt": "count offers where biz_id = biz_f4ddbe5b8a0d41fc9905e5dbe23"
     }
   ]
 }

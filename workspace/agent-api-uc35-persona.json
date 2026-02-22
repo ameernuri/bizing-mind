@@ -2,49 +2,54 @@
   "defaults": {
     "dryRun": false,
     "scope": {
-      "bizId": "biz_3A23yLQ3fdtNico4ssJ9NcYfeEF"
+      "bizId": "biz_7c7be8bfe4d5480fb22f890acae"
     }
   },
   "scenarios": [
     {
       "id": "uc35-01",
       "name": "Create Tech Services business",
-      "prompt": "insert into bizes id = biz_3A23yLQ3fdtNico4ssJ9NcYfeEF name = TechRescue slug = techrescue-202502220816 status = active timezone = America/Los_Angeles"
+      "prompt": "insert into bizes id = biz_7c7be8bfe4d5480fb22f890acae name = TechRescue slug = techrescue-20260222163127 status = active timezone = America/Los_Angeles"
     },
     {
       "id": "uc35-02",
       "name": "Create location",
-      "prompt": "insert into locations id = loc_3A23ySRfi9ZPEguEWyTLO5NBHTF biz_id = biz_3A23yLQ3fdtNico4ssJ9NcYfeEF name = Main Location slug = main-35-202502220816 timezone = America/Los_Angeles"
+      "prompt": "insert into locations id = loc_414f126520bb44b7bd25915886f biz_id = biz_7c7be8bfe4d5480fb22f890acae name = Main Location slug = main-35-20260222163127 timezone = America/Los_Angeles"
     },
     {
       "id": "uc35-03",
-      "name": "Create IT Support as resource",
-      "prompt": "insert into resources id = res_3A23yQU9yajaq5gOPGXZOxa9oz3 biz_id = biz_3A23yLQ3fdtNico4ssJ9NcYfeEF location_id = loc_3A23ySRfi9ZPEguEWyTLO5NBHTF type = host name = IT Support slug = techrescue-resource-202502220816 timezone = America/Los_Angeles capacity = 1"
+      "name": "Create host user",
+      "prompt": "insert into users id = usr_b6f2a614e070491e98f5695ec4d email = techrescue-20260222163127@example.com name = IT Support status = active"
     },
     {
       "id": "uc35-04",
-      "name": "Create calendar",
-      "prompt": "insert into calendars id = cal_3A23yR6mXOMCmkZL1XUemaZ9ysh biz_id = biz_3A23yLQ3fdtNico4ssJ9NcYfeEF name = Booking Calendar timezone = America/Los_Angeles slot_duration_min = 60 status = active"
+      "name": "Create IT Support as resource",
+      "prompt": "insert into resources id = res_a6612c454cb440a9a34bad093f2 biz_id = biz_7c7be8bfe4d5480fb22f890acae location_id = loc_414f126520bb44b7bd25915886f type = host host_user_id = usr_b6f2a614e070491e98f5695ec4d name = IT Support slug = techrescue-resource-20260222163127 timezone = America/Los_Angeles capacity = 1 buffer_before_minutes = 5 buffer_after_minutes = 5"
     },
     {
       "id": "uc35-05",
-      "name": "Create service offer",
-      "prompt": "insert into offers id = ofr_3A23yMgeiZ4JrssYoSvT5Jom2Vr biz_id = biz_3A23yLQ3fdtNico4ssJ9NcYfeEF type = service name = Tech Services Service slug = techrescue-offer-202502220816 status = active"
+      "name": "Create calendar",
+      "prompt": "insert into calendars id = cal_889472c89816409dadcf12249e2 biz_id = biz_7c7be8bfe4d5480fb22f890acae name = Booking Calendar timezone = America/Los_Angeles slot_duration_min = 60 status = active"
     },
     {
       "id": "uc35-06",
-      "name": "Query business",
-      "prompt": "list bizes where id = biz_3A23yLQ3fdtNico4ssJ9NcYfeEF"
+      "name": "Create service offer",
+      "prompt": "insert into offers id = ofr_a9ed8bf89b4845008d83afee572 biz_id = biz_7c7be8bfe4d5480fb22f890acae name = Tech Services Service slug = techrescue-offer-20260222163127 execution_mode = slot status = active"
     },
     {
       "id": "uc35-07",
-      "name": "Query resources",
-      "prompt": "list resources where biz_id = biz_3A23yLQ3fdtNico4ssJ9NcYfeEF"
+      "name": "Query business",
+      "prompt": "list bizes where id = biz_7c7be8bfe4d5480fb22f890acae"
     },
     {
       "id": "uc35-08",
+      "name": "Query resources",
+      "prompt": "list resources where biz_id = biz_7c7be8bfe4d5480fb22f890acae"
+    },
+    {
+      "id": "uc35-09",
       "name": "Count offers",
-      "prompt": "count offers where biz_id = biz_3A23yLQ3fdtNico4ssJ9NcYfeEF"
+      "prompt": "count offers where biz_id = biz_7c7be8bfe4d5480fb22f890acae"
     }
   ]
 }
