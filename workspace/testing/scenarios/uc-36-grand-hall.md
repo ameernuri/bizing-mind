@@ -1,3 +1,20 @@
+---
+date: 2026-02-22
+type: test-scenario
+format: json-embedded
+uc: 36
+business: Grand Hall Events
+category: space_rental
+---
+
+# UC-36: Event Venue Rental
+
+## Description
+Multi-room venue with concurrent bookings
+
+## Test Scenario
+
+```json
 {
   "defaults": {
     "dryRun": false,
@@ -38,3 +55,16 @@
     }
   ]
 }
+```
+
+## Usage
+
+```bash
+curl -s -X POST http://localhost:6129/api/v1/agent/scenarios/run \
+  -H 'content-type: application/json' \
+  -d @testing/scenarios/uc-36-grand-hall.md
+```
+
+---
+
+*Auto-generated from JSON*

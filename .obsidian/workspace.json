@@ -41,12 +41,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "workspace/documentation/booking-schema-definitive-guide-education-programs-v0.md",
+                "file": "workspace/documentation/use-cases-36-40-description.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "booking-schema-definitive-guide-education-programs-v0"
+              "title": "use-cases-36-40-description"
             }
           }
         ],
@@ -272,6 +272,13 @@
   },
   "active": "file-explorer",
   "lastOpenFiles": [
+    "workspace/testing/scenarios/uc-40-justice-law.md",
+    "workspace/testing/scenarios/uc-39-global-speak.md",
+    "workspace/testing/scenarios/uc-38-sparkle-auto.md",
+    "workspace/testing/scenarios/uc-37-fitpro.md",
+    "workspace/testing/scenarios/EOF",
+    "workspace/testing/scenarios/uc-36-grand-hall.md",
+    "workspace/documentation/booking-schema-definitive-guide-education-programs-v0.md",
     "workspace/documentation/use-cases-36-40-description.md",
     "workspace/documentation/use-cases-comprehensive-v3.md",
     "workspace/testing/fitness/fitness-testing-playbook.md",
@@ -290,7 +297,6 @@
     "workspace/reports/lifecycle-examples-v4-agent-fitness.md",
     "workspace/reports/lifecycle-examples-v4-agent-fitness.json",
     "workspace/testing/fitness/fitness-loop-lifecycle-v4.json",
-    "workspace/testing/lifecycle/lifecycle-04-class-group-waitlist.json",
     "workspace/documentation/feature-space-overview.md",
     "workspace/documentation/booking-technical-spec.md",
     "workspace/documentation/schema-hardening-backlog.md",
@@ -302,12 +308,6 @@
     "workspace/testing/lifecycle/lifecycle-scenarios-guide.md",
     "workspace/README.md",
     "workspace/reports/uc-testing-report-uc1-20.md",
-    "workspace/uc-test-failure-report.md",
-    "workspace/reports/extended-persona-report.md",
-    "workspace/reports/uc-test-failure-report.md",
-    "workspace/documentation/tester-personas.md",
-    "workspace/documentation/feature-space.md",
-    "workspace/documentation/feature-space-schema-analysis.md",
     "canvas/event-driven-architecture.canvas",
     "canvas/consciousness-map.canvas",
     "canvas/booking-schema-map-v1.canvas",
