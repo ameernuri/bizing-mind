@@ -41,12 +41,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "workspace/testing/fitness/fitness-testing-playbook.md",
+                "file": "workspace/documentation/booking-schema-definitive-guide-education-programs-v0.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "fitness-testing-playbook"
+              "title": "booking-schema-definitive-guide-education-programs-v0"
             }
           }
         ],
@@ -270,8 +270,11 @@
       "zk-prefixer:Create new unique note": false
     }
   },
-  "active": "d6785ed5938cdceb",
+  "active": "file-explorer",
   "lastOpenFiles": [
+    "workspace/documentation/use-cases-36-40-description.md",
+    "workspace/documentation/use-cases-comprehensive-v3.md",
+    "workspace/testing/fitness/fitness-testing-playbook.md",
     "workspace/reports/new-uc-36-40-agent-fitness.md",
     "workspace/reports/new-uc-36-40-agent-fitness.json",
     "workspace/testing/fitness/fitness-loop-new-uc-36-40.json",
@@ -281,7 +284,6 @@
     "workspace/testing/scenarios/uc-38-sparkle-auto.json",
     "workspace/testing/scenarios/uc-37-fitpro.json",
     "workspace/testing/scenarios/uc-36-grand-hall.json",
-    "workspace/testing/fitness/fitness-testing-playbook.md",
     "workspace/reports/final-test-report-100-percent.md",
     "workspace/reports/latest-agent-fitness.md",
     "workspace/reports/lifecycle-examples-agent-fitness.md",
@@ -294,7 +296,6 @@
     "workspace/documentation/schema-hardening-backlog.md",
     "workspace/documentation/schema-hardening-roadmap.md",
     "workspace/documentation/schema-guide-eli5.md",
-    "workspace/documentation/use-cases-comprehensive-v3.md",
     "workspace/documentation/testing-infrastructure-guide.md",
     "workspace/documentation/testing-workflow-guide.md",
     "workspace/testing/lifecycle/lifecycle-testing-playbook.md",
@@ -307,7 +308,6 @@
     "workspace/documentation/tester-personas.md",
     "workspace/documentation/feature-space.md",
     "workspace/documentation/feature-space-schema-analysis.md",
-    "workspace/documentation/schema-unified-commerce-evolution-plan-v0.md",
     "canvas/event-driven-architecture.canvas",
     "canvas/consciousness-map.canvas",
     "canvas/booking-schema-map-v1.canvas",

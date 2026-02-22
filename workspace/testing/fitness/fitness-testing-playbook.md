@@ -13,7 +13,7 @@ tags:
 # Agent API Playbook (ELI5)
 
 Related notes:
-- [[]]
+- [[use-cases-comprehensive-v3]]
 - [[booking-schema-v0-coverage-report]]
 - Implementation guide: `/Users/ameer/projects/bizing/apps/api/src/agent-contract/README.md`
 
