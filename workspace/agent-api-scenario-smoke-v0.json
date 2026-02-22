@@ -1,0 +1,35 @@
+{
+  "defaults": {
+    "dryRun": false,
+    "scope": {
+      "bizId": "{{id:biz_smoke}}"
+    }
+  },
+  "scenarios": [
+    {
+      "id": "scenario-smoke-01",
+      "name": "Create smoke biz",
+      "prompt": "insert into bizes id = {{id:biz_smoke}} name = Smoke Biz {{runId}} slug = smoke-biz-{{runId}} status = active timezone = America/Los_Angeles"
+    },
+    {
+      "id": "scenario-smoke-02",
+      "name": "Create smoke host user",
+      "prompt": "insert into users id = {{id:user_smoke}} email = smoke.{{runId}}@example.com name = Smoke User status = active"
+    },
+    {
+      "id": "scenario-smoke-03",
+      "name": "Verify smoke biz query shape",
+      "prompt": "list bizes where id = {{id:biz_smoke}}"
+    },
+    {
+      "id": "scenario-smoke-04",
+      "name": "Verify smoke user query shape",
+      "prompt": "list users where id = {{id:user_smoke}}"
+    },
+    {
+      "id": "scenario-smoke-05",
+      "name": "Count offers under smoke biz scope",
+      "prompt": "count offers where biz_id = {{id:biz_smoke}}"
+    }
+  ]
+}

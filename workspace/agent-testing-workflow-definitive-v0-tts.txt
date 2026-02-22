@@ -1,0 +1,49 @@
+Bizing Agent Testing Workflow Definitive Version Zero
+
+What This Setup Is For
+
+This setup answers one simple question. If we had the final API and user interface, would the current schema support full real world lifecycles? It does this by combining schema validated pseudo API execution, lifecycle journey packs which are multi-step end-to-end tests, scenario smoke packs for fast contract checks, HTTP API journey packs for surface level route checks, and one consolidated fitness report.
+
+One Time Setup
+
+First, start Postgres and set your database URL in the environment files at slash users slash ameer slash projects slash bizing slash apps slash api slash dot env and slash users slash ameer slash projects slash bizing slash packages slash db slash dot env. Then apply migrations by going to the database package directory and running bun run db colon migrate. Next, start the API by going to the apps slash api directory and running bun run dev. Finally, do a health check by curling localhost colon six one two nine slash health.
+
+Daily Workflow for Humans and Agents
+
+First, update or add use cases in the booking use cases version three file at slash users slash ameer slash projects slash bizing-mind slash workspace slash booking-use-cases-v3 dot md. Second, encode lifecycle expectations in JSON packs located at slash users slash ameer slash projects slash bizing-mind slash workspace slash agent-api-star dot json. Third, run the combined loop using the run agent fitness loop script with the agent fitness loop version zero JSON file. Fourth, read the report outputs at slash users slash ameer slash projects slash bizing-mind slash workspace slash reports slash latest-agent-fitness dot json and dot md. Fifth, classify failures, fix schema or API or test assumptions, and rerun. Repeat until everything is green.
+
+Pack Types and When to Use Each
+
+Lifecycle packs are for full use case journey validation, from setup to publish to booking to edge cases to verification. These are best for proving schema fitness. Scenario packs are for fast translation and execution contract smoke tests, best for catching table column or enum drift quickly. API journey packs are for HTTP route level regression checks, best for request and response envelope stability. The rule is that important use cases should always have a lifecycle pack.
+
+Canonical Endpoints
+
+The base URL is HTTP colon slash slash localhost colon six one two nine. The key endpoints are slash api slash v one slash agent slash testing slash catalog for getting available test packs, slash api slash v one slash agent slash testing slash run-loop for running combined suites, slash api slash v one slash agent slash testing slash run-default for running the default loop, slash api slash v one slash agent slash testing slash openapi dot json for the OpenAPI spec, slash api slash v one slash agent slash lifecycle slash run for lifecycle packs, slash api slash v one slash agent slash scenarios slash run for scenario packs, slash api slash v one slash agent slash translate for translation, and slash api slash v one slash agent slash execute for direct execution.
+
+How Lifecycle Packs Should Be Written
+
+Required habits include always setting scope dot biz ID for tenant tables, using template tokens like double curly brace id colon star double curly brace for deterministic linking, adding explicit expectations like success or row count equals or error contains per step, capturing IDs once and reusing them via captures, and preferring realistic lifecycle behavior over raw create read update delete operations.
+
+Important runtime behavior to know. The lifecycle runner executes in one transaction. Each executed request now uses a SQL savepoint. Expected failing steps, for example overlap guards, no longer poison later steps.
+
+Failure Interpretation Decision Table
+
+Scenario contract failures usually mean pack misuse like wrong table or column or enum assumptions. Fix the pack or translator contract first. Schema constraint failures usually mean real model invariant conflict or missing relationship. Fix the schema design or constraints. Expectation mismatch means the flow ran but behavior differs from intended product rule. Fix API orchestration rules, policy linkage, or test expectation. Execution error means infrastructure or runtime failure. Fix server or runtime or tooling first.
+
+Current Important Invariants to Know
+
+The fulfillment assignments table has database level overlap blocking when conflict policy equals enforce no overlap, status is in reserved comma confirmed comma or in progress, same business ID plus resource ID, and time windows overlap. This is enforced by the exclusion constraint called fulfillment assignments no overlap excl. The constraint naming intentionally includes overlap for stable lifecycle assertions.
+
+Agent Operating Playbook
+
+Here is the instruction block for testing agents. First, read the target use case in the booking use cases version three file. Second, encode or adjust the lifecycle pack under the agent-api-star dot json files. Third, run slash api slash v one slash agent slash testing slash run-loop. Fourth, for each failed step, label it as either a pack assumption issue, an API orchestration issue, or a schema capability gap. Fifth, propose the smallest canonical fix. Sixth, rerun until green. Seventh, summarize what passed, what failed, what changed, and what remains risky.
+
+Anti-Patterns to Avoid
+
+Do not treat outdated or legacy table names as canonical. Do not test only create read update delete without lifecycle assertions. Do not use hard delete where the model expects lifecycle or soft-delete behavior. Do not interpret one failed step as full-suite schema failure without classification. Do not add schema columns to satisfy one test instead of fixing pack misuse.
+
+Code Mode and MCP Usage
+
+The UTCP config is at slash users slash ameer slash projects slash bizing slash dot utcp underscore config dot bizing-testing dot json. The MCP client example is at slash users slash ameer slash projects slash bizing-mind slash workspace slash code-mode-mcp-config-bizing-testing dot json. The launcher is at slash users slash ameer slash projects slash bizing slash scripts slash run-code-mode-mcp dot sh.
+
+The suggested sequence is first launch the API, second launch the MCP bridge, third discover tools, fourth call run-loop, and fifth submit schema or API patch proposals based on classified failures.

@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "bizing-code-mode": {
+      "command": "npx",
+      "args": [
+        "@utcp/code-mode-mcp"
+      ],
+      "env": {
+        "UTCP_CONFIG_FILE": "/Users/ameer/projects/bizing/.utcp_config.bizing-testing.json"
+      }
+    }
+  }
+}

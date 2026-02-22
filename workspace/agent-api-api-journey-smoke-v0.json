@@ -1,0 +1,111 @@
+{
+  "defaults": {
+    "baseUrl": "http://localhost:6129",
+    "headers": {},
+    "continueOnFailure": true
+  },
+  "variables": {
+    "bizId": "{{id:biz}}"
+  },
+  "steps": [
+    {
+      "id": "api-01",
+      "name": "Health check",
+      "method": "GET",
+      "path": "/health",
+      "expect": {
+        "status": 200,
+        "success": true,
+        "asserts": [
+          {
+            "path": "status",
+            "equals": "ok"
+          }
+        ]
+      }
+    },
+    {
+      "id": "api-02",
+      "name": "Dashboard stats endpoint responds",
+      "method": "GET",
+      "path": "/api/v1/stats",
+      "expect": {
+        "status": 200,
+        "asserts": [
+          {
+            "path": "totalRevenue",
+            "exists": true
+          },
+          {
+            "path": "totalBookings",
+            "exists": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "api-03",
+      "name": "Testing catalog responds",
+      "method": "GET",
+      "path": "/api/v1/agent/testing/catalog",
+      "expect": {
+        "status": 200,
+        "asserts": [
+          {
+            "path": "success",
+            "equals": true
+          },
+          {
+            "path": "packs",
+            "exists": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "api-04",
+      "name": "Translate natural language prompt",
+      "method": "POST",
+      "path": "/api/v1/agent/translate",
+      "body": {
+        "input": "list bizes where id = {{bizId}}",
+        "scope": {
+          "bizId": "{{bizId}}"
+        },
+        "dryRun": true
+      },
+      "expect": {
+        "status": 200,
+        "asserts": [
+          {
+            "path": "success",
+            "equals": true
+          },
+          {
+            "path": "pseudoRequest.command.kind",
+            "equals": "query"
+          }
+        ]
+      }
+    },
+    {
+      "id": "api-05",
+      "name": "OpenAPI descriptor available for Code Mode",
+      "method": "GET",
+      "path": "/api/v1/agent/testing/openapi.json",
+      "expect": {
+        "status": 200,
+        "asserts": [
+          {
+            "path": "openapi",
+            "contains": "3.1"
+          },
+          {
+            "path": "paths./api/v1/agent/testing/run-loop.post.operationId",
+            "equals": "runAgentFitnessLoop"
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "defaults": {
+    "dryRun": true,
+    "continueOnFailure": true
+  },
+  "variables": {
+    "timezone": "America/Los_Angeles"
+  },
+  "suites": [
+    {
+      "id": "uc1_lifecycle",
+      "name": "UC-1 Lifecycle Fitness",
+      "kind": "lifecycle",
+      "source": {
+        "filePath": "agent-api-uc1-lifecycle-v0.json"
+      }
+    },
+    {
+      "id": "persona_scenario_smoke",
+      "name": "Persona Scenario Smoke",
+      "kind": "scenario",
+      "source": {
+        "filePath": "agent-api-scenario-smoke-v0.json"
+      }
+    },
+    {
+      "id": "api_smoke",
+      "name": "HTTP API Journey Smoke",
+      "kind": "api_journey",
+      "source": {
+        "filePath": "agent-api-api-journey-smoke-v0.json"
+      }
+    }
+  ],
+  "output": {
+    "writeJsonPath": "reports/latest-agent-fitness.json",
+    "writeMarkdownPath": "reports/latest-agent-fitness.md"
+  }
+}

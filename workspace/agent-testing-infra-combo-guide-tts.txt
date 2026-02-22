@@ -1,0 +1,37 @@
+Bizing Combo Testing Infrastructure Guide. Schema plus API plus Agents.
+
+See also the operator focused guide at agent testing workflow definitive version zero.
+
+Purpose
+
+This infrastructure is designed to answer the question, does the current schema support real product lifecycles if API and user interface were fully implemented? It combines schema focused lifecycle tests, scenario coverage tests, real HTTP API journey tests, and agent friendly execution via Code Mode MCP.
+
+Core Loop
+
+First, update use cases in booking-use-cases-v3 dot md and or lifecycle packs. Second, run the combined fitness loop. Third, review classified failures which include scenario contract, schema constraint, expectation mismatch, and execution error. Fourth, decide what to change, either test pack prompt or assumption, schema invariant or constraint, or API orchestration behavior. Fifth, apply the change and re-run the loop. Repeat until target suites are green. This makes schema and API evolution measurable, not subjective.
+
+Files Added
+
+The loop config is at agent-fitness-loop-v0 dot json. The lifecycle pack is at agent-api-uc1-lifecycle-v0 dot json. The API journey pack is at agent-api-api-journey-smoke-v0 dot json. The runner is at run-agent-fitness-loop dot sh. The Code Mode UTCP config is at dot utcp underscore config dot bizing-testing dot json. The MCP client config example is at code-mode-mcp-config-bizing-testing dot json. The Code Mode bridge launcher is at run-code-mode-mcp dot sh.
+
+API Endpoints
+
+Get slash api slash v one slash agent slash testing slash catalog lists available test packs from workspace. Post slash api slash v one slash agent slash testing slash run-loop runs combined suites including lifecycle, scenario, and API journey tests and returns one report. Post slash api slash v one slash agent slash testing slash run-default runs the agent-fitness-loop-v0 dot json file directly. Get slash api slash v one slash agent slash testing slash openapi dot json provides the OpenAPI surface used by Code Mode UTCP HTTP manual discovery.
+
+Existing endpoints also used include post slash api slash v one slash agent slash lifecycle slash run, post slash api slash v one slash agent slash scenarios slash run, post slash api slash v one slash agent slash translate, and post slash api slash v one slash agent slash execute.
+
+Run It as a Human
+
+Execute the run-agent-fitness-loop dot sh script with the agent-fitness-loop-v0 dot json file as the argument. The orchestrator writes reports to latest-agent-fitness dot json and latest-agent-fitness dot md in the reports directory.
+
+Run It as an Agent via Code Mode MCP
+
+First, start the API server on localhost colon six one two nine. Second, run the Code Mode bridge using the run-code-mode-mcp dot sh script. Third, point your MCP capable agent client at the code-mode-mcp-config-bizing-testing dot json file. Fourth, in your agent workflow, discover tools using search tools, call bizing underscore agent underscore testing dot run agent fitness loop with the loop config payload, inspect the report, and propose schema or API updates, then rerun.
+
+Interpreting Results
+
+Scenario contract issues usually indicate test payload drift, unknown fields, or bad assumptions. Fix test packs or translation contract first. Schema constraint issues are a strong signal the model cannot represent the desired lifecycle. Fix schema constraints or invariants or add missing relation. Expectation mismatch means the flow executed but product behavior differs from expected user experience or business rule. Fix orchestration logic and or missing first class invariants. Execution error indicates operational failures, wiring issues, or uncategorized runtime errors.
+
+Recommended Governance
+
+Treat lifecycle packs as acceptance tests for major use cases. Require green loop before schema or API merges. Keep one smoke suite always fast and one deep suite for nightly runs. Add new use case packs before implementing feature changes, then evolve schema and API until green.

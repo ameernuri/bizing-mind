@@ -1,0 +1,4108 @@
+{
+  "summary": {
+    "runId": "40ce65b2-bae0-482c-aaa0-0b58c46fe2c3",
+    "startedAt": "2026-02-22T17:24:05.487Z",
+    "endedAt": "2026-02-22T17:24:09.598Z",
+    "durationMs": 4111,
+    "success": true,
+    "totals": {
+      "suites": 3,
+      "suitesPassed": 3,
+      "suitesFailed": 0,
+      "checks": 39,
+      "checksPassed": 39,
+      "checksFailed": 0
+    }
+  },
+  "suites": [
+    {
+      "id": "uc1_lifecycle",
+      "name": "UC-1 Lifecycle Fitness",
+      "kind": "lifecycle",
+      "success": true,
+      "total": 29,
+      "passed": 29,
+      "failed": 0,
+      "durationMs": 3476,
+      "warnings": [
+        "Lifecycle executed in dry-run mode; transaction rolled back."
+      ],
+      "issueCount": 0,
+      "details": {
+        "success": true,
+        "dryRun": true,
+        "persisted": false,
+        "startedAt": "2026-02-22T17:24:05.490Z",
+        "endedAt": "2026-02-22T17:24:08.962Z",
+        "durationMs": 3472,
+        "summary": {
+          "totalPhases": 6,
+          "totalSteps": 29,
+          "passedSteps": 29,
+          "failedSteps": 0
+        },
+        "phaseSummaries": [
+          {
+            "phaseId": "phase-auth-setup",
+            "phaseName": "Auth + Setup",
+            "totalSteps": 9,
+            "passedSteps": 9,
+            "failedSteps": 0
+          },
+          {
+            "phaseId": "phase-catalog",
+            "phaseName": "Catalog + Publish",
+            "totalSteps": 5,
+            "passedSteps": 5,
+            "failedSteps": 0
+          },
+          {
+            "phaseId": "phase-browse-book",
+            "phaseName": "Customer Browse + Book",
+            "totalSteps": 6,
+            "passedSteps": 6,
+            "failedSteps": 0
+          },
+          {
+            "phaseId": "phase-edge-case",
+            "phaseName": "Edge Case: Double Booking Guard",
+            "totalSteps": 3,
+            "passedSteps": 3,
+            "failedSteps": 0
+          },
+          {
+            "phaseId": "phase-calendar-verify",
+            "phaseName": "Calendar + Availability Verification",
+            "totalSteps": 4,
+            "passedSteps": 4,
+            "failedSteps": 0
+          },
+          {
+            "phaseId": "phase-cleanup",
+            "phaseName": "Mutation Coverage",
+            "totalSteps": 2,
+            "passedSteps": 2,
+            "failedSteps": 0
+          }
+        ],
+        "steps": [
+          {
+            "phaseId": "phase-auth-setup",
+            "phaseName": "Auth + Setup",
+            "stepId": "uc1-setup-01",
+            "stepName": "Create owner user",
+            "success": true,
+            "startedAt": "2026-02-22T17:24:05.823Z",
+            "endedAt": "2026-02-22T17:24:05.958Z",
+            "durationMs": 135,
+            "prompt": "insert into users id = {{id:owner_user}} email = owner.{{runId}}@example.com name = SarahOwner status = active",
+            "resolvedPrompt": "insert into users id = owner_user_732f1e9b1b03416a98310cdbb10 email = owner.52a9fdcd-a1cb-47a2-8e0e-0b4b97b746ac@example.com name = SarahOwner status = active",
+            "translation": {
+              "success": true,
+              "confidence": 0.8,
+              "notes": [],
+              "inferred": {
+                "action": "insert",
+                "table": "users"
+              },
+              "pseudoRequest": {
+                "requestId": "f75053ad-46e5-4775-a312-08dd44e0f298",
+                "dryRun": false,
+                "scope": {
+                  "bizId": "biz_07ad4f5b9a684c418d9a05883fa",
+                  "actorUserId": "owner_user_732f1e9b1b03416a98310cdbb10"
+                },
+                "command": {
+                  "kind": "mutate",
+                  "action": "insert",
+                  "table": "users",
+                  "values": {
+                    "id": "owner_user_732f1e9b1b03416a98310cdbb10",
+                    "email": "owner.52a9fdcd-a1cb-47a2-8e0e-0b4b97b746ac@example.com",
+                    "name": "SarahOwner",
+                    "status": "active"
+                  },
+                  "filters": [],
+                  "returning": [
+                    "id"
+                  ]
+                }
+              }
+            },
+            "request": {
+              "requestId": "f75053ad-46e5-4775-a312-08dd44e0f298",
+              "dryRun": false,
+              "scope": {
+                "bizId": "biz_07ad4f5b9a684c418d9a05883fa",
+                "actorUserId": "owner_user_732f1e9b1b03416a98310cdbb10"
+              },
+              "command": {
+                "kind": "mutate",
+                "action": "insert",
+                "table": "users",
+                "values": {
+                  "id": "owner_user_732f1e9b1b03416a98310cdbb10",
+                  "email": "owner.52a9fdcd-a1cb-47a2-8e0e-0b4b97b746ac@example.com",
+                  "name": "SarahOwner",
+                  "status": "active"
+                },
+                "filters": [],
+                "returning": [
+                  "id"
+                ]
+              }
+            },
+            "response": {
+              "requestId": "f75053ad-46e5-4775-a312-08dd44e0f298",
+              "dryRun": false,
+              "success": true,
+              "commandKind": "mutate",
+              "warnings": [],
+              "trace": [
+                {
+                  "stepIndex": 0,
+                  "kind": "mutate",
+                  "table": "users",
+                  "sqlPreview": "INSERT INTO \"users\" (\"id\", \"email\", \"name\", \"status\") VALUES ($1, $2, $3, $4) RETURNING \"id\"",
+                  "params": [
+                    "owner_user_732f1e9b1b03416a98310cdbb10",
+                    "owner.52a9fdcd-a1cb-47a2-8e0e-0b4b97b746ac@example.com",
+                    "SarahOwner",
+                    "active"
+                  ],
+                  "rowCount": 1,
+                  "dryRun": false
+                }
+              ],
+              "result": {
+                "table": "users",
+                "action": "insert",
+                "rowCount": 1,
+                "rows": [
+                  {
+                    "id": "owner_user_732f1e9b1b03416a98310cdbb10"
+                  }
+                ]
+              }
+            },
+            "expectationFailures": [],
+            "captures": {}
+          },
+          {
+            "phaseId": "phase-auth-setup",
+            "phaseName": "Auth + Setup",
+            "stepId": "uc1-setup-02",
+            "stepName": "Create customer user",
+            "success": true,
+            "startedAt": "2026-02-22T17:24:05.958Z",
+            "endedAt": "2026-02-22T17:24:06.049Z",
+            "durationMs": 91,
+            "prompt": "insert into users id = {{id:customer_user}} email = customer.{{runId}}@example.com name = AlexCustomer status = active",
+            "resolvedPrompt": "insert into users id = customer_user_b29d56aed65c4d9096a23156c08 email = customer.52a9fdcd-a1cb-47a2-8e0e-0b4b97b746ac@example.com name = AlexCustomer status = active",
+            "translation": {
+              "success": true,
+              "confidence": 0.8,
+              "notes": [],
+              "inferred": {
+                "action": "insert",
+                "table": "users"
+              },
+              "pseudoRequest": {
+                "requestId": "d70f192c-42cd-4bb1-be6a-f5822ff74b78",
+                "dryRun": false,
+                "scope": {
+                  "bizId": "biz_07ad4f5b9a684c418d9a05883fa",
+                  "actorUserId": "owner_user_732f1e9b1b03416a98310cdbb10"
+                },
+                "command": {
+                  "kind": "mutate",
+                  "action": "insert",
+                  "table": "users",
+                  "values": {
+                    "id": "customer_user_b29d56aed65c4d9096a23156c08",
+                    "email": "customer.52a9fdcd-a1cb-47a2-8e0e-0b4b97b746ac@example.com",
+                    "name": "AlexCustomer",
+                    "status": "active"
+                  },
+                  "filters": [],
+                  "returning": [
+                    "id"
+                  ]
+                }
+              }
+            },
+            "request": {
+              "requestId": "d70f192c-42cd-4bb1-be6a-f5822ff74b78",
+              "dryRun": false,
+              "scope": {
+                "bizId": "biz_07ad4f5b9a684c418d9a05883fa",
+                "actorUserId": "owner_user_732f1e9b1b03416a98310cdbb10"
+              },
+              "command": {
+                "kind": "mutate",
+                "action": "insert",
+                "table": "users",
+                "values": {
+                  "id": "customer_user_b29d56aed65c4d9096a23156c08",
+                  "email": "customer.52a9fdcd-a1cb-47a2-8e0e-0b4b97b746ac@example.com",
+                  "name": "AlexCustomer",
+                  "status": "active"
+                },
+                "filters": [],
+                "returning": [
+                  "id"
+                ]
+              }
+            },
+            "response": {
+              "requestId": "d70f192c-42cd-4bb1-be6a-f5822ff74b78",
+              "dryRun": false,
+              "success": true,
+              "commandKind": "mutate",
+              "warnings": [],
+              "trace": [
+                {
+                  "stepIndex": 0,
+                  "kind": "mutate",
+                  "table": "users",
+                  "sqlPreview": "INSERT INTO \"users\" (\"id\", \"email\", \"name\", \"status\") VALUES ($1, $2, $3, $4) RETURNING \"id\"",
+                  "params": [
+                    "customer_user_b29d56aed65c4d9096a23156c08",
+                    "customer.52a9fdcd-a1cb-47a2-8e0e-0b4b97b746ac@example.com",
+                    "AlexCustomer",
+                    "active"
+                  ],
+                  "rowCount": 1,
+                  "dryRun": false
+                }
+              ],
+              "result": {
+                "table": "users",
+                "action": "insert",
+                "rowCount": 1,
+                "rows": [
+                  {
+                    "id": "customer_user_b29d56aed65c4d9096a23156c08"
+                  }
+                ]
+              }
+            },
+            "expectationFailures": [],
+            "captures": {}
+          },
+          {
+            "phaseId": "phase-auth-setup",
+            "phaseName": "Auth + Setup",
+            "stepId": "uc1-setup-03",
+            "stepName": "Create business",
+            "success": true,
+            "startedAt": "2026-02-22T17:24:06.049Z",
+            "endedAt": "2026-02-22T17:24:06.165Z",
+            "durationMs": 116,
+            "prompt": "insert into bizes id = {{id:biz}} name = Sarah Career Coaching slug = sarah-coaching-{{runId}} status = active timezone = {{timezone}}",
+            "resolvedPrompt": "insert into bizes id = biz_07ad4f5b9a684c418d9a05883fa name = Sarah Career Coaching slug = sarah-coaching-52a9fdcd-a1cb-47a2-8e0e-0b4b97b746ac status = active timezone = America/Los_Angeles",
+            "translation": {
+              "success": true,
+              "confidence": 0.8,
+              "notes": [],
+              "inferred": {
+                "action": "insert",
+                "table": "bizes"
+              },
+              "pseudoRequest": {
+                "requestId": "f6662a18-4ecb-445b-baa0-63dece7cf1ef",
+                "dryRun": false,
+                "scope": {
+                  "bizId": "biz_07ad4f5b9a684c418d9a05883fa",
+                  "actorUserId": "owner_user_732f1e9b1b03416a98310cdbb10"
+                },
+                "command": {
+                  "kind": "mutate",
+                  "action": "insert",
+                  "table": "bizes",
+                  "values": {
+                    "id": "biz_07ad4f5b9a684c418d9a05883fa",
+                    "name": "Sarah",
+                    "slug": "sarah-coaching-52a9fdcd-a1cb-47a2-8e0e-0b4b97b746ac",
+                    "status": "active",
+                    "timezone": "America/Los_Angeles"
+                  },
+                  "filters": [],
+                  "returning": [
+                    "id"
+                  ]
+                }
+              }
+            },
+            "request": {
+              "requestId": "f6662a18-4ecb-445b-baa0-63dece7cf1ef",
+              "dryRun": false,
+              "scope": {
+                "bizId": "biz_07ad4f5b9a684c418d9a05883fa",
+                "actorUserId": "owner_user_732f1e9b1b03416a98310cdbb10"
+              },
+              "command": {
+                "kind": "mutate",
+                "action": "insert",
+                "table": "bizes",
+                "values": {
+                  "id": "biz_07ad4f5b9a684c418d9a05883fa",
+                  "name": "Sarah",
+                  "slug": "sarah-coaching-52a9fdcd-a1cb-47a2-8e0e-0b4b97b746ac",
+                  "status": "active",
+                  "timezone": "America/Los_Angeles"
+                },
+                "filters": [],
+                "returning": [
+                  "id"
+                ]
+              }
+            },
+            "response": {
+              "requestId": "f6662a18-4ecb-445b-baa0-63dece7cf1ef",
+              "dryRun": false,
+              "success": true,
+              "commandKind": "mutate",
+              "warnings": [],
+              "trace": [
+                {
+                  "stepIndex": 0,
+                  "kind": "mutate",
+                  "table": "bizes",
+                  "sqlPreview": "INSERT INTO \"bizes\" (\"id\", \"name\", \"slug\", \"status\", \"timezone\") VALUES ($1, $2, $3, $4, $5) RETURNING \"id\"",
+                  "params": [
+                    "biz_07ad4f5b9a684c418d9a05883fa",
+                    "Sarah",
+                    "sarah-coaching-52a9fdcd-a1cb-47a2-8e0e-0b4b97b746ac",
+                    "active",
+                    "America/Los_Angeles"
+                  ],
+                  "rowCount": 1,
+                  "dryRun": false
+                }
+              ],
+              "result": {
+                "table": "bizes",
+                "action": "insert",
+                "rowCount": 1,
+                "rows": [
+                  {
+                    "id": "biz_07ad4f5b9a684c418d9a05883fa"
+                  }
+                ]
+              }
+            },
+            "expectationFailures": [],
+            "captures": {}
+          },
+          {
+            "phaseId": "phase-auth-setup",
+            "phaseName": "Auth + Setup",
+            "stepId": "uc1-setup-04",
+            "stepName": "Create location",
+            "success": true,
+            "startedAt": "2026-02-22T17:24:06.165Z",
+            "endedAt": "2026-02-22T17:24:06.262Z",
+            "durationMs": 97,
+            "prompt": "insert into locations id = {{id:location}} biz_id = {{id:biz}} name = Main Office slug = main-office-{{runId}} timezone = {{timezone}}",
+            "resolvedPrompt": "insert into locations id = location_34f35b8cdc2d442fa4053208ad2 biz_id = biz_07ad4f5b9a684c418d9a05883fa name = Main Office slug = main-office-52a9fdcd-a1cb-47a2-8e0e-0b4b97b746ac timezone = America/Los_Angeles",
+            "translation": {
+              "success": true,
+              "confidence": 0.8,
+              "notes": [],
+              "inferred": {
+                "action": "insert",
+                "table": "locations"
+              },
+              "pseudoRequest": {
+                "requestId": "e75e2498-6e84-4b1d-9f78-6eb10ec6c27b",
+                "dryRun": false,
+                "scope": {
+                  "bizId": "biz_07ad4f5b9a684c418d9a05883fa",
+                  "actorUserId": "owner_user_732f1e9b1b03416a98310cdbb10"
+                },
+                "command": {
+                  "kind": "mutate",
+                  "action": "insert",
+                  "table": "locations",
+                  "values": {
+                    "id": "location_34f35b8cdc2d442fa4053208ad2",
+                    "biz_id": "biz_07ad4f5b9a684c418d9a05883fa",
+                    "name": "Main",
+                    "slug": "main-office-52a9fdcd-a1cb-47a2-8e0e-0b4b97b746ac",
+                    "timezone": "America/Los_Angeles"
+                  },
+                  "filters": [],
+                  "returning": [
+                    "id"
+                  ]
+                }
+              }
+            },
+            "request": {
+              "requestId": "e75e2498-6e84-4b1d-9f78-6eb10ec6c27b",
+              "dryRun": false,
+              "scope": {
+                "bizId": "biz_07ad4f5b9a684c418d9a05883fa",
+                "actorUserId": "owner_user_732f1e9b1b03416a98310cdbb10"
+              },
+              "command": {
+                "kind": "mutate",
+                "action": "insert",
+                "table": "locations",
+                "values": {
+                  "id": "location_34f35b8cdc2d442fa4053208ad2",
+                  "biz_id": "biz_07ad4f5b9a684c418d9a05883fa",
+                  "name": "Main",
+                  "slug": "main-office-52a9fdcd-a1cb-47a2-8e0e-0b4b97b746ac",
+                  "timezone": "America/Los_Angeles"
+                },
+                "filters": [],
+                "returning": [
+                  "id"
+                ]
+              }
+            },
+            "response": {
+              "requestId": "e75e2498-6e84-4b1d-9f78-6eb10ec6c27b",
+              "dryRun": false,
+              "success": true,
+              "commandKind": "mutate",
+              "warnings": [],
+              "trace": [
+                {
+                  "stepIndex": 0,
+                  "kind": "mutate",
+                  "table": "locations",
+                  "sqlPreview": "INSERT INTO \"locations\" (\"id\", \"biz_id\", \"name\", \"slug\", \"timezone\") VALUES ($1, $2, $3, $4, $5) RETURNING \"id\"",
+                  "params": [
+                    "location_34f35b8cdc2d442fa4053208ad2",
+                    "biz_07ad4f5b9a684c418d9a05883fa",
+                    "Main",
+                    "main-office-52a9fdcd-a1cb-47a2-8e0e-0b4b97b746ac",
+                    "America/Los_Angeles"
+                  ],
+                  "rowCount": 1,
+                  "dryRun": false
+                }
+              ],
+              "result": {
+                "table": "locations",
+                "action": "insert",
+                "rowCount": 1,
+                "rows": [
+                  {
+                    "id": "location_34f35b8cdc2d442fa4053208ad2"
+                  }
+                ]
+              }
+            },
+            "expectationFailures": [],
+            "captures": {}
+          },
+          {
+            "phaseId": "phase-auth-setup",
+            "phaseName": "Auth + Setup",
+            "stepId": "uc1-setup-05",
+            "stepName": "Create venue",
+            "success": true,
+            "startedAt": "2026-02-22T17:24:06.262Z",
+            "endedAt": "2026-02-22T17:24:06.354Z",
+            "durationMs": 92,
+            "prompt": "insert into venues id = {{id:venue}} biz_id = {{id:biz}} location_id = {{id:location}} name = Coaching Room A slug = room-a-{{runId}} setup_minutes = 5 teardown_minutes = 5",
+            "resolvedPrompt": "insert into venues id = venue_b70f18f962804841a90f79518d1 biz_id = biz_07ad4f5b9a684c418d9a05883fa location_id = location_34f35b8cdc2d442fa4053208ad2 name = Coaching Room A slug = room-a-52a9fdcd-a1cb-47a2-8e0e-0b4b97b746ac setup_minutes = 5 teardown_minutes = 5",
+            "translation": {
+              "success": true,
+              "confidence": 0.8,
+              "notes": [],
+              "inferred": {
+                "action": "insert",
+                "table": "venues"
+              },
+              "pseudoRequest": {
+                "requestId": "0b8eb3ae-2715-49de-a293-b5dc607639df",
+                "dryRun": false,
+                "scope": {
+                  "bizId": "biz_07ad4f5b9a684c418d9a05883fa",
+                  "actorUserId": "owner_user_732f1e9b1b03416a98310cdbb10"
+                },
+                "command": {
+                  "kind": "mutate",
+                  "action": "insert",
+                  "table": "venues",
+                  "values": {
+                    "id": "venue_b70f18f962804841a90f79518d1",
+                    "biz_id": "biz_07ad4f5b9a684c418d9a05883fa",
+                    "location_id": "location_34f35b8cdc2d442fa4053208ad2",
+                    "name": "Coaching",
+                    "slug": "room-a-52a9fdcd-a1cb-47a2-8e0e-0b4b97b746ac",
+                    "setup_minutes": 5,
+                    "teardown_minutes": 5
+                  },
+                  "filters": [],
+                  "returning": [
+                    "id"
+                  ]
+                }
+              }
+            },
+            "request": {
+              "requestId": "0b8eb3ae-2715-49de-a293-b5dc607639df",
+              "dryRun": false,
+              "scope": {
+                "bizId": "biz_07ad4f5b9a684c418d9a05883fa",
+                "actorUserId": "owner_user_732f1e9b1b03416a98310cdbb10"
+              },
+              "command": {
+                "kind": "mutate",
+                "action": "insert",
+                "table": "venues",
+                "values": {
+                  "id": "venue_b70f18f962804841a90f79518d1",
+                  "biz_id": "biz_07ad4f5b9a684c418d9a05883fa",
+                  "location_id": "location_34f35b8cdc2d442fa4053208ad2",
+                  "name": "Coaching",
+                  "slug": "room-a-52a9fdcd-a1cb-47a2-8e0e-0b4b97b746ac",
+                  "setup_minutes": 5,
+                  "teardown_minutes": 5
+                },
+                "filters": [],
+                "returning": [
+                  "id"
+                ]
+              }
+            },
+            "response": {
+              "requestId": "0b8eb3ae-2715-49de-a293-b5dc607639df",
+              "dryRun": false,
+              "success": true,
+              "commandKind": "mutate",
+              "warnings": [],
+              "trace": [
+                {
+                  "stepIndex": 0,
+                  "kind": "mutate",
+                  "table": "venues",
+                  "sqlPreview": "INSERT INTO \"venues\" (\"id\", \"biz_id\", \"location_id\", \"name\", \"slug\", \"setup_minutes\", \"teardown_minutes\") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING \"id\"",
+                  "params": [
+                    "venue_b70f18f962804841a90f79518d1",
+                    "biz_07ad4f5b9a684c418d9a05883fa",
+                    "location_34f35b8cdc2d442fa4053208ad2",
+                    "Coaching",
+                    "room-a-52a9fdcd-a1cb-47a2-8e0e-0b4b97b746ac",
+                    5,
+                    5
+                  ],
+                  "rowCount": 1,
+                  "dryRun": false
+                }
+              ],
+              "result": {
+                "table": "venues",
+                "action": "insert",
+                "rowCount": 1,
+                "rows": [
+                  {
+                    "id": "venue_b70f18f962804841a90f79518d1"
+                  }
+                ]
+              }
+            },
+            "expectationFailures": [],
+            "captures": {}
+          },
+          {
+            "phaseId": "phase-auth-setup",
+            "phaseName": "Auth + Setup",
+            "stepId": "uc1-setup-06",
+            "stepName": "Create host resource",
+            "success": true,
+            "startedAt": "2026-02-22T17:24:06.354Z",
+            "endedAt": "2026-02-22T17:24:06.457Z",
+            "durationMs": 103,
+            "prompt": "insert into resources id = {{id:resource}} biz_id = {{id:biz}} location_id = {{id:location}} type = host host_user_id = {{id:owner_user}} name = Sarah Host slug = sarah-host-{{runId}} timezone = {{timezone}} capacity = 1 allow_simultaneous_bookings = false buffer_before_minutes = 10 buffer_after_minutes = 10",
+            "resolvedPrompt": "insert into resources id = resource_3ddcf840c73841cd8faba64ab94 biz_id = biz_07ad4f5b9a684c418d9a05883fa location_id = location_34f35b8cdc2d442fa4053208ad2 type = host host_user_id = owner_user_732f1e9b1b03416a98310cdbb10 name = Sarah Host slug = sarah-host-52a9fdcd-a1cb-47a2-8e0e-0b4b97b746ac timezone = America/Los_Angeles capacity = 1 allow_simultaneous_bookings = false buffer_before_minutes = 10 buffer_after_minutes = 10",
+            "translation": {
+              "success": true,
+              "confidence": 0.8,
+              "notes": [],
+              "inferred": {
+                "action": "insert",
+                "table": "resources"
+              },
+              "pseudoRequest": {
+                "requestId": "227863ad-db1a-4306-be7b-41b8424cae4e",
+                "dryRun": false,
+                "scope": {
+                  "bizId": "biz_07ad4f5b9a684c418d9a05883fa",
+                  "actorUserId": "owner_user_732f1e9b1b03416a98310cdbb10"
+                },
+                "command": {
+                  "kind": "mutate",
+                  "action": "insert",
+                  "table": "resources",
+                  "values": {
+                    "id": "resource_3ddcf840c73841cd8faba64ab94",
+                    "biz_id": "biz_07ad4f5b9a684c418d9a05883fa",
+                    "location_id": "location_34f35b8cdc2d442fa4053208ad2",
+                    "type": "host",
+                    "host_user_id": "owner_user_732f1e9b1b03416a98310cdbb10",
+                    "name": "Sarah",
+                    "slug": "sarah-host-52a9fdcd-a1cb-47a2-8e0e-0b4b97b746ac",
+                    "timezone": "America/Los_Angeles",
+                    "capacity": 1,
+                    "allow_simultaneous_bookings": false,
+                    "buffer_before_minutes": 10,
+                    "buffer_after_minutes": 10
+                  },
+                  "filters": [],
+                  "returning": [
+                    "id"
+                  ]
+                }
+              }
+            },
+            "request": {
+              "requestId": "227863ad-db1a-4306-be7b-41b8424cae4e",
+              "dryRun": false,
+              "scope": {
+                "bizId": "biz_07ad4f5b9a684c418d9a05883fa",
+                "actorUserId": "owner_user_732f1e9b1b03416a98310cdbb10"
+              },
+              "command": {
+                "kind": "mutate",
+                "action": "insert",
+                "table": "resources",
+                "values": {
+                  "id": "resource_3ddcf840c73841cd8faba64ab94",
+                  "biz_id": "biz_07ad4f5b9a684c418d9a05883fa",
+                  "location_id": "location_34f35b8cdc2d442fa4053208ad2",
+                  "type": "host",
+                  "host_user_id": "owner_user_732f1e9b1b03416a98310cdbb10",
+                  "name": "Sarah",
+                  "slug": "sarah-host-52a9fdcd-a1cb-47a2-8e0e-0b4b97b746ac",
+                  "timezone": "America/Los_Angeles",
+                  "capacity": 1,
+                  "allow_simultaneous_bookings": false,
+                  "buffer_before_minutes": 10,
+                  "buffer_after_minutes": 10
+                },
+                "filters": [],
+                "returning": [
+                  "id"
+                ]
+              }
+            },
+            "response": {
+              "requestId": "227863ad-db1a-4306-be7b-41b8424cae4e",
+              "dryRun": false,
+              "success": true,
+              "commandKind": "mutate",
+              "warnings": [],
+              "trace": [
+                {
+                  "stepIndex": 0,
+                  "kind": "mutate",
+                  "table": "resources",
+                  "sqlPreview": "INSERT INTO \"resources\" (\"id\", \"biz_id\", \"location_id\", \"type\", \"host_user_id\", \"name\", \"slug\", \"timezone\", \"capacity\", \"allow_simultaneous_bookings\", \"buffer_before_minutes\", \"buffer_after_minutes\") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING \"id\"",
+                  "params": [
+                    "resource_3ddcf840c73841cd8faba64ab94",
+                    "biz_07ad4f5b9a684c418d9a05883fa",
+                    "location_34f35b8cdc2d442fa4053208ad2",
+                    "host",
+                    "owner_user_732f1e9b1b03416a98310cdbb10",
+                    "Sarah",
+                    "sarah-host-52a9fdcd-a1cb-47a2-8e0e-0b4b97b746ac",
+                    "America/Los_Angeles",
+                    1,
+                    false,
+                    10,
+                    10
+                  ],
+                  "rowCount": 1,
+                  "dryRun": false
+                }
+              ],
+              "result": {
+                "table": "resources",
+                "action": "insert",
+                "rowCount": 1,
+                "rows": [
+                  {
+                    "id": "resource_3ddcf840c73841cd8faba64ab94"
+                  }
+                ]
+              }
+            },
+            "expectationFailures": [],
+            "captures": {}
+          },
+          {
+            "phaseId": "phase-auth-setup",
+            "phaseName": "Auth + Setup",
+            "stepId": "uc1-setup-07",
+            "stepName": "Create host calendar",
+            "success": true,
+            "startedAt": "2026-02-22T17:24:06.457Z",
+            "endedAt": "2026-02-22T17:24:06.557Z",
+            "durationMs": 100,
+            "prompt": "insert into calendars id = {{id:calendar}} biz_id = {{id:biz}} name = Sarah Calendar timezone = {{timezone}} slot_duration_min = 50 slot_interval_min = 50 pre_buffer_min = 10 post_buffer_min = 10 min_advance_booking_hours = 24 max_advance_booking_days = 60 status = active",
+            "resolvedPrompt": "insert into calendars id = calendar_d9c33b7724104c1f92e76a2898b biz_id = biz_07ad4f5b9a684c418d9a05883fa name = Sarah Calendar timezone = America/Los_Angeles slot_duration_min = 50 slot_interval_min = 50 pre_buffer_min = 10 post_buffer_min = 10 min_advance_booking_hours = 24 max_advance_booking_days = 60 status = active",
+            "translation": {
+              "success": true,
+              "confidence": 0.8,
+              "notes": [],
+              "inferred": {
+                "action": "insert",
+                "table": "calendars"
+              },
+              "pseudoRequest": {
+                "requestId": "c617bf06-f8a4-4201-9305-8ab1374ea7c6",
+                "dryRun": false,
+                "scope": {
+                  "bizId": "biz_07ad4f5b9a684c418d9a05883fa",
+                  "actorUserId": "owner_user_732f1e9b1b03416a98310cdbb10"
+                },
+                "command": {
+                  "kind": "mutate",
+                  "action": "insert",
+                  "table": "calendars",
+                  "values": {
+                    "id": "calendar_d9c33b7724104c1f92e76a2898b",
+                    "biz_id": "biz_07ad4f5b9a684c418d9a05883fa",
+                    "name": "Sarah",
+                    "timezone": "America/Los_Angeles",
+                    "slot_duration_min": 50,
+                    "slot_interval_min": 50,
+                    "pre_buffer_min": 10,
+                    "post_buffer_min": 10,
+                    "min_advance_booking_hours": 24,
+                    "max_advance_booking_days": 60,
+                    "status": "active"
+                  },
+                  "filters": [],
+                  "returning": [
+                    "id"
+                  ]
+                }
+              }
+            },
+            "request": {
+              "requestId": "c617bf06-f8a4-4201-9305-8ab1374ea7c6",
+              "dryRun": false,
+              "scope": {
+                "bizId": "biz_07ad4f5b9a684c418d9a05883fa",
+                "actorUserId": "owner_user_732f1e9b1b03416a98310cdbb10"
+              },
+              "command": {
+                "kind": "mutate",
+                "action": "insert",
+                "table": "calendars",
+                "values": {
+                  "id": "calendar_d9c33b7724104c1f92e76a2898b",
+                  "biz_id": "biz_07ad4f5b9a684c418d9a05883fa",
+                  "name": "Sarah",
+                  "timezone": "America/Los_Angeles",
+                  "slot_duration_min": 50,
+                  "slot_interval_min": 50,
+                  "pre_buffer_min": 10,
+                  "post_buffer_min": 10,
+                  "min_advance_booking_hours": 24,
+                  "max_advance_booking_days": 60,
+                  "status": "active"
+                },
+                "filters": [],
+                "returning": [
+                  "id"
+                ]
+              }
+            },
+            "response": {
+              "requestId": "c617bf06-f8a4-4201-9305-8ab1374ea7c6",
+              "dryRun": false,
+              "success": true,
+              "commandKind": "mutate",
+              "warnings": [],
+              "trace": [
+                {
+                  "stepIndex": 0,
+                  "kind": "mutate",
+                  "table": "calendars",
+                  "sqlPreview": "INSERT INTO \"calendars\" (\"id\", \"biz_id\", \"name\", \"timezone\", \"slot_duration_min\", \"slot_interval_min\", \"pre_buffer_min\", \"post_buffer_min\", \"min_advance_booking_hours\", \"max_advance_booking_days\", \"status\") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING \"id\"",
+                  "params": [
+                    "calendar_d9c33b7724104c1f92e76a2898b",
+                    "biz_07ad4f5b9a684c418d9a05883fa",
+                    "Sarah",
+                    "America/Los_Angeles",
+                    50,
+                    50,
+                    10,
+                    10,
+                    24,
+                    60,
+                    "active"
+                  ],
+                  "rowCount": 1,
+                  "dryRun": false
+                }
+              ],
+              "result": {
+                "table": "calendars",
+                "action": "insert",
+                "rowCount": 1,
+                "rows": [
+                  {
+                    "id": "calendar_d9c33b7724104c1f92e76a2898b"
+                  }
+                ]
+              }
+            },
+            "expectationFailures": [],
+            "captures": {}
+          },
+          {
+            "phaseId": "phase-auth-setup",
+            "phaseName": "Auth + Setup",
+            "stepId": "uc1-setup-08",
+            "stepName": "Bind calendar to host resource",
+            "success": true,
+            "startedAt": "2026-02-22T17:24:06.557Z",
+            "endedAt": "2026-02-22T17:24:06.643Z",
+            "durationMs": 86,
+            "prompt": "insert into calendar_bindings id = {{id:binding}} biz_id = {{id:biz}} calendar_id = {{id:calendar}} owner_type = resource resource_id = {{id:resource}} owner_ref_key = resource:{{id:resource}} is_primary = true is_active = true",
+            "resolvedPrompt": "insert into calendar_bindings id = binding_256c46816dd54b97a7d24f13612 biz_id = biz_07ad4f5b9a684c418d9a05883fa calendar_id = calendar_d9c33b7724104c1f92e76a2898b owner_type = resource resource_id = resource_3ddcf840c73841cd8faba64ab94 owner_ref_key = resource:resource_3ddcf840c73841cd8faba64ab94 is_primary = true is_active = true",
+            "translation": {
+              "success": true,
+              "confidence": 0.8,
+              "notes": [],
+              "inferred": {
+                "action": "insert",
+                "table": "calendar_bindings"
+              },
+              "pseudoRequest": {
+                "requestId": "6873a959-164c-4e76-83f5-3dbe61f33a0a",
+                "dryRun": false,
+                "scope": {
+                  "bizId": "biz_07ad4f5b9a684c418d9a05883fa",
+                  "actorUserId": "owner_user_732f1e9b1b03416a98310cdbb10"
+                },
+                "command": {
+                  "kind": "mutate",
+                  "action": "insert",
+                  "table": "calendar_bindings",
+                  "values": {
+                    "id": "binding_256c46816dd54b97a7d24f13612",
+                    "biz_id": "biz_07ad4f5b9a684c418d9a05883fa",
+                    "calendar_id": "calendar_d9c33b7724104c1f92e76a2898b",
+                    "owner_type": "resource",
+                    "resource_id": "resource_3ddcf840c73841cd8faba64ab94",
+                    "owner_ref_key": "resource:resource_3ddcf840c73841cd8faba64ab94",
+                    "is_primary": true,
+                    "is_active": true
+                  },
+                  "filters": [],
+                  "returning": [
+                    "id"
+                  ]
+                }
+              }
+            },
+            "request": {
+              "requestId": "6873a959-164c-4e76-83f5-3dbe61f33a0a",
+              "dryRun": false,
+              "scope": {
+                "bizId": "biz_07ad4f5b9a684c418d9a05883fa",
+                "actorUserId": "owner_user_732f1e9b1b03416a98310cdbb10"
+              },
+              "command": {
+                "kind": "mutate",
+                "action": "insert",
+                "table": "calendar_bindings",
+                "values": {
+                  "id": "binding_256c46816dd54b97a7d24f13612",
+                  "biz_id": "biz_07ad4f5b9a684c418d9a05883fa",
+                  "calendar_id": "calendar_d9c33b7724104c1f92e76a2898b",
+                  "owner_type": "resource",
+                  "resource_id": "resource_3ddcf840c73841cd8faba64ab94",
+                  "owner_ref_key": "resource:resource_3ddcf840c73841cd8faba64ab94",
+                  "is_primary": true,
+                  "is_active": true
+                },
+                "filters": [],
+                "returning": [
+                  "id"
+                ]
+              }
+            },
+            "response": {
+              "requestId": "6873a959-164c-4e76-83f5-3dbe61f33a0a",
+              "dryRun": false,
+              "success": true,
+              "commandKind": "mutate",
+              "warnings": [],
+              "trace": [
+                {
+                  "stepIndex": 0,
+                  "kind": "mutate",
+                  "table": "calendar_bindings",
+                  "sqlPreview": "INSERT INTO \"calendar_bindings\" (\"id\", \"biz_id\", \"calendar_id\", \"owner_type\", \"resource_id\", \"owner_ref_key\", \"is_primary\", \"is_active\") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING \"id\"",
+                  "params": [
+                    "binding_256c46816dd54b97a7d24f13612",
+                    "biz_07ad4f5b9a684c418d9a05883fa",
+                    "calendar_d9c33b7724104c1f92e76a2898b",
+                    "resource",
+                    "resource_3ddcf840c73841cd8faba64ab94",
+                    "resource:resource_3ddcf840c73841cd8faba64ab94",
+                    true,
+                    true
+                  ],
+                  "rowCount": 1,
+                  "dryRun": false
+                }
+              ],
+              "result": {
+                "table": "calendar_bindings",
+                "action": "insert",
+                "rowCount": 1,
+                "rows": [
+                  {
+                    "id": "binding_256c46816dd54b97a7d24f13612"
+                  }
+                ]
+              }
+            },
+            "expectationFailures": [],
+            "captures": {}
+          },
+          {
+            "phaseId": "phase-auth-setup",
+            "phaseName": "Auth + Setup",
+            "stepId": "uc1-setup-09",
+            "stepName": "Create weekly availability",
+            "success": true,
+            "startedAt": "2026-02-22T17:24:06.643Z",
+            "endedAt": "2026-02-22T17:24:06.736Z",
+            "durationMs": 93,
+            "prompt": "insert into availability_rules id = {{id:availability_rule}} biz_id = {{id:biz}} calendar_id = {{id:calendar}} name = Weekday Office Hours mode = recurring frequency = weekly day_of_week = 1 start_time = 09:00:00 end_time = 17:00:00 action = available is_active = true priority = 100",
+            "resolvedPrompt": "insert into availability_rules id = availability_rule_626ab029a4904dbe81cf3810cab biz_id = biz_07ad4f5b9a684c418d9a05883fa calendar_id = calendar_d9c33b7724104c1f92e76a2898b name = Weekday Office Hours mode = recurring frequency = weekly day_of_week = 1 start_time = 09:00:00 end_time = 17:00:00 action = available is_active = true priority = 100",
+            "translation": {
+              "success": true,
+              "confidence": 0.8,
+              "notes": [],
+              "inferred": {
+                "action": "insert",
+                "table": "availability_rules"
+              },
+              "pseudoRequest": {
+                "requestId": "caffdba1-818a-4701-a69d-70bab74ef6e0",
+                "dryRun": false,
+                "scope": {
+                  "bizId": "biz_07ad4f5b9a684c418d9a05883fa",
+                  "actorUserId": "owner_user_732f1e9b1b03416a98310cdbb10"
+                },
+                "command": {
+                  "kind": "mutate",
+                  "action": "insert",
+                  "table": "availability_rules",
+                  "values": {
+                    "id": "availability_rule_626ab029a4904dbe81cf3810cab",
+                    "biz_id": "biz_07ad4f5b9a684c418d9a05883fa",
+                    "calendar_id": "calendar_d9c33b7724104c1f92e76a2898b",
+                    "name": "Weekday",
+                    "mode": "recurring",
+                    "frequency": "weekly",
+                    "day_of_week": 1,
+                    "start_time": "09:00:00",
+                    "end_time": "17:00:00",
+                    "action": "available",
+                    "is_active": true,
+                    "priority": 100
+                  },
+                  "filters": [],
+                  "returning": [
+                    "id"
+                  ]
+                }
+              }
+            },
+            "request": {
+              "requestId": "caffdba1-818a-4701-a69d-70bab74ef6e0",
+              "dryRun": false,
+              "scope": {
+                "bizId": "biz_07ad4f5b9a684c418d9a05883fa",
+                "actorUserId": "owner_user_732f1e9b1b03416a98310cdbb10"
+              },
+              "command": {
+                "kind": "mutate",
+                "action": "insert",
+                "table": "availability_rules",
+                "values": {
+                  "id": "availability_rule_626ab029a4904dbe81cf3810cab",
+                  "biz_id": "biz_07ad4f5b9a684c418d9a05883fa",
+                  "calendar_id": "calendar_d9c33b7724104c1f92e76a2898b",
+                  "name": "Weekday",
+                  "mode": "recurring",
+                  "frequency": "weekly",
+                  "day_of_week": 1,
+                  "start_time": "09:00:00",
+                  "end_time": "17:00:00",
+                  "action": "available",
+                  "is_active": true,
+                  "priority": 100
+                },
+                "filters": [],
+                "returning": [
+                  "id"
+                ]
+              }
+            },
+            "response": {
+              "requestId": "caffdba1-818a-4701-a69d-70bab74ef6e0",
+              "dryRun": false,
+              "success": true,
+              "commandKind": "mutate",
+              "warnings": [],
+              "trace": [
+                {
+                  "stepIndex": 0,
+                  "kind": "mutate",
+                  "table": "availability_rules",
+                  "sqlPreview": "INSERT INTO \"availability_rules\" (\"id\", \"biz_id\", \"calendar_id\", \"name\", \"mode\", \"frequency\", \"day_of_week\", \"start_time\", \"end_time\", \"action\", \"is_active\", \"priority\") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING \"id\"",
+                  "params": [
+                    "availability_rule_626ab029a4904dbe81cf3810cab",
+                    "biz_07ad4f5b9a684c418d9a05883fa",
+                    "calendar_d9c33b7724104c1f92e76a2898b",
+                    "Weekday",
+                    "recurring",
+                    "weekly",
+                    1,
+                    "09:00:00",
+                    "17:00:00",
+                    "available",
+                    true,
+                    100
+                  ],
+                  "rowCount": 1,
+                  "dryRun": false
+                }
+              ],
+              "result": {
+                "table": "availability_rules",
+                "action": "insert",
+                "rowCount": 1,
+                "rows": [
+                  {
+                    "id": "availability_rule_626ab029a4904dbe81cf3810cab"
+                  }
+                ]
+              }
+            },
+            "expectationFailures": [],
+            "captures": {}
+          },
+          {
+            "phaseId": "phase-catalog",
+            "phaseName": "Catalog + Publish",
+            "stepId": "uc1-catalog-01",
+            "stepName": "Create product draft",
+            "success": true,
+            "startedAt": "2026-02-22T17:24:06.736Z",
+            "endedAt": "2026-02-22T17:24:06.819Z",
+            "durationMs": 83,
+            "prompt": "insert into products id = {{id:product}} biz_id = {{id:biz}} location_id = {{id:location}} name = Intake Kit slug = {{productSlug}} type = digital status = draft base_price_minor = 3000 currency = USD",
+            "resolvedPrompt": "insert into products id = product_363a47b35ab94c1cb72912730a6 biz_id = biz_07ad4f5b9a684c418d9a05883fa location_id = location_34f35b8cdc2d442fa4053208ad2 name = Intake Kit slug = intake-kit-52a9fdcd-a1cb-47a2-8e0e-0b4b97b746ac type = digital status = draft base_price_minor = 3000 currency = USD",
+            "translation": {
+              "success": true,
+              "confidence": 0.8,
+              "notes": [],
+              "inferred": {
+                "action": "insert",
+                "table": "products"
+              },
+              "pseudoRequest": {
+                "requestId": "c9c6bb05-a887-4362-bc71-25b64c56ae8e",
+                "dryRun": false,
+                "scope": {
+                  "bizId": "biz_07ad4f5b9a684c418d9a05883fa",
+                  "actorUserId": "owner_user_732f1e9b1b03416a98310cdbb10"
+                },
+                "command": {
+                  "kind": "mutate",
+                  "action": "insert",
+                  "table": "products",
+                  "values": {
+                    "id": "product_363a47b35ab94c1cb72912730a6",
+                    "biz_id": "biz_07ad4f5b9a684c418d9a05883fa",
+                    "location_id": "location_34f35b8cdc2d442fa4053208ad2",
+                    "name": "Intake",
+                    "slug": "intake-kit-52a9fdcd-a1cb-47a2-8e0e-0b4b97b746ac",
+                    "type": "digital",
+                    "status": "draft",
+                    "base_price_minor": 3000,
+                    "currency": "USD"
+                  },
+                  "filters": [],
+                  "returning": [
+                    "id"
+                  ]
+                }
+              }
+            },
+            "request": {
+              "requestId": "c9c6bb05-a887-4362-bc71-25b64c56ae8e",
+              "dryRun": false,
+              "scope": {
+                "bizId": "biz_07ad4f5b9a684c418d9a05883fa",
+                "actorUserId": "owner_user_732f1e9b1b03416a98310cdbb10"
+              },
+              "command": {
+                "kind": "mutate",
+                "action": "insert",
+                "table": "products",
+                "values": {
+                  "id": "product_363a47b35ab94c1cb72912730a6",
+                  "biz_id": "biz_07ad4f5b9a684c418d9a05883fa",
+                  "location_id": "location_34f35b8cdc2d442fa4053208ad2",
+                  "name": "Intake",
+                  "slug": "intake-kit-52a9fdcd-a1cb-47a2-8e0e-0b4b97b746ac",
+                  "type": "digital",
+                  "status": "draft",
+                  "base_price_minor": 3000,
+                  "currency": "USD"
+                },
+                "filters": [],
+                "returning": [
+                  "id"
+                ]
+              }
+            },
+            "response": {
+              "requestId": "c9c6bb05-a887-4362-bc71-25b64c56ae8e",
+              "dryRun": false,
+              "success": true,
+              "commandKind": "mutate",
+              "warnings": [],
+              "trace": [
+                {
+                  "stepIndex": 0,
+                  "kind": "mutate",
+                  "table": "products",
+                  "sqlPreview": "INSERT INTO \"products\" (\"id\", \"biz_id\", \"location_id\", \"name\", \"slug\", \"type\", \"status\", \"base_price_minor\", \"currency\") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING \"id\"",
+                  "params": [
+                    "product_363a47b35ab94c1cb72912730a6",
+                    "biz_07ad4f5b9a684c418d9a05883fa",
+                    "location_34f35b8cdc2d442fa4053208ad2",
+                    "Intake",
+                    "intake-kit-52a9fdcd-a1cb-47a2-8e0e-0b4b97b746ac",
+                    "digital",
+                    "draft",
+                    3000,
+                    "USD"
+                  ],
+                  "rowCount": 1,
+                  "dryRun": false
+                }
+              ],
+              "result": {
+                "table": "products",
+                "action": "insert",
+                "rowCount": 1,
+                "rows": [
+                  {
+                    "id": "product_363a47b35ab94c1cb72912730a6"
+                  }
+                ]
+              }
+            },
+            "expectationFailures": [],
+            "captures": {}
+          },
+          {
+            "phaseId": "phase-catalog",
+            "phaseName": "Catalog + Publish",
+            "stepId": "uc1-catalog-02",
+            "stepName": "Publish product",
+            "success": true,
+            "startedAt": "2026-02-22T17:24:06.819Z",
+            "endedAt": "2026-02-22T17:24:06.903Z",
+            "durationMs": 84,
+            "prompt": "update products set status = active where id = {{id:product}} and biz_id = {{id:biz}}",
+            "resolvedPrompt": "update products set status = active where id = product_363a47b35ab94c1cb72912730a6 and biz_id = biz_07ad4f5b9a684c418d9a05883fa",
+            "translation": {
+              "success": true,
+              "confidence": 0.8,
+              "notes": [],
+              "inferred": {
+                "action": "update",
+                "table": "products"
+              },
+              "pseudoRequest": {
+                "requestId": "705b3805-a72f-4c5b-992f-ef9ca03f2d18",
+                "dryRun": false,
+                "scope": {
+                  "bizId": "biz_07ad4f5b9a684c418d9a05883fa",
+                  "actorUserId": "owner_user_732f1e9b1b03416a98310cdbb10"
+                },
+                "command": {
+                  "kind": "mutate",
+                  "action": "update",
+                  "table": "products",
+                  "values": {
+                    "status": "active"
+                  },
+                  "filters": [
+                    {
+                      "column": "id",
+                      "op": "eq",
+                      "value": "product_363a47b35ab94c1cb72912730a6"
+                    },
+                    {
+                      "column": "biz_id",
+                      "op": "eq",
+                      "value": "biz_07ad4f5b9a684c418d9a05883fa"
+                    }
+                  ],
+                  "returning": [
+                    "id"
+                  ]
+                }
+              }
+            },
+            "request": {
+              "requestId": "705b3805-a72f-4c5b-992f-ef9ca03f2d18",
+              "dryRun": false,
+              "scope": {
+                "bizId": "biz_07ad4f5b9a684c418d9a05883fa",
+                "actorUserId": "owner_user_732f1e9b1b03416a98310cdbb10"
+              },
+              "command": {
+                "kind": "mutate",
+                "action": "update",
+                "table": "products",
+                "values": {
+                  "status": "active"
+                },
+                "filters": [
+                  {
+                    "column": "id",
+                    "op": "eq",
+                    "value": "product_363a47b35ab94c1cb72912730a6"
+                  },
+                  {
+                    "column": "biz_id",
+                    "op": "eq",
+                    "value": "biz_07ad4f5b9a684c418d9a05883fa"
+                  }
+                ],
+                "returning": [
+                  "id"
+                ]
+              }
+            },
+            "response": {
+              "requestId": "705b3805-a72f-4c5b-992f-ef9ca03f2d18",
+              "dryRun": false,
+              "success": true,
+              "commandKind": "mutate",
+              "warnings": [],
+              "trace": [
+                {
+                  "stepIndex": 0,
+                  "kind": "mutate",
+                  "table": "products",
+                  "sqlPreview": "UPDATE \"products\" SET \"status\" = $1, \"biz_id\" = $2 WHERE \"id\" = $3 AND \"biz_id\" = $4 RETURNING \"id\"",
+                  "params": [
+                    "active",
+                    "biz_07ad4f5b9a684c418d9a05883fa",
+                    "product_363a47b35ab94c1cb72912730a6",
+                    "biz_07ad4f5b9a684c418d9a05883fa"
+                  ],
+                  "rowCount": 1,
+                  "dryRun": false
+                }
+              ],
+              "result": {
+                "table": "products",
+                "action": "update",
+                "rowCount": 1,
+                "rows": [
+                  {
+                    "id": "product_363a47b35ab94c1cb72912730a6"
+                  }
+                ]
+              }
+            },
+            "expectationFailures": [],
+            "captures": {}
+          },
+          {
+            "phaseId": "phase-catalog",
+            "phaseName": "Catalog + Publish",
+            "stepId": "uc1-catalog-03",
+            "stepName": "Create offer shell",
+            "success": true,
+            "startedAt": "2026-02-22T17:24:06.903Z",
+            "endedAt": "2026-02-22T17:24:06.993Z",
+            "durationMs": 90,
+            "prompt": "insert into offers id = {{id:offer}} biz_id = {{id:biz}} name = Career Coaching Session slug = {{offerSlug}} execution_mode = slot status = active is_published = true timezone = {{timezone}}",
+            "resolvedPrompt": "insert into offers id = offer_d0638f1db0504196aa4db93da80 biz_id = biz_07ad4f5b9a684c418d9a05883fa name = Career Coaching Session slug = career-coaching-52a9fdcd-a1cb-47a2-8e0e-0b4b97b746ac execution_mode = slot status = active is_published = true timezone = America/Los_Angeles",
+            "translation": {
+              "success": true,
+              "confidence": 0.8,
+              "notes": [],
+              "inferred": {
+                "action": "insert",
+                "table": "offers"
+              },
+              "pseudoRequest": {
+                "requestId": "5d1881de-d5a8-41d9-8a3a-a87c431b911b",
+                "dryRun": false,
+                "scope": {
+                  "bizId": "biz_07ad4f5b9a684c418d9a05883fa",
+                  "actorUserId": "owner_user_732f1e9b1b03416a98310cdbb10"
+                },
+                "command": {
+                  "kind": "mutate",
+                  "action": "insert",
+                  "table": "offers",
+                  "values": {
+                    "id": "offer_d0638f1db0504196aa4db93da80",
+                    "biz_id": "biz_07ad4f5b9a684c418d9a05883fa",
+                    "name": "Career",
+                    "slug": "career-coaching-52a9fdcd-a1cb-47a2-8e0e-0b4b97b746ac",
+                    "execution_mode": "slot",
+                    "status": "active",
+                    "is_published": true,
+                    "timezone": "America/Los_Angeles"
+                  },
+                  "filters": [],
+                  "returning": [
+                    "id"
+                  ]
+                }
+              }
+            },
+            "request": {
+              "requestId": "5d1881de-d5a8-41d9-8a3a-a87c431b911b",
+              "dryRun": false,
+              "scope": {
+                "bizId": "biz_07ad4f5b9a684c418d9a05883fa",
+                "actorUserId": "owner_user_732f1e9b1b03416a98310cdbb10"
+              },
+              "command": {
+                "kind": "mutate",
+                "action": "insert",
+                "table": "offers",
+                "values": {
+                  "id": "offer_d0638f1db0504196aa4db93da80",
+                  "biz_id": "biz_07ad4f5b9a684c418d9a05883fa",
+                  "name": "Career",
+                  "slug": "career-coaching-52a9fdcd-a1cb-47a2-8e0e-0b4b97b746ac",
+                  "execution_mode": "slot",
+                  "status": "active",
+                  "is_published": true,
+                  "timezone": "America/Los_Angeles"
+                },
+                "filters": [],
+                "returning": [
+                  "id"
+                ]
+              }
+            },
+            "response": {
+              "requestId": "5d1881de-d5a8-41d9-8a3a-a87c431b911b",
+              "dryRun": false,
+              "success": true,
+              "commandKind": "mutate",
+              "warnings": [],
+              "trace": [
+                {
+                  "stepIndex": 0,
+                  "kind": "mutate",
+                  "table": "offers",
+                  "sqlPreview": "INSERT INTO \"offers\" (\"id\", \"biz_id\", \"name\", \"slug\", \"execution_mode\", \"status\", \"is_published\", \"timezone\") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING \"id\"",
+                  "params": [
+                    "offer_d0638f1db0504196aa4db93da80",
+                    "biz_07ad4f5b9a684c418d9a05883fa",
+                    "Career",
+                    "career-coaching-52a9fdcd-a1cb-47a2-8e0e-0b4b97b746ac",
+                    "slot",
+                    "active",
+                    true,
+                    "America/Los_Angeles"
+                  ],
+                  "rowCount": 1,
+                  "dryRun": false
+                }
+              ],
+              "result": {
+                "table": "offers",
+                "action": "insert",
+                "rowCount": 1,
+                "rows": [
+                  {
+                    "id": "offer_d0638f1db0504196aa4db93da80"
+                  }
+                ]
+              }
+            },
+            "expectationFailures": [],
+            "captures": {}
+          },
+          {
+            "phaseId": "phase-catalog",
+            "phaseName": "Catalog + Publish",
+            "stepId": "uc1-catalog-04",
+            "stepName": "Create immutable offer version",
+            "success": true,
+            "startedAt": "2026-02-22T17:24:06.993Z",
+            "endedAt": "2026-02-22T17:24:07.091Z",
+            "durationMs": 98,
+            "prompt": "insert into offer_versions id = {{id:offer_version}} biz_id = {{id:biz}} offer_id = {{id:offer}} version = 1 status = published duration_mode = fixed default_duration_min = 50 min_duration_min = 50 max_duration_min = 50 base_price_minor = 15000 currency = USD",
+            "resolvedPrompt": "insert into offer_versions id = offer_version_bf89d87a76cb4968acb19940b78 biz_id = biz_07ad4f5b9a684c418d9a05883fa offer_id = offer_d0638f1db0504196aa4db93da80 version = 1 status = published duration_mode = fixed default_duration_min = 50 min_duration_min = 50 max_duration_min = 50 base_price_minor = 15000 currency = USD",
+            "translation": {
+              "success": true,
+              "confidence": 0.8,
+              "notes": [],
+              "inferred": {
+                "action": "insert",
+                "table": "offer_versions"
+              },
+              "pseudoRequest": {
+                "requestId": "ba360ee0-f720-4e04-be97-83e7e2dd11f8",
+                "dryRun": false,
+                "scope": {
+                  "bizId": "biz_07ad4f5b9a684c418d9a05883fa",
+                  "actorUserId": "owner_user_732f1e9b1b03416a98310cdbb10"
+                },
+                "command": {
+                  "kind": "mutate",
+                  "action": "insert",
+                  "table": "offer_versions",
+                  "values": {
+                    "id": "offer_version_bf89d87a76cb4968acb19940b78",
+                    "biz_id": "biz_07ad4f5b9a684c418d9a05883fa",
+                    "offer_id": "offer_d0638f1db0504196aa4db93da80",
+                    "version": 1,
+                    "status": "published",
+                    "duration_mode": "fixed",
+                    "default_duration_min": 50,
+                    "min_duration_min": 50,
+                    "max_duration_min": 50,
+                    "base_price_minor": 15000,
+                    "currency": "USD"
+                  },
+                  "filters": [],
+                  "returning": [
+                    "id"
+                  ]
+                }
+              }
+            },
+            "request": {
+              "requestId": "ba360ee0-f720-4e04-be97-83e7e2dd11f8",
+              "dryRun": false,
+              "scope": {
+                "bizId": "biz_07ad4f5b9a684c418d9a05883fa",
+                "actorUserId": "owner_user_732f1e9b1b03416a98310cdbb10"
+              },
+              "command": {
+                "kind": "mutate",
+                "action": "insert",
+                "table": "offer_versions",
+                "values": {
+                  "id": "offer_version_bf89d87a76cb4968acb19940b78",
+                  "biz_id": "biz_07ad4f5b9a684c418d9a05883fa",
+                  "offer_id": "offer_d0638f1db0504196aa4db93da80",
+                  "version": 1,
+                  "status": "published",
+                  "duration_mode": "fixed",
+                  "default_duration_min": 50,
+                  "min_duration_min": 50,
+                  "max_duration_min": 50,
+                  "base_price_minor": 15000,
+                  "currency": "USD"
+                },
+                "filters": [],
+                "returning": [
+                  "id"
+                ]
+              }
+            },
+            "response": {
+              "requestId": "ba360ee0-f720-4e04-be97-83e7e2dd11f8",
+              "dryRun": false,
+              "success": true,
+              "commandKind": "mutate",
+              "warnings": [],
+              "trace": [
+                {
+                  "stepIndex": 0,
+                  "kind": "mutate",
+                  "table": "offer_versions",
+                  "sqlPreview": "INSERT INTO \"offer_versions\" (\"id\", \"biz_id\", \"offer_id\", \"version\", \"status\", \"duration_mode\", \"default_duration_min\", \"min_duration_min\", \"max_duration_min\", \"base_price_minor\", \"currency\") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING \"id\"",
+                  "params": [
+                    "offer_version_bf89d87a76cb4968acb19940b78",
+                    "biz_07ad4f5b9a684c418d9a05883fa",
+                    "offer_d0638f1db0504196aa4db93da80",
+                    1,
+                    "published",
+                    "fixed",
+                    50,
+                    50,
+                    50,
+                    15000,
+                    "USD"
+                  ],
+                  "rowCount": 1,
+                  "dryRun": false
+                }
+              ],
+              "result": {
+                "table": "offer_versions",
+                "action": "insert",
+                "rowCount": 1,
+                "rows": [
+                  {
+                    "id": "offer_version_bf89d87a76cb4968acb19940b78"
+                  }
+                ]
+              }
+            },
+            "expectationFailures": [],
+            "captures": {}
+          },
+          {
+            "phaseId": "phase-catalog",
+            "phaseName": "Catalog + Publish",
+            "stepId": "uc1-catalog-05",
+            "stepName": "Capture published offer ids by query",
+            "success": true,
+            "startedAt": "2026-02-22T17:24:07.091Z",
+            "endedAt": "2026-02-22T17:24:07.329Z",
+            "durationMs": 238,
+            "prompt": "list offers where biz_id = {{id:biz}} and slug = {{offerSlug}}",
+            "resolvedPrompt": "list offers where biz_id = biz_07ad4f5b9a684c418d9a05883fa and slug = career-coaching-52a9fdcd-a1cb-47a2-8e0e-0b4b97b746ac",
+            "translation": {
+              "success": true,
+              "confidence": 0.7,
+              "notes": [],
+              "inferred": {
+                "action": "query",
+                "table": "offers"
+              },
+              "pseudoRequest": {
+                "requestId": "e36baba4-e280-4524-b7b9-e4ea8e6fa146",
+                "dryRun": false,
+                "scope": {
+                  "bizId": "biz_07ad4f5b9a684c418d9a05883fa",
+                  "actorUserId": "owner_user_732f1e9b1b03416a98310cdbb10"
+                },
+                "command": {
+                  "kind": "query",
+                  "table": "offers",
+                  "filters": [
+                    {
+                      "column": "biz_id",
+                      "op": "eq",
+                      "value": "biz_07ad4f5b9a684c418d9a05883fa"
+                    },
+                    {
+                      "column": "slug",
+                      "op": "eq",
+                      "value": "career-coaching-52a9fdcd-a1cb-47a2-8e0e-0b4b97b746ac"
+                    }
+                  ],
+                  "sort": []
+                }
+              }
+            },
+            "request": {
+              "requestId": "e36baba4-e280-4524-b7b9-e4ea8e6fa146",
+              "dryRun": false,
+              "scope": {
+                "bizId": "biz_07ad4f5b9a684c418d9a05883fa",
+                "actorUserId": "owner_user_732f1e9b1b03416a98310cdbb10"
+              },
+              "command": {
+                "kind": "query",
+                "table": "offers",
+                "filters": [
+                  {
+                    "column": "biz_id",
+                    "op": "eq",
+                    "value": "biz_07ad4f5b9a684c418d9a05883fa"
+                  },
+                  {
+                    "column": "slug",
+                    "op": "eq",
+                    "value": "career-coaching-52a9fdcd-a1cb-47a2-8e0e-0b4b97b746ac"
+                  }
+                ],
+                "sort": []
+              }
+            },
+            "response": {
+              "requestId": "e36baba4-e280-4524-b7b9-e4ea8e6fa146",
+              "dryRun": false,
+              "success": true,
+              "commandKind": "query",
+              "warnings": [],
+              "trace": [
+                {
+                  "stepIndex": 0,
+                  "kind": "query",
+                  "table": "offers",
+                  "sqlPreview": "SELECT \"id\", \"biz_id\", \"name\", \"slug\", \"description\", \"execution_mode\", \"execution_mode_config_value_id\", \"status\", \"status_config_value_id\", \"is_published\", \"timezone\", \"metadata\", \"created_at\", \"updated_at\", \"deleted_at\", \"created_by\", \"updated_by\", \"deleted_by\" FROM \"offers\" WHERE \"biz_id\" = $1 AND \"slug\" = $2 LIMIT 100",
+                  "params": [
+                    "biz_07ad4f5b9a684c418d9a05883fa",
+                    "career-coaching-52a9fdcd-a1cb-47a2-8e0e-0b4b97b746ac"
+                  ],
+                  "rowCount": 1,
+                  "dryRun": false
+                }
+              ],
+              "result": {
+                "table": "offers",
+                "rowCount": 1,
+                "rows": [
+                  {
+                    "id": "offer_d0638f1db0504196aa4db93da80",
+                    "biz_id": "biz_07ad4f5b9a684c418d9a05883fa",
+                    "name": "Career",
+                    "slug": "career-coaching-52a9fdcd-a1cb-47a2-8e0e-0b4b97b746ac",
+                    "description": null,
+                    "execution_mode": "slot",
+                    "execution_mode_config_value_id": null,
+                    "status": "active",
+                    "status_config_value_id": null,
+                    "is_published": true,
+                    "timezone": "America/Los_Angeles",
+                    "metadata": {},
+                    "created_at": "2026-02-22 17:24:05.825992+00",
+                    "updated_at": "2026-02-22 17:24:05.825992+00",
+                    "deleted_at": null,
+                    "created_by": null,
+                    "updated_by": null,
+                    "deleted_by": null
+                  }
+                ]
+              }
+            },
+            "expectationFailures": [],
+            "captures": {
+              "capturedOfferId": "offer_d0638f1db0504196aa4db93da80"
+            }
+          },
+          {
+            "phaseId": "phase-browse-book",
+            "phaseName": "Customer Browse + Book",
+            "stepId": "uc1-book-01",
+            "stepName": "Customer lists published offers",
+            "success": true,
+            "startedAt": "2026-02-22T17:24:07.330Z",
+            "endedAt": "2026-02-22T17:24:07.493Z",
+            "durationMs": 163,
+            "prompt": "list offers where biz_id = {{id:biz}} and is_published = true and status = active",
+            "resolvedPrompt": "list offers where biz_id = biz_07ad4f5b9a684c418d9a05883fa and is_published = true and status = active",
+            "translation": {
+              "success": true,
+              "confidence": 0.7,
+              "notes": [],
+              "inferred": {
+                "action": "query",
+                "table": "offers"
+              },
+              "pseudoRequest": {
+                "requestId": "6c57f206-42d8-4e47-a91a-bf6a4ad2488b",
+                "dryRun": false,
+                "scope": {
+                  "bizId": "biz_07ad4f5b9a684c418d9a05883fa",
+                  "actorUserId": "customer_user_b29d56aed65c4d9096a23156c08"
+                },
+                "command": {
+                  "kind": "query",
+                  "table": "offers",
+                  "filters": [
+                    {
+                      "column": "biz_id",
+                      "op": "eq",
+                      "value": "biz_07ad4f5b9a684c418d9a05883fa"
+                    },
+                    {
+                      "column": "is_published",
+                      "op": "eq",
+                      "value": true
+                    },
+                    {
+                      "column": "status",
+                      "op": "eq",
+                      "value": "active"
+                    }
+                  ],
+                  "sort": []
+                }
+              }
+            },
+            "request": {
+              "requestId": "6c57f206-42d8-4e47-a91a-bf6a4ad2488b",
+              "dryRun": false,
+              "scope": {
+                "bizId": "biz_07ad4f5b9a684c418d9a05883fa",
+                "actorUserId": "customer_user_b29d56aed65c4d9096a23156c08"
+              },
+              "command": {
+                "kind": "query",
+                "table": "offers",
+                "filters": [
+                  {
+                    "column": "biz_id",
+                    "op": "eq",
+                    "value": "biz_07ad4f5b9a684c418d9a05883fa"
+                  },
+                  {
+                    "column": "is_published",
+                    "op": "eq",
+                    "value": true
+                  },
+                  {
+                    "column": "status",
+                    "op": "eq",
+                    "value": "active"
+                  }
+                ],
+                "sort": []
+              }
+            },
+            "response": {
+              "requestId": "6c57f206-42d8-4e47-a91a-bf6a4ad2488b",
+              "dryRun": false,
+              "success": true,
+              "commandKind": "query",
+              "warnings": [],
+              "trace": [
+                {
+                  "stepIndex": 0,
+                  "kind": "query",
+                  "table": "offers",
+                  "sqlPreview": "SELECT \"id\", \"biz_id\", \"name\", \"slug\", \"description\", \"execution_mode\", \"execution_mode_config_value_id\", \"status\", \"status_config_value_id\", \"is_published\", \"timezone\", \"metadata\", \"created_at\", \"updated_at\", \"deleted_at\", \"created_by\", \"updated_by\", \"deleted_by\" FROM \"offers\" WHERE \"biz_id\" = $1 AND \"is_published\" = $2 AND \"status\" = $3 LIMIT 100",
+                  "params": [
+                    "biz_07ad4f5b9a684c418d9a05883fa",
+                    true,
+                    "active"
+                  ],
+                  "rowCount": 1,
+                  "dryRun": false
+                }
+              ],
+              "result": {
+                "table": "offers",
+                "rowCount": 1,
+                "rows": [
+                  {
+                    "id": "offer_d0638f1db0504196aa4db93da80",
+                    "biz_id": "biz_07ad4f5b9a684c418d9a05883fa",
+                    "name": "Career",
+                    "slug": "career-coaching-52a9fdcd-a1cb-47a2-8e0e-0b4b97b746ac",
+                    "description": null,
+                    "execution_mode": "slot",
+                    "execution_mode_config_value_id": null,
+                    "status": "active",
+                    "status_config_value_id": null,
+                    "is_published": true,
+                    "timezone": "America/Los_Angeles",
+                    "metadata": {},
+                    "created_at": "2026-02-22 17:24:05.825992+00",
+                    "updated_at": "2026-02-22 17:24:05.825992+00",
+                    "deleted_at": null,
+                    "created_by": null,
+                    "updated_by": null,
+                    "deleted_by": null
+                  }
+                ]
+              }
+            },
+            "expectationFailures": [],
+            "captures": {}
+          },
+          {
+            "phaseId": "phase-browse-book",
+            "phaseName": "Customer Browse + Book",
+            "stepId": "uc1-book-02",
+            "stepName": "Create first booking order",
+            "success": true,
+            "startedAt": "2026-02-22T17:24:07.493Z",
+            "endedAt": "2026-02-22T17:24:07.584Z",
+            "durationMs": 91,
+            "prompt": "insert into booking_orders id = {{id:order1}} biz_id = {{id:biz}} offer_id = {{capturedOfferId}} offer_version_id = {{id:offer_version}} customer_user_id = {{id:customer_user}} status = draft currency = USD subtotal_minor = 15000 total_minor = 15000 requested_start_at = 2026-03-10T17:00:00Z requested_end_at = 2026-03-10T17:50:00Z",
+            "resolvedPrompt": "insert into booking_orders id = order1_c0f32c497126488a906ec5ebd45 biz_id = biz_07ad4f5b9a684c418d9a05883fa offer_id = offer_d0638f1db0504196aa4db93da80 offer_version_id = offer_version_bf89d87a76cb4968acb19940b78 customer_user_id = customer_user_b29d56aed65c4d9096a23156c08 status = draft currency = USD subtotal_minor = 15000 total_minor = 15000 requested_start_at = 2026-03-10T17:00:00Z requested_end_at = 2026-03-10T17:50:00Z",
+            "translation": {
+              "success": true,
+              "confidence": 0.8,
+              "notes": [],
+              "inferred": {
+                "action": "insert",
+                "table": "booking_orders"
+              },
+              "pseudoRequest": {
+                "requestId": "568714d1-bb0c-40ee-95fd-1bbee02ad79d",
+                "dryRun": false,
+                "scope": {
+                  "bizId": "biz_07ad4f5b9a684c418d9a05883fa",
+                  "actorUserId": "customer_user_b29d56aed65c4d9096a23156c08"
+                },
+                "command": {
+                  "kind": "mutate",
+                  "action": "insert",
+                  "table": "booking_orders",
+                  "values": {
+                    "id": "order1_c0f32c497126488a906ec5ebd45",
+                    "biz_id": "biz_07ad4f5b9a684c418d9a05883fa",
+                    "offer_id": "offer_d0638f1db0504196aa4db93da80",
+                    "offer_version_id": "offer_version_bf89d87a76cb4968acb19940b78",
+                    "customer_user_id": "customer_user_b29d56aed65c4d9096a23156c08",
+                    "status": "draft",
+                    "currency": "USD",
+                    "subtotal_minor": 15000,
+                    "total_minor": 15000,
+                    "requested_start_at": "2026-03-10T17:00:00Z",
+                    "requested_end_at": "2026-03-10T17:50:00Z"
+                  },
+                  "filters": [],
+                  "returning": [
+                    "id"
+                  ]
+                }
+              }
+            },
+            "request": {
+              "requestId": "568714d1-bb0c-40ee-95fd-1bbee02ad79d",
+              "dryRun": false,
+              "scope": {
+                "bizId": "biz_07ad4f5b9a684c418d9a05883fa",
+                "actorUserId": "customer_user_b29d56aed65c4d9096a23156c08"
+              },
+              "command": {
+                "kind": "mutate",
+                "action": "insert",
+                "table": "booking_orders",
+                "values": {
+                  "id": "order1_c0f32c497126488a906ec5ebd45",
+                  "biz_id": "biz_07ad4f5b9a684c418d9a05883fa",
+                  "offer_id": "offer_d0638f1db0504196aa4db93da80",
+                  "offer_version_id": "offer_version_bf89d87a76cb4968acb19940b78",
+                  "customer_user_id": "customer_user_b29d56aed65c4d9096a23156c08",
+                  "status": "draft",
+                  "currency": "USD",
+                  "subtotal_minor": 15000,
+                  "total_minor": 15000,
+                  "requested_start_at": "2026-03-10T17:00:00Z",
+                  "requested_end_at": "2026-03-10T17:50:00Z"
+                },
+                "filters": [],
+                "returning": [
+                  "id"
+                ]
+              }
+            },
+            "response": {
+              "requestId": "568714d1-bb0c-40ee-95fd-1bbee02ad79d",
+              "dryRun": false,
+              "success": true,
+              "commandKind": "mutate",
+              "warnings": [],
+              "trace": [
+                {
+                  "stepIndex": 0,
+                  "kind": "mutate",
+                  "table": "booking_orders",
+                  "sqlPreview": "INSERT INTO \"booking_orders\" (\"id\", \"biz_id\", \"offer_id\", \"offer_version_id\", \"customer_user_id\", \"status\", \"currency\", \"subtotal_minor\", \"total_minor\", \"requested_start_at\", \"requested_end_at\") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING \"id\"",
+                  "params": [
+                    "order1_c0f32c497126488a906ec5ebd45",
+                    "biz_07ad4f5b9a684c418d9a05883fa",
+                    "offer_d0638f1db0504196aa4db93da80",
+                    "offer_version_bf89d87a76cb4968acb19940b78",
+                    "customer_user_b29d56aed65c4d9096a23156c08",
+                    "draft",
+                    "USD",
+                    15000,
+                    15000,
+                    "2026-03-10T17:00:00Z",
+                    "2026-03-10T17:50:00Z"
+                  ],
+                  "rowCount": 1,
+                  "dryRun": false
+                }
+              ],
+              "result": {
+                "table": "booking_orders",
+                "action": "insert",
+                "rowCount": 1,
+                "rows": [
+                  {
+                    "id": "order1_c0f32c497126488a906ec5ebd45"
+                  }
+                ]
+              }
+            },
+            "expectationFailures": [],
+            "captures": {}
+          },
+          {
+            "phaseId": "phase-browse-book",
+            "phaseName": "Customer Browse + Book",
+            "stepId": "uc1-book-03",
+            "stepName": "Create first booking line",
+            "success": true,
+            "startedAt": "2026-02-22T17:24:07.584Z",
+            "endedAt": "2026-02-22T17:24:07.665Z",
+            "durationMs": 81,
+            "prompt": "insert into booking_order_lines id = {{id:line1}} biz_id = {{id:biz}} booking_order_id = {{id:order1}} line_type = offer_base label = Career Coaching quantity = 1 unit_amount_minor = 15000 line_total_minor = 15000",
+            "resolvedPrompt": "insert into booking_order_lines id = line1_7dea2a5bf68f46cebdbbdf560ef biz_id = biz_07ad4f5b9a684c418d9a05883fa booking_order_id = order1_c0f32c497126488a906ec5ebd45 line_type = offer_base label = Career Coaching quantity = 1 unit_amount_minor = 15000 line_total_minor = 15000",
+            "translation": {
+              "success": true,
+              "confidence": 0.8,
+              "notes": [],
+              "inferred": {
+                "action": "insert",
+                "table": "booking_order_lines"
+              },
+              "pseudoRequest": {
+                "requestId": "4dbbb9d7-b569-43c2-95f6-b94163b8ee92",
+                "dryRun": false,
+                "scope": {
+                  "bizId": "biz_07ad4f5b9a684c418d9a05883fa",
+                  "actorUserId": "customer_user_b29d56aed65c4d9096a23156c08"
+                },
+                "command": {
+                  "kind": "mutate",
+                  "action": "insert",
+                  "table": "booking_order_lines",
+                  "values": {
+                    "id": "line1_7dea2a5bf68f46cebdbbdf560ef",
+                    "biz_id": "biz_07ad4f5b9a684c418d9a05883fa",
+                    "booking_order_id": "order1_c0f32c497126488a906ec5ebd45",
+                    "line_type": "offer_base",
+                    "label": "Career",
+                    "quantity": 1,
+                    "unit_amount_minor": 15000,
+                    "line_total_minor": 15000
+                  },
+                  "filters": [],
+                  "returning": [
+                    "id"
+                  ]
+                }
+              }
+            },
+            "request": {
+              "requestId": "4dbbb9d7-b569-43c2-95f6-b94163b8ee92",
+              "dryRun": false,
+              "scope": {
+                "bizId": "biz_07ad4f5b9a684c418d9a05883fa",
+                "actorUserId": "customer_user_b29d56aed65c4d9096a23156c08"
+              },
+              "command": {
+                "kind": "mutate",
+                "action": "insert",
+                "table": "booking_order_lines",
+                "values": {
+                  "id": "line1_7dea2a5bf68f46cebdbbdf560ef",
+                  "biz_id": "biz_07ad4f5b9a684c418d9a05883fa",
+                  "booking_order_id": "order1_c0f32c497126488a906ec5ebd45",
+                  "line_type": "offer_base",
+                  "label": "Career",
+                  "quantity": 1,
+                  "unit_amount_minor": 15000,
+                  "line_total_minor": 15000
+                },
+                "filters": [],
+                "returning": [
+                  "id"
+                ]
+              }
+            },
+            "response": {
+              "requestId": "4dbbb9d7-b569-43c2-95f6-b94163b8ee92",
+              "dryRun": false,
+              "success": true,
+              "commandKind": "mutate",
+              "warnings": [],
+              "trace": [
+                {
+                  "stepIndex": 0,
+                  "kind": "mutate",
+                  "table": "booking_order_lines",
+                  "sqlPreview": "INSERT INTO \"booking_order_lines\" (\"id\", \"biz_id\", \"booking_order_id\", \"line_type\", \"label\", \"quantity\", \"unit_amount_minor\", \"line_total_minor\") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING \"id\"",
+                  "params": [
+                    "line1_7dea2a5bf68f46cebdbbdf560ef",
+                    "biz_07ad4f5b9a684c418d9a05883fa",
+                    "order1_c0f32c497126488a906ec5ebd45",
+                    "offer_base",
+                    "Career",
+                    1,
+                    15000,
+                    15000
+                  ],
+                  "rowCount": 1,
+                  "dryRun": false
+                }
+              ],
+              "result": {
+                "table": "booking_order_lines",
+                "action": "insert",
+                "rowCount": 1,
+                "rows": [
+                  {
+                    "id": "line1_7dea2a5bf68f46cebdbbdf560ef"
+                  }
+                ]
+              }
+            },
+            "expectationFailures": [],
+            "captures": {}
+          },
+          {
+            "phaseId": "phase-browse-book",
+            "phaseName": "Customer Browse + Book",
+            "stepId": "uc1-book-04",
+            "stepName": "Confirm first booking",
+            "success": true,
+            "startedAt": "2026-02-22T17:24:07.665Z",
+            "endedAt": "2026-02-22T17:24:07.745Z",
+            "durationMs": 80,
+            "prompt": "update booking_orders set status = confirmed confirmed_start_at = 2026-03-10T17:00:00Z confirmed_end_at = 2026-03-10T17:50:00Z where id = {{id:order1}} and biz_id = {{id:biz}}",
+            "resolvedPrompt": "update booking_orders set status = confirmed confirmed_start_at = 2026-03-10T17:00:00Z confirmed_end_at = 2026-03-10T17:50:00Z where id = order1_c0f32c497126488a906ec5ebd45 and biz_id = biz_07ad4f5b9a684c418d9a05883fa",
+            "translation": {
+              "success": true,
+              "confidence": 0.8,
+              "notes": [],
+              "inferred": {
+                "action": "update",
+                "table": "booking_orders"
+              },
+              "pseudoRequest": {
+                "requestId": "11d13a8f-457b-42b3-a9bf-a5c04b2165a2",
+                "dryRun": false,
+                "scope": {
+                  "bizId": "biz_07ad4f5b9a684c418d9a05883fa",
+                  "actorUserId": "owner_user_732f1e9b1b03416a98310cdbb10"
+                },
+                "command": {
+                  "kind": "mutate",
+                  "action": "update",
+                  "table": "booking_orders",
+                  "values": {
+                    "status": "confirmed",
+                    "confirmed_start_at": "2026-03-10T17:00:00Z",
+                    "confirmed_end_at": "2026-03-10T17:50:00Z"
+                  },
+                  "filters": [
+                    {
+                      "column": "id",
+                      "op": "eq",
+                      "value": "order1_c0f32c497126488a906ec5ebd45"
+                    },
+                    {
+                      "column": "biz_id",
+                      "op": "eq",
+                      "value": "biz_07ad4f5b9a684c418d9a05883fa"
+                    }
+                  ],
+                  "returning": [
+                    "id"
+                  ]
+                }
+              }
+            },
+            "request": {
+              "requestId": "11d13a8f-457b-42b3-a9bf-a5c04b2165a2",
+              "dryRun": false,
+              "scope": {
+                "bizId": "biz_07ad4f5b9a684c418d9a05883fa",
+                "actorUserId": "owner_user_732f1e9b1b03416a98310cdbb10"
+              },
+              "command": {
+                "kind": "mutate",
+                "action": "update",
+                "table": "booking_orders",
+                "values": {
+                  "status": "confirmed",
+                  "confirmed_start_at": "2026-03-10T17:00:00Z",
+                  "confirmed_end_at": "2026-03-10T17:50:00Z"
+                },
+                "filters": [
+                  {
+                    "column": "id",
+                    "op": "eq",
+                    "value": "order1_c0f32c497126488a906ec5ebd45"
+                  },
+                  {
+                    "column": "biz_id",
+                    "op": "eq",
+                    "value": "biz_07ad4f5b9a684c418d9a05883fa"
+                  }
+                ],
+                "returning": [
+                  "id"
+                ]
+              }
+            },
+            "response": {
+              "requestId": "11d13a8f-457b-42b3-a9bf-a5c04b2165a2",
+              "dryRun": false,
+              "success": true,
+              "commandKind": "mutate",
+              "warnings": [],
+              "trace": [
+                {
+                  "stepIndex": 0,
+                  "kind": "mutate",
+                  "table": "booking_orders",
+                  "sqlPreview": "UPDATE \"booking_orders\" SET \"status\" = $1, \"confirmed_start_at\" = $2, \"confirmed_end_at\" = $3, \"biz_id\" = $4 WHERE \"id\" = $5 AND \"biz_id\" = $6 RETURNING \"id\"",
+                  "params": [
+                    "confirmed",
+                    "2026-03-10T17:00:00Z",
+                    "2026-03-10T17:50:00Z",
+                    "biz_07ad4f5b9a684c418d9a05883fa",
+                    "order1_c0f32c497126488a906ec5ebd45",
+                    "biz_07ad4f5b9a684c418d9a05883fa"
+                  ],
+                  "rowCount": 1,
+                  "dryRun": false
+                }
+              ],
+              "result": {
+                "table": "booking_orders",
+                "action": "update",
+                "rowCount": 1,
+                "rows": [
+                  {
+                    "id": "order1_c0f32c497126488a906ec5ebd45"
+                  }
+                ]
+              }
+            },
+            "expectationFailures": [],
+            "captures": {}
+          },
+          {
+            "phaseId": "phase-browse-book",
+            "phaseName": "Customer Browse + Book",
+            "stepId": "uc1-book-05",
+            "stepName": "Create fulfillment unit",
+            "success": true,
+            "startedAt": "2026-02-22T17:24:07.745Z",
+            "endedAt": "2026-02-22T17:24:07.827Z",
+            "durationMs": 82,
+            "prompt": "insert into fulfillment_units id = {{id:unit1}} biz_id = {{id:biz}} booking_order_id = {{id:order1}} kind = service_task status = planned planned_start_at = 2026-03-10T17:00:00Z planned_end_at = 2026-03-10T17:50:00Z location_id = {{id:location}}",
+            "resolvedPrompt": "insert into fulfillment_units id = unit1_3f03ab3fcf2a4c30a7ef2dad448 biz_id = biz_07ad4f5b9a684c418d9a05883fa booking_order_id = order1_c0f32c497126488a906ec5ebd45 kind = service_task status = planned planned_start_at = 2026-03-10T17:00:00Z planned_end_at = 2026-03-10T17:50:00Z location_id = location_34f35b8cdc2d442fa4053208ad2",
+            "translation": {
+              "success": true,
+              "confidence": 0.8,
+              "notes": [],
+              "inferred": {
+                "action": "insert",
+                "table": "fulfillment_units"
+              },
+              "pseudoRequest": {
+                "requestId": "9f3e6ddc-685e-4f99-8d91-1e80ea4ca6c7",
+                "dryRun": false,
+                "scope": {
+                  "bizId": "biz_07ad4f5b9a684c418d9a05883fa",
+                  "actorUserId": "owner_user_732f1e9b1b03416a98310cdbb10"
+                },
+                "command": {
+                  "kind": "mutate",
+                  "action": "insert",
+                  "table": "fulfillment_units",
+                  "values": {
+                    "id": "unit1_3f03ab3fcf2a4c30a7ef2dad448",
+                    "biz_id": "biz_07ad4f5b9a684c418d9a05883fa",
+                    "booking_order_id": "order1_c0f32c497126488a906ec5ebd45",
+                    "kind": "service_task",
+                    "status": "planned",
+                    "planned_start_at": "2026-03-10T17:00:00Z",
+                    "planned_end_at": "2026-03-10T17:50:00Z",
+                    "location_id": "location_34f35b8cdc2d442fa4053208ad2"
+                  },
+                  "filters": [],
+                  "returning": [
+                    "id"
+                  ]
+                }
+              }
+            },
+            "request": {
+              "requestId": "9f3e6ddc-685e-4f99-8d91-1e80ea4ca6c7",
+              "dryRun": false,
+              "scope": {
+                "bizId": "biz_07ad4f5b9a684c418d9a05883fa",
+                "actorUserId": "owner_user_732f1e9b1b03416a98310cdbb10"
+              },
+              "command": {
+                "kind": "mutate",
+                "action": "insert",
+                "table": "fulfillment_units",
+                "values": {
+                  "id": "unit1_3f03ab3fcf2a4c30a7ef2dad448",
+                  "biz_id": "biz_07ad4f5b9a684c418d9a05883fa",
+                  "booking_order_id": "order1_c0f32c497126488a906ec5ebd45",
+                  "kind": "service_task",
+                  "status": "planned",
+                  "planned_start_at": "2026-03-10T17:00:00Z",
+                  "planned_end_at": "2026-03-10T17:50:00Z",
+                  "location_id": "location_34f35b8cdc2d442fa4053208ad2"
+                },
+                "filters": [],
+                "returning": [
+                  "id"
+                ]
+              }
+            },
+            "response": {
+              "requestId": "9f3e6ddc-685e-4f99-8d91-1e80ea4ca6c7",
+              "dryRun": false,
+              "success": true,
+              "commandKind": "mutate",
+              "warnings": [],
+              "trace": [
+                {
+                  "stepIndex": 0,
+                  "kind": "mutate",
+                  "table": "fulfillment_units",
+                  "sqlPreview": "INSERT INTO \"fulfillment_units\" (\"id\", \"biz_id\", \"booking_order_id\", \"kind\", \"status\", \"planned_start_at\", \"planned_end_at\", \"location_id\") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING \"id\"",
+                  "params": [
+                    "unit1_3f03ab3fcf2a4c30a7ef2dad448",
+                    "biz_07ad4f5b9a684c418d9a05883fa",
+                    "order1_c0f32c497126488a906ec5ebd45",
+                    "service_task",
+                    "planned",
+                    "2026-03-10T17:00:00Z",
+                    "2026-03-10T17:50:00Z",
+                    "location_34f35b8cdc2d442fa4053208ad2"
+                  ],
+                  "rowCount": 1,
+                  "dryRun": false
+                }
+              ],
+              "result": {
+                "table": "fulfillment_units",
+                "action": "insert",
+                "rowCount": 1,
+                "rows": [
+                  {
+                    "id": "unit1_3f03ab3fcf2a4c30a7ef2dad448"
+                  }
+                ]
+              }
+            },
+            "expectationFailures": [],
+            "captures": {}
+          },
+          {
+            "phaseId": "phase-browse-book",
+            "phaseName": "Customer Browse + Book",
+            "stepId": "uc1-book-06",
+            "stepName": "Assign host to first booking",
+            "success": true,
+            "startedAt": "2026-02-22T17:24:07.827Z",
+            "endedAt": "2026-02-22T17:24:07.908Z",
+            "durationMs": 81,
+            "prompt": "insert into fulfillment_assignments id = {{id:assign1}} biz_id = {{id:biz}} fulfillment_unit_id = {{id:unit1}} resource_id = {{id:resource}} status = confirmed starts_at = 2026-03-10T17:00:00Z ends_at = 2026-03-10T17:50:00Z is_primary = true",
+            "resolvedPrompt": "insert into fulfillment_assignments id = assign1_995a67035b114c76907caf21dbb biz_id = biz_07ad4f5b9a684c418d9a05883fa fulfillment_unit_id = unit1_3f03ab3fcf2a4c30a7ef2dad448 resource_id = resource_3ddcf840c73841cd8faba64ab94 status = confirmed starts_at = 2026-03-10T17:00:00Z ends_at = 2026-03-10T17:50:00Z is_primary = true",
+            "translation": {
+              "success": true,
+              "confidence": 0.8,
+              "notes": [],
+              "inferred": {
+                "action": "insert",
+                "table": "fulfillment_assignments"
+              },
+              "pseudoRequest": {
+                "requestId": "c586d9f1-8e05-4fb2-9647-54bbbe4d04e9",
+                "dryRun": false,
+                "scope": {
+                  "bizId": "biz_07ad4f5b9a684c418d9a05883fa",
+                  "actorUserId": "owner_user_732f1e9b1b03416a98310cdbb10"
+                },
+                "command": {
+                  "kind": "mutate",
+                  "action": "insert",
+                  "table": "fulfillment_assignments",
+                  "values": {
+                    "id": "assign1_995a67035b114c76907caf21dbb",
+                    "biz_id": "biz_07ad4f5b9a684c418d9a05883fa",
+                    "fulfillment_unit_id": "unit1_3f03ab3fcf2a4c30a7ef2dad448",
+                    "resource_id": "resource_3ddcf840c73841cd8faba64ab94",
+                    "status": "confirmed",
+                    "starts_at": "2026-03-10T17:00:00Z",
+                    "ends_at": "2026-03-10T17:50:00Z",
+                    "is_primary": true
+                  },
+                  "filters": [],
+                  "returning": [
+                    "id"
+                  ]
+                }
+              }
+            },
+            "request": {
+              "requestId": "c586d9f1-8e05-4fb2-9647-54bbbe4d04e9",
+              "dryRun": false,
+              "scope": {
+                "bizId": "biz_07ad4f5b9a684c418d9a05883fa",
+                "actorUserId": "owner_user_732f1e9b1b03416a98310cdbb10"
+              },
+              "command": {
+                "kind": "mutate",
+                "action": "insert",
+                "table": "fulfillment_assignments",
+                "values": {
+                  "id": "assign1_995a67035b114c76907caf21dbb",
+                  "biz_id": "biz_07ad4f5b9a684c418d9a05883fa",
+                  "fulfillment_unit_id": "unit1_3f03ab3fcf2a4c30a7ef2dad448",
+                  "resource_id": "resource_3ddcf840c73841cd8faba64ab94",
+                  "status": "confirmed",
+                  "starts_at": "2026-03-10T17:00:00Z",
+                  "ends_at": "2026-03-10T17:50:00Z",
+                  "is_primary": true
+                },
+                "filters": [],
+                "returning": [
+                  "id"
+                ]
+              }
+            },
+            "response": {
+              "requestId": "c586d9f1-8e05-4fb2-9647-54bbbe4d04e9",
+              "dryRun": false,
+              "success": true,
+              "commandKind": "mutate",
+              "warnings": [],
+              "trace": [
+                {
+                  "stepIndex": 0,
+                  "kind": "mutate",
+                  "table": "fulfillment_assignments",
+                  "sqlPreview": "INSERT INTO \"fulfillment_assignments\" (\"id\", \"biz_id\", \"fulfillment_unit_id\", \"resource_id\", \"status\", \"starts_at\", \"ends_at\", \"is_primary\") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING \"id\"",
+                  "params": [
+                    "assign1_995a67035b114c76907caf21dbb",
+                    "biz_07ad4f5b9a684c418d9a05883fa",
+                    "unit1_3f03ab3fcf2a4c30a7ef2dad448",
+                    "resource_3ddcf840c73841cd8faba64ab94",
+                    "confirmed",
+                    "2026-03-10T17:00:00Z",
+                    "2026-03-10T17:50:00Z",
+                    true
+                  ],
+                  "rowCount": 1,
+                  "dryRun": false
+                }
+              ],
+              "result": {
+                "table": "fulfillment_assignments",
+                "action": "insert",
+                "rowCount": 1,
+                "rows": [
+                  {
+                    "id": "assign1_995a67035b114c76907caf21dbb"
+                  }
+                ]
+              }
+            },
+            "expectationFailures": [],
+            "captures": {}
+          },
+          {
+            "phaseId": "phase-edge-case",
+            "phaseName": "Edge Case: Double Booking Guard",
+            "stepId": "uc1-edge-01",
+            "stepName": "Create second overlapping booking",
+            "success": true,
+            "startedAt": "2026-02-22T17:24:07.909Z",
+            "endedAt": "2026-02-22T17:24:07.997Z",
+            "durationMs": 88,
+            "prompt": "insert into booking_orders id = {{id:order2}} biz_id = {{id:biz}} offer_id = {{capturedOfferId}} offer_version_id = {{id:offer_version}} customer_user_id = {{id:customer_user}} status = confirmed currency = USD subtotal_minor = 15000 total_minor = 15000 requested_start_at = 2026-03-10T17:15:00Z requested_end_at = 2026-03-10T18:05:00Z confirmed_start_at = 2026-03-10T17:15:00Z confirmed_end_at = 2026-03-10T18:05:00Z",
+            "resolvedPrompt": "insert into booking_orders id = order2_b521aebaea484d80b5cc017eeb5 biz_id = biz_07ad4f5b9a684c418d9a05883fa offer_id = offer_d0638f1db0504196aa4db93da80 offer_version_id = offer_version_bf89d87a76cb4968acb19940b78 customer_user_id = customer_user_b29d56aed65c4d9096a23156c08 status = confirmed currency = USD subtotal_minor = 15000 total_minor = 15000 requested_start_at = 2026-03-10T17:15:00Z requested_end_at = 2026-03-10T18:05:00Z confirmed_start_at = 2026-03-10T17:15:00Z confirmed_end_at = 2026-03-10T18:05:00Z",
+            "translation": {
+              "success": true,
+              "confidence": 0.8,
+              "notes": [],
+              "inferred": {
+                "action": "insert",
+                "table": "booking_orders"
+              },
+              "pseudoRequest": {
+                "requestId": "2309fcdc-04fe-419c-8e70-b598e01e6afd",
+                "dryRun": false,
+                "scope": {
+                  "bizId": "biz_07ad4f5b9a684c418d9a05883fa",
+                  "actorUserId": "owner_user_732f1e9b1b03416a98310cdbb10"
+                },
+                "command": {
+                  "kind": "mutate",
+                  "action": "insert",
+                  "table": "booking_orders",
+                  "values": {
+                    "id": "order2_b521aebaea484d80b5cc017eeb5",
+                    "biz_id": "biz_07ad4f5b9a684c418d9a05883fa",
+                    "offer_id": "offer_d0638f1db0504196aa4db93da80",
+                    "offer_version_id": "offer_version_bf89d87a76cb4968acb19940b78",
+                    "customer_user_id": "customer_user_b29d56aed65c4d9096a23156c08",
+                    "status": "confirmed",
+                    "currency": "USD",
+                    "subtotal_minor": 15000,
+                    "total_minor": 15000,
+                    "requested_start_at": "2026-03-10T17:15:00Z",
+                    "requested_end_at": "2026-03-10T18:05:00Z",
+                    "confirmed_start_at": "2026-03-10T17:15:00Z",
+                    "confirmed_end_at": "2026-03-10T18:05:00Z"
+                  },
+                  "filters": [],
+                  "returning": [
+                    "id"
+                  ]
+                }
+              }
+            },
+            "request": {
+              "requestId": "2309fcdc-04fe-419c-8e70-b598e01e6afd",
+              "dryRun": false,
+              "scope": {
+                "bizId": "biz_07ad4f5b9a684c418d9a05883fa",
+                "actorUserId": "owner_user_732f1e9b1b03416a98310cdbb10"
+              },
+              "command": {
+                "kind": "mutate",
+                "action": "insert",
+                "table": "booking_orders",
+                "values": {
+                  "id": "order2_b521aebaea484d80b5cc017eeb5",
+                  "biz_id": "biz_07ad4f5b9a684c418d9a05883fa",
+                  "offer_id": "offer_d0638f1db0504196aa4db93da80",
+                  "offer_version_id": "offer_version_bf89d87a76cb4968acb19940b78",
+                  "customer_user_id": "customer_user_b29d56aed65c4d9096a23156c08",
+                  "status": "confirmed",
+                  "currency": "USD",
+                  "subtotal_minor": 15000,
+                  "total_minor": 15000,
+                  "requested_start_at": "2026-03-10T17:15:00Z",
+                  "requested_end_at": "2026-03-10T18:05:00Z",
+                  "confirmed_start_at": "2026-03-10T17:15:00Z",
+                  "confirmed_end_at": "2026-03-10T18:05:00Z"
+                },
+                "filters": [],
+                "returning": [
+                  "id"
+                ]
+              }
+            },
+            "response": {
+              "requestId": "2309fcdc-04fe-419c-8e70-b598e01e6afd",
+              "dryRun": false,
+              "success": true,
+              "commandKind": "mutate",
+              "warnings": [],
+              "trace": [
+                {
+                  "stepIndex": 0,
+                  "kind": "mutate",
+                  "table": "booking_orders",
+                  "sqlPreview": "INSERT INTO \"booking_orders\" (\"id\", \"biz_id\", \"offer_id\", \"offer_version_id\", \"customer_user_id\", \"status\", \"currency\", \"subtotal_minor\", \"total_minor\", \"requested_start_at\", \"requested_end_at\", \"confirmed_start_at\", \"confirmed_end_at\") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING \"id\"",
+                  "params": [
+                    "order2_b521aebaea484d80b5cc017eeb5",
+                    "biz_07ad4f5b9a684c418d9a05883fa",
+                    "offer_d0638f1db0504196aa4db93da80",
+                    "offer_version_bf89d87a76cb4968acb19940b78",
+                    "customer_user_b29d56aed65c4d9096a23156c08",
+                    "confirmed",
+                    "USD",
+                    15000,
+                    15000,
+                    "2026-03-10T17:15:00Z",
+                    "2026-03-10T18:05:00Z",
+                    "2026-03-10T17:15:00Z",
+                    "2026-03-10T18:05:00Z"
+                  ],
+                  "rowCount": 1,
+                  "dryRun": false
+                }
+              ],
+              "result": {
+                "table": "booking_orders",
+                "action": "insert",
+                "rowCount": 1,
+                "rows": [
+                  {
+                    "id": "order2_b521aebaea484d80b5cc017eeb5"
+                  }
+                ]
+              }
+            },
+            "expectationFailures": [],
+            "captures": {}
+          },
+          {
+            "phaseId": "phase-edge-case",
+            "phaseName": "Edge Case: Double Booking Guard",
+            "stepId": "uc1-edge-02",
+            "stepName": "Create second fulfillment unit",
+            "success": true,
+            "startedAt": "2026-02-22T17:24:07.997Z",
+            "endedAt": "2026-02-22T17:24:08.082Z",
+            "durationMs": 85,
+            "prompt": "insert into fulfillment_units id = {{id:unit2}} biz_id = {{id:biz}} booking_order_id = {{id:order2}} kind = service_task status = planned planned_start_at = 2026-03-10T17:15:00Z planned_end_at = 2026-03-10T18:05:00Z location_id = {{id:location}}",
+            "resolvedPrompt": "insert into fulfillment_units id = unit2_994c7d6f6f67466ba6547eec6b8 biz_id = biz_07ad4f5b9a684c418d9a05883fa booking_order_id = order2_b521aebaea484d80b5cc017eeb5 kind = service_task status = planned planned_start_at = 2026-03-10T17:15:00Z planned_end_at = 2026-03-10T18:05:00Z location_id = location_34f35b8cdc2d442fa4053208ad2",
+            "translation": {
+              "success": true,
+              "confidence": 0.8,
+              "notes": [],
+              "inferred": {
+                "action": "insert",
+                "table": "fulfillment_units"
+              },
+              "pseudoRequest": {
+                "requestId": "207b57c1-1223-445f-b605-af92ff4ce205",
+                "dryRun": false,
+                "scope": {
+                  "bizId": "biz_07ad4f5b9a684c418d9a05883fa",
+                  "actorUserId": "owner_user_732f1e9b1b03416a98310cdbb10"
+                },
+                "command": {
+                  "kind": "mutate",
+                  "action": "insert",
+                  "table": "fulfillment_units",
+                  "values": {
+                    "id": "unit2_994c7d6f6f67466ba6547eec6b8",
+                    "biz_id": "biz_07ad4f5b9a684c418d9a05883fa",
+                    "booking_order_id": "order2_b521aebaea484d80b5cc017eeb5",
+                    "kind": "service_task",
+                    "status": "planned",
+                    "planned_start_at": "2026-03-10T17:15:00Z",
+                    "planned_end_at": "2026-03-10T18:05:00Z",
+                    "location_id": "location_34f35b8cdc2d442fa4053208ad2"
+                  },
+                  "filters": [],
+                  "returning": [
+                    "id"
+                  ]
+                }
+              }
+            },
+            "request": {
+              "requestId": "207b57c1-1223-445f-b605-af92ff4ce205",
+              "dryRun": false,
+              "scope": {
+                "bizId": "biz_07ad4f5b9a684c418d9a05883fa",
+                "actorUserId": "owner_user_732f1e9b1b03416a98310cdbb10"
+              },
+              "command": {
+                "kind": "mutate",
+                "action": "insert",
+                "table": "fulfillment_units",
+                "values": {
+                  "id": "unit2_994c7d6f6f67466ba6547eec6b8",
+                  "biz_id": "biz_07ad4f5b9a684c418d9a05883fa",
+                  "booking_order_id": "order2_b521aebaea484d80b5cc017eeb5",
+                  "kind": "service_task",
+                  "status": "planned",
+                  "planned_start_at": "2026-03-10T17:15:00Z",
+                  "planned_end_at": "2026-03-10T18:05:00Z",
+                  "location_id": "location_34f35b8cdc2d442fa4053208ad2"
+                },
+                "filters": [],
+                "returning": [
+                  "id"
+                ]
+              }
+            },
+            "response": {
+              "requestId": "207b57c1-1223-445f-b605-af92ff4ce205",
+              "dryRun": false,
+              "success": true,
+              "commandKind": "mutate",
+              "warnings": [],
+              "trace": [
+                {
+                  "stepIndex": 0,
+                  "kind": "mutate",
+                  "table": "fulfillment_units",
+                  "sqlPreview": "INSERT INTO \"fulfillment_units\" (\"id\", \"biz_id\", \"booking_order_id\", \"kind\", \"status\", \"planned_start_at\", \"planned_end_at\", \"location_id\") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING \"id\"",
+                  "params": [
+                    "unit2_994c7d6f6f67466ba6547eec6b8",
+                    "biz_07ad4f5b9a684c418d9a05883fa",
+                    "order2_b521aebaea484d80b5cc017eeb5",
+                    "service_task",
+                    "planned",
+                    "2026-03-10T17:15:00Z",
+                    "2026-03-10T18:05:00Z",
+                    "location_34f35b8cdc2d442fa4053208ad2"
+                  ],
+                  "rowCount": 1,
+                  "dryRun": false
+                }
+              ],
+              "result": {
+                "table": "fulfillment_units",
+                "action": "insert",
+                "rowCount": 1,
+                "rows": [
+                  {
+                    "id": "unit2_994c7d6f6f67466ba6547eec6b8"
+                  }
+                ]
+              }
+            },
+            "expectationFailures": [],
+            "captures": {}
+          },
+          {
+            "phaseId": "phase-edge-case",
+            "phaseName": "Edge Case: Double Booking Guard",
+            "stepId": "uc1-edge-03",
+            "stepName": "Attempt overlapping assignment for same host",
+            "success": true,
+            "startedAt": "2026-02-22T17:24:08.082Z",
+            "endedAt": "2026-02-22T17:24:08.195Z",
+            "durationMs": 113,
+            "prompt": "insert into fulfillment_assignments id = {{id:assign2}} biz_id = {{id:biz}} fulfillment_unit_id = {{id:unit2}} resource_id = {{id:resource}} status = confirmed starts_at = 2026-03-10T17:15:00Z ends_at = 2026-03-10T18:05:00Z is_primary = true",
+            "resolvedPrompt": "insert into fulfillment_assignments id = assign2_65f8988a6fb24448affb2114579 biz_id = biz_07ad4f5b9a684c418d9a05883fa fulfillment_unit_id = unit2_994c7d6f6f67466ba6547eec6b8 resource_id = resource_3ddcf840c73841cd8faba64ab94 status = confirmed starts_at = 2026-03-10T17:15:00Z ends_at = 2026-03-10T18:05:00Z is_primary = true",
+            "translation": {
+              "success": true,
+              "confidence": 0.8,
+              "notes": [],
+              "inferred": {
+                "action": "insert",
+                "table": "fulfillment_assignments"
+              },
+              "pseudoRequest": {
+                "requestId": "e17b6b44-dfe0-46ec-8221-126fe7cce1b3",
+                "dryRun": false,
+                "scope": {
+                  "bizId": "biz_07ad4f5b9a684c418d9a05883fa",
+                  "actorUserId": "owner_user_732f1e9b1b03416a98310cdbb10"
+                },
+                "command": {
+                  "kind": "mutate",
+                  "action": "insert",
+                  "table": "fulfillment_assignments",
+                  "values": {
+                    "id": "assign2_65f8988a6fb24448affb2114579",
+                    "biz_id": "biz_07ad4f5b9a684c418d9a05883fa",
+                    "fulfillment_unit_id": "unit2_994c7d6f6f67466ba6547eec6b8",
+                    "resource_id": "resource_3ddcf840c73841cd8faba64ab94",
+                    "status": "confirmed",
+                    "starts_at": "2026-03-10T17:15:00Z",
+                    "ends_at": "2026-03-10T18:05:00Z",
+                    "is_primary": true
+                  },
+                  "filters": [],
+                  "returning": [
+                    "id"
+                  ]
+                }
+              }
+            },
+            "request": {
+              "requestId": "e17b6b44-dfe0-46ec-8221-126fe7cce1b3",
+              "dryRun": false,
+              "scope": {
+                "bizId": "biz_07ad4f5b9a684c418d9a05883fa",
+                "actorUserId": "owner_user_732f1e9b1b03416a98310cdbb10"
+              },
+              "command": {
+                "kind": "mutate",
+                "action": "insert",
+                "table": "fulfillment_assignments",
+                "values": {
+                  "id": "assign2_65f8988a6fb24448affb2114579",
+                  "biz_id": "biz_07ad4f5b9a684c418d9a05883fa",
+                  "fulfillment_unit_id": "unit2_994c7d6f6f67466ba6547eec6b8",
+                  "resource_id": "resource_3ddcf840c73841cd8faba64ab94",
+                  "status": "confirmed",
+                  "starts_at": "2026-03-10T17:15:00Z",
+                  "ends_at": "2026-03-10T18:05:00Z",
+                  "is_primary": true
+                },
+                "filters": [],
+                "returning": [
+                  "id"
+                ]
+              }
+            },
+            "response": {
+              "requestId": "e17b6b44-dfe0-46ec-8221-126fe7cce1b3",
+              "dryRun": false,
+              "success": false,
+              "commandKind": "mutate",
+              "warnings": [],
+              "trace": [],
+              "result": null,
+              "error": {
+                "message": "conflicting key value violates exclusion constraint \"fulfillment_assignments_no_overlap_excl\""
+              }
+            },
+            "expectationFailures": [],
+            "captures": {},
+            "error": "conflicting key value violates exclusion constraint \"fulfillment_assignments_no_overlap_excl\""
+          },
+          {
+            "phaseId": "phase-calendar-verify",
+            "phaseName": "Calendar + Availability Verification",
+            "stepId": "uc1-verify-01",
+            "stepName": "Owner reads calendar bindings for resource",
+            "success": true,
+            "startedAt": "2026-02-22T17:24:08.195Z",
+            "endedAt": "2026-02-22T17:24:08.307Z",
+            "durationMs": 112,
+            "prompt": "list calendar_bindings where biz_id = {{id:biz}} and owner_ref_key = resource:{{id:resource}}",
+            "resolvedPrompt": "list calendar_bindings where biz_id = biz_07ad4f5b9a684c418d9a05883fa and owner_ref_key = resource:resource_3ddcf840c73841cd8faba64ab94",
+            "translation": {
+              "success": true,
+              "confidence": 0.7,
+              "notes": [],
+              "inferred": {
+                "action": "query",
+                "table": "calendar_bindings"
+              },
+              "pseudoRequest": {
+                "requestId": "2e14387b-e658-4e90-8257-172c8d877294",
+                "dryRun": false,
+                "scope": {
+                  "bizId": "biz_07ad4f5b9a684c418d9a05883fa",
+                  "actorUserId": "owner_user_732f1e9b1b03416a98310cdbb10"
+                },
+                "command": {
+                  "kind": "query",
+                  "table": "calendar_bindings",
+                  "filters": [
+                    {
+                      "column": "biz_id",
+                      "op": "eq",
+                      "value": "biz_07ad4f5b9a684c418d9a05883fa"
+                    },
+                    {
+                      "column": "owner_ref_key",
+                      "op": "eq",
+                      "value": "resource:resource_3ddcf840c73841cd8faba64ab94"
+                    }
+                  ],
+                  "sort": []
+                }
+              }
+            },
+            "request": {
+              "requestId": "2e14387b-e658-4e90-8257-172c8d877294",
+              "dryRun": false,
+              "scope": {
+                "bizId": "biz_07ad4f5b9a684c418d9a05883fa",
+                "actorUserId": "owner_user_732f1e9b1b03416a98310cdbb10"
+              },
+              "command": {
+                "kind": "query",
+                "table": "calendar_bindings",
+                "filters": [
+                  {
+                    "column": "biz_id",
+                    "op": "eq",
+                    "value": "biz_07ad4f5b9a684c418d9a05883fa"
+                  },
+                  {
+                    "column": "owner_ref_key",
+                    "op": "eq",
+                    "value": "resource:resource_3ddcf840c73841cd8faba64ab94"
+                  }
+                ],
+                "sort": []
+              }
+            },
+            "response": {
+              "requestId": "2e14387b-e658-4e90-8257-172c8d877294",
+              "dryRun": false,
+              "success": true,
+              "commandKind": "query",
+              "warnings": [],
+              "trace": [
+                {
+                  "stepIndex": 0,
+                  "kind": "query",
+                  "table": "calendar_bindings",
+                  "sqlPreview": "SELECT \"id\", \"biz_id\", \"calendar_id\", \"owner_type\", \"resource_id\", \"service_id\", \"service_product_id\", \"offer_id\", \"offer_version_id\", \"location_id\", \"owner_user_id\", \"owner_ref_type\", \"owner_ref_id\", \"owner_ref_key\", \"is_primary\", \"is_active\", \"metadata\", \"created_at\", \"updated_at\", \"deleted_at\", \"created_by\", \"updated_by\", \"deleted_by\" FROM \"calendar_bindings\" WHERE \"biz_id\" = $1 AND \"owner_ref_key\" = $2 LIMIT 100",
+                  "params": [
+                    "biz_07ad4f5b9a684c418d9a05883fa",
+                    "resource:resource_3ddcf840c73841cd8faba64ab94"
+                  ],
+                  "rowCount": 1,
+                  "dryRun": false
+                }
+              ],
+              "result": {
+                "table": "calendar_bindings",
+                "rowCount": 1,
+                "rows": [
+                  {
+                    "id": "binding_256c46816dd54b97a7d24f13612",
+                    "biz_id": "biz_07ad4f5b9a684c418d9a05883fa",
+                    "calendar_id": "calendar_d9c33b7724104c1f92e76a2898b",
+                    "owner_type": "resource",
+                    "resource_id": "resource_3ddcf840c73841cd8faba64ab94",
+                    "service_id": null,
+                    "service_product_id": null,
+                    "offer_id": null,
+                    "offer_version_id": null,
+                    "location_id": null,
+                    "owner_user_id": null,
+                    "owner_ref_type": null,
+                    "owner_ref_id": null,
+                    "owner_ref_key": "resource:resource_3ddcf840c73841cd8faba64ab94",
+                    "is_primary": true,
+                    "is_active": true,
+                    "metadata": {},
+                    "created_at": "2026-02-22 17:24:05.825992+00",
+                    "updated_at": "2026-02-22 17:24:05.825992+00",
+                    "deleted_at": null,
+                    "created_by": null,
+                    "updated_by": null,
+                    "deleted_by": null
+                  }
+                ]
+              }
+            },
+            "expectationFailures": [],
+            "captures": {}
+          },
+          {
+            "phaseId": "phase-calendar-verify",
+            "phaseName": "Calendar + Availability Verification",
+            "stepId": "uc1-verify-02",
+            "stepName": "Owner reads availability rules",
+            "success": true,
+            "startedAt": "2026-02-22T17:24:08.307Z",
+            "endedAt": "2026-02-22T17:24:08.427Z",
+            "durationMs": 120,
+            "prompt": "list availability_rules where biz_id = {{id:biz}} and calendar_id = {{id:calendar}} and is_active = true",
+            "resolvedPrompt": "list availability_rules where biz_id = biz_07ad4f5b9a684c418d9a05883fa and calendar_id = calendar_d9c33b7724104c1f92e76a2898b and is_active = true",
+            "translation": {
+              "success": true,
+              "confidence": 0.7,
+              "notes": [],
+              "inferred": {
+                "action": "query",
+                "table": "availability_rules"
+              },
+              "pseudoRequest": {
+                "requestId": "8ce5eb6a-91fd-4045-8886-334d9e313915",
+                "dryRun": false,
+                "scope": {
+                  "bizId": "biz_07ad4f5b9a684c418d9a05883fa",
+                  "actorUserId": "owner_user_732f1e9b1b03416a98310cdbb10"
+                },
+                "command": {
+                  "kind": "query",
+                  "table": "availability_rules",
+                  "filters": [
+                    {
+                      "column": "biz_id",
+                      "op": "eq",
+                      "value": "biz_07ad4f5b9a684c418d9a05883fa"
+                    },
+                    {
+                      "column": "calendar_id",
+                      "op": "eq",
+                      "value": "calendar_d9c33b7724104c1f92e76a2898b"
+                    },
+                    {
+                      "column": "is_active",
+                      "op": "eq",
+                      "value": true
+                    }
+                  ],
+                  "sort": []
+                }
+              }
+            },
+            "request": {
+              "requestId": "8ce5eb6a-91fd-4045-8886-334d9e313915",
+              "dryRun": false,
+              "scope": {
+                "bizId": "biz_07ad4f5b9a684c418d9a05883fa",
+                "actorUserId": "owner_user_732f1e9b1b03416a98310cdbb10"
+              },
+              "command": {
+                "kind": "query",
+                "table": "availability_rules",
+                "filters": [
+                  {
+                    "column": "biz_id",
+                    "op": "eq",
+                    "value": "biz_07ad4f5b9a684c418d9a05883fa"
+                  },
+                  {
+                    "column": "calendar_id",
+                    "op": "eq",
+                    "value": "calendar_d9c33b7724104c1f92e76a2898b"
+                  },
+                  {
+                    "column": "is_active",
+                    "op": "eq",
+                    "value": true
+                  }
+                ],
+                "sort": []
+              }
+            },
+            "response": {
+              "requestId": "8ce5eb6a-91fd-4045-8886-334d9e313915",
+              "dryRun": false,
+              "success": true,
+              "commandKind": "query",
+              "warnings": [],
+              "trace": [
+                {
+                  "stepIndex": 0,
+                  "kind": "query",
+                  "table": "availability_rules",
+                  "sqlPreview": "SELECT \"id\", \"biz_id\", \"calendar_id\", \"overlay_id\", \"name\", \"mode\", \"frequency\", \"recurrence_rule\", \"day_of_week\", \"day_of_month\", \"start_date\", \"end_date\", \"start_time\", \"end_time\", \"start_at\", \"end_at\", \"action\", \"capacity_delta\", \"pricing_adjustment\", \"priority\", \"is_active\", \"metadata\", \"created_at\", \"updated_at\", \"deleted_at\", \"created_by\", \"updated_by\", \"deleted_by\" FROM \"availability_rules\" WHERE \"biz_id\" = $1 AND \"calendar_id\" = $2 AND \"is_active\" = $3 LIMIT 100",
+                  "params": [
+                    "biz_07ad4f5b9a684c418d9a05883fa",
+                    "calendar_d9c33b7724104c1f92e76a2898b",
+                    true
+                  ],
+                  "rowCount": 1,
+                  "dryRun": false
+                }
+              ],
+              "result": {
+                "table": "availability_rules",
+                "rowCount": 1,
+                "rows": [
+                  {
+                    "id": "availability_rule_626ab029a4904dbe81cf3810cab",
+                    "biz_id": "biz_07ad4f5b9a684c418d9a05883fa",
+                    "calendar_id": "calendar_d9c33b7724104c1f92e76a2898b",
+                    "overlay_id": null,
+                    "name": "Weekday",
+                    "mode": "recurring",
+                    "frequency": "weekly",
+                    "recurrence_rule": null,
+                    "day_of_week": 1,
+                    "day_of_month": null,
+                    "start_date": null,
+                    "end_date": null,
+                    "start_time": "09:00:00",
+                    "end_time": "17:00:00",
+                    "start_at": null,
+                    "end_at": null,
+                    "action": "available",
+                    "capacity_delta": null,
+                    "pricing_adjustment": null,
+                    "priority": 100,
+                    "is_active": true,
+                    "metadata": {},
+                    "created_at": "2026-02-22 17:24:05.825992+00",
+                    "updated_at": "2026-02-22 17:24:05.825992+00",
+                    "deleted_at": null,
+                    "created_by": null,
+                    "updated_by": null,
+                    "deleted_by": null
+                  }
+                ]
+              }
+            },
+            "expectationFailures": [],
+            "captures": {}
+          },
+          {
+            "phaseId": "phase-calendar-verify",
+            "phaseName": "Calendar + Availability Verification",
+            "stepId": "uc1-verify-03",
+            "stepName": "Owner reads host assignments at slot level",
+            "success": true,
+            "startedAt": "2026-02-22T17:24:08.427Z",
+            "endedAt": "2026-02-22T17:24:08.539Z",
+            "durationMs": 112,
+            "prompt": "list fulfillment_assignments where biz_id = {{id:biz}} and resource_id = {{id:resource}} and status = confirmed",
+            "resolvedPrompt": "list fulfillment_assignments where biz_id = biz_07ad4f5b9a684c418d9a05883fa and resource_id = resource_3ddcf840c73841cd8faba64ab94 and status = confirmed",
+            "translation": {
+              "success": true,
+              "confidence": 0.7,
+              "notes": [],
+              "inferred": {
+                "action": "query",
+                "table": "fulfillment_assignments"
+              },
+              "pseudoRequest": {
+                "requestId": "9595f0ff-8111-4d6f-9d5e-328bb8630894",
+                "dryRun": false,
+                "scope": {
+                  "bizId": "biz_07ad4f5b9a684c418d9a05883fa",
+                  "actorUserId": "owner_user_732f1e9b1b03416a98310cdbb10"
+                },
+                "command": {
+                  "kind": "query",
+                  "table": "fulfillment_assignments",
+                  "filters": [
+                    {
+                      "column": "biz_id",
+                      "op": "eq",
+                      "value": "biz_07ad4f5b9a684c418d9a05883fa"
+                    },
+                    {
+                      "column": "resource_id",
+                      "op": "eq",
+                      "value": "resource_3ddcf840c73841cd8faba64ab94"
+                    },
+                    {
+                      "column": "status",
+                      "op": "eq",
+                      "value": "confirmed"
+                    }
+                  ],
+                  "sort": []
+                }
+              }
+            },
+            "request": {
+              "requestId": "9595f0ff-8111-4d6f-9d5e-328bb8630894",
+              "dryRun": false,
+              "scope": {
+                "bizId": "biz_07ad4f5b9a684c418d9a05883fa",
+                "actorUserId": "owner_user_732f1e9b1b03416a98310cdbb10"
+              },
+              "command": {
+                "kind": "query",
+                "table": "fulfillment_assignments",
+                "filters": [
+                  {
+                    "column": "biz_id",
+                    "op": "eq",
+                    "value": "biz_07ad4f5b9a684c418d9a05883fa"
+                  },
+                  {
+                    "column": "resource_id",
+                    "op": "eq",
+                    "value": "resource_3ddcf840c73841cd8faba64ab94"
+                  },
+                  {
+                    "column": "status",
+                    "op": "eq",
+                    "value": "confirmed"
+                  }
+                ],
+                "sort": []
+              }
+            },
+            "response": {
+              "requestId": "9595f0ff-8111-4d6f-9d5e-328bb8630894",
+              "dryRun": false,
+              "success": true,
+              "commandKind": "query",
+              "warnings": [],
+              "trace": [
+                {
+                  "stepIndex": 0,
+                  "kind": "query",
+                  "table": "fulfillment_assignments",
+                  "sqlPreview": "SELECT \"id\", \"biz_id\", \"fulfillment_unit_id\", \"resource_id\", \"status\", \"status_config_value_id\", \"conflict_policy\", \"role_label\", \"starts_at\", \"ends_at\", \"is_primary\", \"compensation_split_bps\", \"assigned_by_user_id\", \"assigned_at\", \"metadata\", \"created_at\", \"updated_at\", \"deleted_at\", \"created_by\", \"updated_by\", \"deleted_by\" FROM \"fulfillment_assignments\" WHERE \"biz_id\" = $1 AND \"resource_id\" = $2 AND \"status\" = $3 LIMIT 100",
+                  "params": [
+                    "biz_07ad4f5b9a684c418d9a05883fa",
+                    "resource_3ddcf840c73841cd8faba64ab94",
+                    "confirmed"
+                  ],
+                  "rowCount": 1,
+                  "dryRun": false
+                }
+              ],
+              "result": {
+                "table": "fulfillment_assignments",
+                "rowCount": 1,
+                "rows": [
+                  {
+                    "id": "assign1_995a67035b114c76907caf21dbb",
+                    "biz_id": "biz_07ad4f5b9a684c418d9a05883fa",
+                    "fulfillment_unit_id": "unit1_3f03ab3fcf2a4c30a7ef2dad448",
+                    "resource_id": "resource_3ddcf840c73841cd8faba64ab94",
+                    "status": "confirmed",
+                    "status_config_value_id": null,
+                    "conflict_policy": "enforce_no_overlap",
+                    "role_label": null,
+                    "starts_at": "2026-03-10 17:00:00+00",
+                    "ends_at": "2026-03-10 17:50:00+00",
+                    "is_primary": true,
+                    "compensation_split_bps": null,
+                    "assigned_by_user_id": null,
+                    "assigned_at": null,
+                    "metadata": {},
+                    "created_at": "2026-02-22 17:24:05.825992+00",
+                    "updated_at": "2026-02-22 17:24:05.825992+00",
+                    "deleted_at": null,
+                    "created_by": null,
+                    "updated_by": null,
+                    "deleted_by": null
+                  }
+                ]
+              }
+            },
+            "expectationFailures": [],
+            "captures": {}
+          },
+          {
+            "phaseId": "phase-calendar-verify",
+            "phaseName": "Calendar + Availability Verification",
+            "stepId": "uc1-verify-04",
+            "stepName": "Customer sees confirmed bookings",
+            "success": true,
+            "startedAt": "2026-02-22T17:24:08.539Z",
+            "endedAt": "2026-02-22T17:24:08.631Z",
+            "durationMs": 92,
+            "prompt": "list booking_orders where biz_id = {{id:biz}} and customer_user_id = {{id:customer_user}} and status = confirmed",
+            "resolvedPrompt": "list booking_orders where biz_id = biz_07ad4f5b9a684c418d9a05883fa and customer_user_id = customer_user_b29d56aed65c4d9096a23156c08 and status = confirmed",
+            "translation": {
+              "success": true,
+              "confidence": 0.7,
+              "notes": [],
+              "inferred": {
+                "action": "query",
+                "table": "booking_orders"
+              },
+              "pseudoRequest": {
+                "requestId": "2c4922d3-296b-4866-a46a-ca1025111a0b",
+                "dryRun": false,
+                "scope": {
+                  "bizId": "biz_07ad4f5b9a684c418d9a05883fa",
+                  "actorUserId": "customer_user_b29d56aed65c4d9096a23156c08"
+                },
+                "command": {
+                  "kind": "query",
+                  "table": "booking_orders",
+                  "filters": [
+                    {
+                      "column": "biz_id",
+                      "op": "eq",
+                      "value": "biz_07ad4f5b9a684c418d9a05883fa"
+                    },
+                    {
+                      "column": "customer_user_id",
+                      "op": "eq",
+                      "value": "customer_user_b29d56aed65c4d9096a23156c08"
+                    },
+                    {
+                      "column": "status",
+                      "op": "eq",
+                      "value": "confirmed"
+                    }
+                  ],
+                  "sort": []
+                }
+              }
+            },
+            "request": {
+              "requestId": "2c4922d3-296b-4866-a46a-ca1025111a0b",
+              "dryRun": false,
+              "scope": {
+                "bizId": "biz_07ad4f5b9a684c418d9a05883fa",
+                "actorUserId": "customer_user_b29d56aed65c4d9096a23156c08"
+              },
+              "command": {
+                "kind": "query",
+                "table": "booking_orders",
+                "filters": [
+                  {
+                    "column": "biz_id",
+                    "op": "eq",
+                    "value": "biz_07ad4f5b9a684c418d9a05883fa"
+                  },
+                  {
+                    "column": "customer_user_id",
+                    "op": "eq",
+                    "value": "customer_user_b29d56aed65c4d9096a23156c08"
+                  },
+                  {
+                    "column": "status",
+                    "op": "eq",
+                    "value": "confirmed"
+                  }
+                ],
+                "sort": []
+              }
+            },
+            "response": {
+              "requestId": "2c4922d3-296b-4866-a46a-ca1025111a0b",
+              "dryRun": false,
+              "success": true,
+              "commandKind": "query",
+              "warnings": [],
+              "trace": [
+                {
+                  "stepIndex": 0,
+                  "kind": "query",
+                  "table": "booking_orders",
+                  "sqlPreview": "SELECT \"id\", \"biz_id\", \"offer_id\", \"offer_version_id\", \"customer_user_id\", \"customer_group_account_id\", \"status\", \"status_config_value_id\", \"currency\", \"subtotal_minor\", \"tax_minor\", \"fee_minor\", \"discount_minor\", \"total_minor\", \"requested_start_at\", \"requested_end_at\", \"confirmed_start_at\", \"confirmed_end_at\", \"pricing_snapshot\", \"policy_snapshot\", \"metadata\", \"created_at\", \"updated_at\", \"deleted_at\", \"created_by\", \"updated_by\", \"deleted_by\" FROM \"booking_orders\" WHERE \"biz_id\" = $1 AND \"customer_user_id\" = $2 AND \"status\" = $3 LIMIT 100",
+                  "params": [
+                    "biz_07ad4f5b9a684c418d9a05883fa",
+                    "customer_user_b29d56aed65c4d9096a23156c08",
+                    "confirmed"
+                  ],
+                  "rowCount": 2,
+                  "dryRun": false
+                }
+              ],
+              "result": {
+                "table": "booking_orders",
+                "rowCount": 2,
+                "rows": [
+                  {
+                    "id": "order1_c0f32c497126488a906ec5ebd45",
+                    "biz_id": "biz_07ad4f5b9a684c418d9a05883fa",
+                    "offer_id": "offer_d0638f1db0504196aa4db93da80",
+                    "offer_version_id": "offer_version_bf89d87a76cb4968acb19940b78",
+                    "customer_user_id": "customer_user_b29d56aed65c4d9096a23156c08",
+                    "customer_group_account_id": null,
+                    "status": "confirmed",
+                    "status_config_value_id": null,
+                    "currency": "USD",
+                    "subtotal_minor": 15000,
+                    "tax_minor": 0,
+                    "fee_minor": 0,
+                    "discount_minor": 0,
+                    "total_minor": 15000,
+                    "requested_start_at": "2026-03-10 17:00:00+00",
+                    "requested_end_at": "2026-03-10 17:50:00+00",
+                    "confirmed_start_at": "2026-03-10 17:00:00+00",
+                    "confirmed_end_at": "2026-03-10 17:50:00+00",
+                    "pricing_snapshot": {},
+                    "policy_snapshot": {},
+                    "metadata": {},
+                    "created_at": "2026-02-22 17:24:05.825992+00",
+                    "updated_at": "2026-02-22 17:24:05.825992+00",
+                    "deleted_at": null,
+                    "created_by": null,
+                    "updated_by": null,
+                    "deleted_by": null
+                  },
+                  {
+                    "id": "order2_b521aebaea484d80b5cc017eeb5",
+                    "biz_id": "biz_07ad4f5b9a684c418d9a05883fa",
+                    "offer_id": "offer_d0638f1db0504196aa4db93da80",
+                    "offer_version_id": "offer_version_bf89d87a76cb4968acb19940b78",
+                    "customer_user_id": "customer_user_b29d56aed65c4d9096a23156c08",
+                    "customer_group_account_id": null,
+                    "status": "confirmed",
+                    "status_config_value_id": null,
+                    "currency": "USD",
+                    "subtotal_minor": 15000,
+                    "tax_minor": 0,
+                    "fee_minor": 0,
+                    "discount_minor": 0,
+                    "total_minor": 15000,
+                    "requested_start_at": "2026-03-10 17:15:00+00",
+                    "requested_end_at": "2026-03-10 18:05:00+00",
+                    "confirmed_start_at": "2026-03-10 17:15:00+00",
+                    "confirmed_end_at": "2026-03-10 18:05:00+00",
+                    "pricing_snapshot": {},
+                    "policy_snapshot": {},
+                    "metadata": {},
+                    "created_at": "2026-02-22 17:24:05.825992+00",
+                    "updated_at": "2026-02-22 17:24:05.825992+00",
+                    "deleted_at": null,
+                    "created_by": null,
+                    "updated_by": null,
+                    "deleted_by": null
+                  }
+                ]
+              }
+            },
+            "expectationFailures": [],
+            "captures": {}
+          },
+          {
+            "phaseId": "phase-cleanup",
+            "phaseName": "Mutation Coverage",
+            "stepId": "uc1-cleanup-01",
+            "stepName": "Delete product",
+            "success": true,
+            "startedAt": "2026-02-22T17:24:08.631Z",
+            "endedAt": "2026-02-22T17:24:08.779Z",
+            "durationMs": 148,
+            "prompt": "delete from products where id = {{id:product}} and biz_id = {{id:biz}}",
+            "resolvedPrompt": "delete from products where id = product_363a47b35ab94c1cb72912730a6 and biz_id = biz_07ad4f5b9a684c418d9a05883fa",
+            "translation": {
+              "success": true,
+              "confidence": 0.8,
+              "notes": [],
+              "inferred": {
+                "action": "delete",
+                "table": "products"
+              },
+              "pseudoRequest": {
+                "requestId": "60b585dd-bf77-4222-ab59-dafad07da806",
+                "dryRun": false,
+                "scope": {
+                  "bizId": "biz_07ad4f5b9a684c418d9a05883fa",
+                  "actorUserId": "owner_user_732f1e9b1b03416a98310cdbb10"
+                },
+                "command": {
+                  "kind": "mutate",
+                  "action": "delete",
+                  "table": "products",
+                  "filters": [
+                    {
+                      "column": "id",
+                      "op": "eq",
+                      "value": "product_363a47b35ab94c1cb72912730a6"
+                    },
+                    {
+                      "column": "biz_id",
+                      "op": "eq",
+                      "value": "biz_07ad4f5b9a684c418d9a05883fa"
+                    }
+                  ],
+                  "returning": [
+                    "id"
+                  ]
+                }
+              }
+            },
+            "request": {
+              "requestId": "60b585dd-bf77-4222-ab59-dafad07da806",
+              "dryRun": false,
+              "scope": {
+                "bizId": "biz_07ad4f5b9a684c418d9a05883fa",
+                "actorUserId": "owner_user_732f1e9b1b03416a98310cdbb10"
+              },
+              "command": {
+                "kind": "mutate",
+                "action": "delete",
+                "table": "products",
+                "filters": [
+                  {
+                    "column": "id",
+                    "op": "eq",
+                    "value": "product_363a47b35ab94c1cb72912730a6"
+                  },
+                  {
+                    "column": "biz_id",
+                    "op": "eq",
+                    "value": "biz_07ad4f5b9a684c418d9a05883fa"
+                  }
+                ],
+                "returning": [
+                  "id"
+                ]
+              }
+            },
+            "response": {
+              "requestId": "60b585dd-bf77-4222-ab59-dafad07da806",
+              "dryRun": false,
+              "success": true,
+              "commandKind": "mutate",
+              "warnings": [],
+              "trace": [
+                {
+                  "stepIndex": 0,
+                  "kind": "mutate",
+                  "table": "products",
+                  "sqlPreview": "DELETE FROM \"products\" WHERE \"id\" = $1 AND \"biz_id\" = $2 RETURNING \"id\"",
+                  "params": [
+                    "product_363a47b35ab94c1cb72912730a6",
+                    "biz_07ad4f5b9a684c418d9a05883fa"
+                  ],
+                  "rowCount": 1,
+                  "dryRun": false
+                }
+              ],
+              "result": {
+                "table": "products",
+                "action": "delete",
+                "rowCount": 1,
+                "rows": [
+                  {
+                    "id": "product_363a47b35ab94c1cb72912730a6"
+                  }
+                ]
+              }
+            },
+            "expectationFailures": [],
+            "captures": {}
+          },
+          {
+            "phaseId": "phase-cleanup",
+            "phaseName": "Mutation Coverage",
+            "stepId": "uc1-cleanup-02",
+            "stepName": "Verify product is gone",
+            "success": true,
+            "startedAt": "2026-02-22T17:24:08.779Z",
+            "endedAt": "2026-02-22T17:24:08.921Z",
+            "durationMs": 142,
+            "prompt": "list products where biz_id = {{id:biz}} and id = {{id:product}}",
+            "resolvedPrompt": "list products where biz_id = biz_07ad4f5b9a684c418d9a05883fa and id = product_363a47b35ab94c1cb72912730a6",
+            "translation": {
+              "success": true,
+              "confidence": 0.7,
+              "notes": [],
+              "inferred": {
+                "action": "query",
+                "table": "products"
+              },
+              "pseudoRequest": {
+                "requestId": "b88a3b2d-2689-48ee-a3d7-a691e44a8247",
+                "dryRun": false,
+                "scope": {
+                  "bizId": "biz_07ad4f5b9a684c418d9a05883fa",
+                  "actorUserId": "owner_user_732f1e9b1b03416a98310cdbb10"
+                },
+                "command": {
+                  "kind": "query",
+                  "table": "products",
+                  "filters": [
+                    {
+                      "column": "biz_id",
+                      "op": "eq",
+                      "value": "biz_07ad4f5b9a684c418d9a05883fa"
+                    },
+                    {
+                      "column": "id",
+                      "op": "eq",
+                      "value": "product_363a47b35ab94c1cb72912730a6"
+                    }
+                  ],
+                  "sort": []
+                }
+              }
+            },
+            "request": {
+              "requestId": "b88a3b2d-2689-48ee-a3d7-a691e44a8247",
+              "dryRun": false,
+              "scope": {
+                "bizId": "biz_07ad4f5b9a684c418d9a05883fa",
+                "actorUserId": "owner_user_732f1e9b1b03416a98310cdbb10"
+              },
+              "command": {
+                "kind": "query",
+                "table": "products",
+                "filters": [
+                  {
+                    "column": "biz_id",
+                    "op": "eq",
+                    "value": "biz_07ad4f5b9a684c418d9a05883fa"
+                  },
+                  {
+                    "column": "id",
+                    "op": "eq",
+                    "value": "product_363a47b35ab94c1cb72912730a6"
+                  }
+                ],
+                "sort": []
+              }
+            },
+            "response": {
+              "requestId": "b88a3b2d-2689-48ee-a3d7-a691e44a8247",
+              "dryRun": false,
+              "success": true,
+              "commandKind": "query",
+              "warnings": [],
+              "trace": [
+                {
+                  "stepIndex": 0,
+                  "kind": "query",
+                  "table": "products",
+                  "sqlPreview": "SELECT \"id\", \"biz_id\", \"location_id\", \"name\", \"slug\", \"sku\", \"description\", \"base_price_minor\", \"cost_minor\", \"currency\", \"type\", \"status\", \"download_url\", \"metadata\", \"created_at\", \"updated_at\", \"deleted_at\", \"created_by\", \"updated_by\", \"deleted_by\" FROM \"products\" WHERE \"biz_id\" = $1 AND \"id\" = $2 LIMIT 100",
+                  "params": [
+                    "biz_07ad4f5b9a684c418d9a05883fa",
+                    "product_363a47b35ab94c1cb72912730a6"
+                  ],
+                  "rowCount": 0,
+                  "dryRun": false
+                }
+              ],
+              "result": {
+                "table": "products",
+                "rowCount": 0,
+                "rows": []
+              }
+            },
+            "expectationFailures": [],
+            "captures": {}
+          }
+        ],
+        "issues": [],
+        "variables": {
+          "runId": "52a9fdcd-a1cb-47a2-8e0e-0b4b97b746ac",
+          "runStartedAt": "2026-02-22T17:24:05.490Z",
+          "timezone": "America/Los_Angeles",
+          "offerSlug": "career-coaching-52a9fdcd-a1cb-47a2-8e0e-0b4b97b746ac",
+          "productSlug": "intake-kit-52a9fdcd-a1cb-47a2-8e0e-0b4b97b746ac",
+          "capturedOfferId": "offer_d0638f1db0504196aa4db93da80"
+        },
+        "warnings": [
+          "Lifecycle executed in dry-run mode; transaction rolled back."
+        ]
+      }
+    },
+    {
+      "id": "persona_scenario_smoke",
+      "name": "Persona Scenario Smoke",
+      "kind": "scenario",
+      "success": true,
+      "total": 5,
+      "passed": 5,
+      "failed": 0,
+      "durationMs": 553,
+      "warnings": [],
+      "issueCount": 0,
+      "details": {
+        "success": true,
+        "total": 5,
+        "succeeded": 5,
+        "failed": 0,
+        "results": [
+          {
+            "id": "scenario-smoke-01",
+            "name": "Create smoke biz",
+            "prompt": "insert into bizes id = biz_smoke_070cc303d90e4779bf454dc84c0 name = Smoke Biz 40ce65b2-bae0-482c-aaa0-0b58c46fe2c3 slug = smoke-biz-40ce65b2-bae0-482c-aaa0-0b58c46fe2c3 status = active timezone = America/Los_Angeles",
+            "success": true,
+            "translation": {
+              "success": true,
+              "confidence": 0.8,
+              "notes": [],
+              "inferred": {
+                "action": "insert",
+                "table": "bizes"
+              },
+              "pseudoRequest": {
+                "requestId": "e24be16f-18f2-4454-ae5b-4cd4da03ea12",
+                "dryRun": true,
+                "scope": {
+                  "bizId": "biz_smoke_070cc303d90e4779bf454dc84c0"
+                },
+                "command": {
+                  "kind": "mutate",
+                  "action": "insert",
+                  "table": "bizes",
+                  "values": {
+                    "id": "biz_smoke_070cc303d90e4779bf454dc84c0",
+                    "name": "Smoke",
+                    "slug": "smoke-biz-40ce65b2-bae0-482c-aaa0-0b58c46fe2c3",
+                    "status": "active",
+                    "timezone": "America/Los_Angeles"
+                  },
+                  "filters": [],
+                  "returning": [
+                    "id"
+                  ]
+                }
+              }
+            },
+            "request": {
+              "requestId": "e24be16f-18f2-4454-ae5b-4cd4da03ea12",
+              "dryRun": true,
+              "scope": {
+                "bizId": "biz_smoke_070cc303d90e4779bf454dc84c0"
+              },
+              "command": {
+                "kind": "mutate",
+                "action": "insert",
+                "table": "bizes",
+                "values": {
+                  "id": "biz_smoke_070cc303d90e4779bf454dc84c0",
+                  "name": "Smoke",
+                  "slug": "smoke-biz-40ce65b2-bae0-482c-aaa0-0b58c46fe2c3",
+                  "status": "active",
+                  "timezone": "America/Los_Angeles"
+                },
+                "filters": [],
+                "returning": [
+                  "id"
+                ]
+              }
+            },
+            "response": {
+              "requestId": "e24be16f-18f2-4454-ae5b-4cd4da03ea12",
+              "dryRun": true,
+              "success": true,
+              "commandKind": "mutate",
+              "warnings": [
+                "Request executed in dry-run mode; all writes were rolled back."
+              ],
+              "trace": [
+                {
+                  "stepIndex": 0,
+                  "kind": "mutate",
+                  "table": "bizes",
+                  "sqlPreview": "INSERT INTO \"bizes\" (\"id\", \"name\", \"slug\", \"status\", \"timezone\") VALUES ($1, $2, $3, $4, $5) RETURNING \"id\"",
+                  "params": [
+                    "biz_smoke_070cc303d90e4779bf454dc84c0",
+                    "Smoke",
+                    "smoke-biz-40ce65b2-bae0-482c-aaa0-0b58c46fe2c3",
+                    "active",
+                    "America/Los_Angeles"
+                  ],
+                  "rowCount": 1,
+                  "dryRun": true
+                }
+              ],
+              "result": {
+                "table": "bizes",
+                "action": "insert",
+                "rowCount": 1,
+                "rows": [
+                  {
+                    "id": "biz_smoke_070cc303d90e4779bf454dc84c0"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "id": "scenario-smoke-02",
+            "name": "Create smoke host user",
+            "prompt": "insert into users id = user_smoke_ac5ade8386564321a5f41632b51 email = smoke.40ce65b2-bae0-482c-aaa0-0b58c46fe2c3@example.com name = Smoke User status = active",
+            "success": true,
+            "translation": {
+              "success": true,
+              "confidence": 0.8,
+              "notes": [],
+              "inferred": {
+                "action": "insert",
+                "table": "users"
+              },
+              "pseudoRequest": {
+                "requestId": "7f8cd2ab-de59-41fd-a350-edae81e19f9f",
+                "dryRun": true,
+                "scope": {
+                  "bizId": "biz_smoke_070cc303d90e4779bf454dc84c0"
+                },
+                "command": {
+                  "kind": "mutate",
+                  "action": "insert",
+                  "table": "users",
+                  "values": {
+                    "id": "user_smoke_ac5ade8386564321a5f41632b51",
+                    "email": "smoke.40ce65b2-bae0-482c-aaa0-0b58c46fe2c3@example.com",
+                    "name": "Smoke",
+                    "status": "active"
+                  },
+                  "filters": [],
+                  "returning": [
+                    "id"
+                  ]
+                }
+              }
+            },
+            "request": {
+              "requestId": "7f8cd2ab-de59-41fd-a350-edae81e19f9f",
+              "dryRun": true,
+              "scope": {
+                "bizId": "biz_smoke_070cc303d90e4779bf454dc84c0"
+              },
+              "command": {
+                "kind": "mutate",
+                "action": "insert",
+                "table": "users",
+                "values": {
+                  "id": "user_smoke_ac5ade8386564321a5f41632b51",
+                  "email": "smoke.40ce65b2-bae0-482c-aaa0-0b58c46fe2c3@example.com",
+                  "name": "Smoke",
+                  "status": "active"
+                },
+                "filters": [],
+                "returning": [
+                  "id"
+                ]
+              }
+            },
+            "response": {
+              "requestId": "7f8cd2ab-de59-41fd-a350-edae81e19f9f",
+              "dryRun": true,
+              "success": true,
+              "commandKind": "mutate",
+              "warnings": [
+                "Request executed in dry-run mode; all writes were rolled back."
+              ],
+              "trace": [
+                {
+                  "stepIndex": 0,
+                  "kind": "mutate",
+                  "table": "users",
+                  "sqlPreview": "INSERT INTO \"users\" (\"id\", \"email\", \"name\", \"status\") VALUES ($1, $2, $3, $4) RETURNING \"id\"",
+                  "params": [
+                    "user_smoke_ac5ade8386564321a5f41632b51",
+                    "smoke.40ce65b2-bae0-482c-aaa0-0b58c46fe2c3@example.com",
+                    "Smoke",
+                    "active"
+                  ],
+                  "rowCount": 1,
+                  "dryRun": true
+                }
+              ],
+              "result": {
+                "table": "users",
+                "action": "insert",
+                "rowCount": 1,
+                "rows": [
+                  {
+                    "id": "user_smoke_ac5ade8386564321a5f41632b51"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "id": "scenario-smoke-03",
+            "name": "Verify smoke biz query shape",
+            "prompt": "list bizes where id = biz_smoke_070cc303d90e4779bf454dc84c0",
+            "success": true,
+            "translation": {
+              "success": true,
+              "confidence": 0.7,
+              "notes": [],
+              "inferred": {
+                "action": "query",
+                "table": "bizes"
+              },
+              "pseudoRequest": {
+                "requestId": "10c35f12-2d8f-4c74-8ed7-a84983eb284f",
+                "dryRun": true,
+                "scope": {
+                  "bizId": "biz_smoke_070cc303d90e4779bf454dc84c0"
+                },
+                "command": {
+                  "kind": "query",
+                  "table": "bizes",
+                  "filters": [
+                    {
+                      "column": "id",
+                      "op": "eq",
+                      "value": "biz_smoke_070cc303d90e4779bf454dc84c0"
+                    }
+                  ],
+                  "sort": []
+                }
+              }
+            },
+            "request": {
+              "requestId": "10c35f12-2d8f-4c74-8ed7-a84983eb284f",
+              "dryRun": true,
+              "scope": {
+                "bizId": "biz_smoke_070cc303d90e4779bf454dc84c0"
+              },
+              "command": {
+                "kind": "query",
+                "table": "bizes",
+                "filters": [
+                  {
+                    "column": "id",
+                    "op": "eq",
+                    "value": "biz_smoke_070cc303d90e4779bf454dc84c0"
+                  }
+                ],
+                "sort": []
+              }
+            },
+            "response": {
+              "requestId": "10c35f12-2d8f-4c74-8ed7-a84983eb284f",
+              "dryRun": true,
+              "success": true,
+              "commandKind": "query",
+              "warnings": [
+                "Request executed in dry-run mode; all writes were rolled back."
+              ],
+              "trace": [
+                {
+                  "stepIndex": 0,
+                  "kind": "query",
+                  "table": "bizes",
+                  "sqlPreview": "SELECT \"id\", \"name\", \"slug\", \"type\", \"logo_url\", \"timezone\", \"currency\", \"status\", \"metadata\", \"created_at\", \"updated_at\", \"deleted_at\", \"created_by\", \"updated_by\", \"deleted_by\" FROM \"bizes\" WHERE \"id\" = $1 LIMIT 100",
+                  "params": [
+                    "biz_smoke_070cc303d90e4779bf454dc84c0"
+                  ],
+                  "rowCount": 0,
+                  "dryRun": true
+                }
+              ],
+              "result": {
+                "table": "bizes",
+                "rowCount": 0,
+                "rows": []
+              }
+            }
+          },
+          {
+            "id": "scenario-smoke-04",
+            "name": "Verify smoke user query shape",
+            "prompt": "list users where id = user_smoke_ac5ade8386564321a5f41632b51",
+            "success": true,
+            "translation": {
+              "success": true,
+              "confidence": 0.7,
+              "notes": [],
+              "inferred": {
+                "action": "query",
+                "table": "users"
+              },
+              "pseudoRequest": {
+                "requestId": "6da00ecf-36dc-4592-8ff6-708e669e84ee",
+                "dryRun": true,
+                "scope": {
+                  "bizId": "biz_smoke_070cc303d90e4779bf454dc84c0"
+                },
+                "command": {
+                  "kind": "query",
+                  "table": "users",
+                  "filters": [
+                    {
+                      "column": "id",
+                      "op": "eq",
+                      "value": "user_smoke_ac5ade8386564321a5f41632b51"
+                    }
+                  ],
+                  "sort": []
+                }
+              }
+            },
+            "request": {
+              "requestId": "6da00ecf-36dc-4592-8ff6-708e669e84ee",
+              "dryRun": true,
+              "scope": {
+                "bizId": "biz_smoke_070cc303d90e4779bf454dc84c0"
+              },
+              "command": {
+                "kind": "query",
+                "table": "users",
+                "filters": [
+                  {
+                    "column": "id",
+                    "op": "eq",
+                    "value": "user_smoke_ac5ade8386564321a5f41632b51"
+                  }
+                ],
+                "sort": []
+              }
+            },
+            "response": {
+              "requestId": "6da00ecf-36dc-4592-8ff6-708e669e84ee",
+              "dryRun": true,
+              "success": true,
+              "commandKind": "query",
+              "warnings": [
+                "Request executed in dry-run mode; all writes were rolled back."
+              ],
+              "trace": [
+                {
+                  "stepIndex": 0,
+                  "kind": "query",
+                  "table": "users",
+                  "sqlPreview": "SELECT \"id\", \"email\", \"password_hash\", \"first_name\", \"last_name\", \"name\", \"phone\", \"role\", \"status\", \"avatar_url\", \"settings\", \"preferences\", \"metadata\", \"email_verified\", \"email_verified_at\", \"banned\", \"ban_reason\", \"ban_expires\", \"created_at\", \"updated_at\", \"deleted_at\" FROM \"users\" WHERE \"id\" = $1 LIMIT 100",
+                  "params": [
+                    "user_smoke_ac5ade8386564321a5f41632b51"
+                  ],
+                  "rowCount": 0,
+                  "dryRun": true
+                }
+              ],
+              "result": {
+                "table": "users",
+                "rowCount": 0,
+                "rows": []
+              }
+            }
+          },
+          {
+            "id": "scenario-smoke-05",
+            "name": "Count offers under smoke biz scope",
+            "prompt": "count offers where biz_id = biz_smoke_070cc303d90e4779bf454dc84c0",
+            "success": true,
+            "translation": {
+              "success": true,
+              "confidence": 0.7,
+              "notes": [],
+              "inferred": {
+                "action": "query",
+                "table": "offers"
+              },
+              "pseudoRequest": {
+                "requestId": "834c1c30-abb7-4787-ab06-f398e800874d",
+                "dryRun": true,
+                "scope": {
+                  "bizId": "biz_smoke_070cc303d90e4779bf454dc84c0"
+                },
+                "command": {
+                  "kind": "query",
+                  "table": "offers",
+                  "filters": [
+                    {
+                      "column": "biz_id",
+                      "op": "eq",
+                      "value": "biz_smoke_070cc303d90e4779bf454dc84c0"
+                    }
+                  ],
+                  "sort": []
+                }
+              }
+            },
+            "request": {
+              "requestId": "834c1c30-abb7-4787-ab06-f398e800874d",
+              "dryRun": true,
+              "scope": {
+                "bizId": "biz_smoke_070cc303d90e4779bf454dc84c0"
+              },
+              "command": {
+                "kind": "query",
+                "table": "offers",
+                "filters": [
+                  {
+                    "column": "biz_id",
+                    "op": "eq",
+                    "value": "biz_smoke_070cc303d90e4779bf454dc84c0"
+                  }
+                ],
+                "sort": []
+              }
+            },
+            "response": {
+              "requestId": "834c1c30-abb7-4787-ab06-f398e800874d",
+              "dryRun": true,
+              "success": true,
+              "commandKind": "query",
+              "warnings": [
+                "Request executed in dry-run mode; all writes were rolled back."
+              ],
+              "trace": [
+                {
+                  "stepIndex": 0,
+                  "kind": "query",
+                  "table": "offers",
+                  "sqlPreview": "SELECT \"id\", \"biz_id\", \"name\", \"slug\", \"description\", \"execution_mode\", \"execution_mode_config_value_id\", \"status\", \"status_config_value_id\", \"is_published\", \"timezone\", \"metadata\", \"created_at\", \"updated_at\", \"deleted_at\", \"created_by\", \"updated_by\", \"deleted_by\" FROM \"offers\" WHERE \"biz_id\" = $1 LIMIT 100",
+                  "params": [
+                    "biz_smoke_070cc303d90e4779bf454dc84c0"
+                  ],
+                  "rowCount": 0,
+                  "dryRun": true
+                }
+              ],
+              "result": {
+                "table": "offers",
+                "rowCount": 0,
+                "rows": []
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "api_smoke",
+      "name": "HTTP API Journey Smoke",
+      "kind": "api_journey",
+      "success": true,
+      "total": 5,
+      "passed": 5,
+      "failed": 0,
+      "durationMs": 82,
+      "warnings": [],
+      "issueCount": 0,
+      "details": {
+        "success": true,
+        "total": 5,
+        "passed": 5,
+        "failed": 0,
+        "steps": [
+          {
+            "stepId": "api-01",
+            "stepName": "Health check",
+            "success": true,
+            "status": 200,
+            "url": "http://localhost:6129/health",
+            "durationMs": 48,
+            "expectationFailures": [],
+            "captures": {}
+          },
+          {
+            "stepId": "api-02",
+            "stepName": "Dashboard stats endpoint responds",
+            "success": true,
+            "status": 200,
+            "url": "http://localhost:6129/api/v1/stats",
+            "durationMs": 3,
+            "expectationFailures": [],
+            "captures": {}
+          },
+          {
+            "stepId": "api-03",
+            "stepName": "Testing catalog responds",
+            "success": true,
+            "status": 200,
+            "url": "http://localhost:6129/api/v1/agent/testing/catalog",
+            "durationMs": 12,
+            "expectationFailures": [],
+            "captures": {}
+          },
+          {
+            "stepId": "api-04",
+            "stepName": "Translate natural language prompt",
+            "success": true,
+            "status": 200,
+            "url": "http://localhost:6129/api/v1/agent/translate",
+            "durationMs": 8,
+            "expectationFailures": [],
+            "captures": {}
+          },
+          {
+            "stepId": "api-05",
+            "stepName": "OpenAPI descriptor available for Code Mode",
+            "success": true,
+            "status": 200,
+            "url": "http://localhost:6129/api/v1/agent/testing/openapi.json",
+            "durationMs": 2,
+            "expectationFailures": [],
+            "captures": {}
+          }
+        ],
+        "issues": [],
+        "variables": {
+          "timezone": "America/Los_Angeles",
+          "runId": "40ce65b2-bae0-482c-aaa0-0b58c46fe2c3",
+          "runStartedAt": "2026-02-22T17:24:05.487Z",
+          "uc1_lifecycle_variables": {
+            "runId": "52a9fdcd-a1cb-47a2-8e0e-0b4b97b746ac",
+            "runStartedAt": "2026-02-22T17:24:05.490Z",
+            "timezone": "America/Los_Angeles",
+            "offerSlug": "career-coaching-52a9fdcd-a1cb-47a2-8e0e-0b4b97b746ac",
+            "productSlug": "intake-kit-52a9fdcd-a1cb-47a2-8e0e-0b4b97b746ac",
+            "capturedOfferId": "offer_d0638f1db0504196aa4db93da80"
+          },
+          "bizId": "biz_a339973160aa4c59995809d65fd"
+        }
+      }
+    }
+  ],
+  "issues": [],
+  "variables": {
+    "timezone": "America/Los_Angeles",
+    "runId": "40ce65b2-bae0-482c-aaa0-0b58c46fe2c3",
+    "runStartedAt": "2026-02-22T17:24:05.487Z",
+    "uc1_lifecycle_variables": {
+      "runId": "52a9fdcd-a1cb-47a2-8e0e-0b4b97b746ac",
+      "runStartedAt": "2026-02-22T17:24:05.490Z",
+      "timezone": "America/Los_Angeles",
+      "offerSlug": "career-coaching-52a9fdcd-a1cb-47a2-8e0e-0b4b97b746ac",
+      "productSlug": "intake-kit-52a9fdcd-a1cb-47a2-8e0e-0b4b97b746ac",
+      "capturedOfferId": "offer_d0638f1db0504196aa4db93da80"
+    },
+    "api_smoke_variables": {
+      "timezone": "America/Los_Angeles",
+      "runId": "40ce65b2-bae0-482c-aaa0-0b58c46fe2c3",
+      "runStartedAt": "2026-02-22T17:24:05.487Z",
+      "uc1_lifecycle_variables": {
+        "runId": "52a9fdcd-a1cb-47a2-8e0e-0b4b97b746ac",
+        "runStartedAt": "2026-02-22T17:24:05.490Z",
+        "timezone": "America/Los_Angeles",
+        "offerSlug": "career-coaching-52a9fdcd-a1cb-47a2-8e0e-0b4b97b746ac",
+        "productSlug": "intake-kit-52a9fdcd-a1cb-47a2-8e0e-0b4b97b746ac",
+        "capturedOfferId": "offer_d0638f1db0504196aa4db93da80"
+      },
+      "bizId": "biz_a339973160aa4c59995809d65fd"
+    }
+  }
+}

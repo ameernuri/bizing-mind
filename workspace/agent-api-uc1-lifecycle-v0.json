@@ -1,0 +1,404 @@
+{
+  "defaults": {
+    "dryRun": true,
+    "scope": {
+      "bizId": "{{id:biz}}"
+    },
+    "continueOnFailure": true
+  },
+  "variables": {
+    "timezone": "America/Los_Angeles",
+    "offerSlug": "career-coaching-{{runId}}",
+    "productSlug": "intake-kit-{{runId}}"
+  },
+  "options": {
+    "rollbackOnFailure": false,
+    "includeStepTrace": true
+  },
+  "phases": [
+    {
+      "id": "phase-auth-setup",
+      "name": "Auth + Setup",
+      "description": "Simulate first-time owner setup, identity creation, and scheduling primitives.",
+      "continueOnFailure": false,
+      "steps": [
+        {
+          "id": "uc1-setup-01",
+          "name": "Create owner user",
+          "prompt": "insert into users id = {{id:owner_user}} email = owner.{{runId}}@example.com name = SarahOwner status = active",
+          "scope": {
+            "actorUserId": "{{id:owner_user}}"
+          },
+          "expect": {
+            "success": true,
+            "rowCountEq": 1
+          }
+        },
+        {
+          "id": "uc1-setup-02",
+          "name": "Create customer user",
+          "prompt": "insert into users id = {{id:customer_user}} email = customer.{{runId}}@example.com name = AlexCustomer status = active",
+          "scope": {
+            "actorUserId": "{{id:owner_user}}"
+          },
+          "expect": {
+            "success": true,
+            "rowCountEq": 1
+          }
+        },
+        {
+          "id": "uc1-setup-03",
+          "name": "Create business",
+          "prompt": "insert into bizes id = {{id:biz}} name = Sarah Career Coaching slug = sarah-coaching-{{runId}} status = active timezone = {{timezone}}",
+          "scope": {
+            "actorUserId": "{{id:owner_user}}"
+          },
+          "expect": {
+            "success": true
+          }
+        },
+        {
+          "id": "uc1-setup-04",
+          "name": "Create location",
+          "prompt": "insert into locations id = {{id:location}} biz_id = {{id:biz}} name = Main Office slug = main-office-{{runId}} timezone = {{timezone}}",
+          "scope": {
+            "actorUserId": "{{id:owner_user}}"
+          },
+          "expect": {
+            "success": true
+          }
+        },
+        {
+          "id": "uc1-setup-05",
+          "name": "Create venue",
+          "prompt": "insert into venues id = {{id:venue}} biz_id = {{id:biz}} location_id = {{id:location}} name = Coaching Room A slug = room-a-{{runId}} setup_minutes = 5 teardown_minutes = 5",
+          "scope": {
+            "actorUserId": "{{id:owner_user}}"
+          },
+          "expect": {
+            "success": true
+          }
+        },
+        {
+          "id": "uc1-setup-06",
+          "name": "Create host resource",
+          "prompt": "insert into resources id = {{id:resource}} biz_id = {{id:biz}} location_id = {{id:location}} type = host host_user_id = {{id:owner_user}} name = Sarah Host slug = sarah-host-{{runId}} timezone = {{timezone}} capacity = 1 allow_simultaneous_bookings = false buffer_before_minutes = 10 buffer_after_minutes = 10",
+          "scope": {
+            "actorUserId": "{{id:owner_user}}"
+          },
+          "expect": {
+            "success": true
+          }
+        },
+        {
+          "id": "uc1-setup-07",
+          "name": "Create host calendar",
+          "prompt": "insert into calendars id = {{id:calendar}} biz_id = {{id:biz}} name = Sarah Calendar timezone = {{timezone}} slot_duration_min = 50 slot_interval_min = 50 pre_buffer_min = 10 post_buffer_min = 10 min_advance_booking_hours = 24 max_advance_booking_days = 60 status = active",
+          "scope": {
+            "actorUserId": "{{id:owner_user}}"
+          },
+          "expect": {
+            "success": true
+          }
+        },
+        {
+          "id": "uc1-setup-08",
+          "name": "Bind calendar to host resource",
+          "prompt": "insert into calendar_bindings id = {{id:binding}} biz_id = {{id:biz}} calendar_id = {{id:calendar}} owner_type = resource resource_id = {{id:resource}} owner_ref_key = resource:{{id:resource}} is_primary = true is_active = true",
+          "scope": {
+            "actorUserId": "{{id:owner_user}}"
+          },
+          "expect": {
+            "success": true
+          }
+        },
+        {
+          "id": "uc1-setup-09",
+          "name": "Create weekly availability",
+          "prompt": "insert into availability_rules id = {{id:availability_rule}} biz_id = {{id:biz}} calendar_id = {{id:calendar}} name = Weekday Office Hours mode = recurring frequency = weekly day_of_week = 1 start_time = 09:00:00 end_time = 17:00:00 action = available is_active = true priority = 100",
+          "scope": {
+            "actorUserId": "{{id:owner_user}}"
+          },
+          "expect": {
+            "success": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "phase-catalog",
+      "name": "Catalog + Publish",
+      "description": "Create product + offer, publish offer, and lock immutable offer version.",
+      "steps": [
+        {
+          "id": "uc1-catalog-01",
+          "name": "Create product draft",
+          "prompt": "insert into products id = {{id:product}} biz_id = {{id:biz}} location_id = {{id:location}} name = Intake Kit slug = {{productSlug}} type = digital status = draft base_price_minor = 3000 currency = USD",
+          "scope": {
+            "actorUserId": "{{id:owner_user}}"
+          },
+          "expect": {
+            "success": true
+          }
+        },
+        {
+          "id": "uc1-catalog-02",
+          "name": "Publish product",
+          "prompt": "update products set status = active where id = {{id:product}} and biz_id = {{id:biz}}",
+          "scope": {
+            "actorUserId": "{{id:owner_user}}"
+          },
+          "expect": {
+            "success": true,
+            "rowCountEq": 1
+          }
+        },
+        {
+          "id": "uc1-catalog-03",
+          "name": "Create offer shell",
+          "prompt": "insert into offers id = {{id:offer}} biz_id = {{id:biz}} name = Career Coaching Session slug = {{offerSlug}} execution_mode = slot status = active is_published = true timezone = {{timezone}}",
+          "scope": {
+            "actorUserId": "{{id:owner_user}}"
+          },
+          "expect": {
+            "success": true
+          }
+        },
+        {
+          "id": "uc1-catalog-04",
+          "name": "Create immutable offer version",
+          "prompt": "insert into offer_versions id = {{id:offer_version}} biz_id = {{id:biz}} offer_id = {{id:offer}} version = 1 status = published duration_mode = fixed default_duration_min = 50 min_duration_min = 50 max_duration_min = 50 base_price_minor = 15000 currency = USD",
+          "scope": {
+            "actorUserId": "{{id:owner_user}}"
+          },
+          "expect": {
+            "success": true
+          }
+        },
+        {
+          "id": "uc1-catalog-05",
+          "name": "Capture published offer ids by query",
+          "prompt": "list offers where biz_id = {{id:biz}} and slug = {{offerSlug}}",
+          "scope": {
+            "actorUserId": "{{id:owner_user}}"
+          },
+          "expect": {
+            "success": true,
+            "rowCountEq": 1
+          },
+          "captures": [
+            {
+              "key": "capturedOfferId",
+              "from": "result",
+              "path": "rows[0].id"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "phase-browse-book",
+      "name": "Customer Browse + Book",
+      "description": "Customer discovers published offer and places booking.",
+      "steps": [
+        {
+          "id": "uc1-book-01",
+          "name": "Customer lists published offers",
+          "prompt": "list offers where biz_id = {{id:biz}} and is_published = true and status = active",
+          "scope": {
+            "actorUserId": "{{id:customer_user}}"
+          },
+          "expect": {
+            "success": true,
+            "rowCountGte": 1
+          }
+        },
+        {
+          "id": "uc1-book-02",
+          "name": "Create first booking order",
+          "prompt": "insert into booking_orders id = {{id:order1}} biz_id = {{id:biz}} offer_id = {{capturedOfferId}} offer_version_id = {{id:offer_version}} customer_user_id = {{id:customer_user}} status = draft currency = USD subtotal_minor = 15000 total_minor = 15000 requested_start_at = 2026-03-10T17:00:00Z requested_end_at = 2026-03-10T17:50:00Z",
+          "scope": {
+            "actorUserId": "{{id:customer_user}}"
+          },
+          "expect": {
+            "success": true
+          }
+        },
+        {
+          "id": "uc1-book-03",
+          "name": "Create first booking line",
+          "prompt": "insert into booking_order_lines id = {{id:line1}} biz_id = {{id:biz}} booking_order_id = {{id:order1}} line_type = offer_base label = Career Coaching quantity = 1 unit_amount_minor = 15000 line_total_minor = 15000",
+          "scope": {
+            "actorUserId": "{{id:customer_user}}"
+          },
+          "expect": {
+            "success": true
+          }
+        },
+        {
+          "id": "uc1-book-04",
+          "name": "Confirm first booking",
+          "prompt": "update booking_orders set status = confirmed confirmed_start_at = 2026-03-10T17:00:00Z confirmed_end_at = 2026-03-10T17:50:00Z where id = {{id:order1}} and biz_id = {{id:biz}}",
+          "scope": {
+            "actorUserId": "{{id:owner_user}}"
+          },
+          "expect": {
+            "success": true,
+            "rowCountEq": 1
+          }
+        },
+        {
+          "id": "uc1-book-05",
+          "name": "Create fulfillment unit",
+          "prompt": "insert into fulfillment_units id = {{id:unit1}} biz_id = {{id:biz}} booking_order_id = {{id:order1}} kind = service_task status = planned planned_start_at = 2026-03-10T17:00:00Z planned_end_at = 2026-03-10T17:50:00Z location_id = {{id:location}}",
+          "scope": {
+            "actorUserId": "{{id:owner_user}}"
+          },
+          "expect": {
+            "success": true
+          }
+        },
+        {
+          "id": "uc1-book-06",
+          "name": "Assign host to first booking",
+          "prompt": "insert into fulfillment_assignments id = {{id:assign1}} biz_id = {{id:biz}} fulfillment_unit_id = {{id:unit1}} resource_id = {{id:resource}} status = confirmed starts_at = 2026-03-10T17:00:00Z ends_at = 2026-03-10T17:50:00Z is_primary = true",
+          "scope": {
+            "actorUserId": "{{id:owner_user}}"
+          },
+          "expect": {
+            "success": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "phase-edge-case",
+      "name": "Edge Case: Double Booking Guard",
+      "description": "Try to overlap the same host assignment and assert behavior.",
+      "steps": [
+        {
+          "id": "uc1-edge-01",
+          "name": "Create second overlapping booking",
+          "prompt": "insert into booking_orders id = {{id:order2}} biz_id = {{id:biz}} offer_id = {{capturedOfferId}} offer_version_id = {{id:offer_version}} customer_user_id = {{id:customer_user}} status = confirmed currency = USD subtotal_minor = 15000 total_minor = 15000 requested_start_at = 2026-03-10T17:15:00Z requested_end_at = 2026-03-10T18:05:00Z confirmed_start_at = 2026-03-10T17:15:00Z confirmed_end_at = 2026-03-10T18:05:00Z",
+          "scope": {
+            "actorUserId": "{{id:owner_user}}"
+          },
+          "expect": {
+            "success": true
+          }
+        },
+        {
+          "id": "uc1-edge-02",
+          "name": "Create second fulfillment unit",
+          "prompt": "insert into fulfillment_units id = {{id:unit2}} biz_id = {{id:biz}} booking_order_id = {{id:order2}} kind = service_task status = planned planned_start_at = 2026-03-10T17:15:00Z planned_end_at = 2026-03-10T18:05:00Z location_id = {{id:location}}",
+          "scope": {
+            "actorUserId": "{{id:owner_user}}"
+          },
+          "expect": {
+            "success": true
+          }
+        },
+        {
+          "id": "uc1-edge-03",
+          "name": "Attempt overlapping assignment for same host",
+          "prompt": "insert into fulfillment_assignments id = {{id:assign2}} biz_id = {{id:biz}} fulfillment_unit_id = {{id:unit2}} resource_id = {{id:resource}} status = confirmed starts_at = 2026-03-10T17:15:00Z ends_at = 2026-03-10T18:05:00Z is_primary = true",
+          "scope": {
+            "actorUserId": "{{id:owner_user}}"
+          },
+          "expect": {
+            "success": false,
+            "errorContains": [
+              "overlap"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "phase-calendar-verify",
+      "name": "Calendar + Availability Verification",
+      "description": "Verify owner/customer visibility and resulting schedule footprint.",
+      "steps": [
+        {
+          "id": "uc1-verify-01",
+          "name": "Owner reads calendar bindings for resource",
+          "prompt": "list calendar_bindings where biz_id = {{id:biz}} and owner_ref_key = resource:{{id:resource}}",
+          "scope": {
+            "actorUserId": "{{id:owner_user}}"
+          },
+          "expect": {
+            "success": true,
+            "rowCountEq": 1
+          }
+        },
+        {
+          "id": "uc1-verify-02",
+          "name": "Owner reads availability rules",
+          "prompt": "list availability_rules where biz_id = {{id:biz}} and calendar_id = {{id:calendar}} and is_active = true",
+          "scope": {
+            "actorUserId": "{{id:owner_user}}"
+          },
+          "expect": {
+            "success": true,
+            "rowCountGte": 1
+          }
+        },
+        {
+          "id": "uc1-verify-03",
+          "name": "Owner reads host assignments at slot level",
+          "prompt": "list fulfillment_assignments where biz_id = {{id:biz}} and resource_id = {{id:resource}} and status = confirmed",
+          "scope": {
+            "actorUserId": "{{id:owner_user}}"
+          },
+          "expect": {
+            "success": true,
+            "rowCountEq": 1
+          }
+        },
+        {
+          "id": "uc1-verify-04",
+          "name": "Customer sees confirmed bookings",
+          "prompt": "list booking_orders where biz_id = {{id:biz}} and customer_user_id = {{id:customer_user}} and status = confirmed",
+          "scope": {
+            "actorUserId": "{{id:customer_user}}"
+          },
+          "expect": {
+            "success": true,
+            "rowCountGte": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "phase-cleanup",
+      "name": "Mutation Coverage",
+      "description": "Touch delete/update flows to verify non-CRUD-limited lifecycle behavior.",
+      "steps": [
+        {
+          "id": "uc1-cleanup-01",
+          "name": "Delete product",
+          "prompt": "delete from products where id = {{id:product}} and biz_id = {{id:biz}}",
+          "scope": {
+            "actorUserId": "{{id:owner_user}}"
+          },
+          "expect": {
+            "success": true,
+            "rowCountEq": 1
+          }
+        },
+        {
+          "id": "uc1-cleanup-02",
+          "name": "Verify product is gone",
+          "prompt": "list products where biz_id = {{id:biz}} and id = {{id:product}}",
+          "scope": {
+            "actorUserId": "{{id:owner_user}}"
+          },
+          "expect": {
+            "success": true,
+            "rowCountEq": 0
+          }
+        }
+      ]
+    }
+  ]
+}

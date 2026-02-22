@@ -156,6 +156,17 @@ Each entry is a separate markdown file: `YYYY-MM-DD-title.md`
 - [[knowledge/tech/index|Tech Hub]] — Stack documentation
 - [[SCHEMA]]  — The project schema
 
+### Testing Documentation
+- [[workspace/agent-testing-workflow-definitive-v0|Agent Testing Workflow (Definitive v0)]] — Testing guide
+- [[workspace/agent-testing-workflow-definitive-v0-tts.txt|Agent Testing Workflow TTS]] — Audio-friendly version
+- [[workspace/agent-testing-infra-combo-guide|Combo Testing Infra Guide]] — Schema + API + Agents
+- [[workspace/agent-testing-infra-combo-guide-tts.txt|Combo Testing Infra TTS]] — Audio-friendly version
+- [[workspace/agent-lifecycle-testing-playbook|Lifecycle Testing Playbook]] — Step-by-step workflows
+- [[workspace/final-test-report-100-percent|Final Test Report]] — 100% pass rate achieved
+- [[workspace/extended-persona-report|Extended Persona Report]] — UC-21 to UC-35 testing
+- [[workspace/uc-testing-report-uc1-20|UC Testing Report UC1-20]] — Initial test results
+- [[workspace/run-uc-tests.sh|UC Test Runner]] — Dynamic test runner with fresh IDs
+
 ---
 
 ## 🔗 Navigation
