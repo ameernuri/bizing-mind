@@ -1,0 +1,13 @@
+{
+  "defaults": {
+    "dryRun": false,
+    "scope": { "bizId": "biz_3A1okkwywOebAjPK7AMV1vkGjEq" }
+  },
+  "scenarios": [
+    { "id": "uc10-01", "name": "Create chain business", "prompt": "insert into bizes id = biz_3A1okkwywOebAjPK7AMV1vkGjEq name = Clean Teeth Dental slug = clean-teeth status = active timezone = America/Los_Angeles" },
+    { "id": "uc10-02", "name": "Create downtown location", "prompt": "insert into locations id = loc_3A1okjbuJ7fEiR5kJxe1vm4zWUp biz_id = biz_3A1okkwywOebAjPK7AMV1vkGjEq name = Downtown Office slug = downtown timezone = America/Los_Angeles" },
+    { "id": "uc10-03", "name": "Create suburban location", "prompt": "insert into locations id = loc_3A1okl3DeFgHiJkLmMnOpQrStUvW biz_id = biz_3A1okkwywOebAjPK7AMV1vkGjEq name = Suburban Office slug = suburban timezone = America/Los_Angeles" },
+    { "id": "uc10-04", "name": "Create Dr Williams", "prompt": "insert into resources id = res_3A1okncP40P1b5RvALTNpDl6aIm biz_id = biz_3A1okkwywOebAjPK7AMV1vkGjEq location_id = loc_3A1okjbuJ7fEiR5kJxe1vm4zWUp type = host name = Dr. Williams slug = dr-williams timezone = America/Los_Angeles" },
+    { "id": "uc10-05", "name": "Count locations", "prompt": "count locations where biz_id = biz_3A1okkwywOebAjPK7AMV1vkGjEq" }
+  ]
+}

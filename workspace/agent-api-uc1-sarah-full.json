@@ -1,0 +1,115 @@
+{
+  "defaults": {
+    "dryRun": false,
+    "scope": {
+      "bizId": "biz_sarah_uc1"
+    }
+  },
+  "scenarios": [
+    {
+      "id": "uc1-01",
+      "name": "Sarah creates her business",
+      "prompt": "insert into bizes id = biz_sarah_uc1 name = Sarah Career Coaching slug = sarah-career-uc1 status = active timezone = America/Los_Angeles"
+    },
+    {
+      "id": "uc1-02",
+      "name": "Create location",
+      "prompt": "insert into locations id = loc_sarah_uc1 biz_id = biz_sarah_uc1 name = Sarah Office slug = sarah-office timezone = America/Los_Angeles"
+    },
+    {
+      "id": "uc1-03",
+      "name": "Create venue",
+      "prompt": "insert into venues id = ven_sarah_uc1 biz_id = biz_sarah_uc1 location_id = loc_sarah_uc1 name = Coaching Office slug = coaching-office setup_minutes = 5 teardown_minutes = 5"
+    },
+    {
+      "id": "uc1-03b",
+      "name": "Create Sarah user identity",
+      "prompt": "insert into users id = usr_sarah_uc1 email = sarah.uc1.full@example.com name = SarahChen status = active"
+    },
+    {
+      "id": "uc1-04",
+      "name": "Create Sarah as resource",
+      "prompt": "insert into resources id = res_sarah_uc1 biz_id = biz_sarah_uc1 location_id = loc_sarah_uc1 type = host host_user_id = usr_sarah_uc1 name = Sarah Chen slug = sarah-chen timezone = America/Los_Angeles buffer_before_minutes = 10 buffer_after_minutes = 10 capacity = 1 allow_simultaneous_bookings = false"
+    },
+    {
+      "id": "uc1-05",
+      "name": "Create service group",
+      "prompt": "insert into service_groups id = sg_uc1 biz_id = biz_sarah_uc1 name = Coaching Services slug = coaching-services status = active"
+    },
+    {
+      "id": "uc1-06",
+      "name": "Create calendar for Sarah",
+      "prompt": "insert into calendars id = cal_sarah_uc1 biz_id = biz_sarah_uc1 name = Sarah Calendar timezone = America/Los_Angeles slot_duration_min = 50 slot_interval_min = 50 pre_buffer_min = 10 post_buffer_min = 10 min_advance_booking_hours = 24 max_advance_booking_days = 60 status = active"
+    },
+    {
+      "id": "uc1-07",
+      "name": "Create Monday availability",
+      "prompt": "insert into availability_rules id = ar_mon_uc1 biz_id = biz_sarah_uc1 calendar_id = cal_sarah_uc1 name = Monday Hours mode = recurring frequency = weekly day_of_week = 1 start_time = 09:00:00 end_time = 17:00:00 action = available is_active = true"
+    },
+    {
+      "id": "uc1-08",
+      "name": "Create Tuesday availability",
+      "prompt": "insert into availability_rules id = ar_tue_uc1 biz_id = biz_sarah_uc1 calendar_id = cal_sarah_uc1 name = Tuesday Hours mode = recurring frequency = weekly day_of_week = 2 start_time = 09:00:00 end_time = 17:00:00 action = available is_active = true"
+    },
+    {
+      "id": "uc1-09",
+      "name": "Create Wednesday availability",
+      "prompt": "insert into availability_rules id = ar_wed_uc1 biz_id = biz_sarah_uc1 calendar_id = cal_sarah_uc1 name = Wednesday Hours mode = recurring frequency = weekly day_of_week = 3 start_time = 09:00:00 end_time = 17:00:00 action = available is_active = true"
+    },
+    {
+      "id": "uc1-10",
+      "name": "Create Thursday availability",
+      "prompt": "insert into availability_rules id = ar_thu_uc1 biz_id = biz_sarah_uc1 calendar_id = cal_sarah_uc1 name = Thursday Hours mode = recurring frequency = weekly day_of_week = 4 start_time = 09:00:00 end_time = 17:00:00 action = available is_active = true"
+    },
+    {
+      "id": "uc1-11",
+      "name": "Create Friday availability",
+      "prompt": "insert into availability_rules id = ar_fri_uc1 biz_id = biz_sarah_uc1 calendar_id = cal_sarah_uc1 name = Friday Hours mode = recurring frequency = weekly day_of_week = 5 start_time = 09:00:00 end_time = 17:00:00 action = available is_active = true"
+    },
+    {
+      "id": "uc1-12",
+      "name": "Create offer",
+      "prompt": "insert into offers id = ofr_uc1 biz_id = biz_sarah_uc1 name = Career Coaching Session slug = career-coaching-session execution_mode = slot status = active is_published = true timezone = America/Los_Angeles"
+    },
+    {
+      "id": "uc1-13",
+      "name": "Create offer version",
+      "prompt": "insert into offer_versions id = ov_uc1 biz_id = biz_sarah_uc1 offer_id = ofr_uc1 version = 1 status = published duration_mode = fixed default_duration_min = 50 min_duration_min = 50 max_duration_min = 50 base_price_minor = 15000 currency = USD"
+    },
+    {
+      "id": "uc1-14",
+      "name": "Create booking order",
+      "prompt": "insert into booking_orders id = bo_uc1_001 biz_id = biz_sarah_uc1 offer_id = ofr_uc1 offer_version_id = ov_uc1 status = draft currency = USD total_minor = 15000 requested_start_at = 2026-02-25T14:00:00Z requested_end_at = 2026-02-25T14:50:00Z"
+    },
+    {
+      "id": "uc1-15",
+      "name": "Create booking order line",
+      "prompt": "insert into booking_order_lines id = bol_uc1_001 biz_id = biz_sarah_uc1 booking_order_id = bo_uc1_001 line_type = offer_base label = Career Coaching quantity = 1 unit_amount_minor = 15000 line_total_minor = 15000"
+    },
+    {
+      "id": "uc1-16",
+      "name": "Confirm booking",
+      "prompt": "update booking_orders set status = confirmed confirmed_start_at = 2026-02-25T14:00:00Z confirmed_end_at = 2026-02-25T14:50:00Z where id = bo_uc1_001 and biz_id = biz_sarah_uc1"
+    },
+    {
+      "id": "uc1-17",
+      "name": "Create fulfillment unit",
+      "prompt": "insert into fulfillment_units id = fu_uc1_001 biz_id = biz_sarah_uc1 booking_order_id = bo_uc1_001 kind = service_task status = planned planned_start_at = 2026-02-25T14:00:00Z planned_end_at = 2026-02-25T14:50:00Z"
+    },
+    {
+      "id": "uc1-18",
+      "name": "Add private booking note",
+      "prompt": "insert into notes id = note_uc1_001 biz_id = biz_sarah_uc1 target_type = booking_order booking_order_id = bo_uc1_001 visibility = private status = active source_type = user body = career_switch_finance_to_tech"
+    },
+    {
+      "id": "uc1-19",
+      "name": "Check Sarah's bookings",
+      "prompt": "list booking_orders where biz_id = biz_sarah_uc1"
+    },
+    {
+      "id": "uc1-20",
+      "name": "Get booking details",
+      "prompt": "list booking_orders where id = bo_uc1_001"
+    }
+  ]
+}

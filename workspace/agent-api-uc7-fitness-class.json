@@ -1,0 +1,25 @@
+{
+  "defaults": {
+    "dryRun": false,
+    "scope": { "bizId": "biz_fitness_uc7" }
+  },
+  "scenarios": [
+    { "id": "uc7-01", "name": "Create business", "prompt": "insert into bizes id = biz_fitness_uc7 name = SpinCity slug = spin-city-uc7 status = active timezone = America/Los_Angeles" },
+    { "id": "uc7-02", "name": "Create location", "prompt": "insert into locations id = loc_uc7 biz_id = biz_fitness_uc7 name = MainStudio slug = main-studio timezone = America/Los_Angeles" },
+    { "id": "uc7-03", "name": "Create spin studio venue", "prompt": "insert into venues id = ven_uc7 biz_id = biz_fitness_uc7 location_id = loc_uc7 name = SpinStudio slug = spin-studio setup_minutes = 15 teardown_minutes = 15" },
+    { "id": "uc7-04", "name": "Create spin studio resource", "prompt": "insert into resources id = res_studio_uc7 biz_id = biz_fitness_uc7 location_id = loc_uc7 type = venue venue_id = ven_uc7 name = SpinStudioResource slug = spin-studio-resource timezone = America/Los_Angeles capacity = 30 allow_simultaneous_bookings = true max_simultaneous_bookings = 30" },
+    { "id": "uc7-05", "name": "Create instructor user", "prompt": "insert into users id = usr_instructor_uc7 email = instructor.uc7@example.com name = SpinInstructor status = active" },
+    { "id": "uc7-06", "name": "Create instructor resource", "prompt": "insert into resources id = res_instructor_uc7 biz_id = biz_fitness_uc7 location_id = loc_uc7 type = host host_user_id = usr_instructor_uc7 name = SpinInstructorResource slug = spin-instructor-resource timezone = America/Los_Angeles capacity = 1 allow_simultaneous_bookings = false" },
+    { "id": "uc7-07", "name": "Create seat map", "prompt": "insert into seat_maps id = sm_bikes biz_id = biz_fitness_uc7 name = BikeLayout slug = bike-layout status = active target_type = resource resource_id = res_studio_uc7 timezone = America/Los_Angeles" },
+    { "id": "uc7-08", "name": "Create bike seat", "prompt": "insert into seat_map_seats id = sms_bike12 biz_id = biz_fitness_uc7 seat_map_id = sm_bikes seat_key = bike-12 section_key = floor row_label = 3 column_label = 4 grid_x = 4 grid_y = 3 status = active is_accessible = false capacity = 1" },
+    { "id": "uc7-09", "name": "Create drop-in offer", "prompt": "insert into offers id = ofr_dropin_uc7 biz_id = biz_fitness_uc7 name = MorningSpinClass slug = morning-spin-class execution_mode = slot status = active is_published = true timezone = America/Los_Angeles" },
+    { "id": "uc7-10", "name": "Create drop-in offer version", "prompt": "insert into offer_versions id = ov_dropin_uc7 biz_id = biz_fitness_uc7 offer_id = ofr_dropin_uc7 version = 1 status = published duration_mode = fixed default_duration_min = 60 min_duration_min = 60 max_duration_min = 60 base_price_minor = 2000 currency = USD" },
+    { "id": "uc7-11", "name": "Create class program", "prompt": "insert into programs id = pg_spin_uc7 biz_id = biz_fitness_uc7 name = MorningSpinProgram slug = morning-spin-program status = active offer_version_id = ov_dropin_uc7 required_attendance_bps = 8000" },
+    { "id": "uc7-12", "name": "Create class cohort", "prompt": "insert into program_cohorts id = pc_spin_uc7 biz_id = biz_fitness_uc7 program_id = pg_spin_uc7 name = MorningSpinCohort code = SPIN-AM-2026 status = planned starts_at = 2026-03-02T07:00:00Z ends_at = 2026-03-31T08:00:00Z location_id = loc_uc7 lead_resource_id = res_instructor_uc7 capacity = 30 min_enrollment = 5" },
+    { "id": "uc7-13", "name": "Create class session", "prompt": "insert into program_cohort_sessions id = pcs_spin_uc7_001 biz_id = biz_fitness_uc7 cohort_id = pc_spin_uc7 sequence = 1 name = MorningSpinSession1 status = scheduled starts_at = 2026-03-02T07:00:00Z ends_at = 2026-03-02T08:00:00Z location_id = loc_uc7 instructor_resource_id = res_instructor_uc7" },
+    { "id": "uc7-14", "name": "Create unlimited membership plan", "prompt": "insert into membership_plans id = mp_unlimited_uc7 biz_id = biz_fitness_uc7 name = UnlimitedSpin slug = unlimited-spin status = active billing_interval_count = 1 billing_interval_unit = month price_minor = 15000 currency = USD entitlement_type = pass entitlement_quantity_per_cycle = 999 allow_rollover = false allow_transfers = false" },
+    { "id": "uc7-15", "name": "Create waitlist queue", "prompt": "insert into queues id = q_class_uc7 biz_id = biz_fitness_uc7 location_id = loc_uc7 name = SpinWaitlist slug = spin-waitlist strategy = fifo status = active is_self_join_enabled = true" },
+    { "id": "uc7-16", "name": "Create waitlist customer", "prompt": "insert into users id = usr_waitlist_uc7 email = waitlist.uc7@example.com name = WaitlistCustomer status = active" },
+    { "id": "uc7-17", "name": "Create waitlist entry", "prompt": "insert into queue_entries id = qe_uc7 biz_id = biz_fitness_uc7 queue_id = q_class_uc7 customer_user_id = usr_waitlist_uc7 requested_offer_version_id = ov_dropin_uc7 status = waiting priority_score = 10 estimated_wait_min = 20" }
+  ]
+}

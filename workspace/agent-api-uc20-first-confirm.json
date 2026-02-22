@@ -1,0 +1,20 @@
+{
+  "defaults": {
+    "dryRun": false,
+    "scope": { "bizId": "biz_waitlist_uc20" }
+  },
+  "scenarios": [
+    { "id": "uc20-01", "name": "Create yoga studio", "prompt": "insert into bizes id = biz_waitlist_uc20 name = CommunityYoga slug = community-yoga-uc20 status = active timezone = America/Los_Angeles" },
+    { "id": "uc20-02", "name": "Create location", "prompt": "insert into locations id = loc_uc20 biz_id = biz_waitlist_uc20 name = StudioLocation slug = studio-location timezone = America/Los_Angeles" },
+    { "id": "uc20-03", "name": "Create waitlist queue", "prompt": "insert into queues id = q_class_uc20 biz_id = biz_waitlist_uc20 location_id = loc_uc20 name = YogaWaitlist slug = yoga-waitlist strategy = fifo status = active is_self_join_enabled = true" },
+    { "id": "uc20-04", "name": "Create Sarah user", "prompt": "insert into users id = usr_sarah_uc20 email = sarah.uc20@example.com name = SarahWaiter status = active" },
+    { "id": "uc20-05", "name": "Create Alex user", "prompt": "insert into users id = usr_alex_uc20 email = alex.uc20@example.com name = AlexWaiter status = active" },
+    { "id": "uc20-06", "name": "Create Sarah queue entry", "prompt": "insert into queue_entries id = qe_sarah_uc20 biz_id = biz_waitlist_uc20 queue_id = q_class_uc20 customer_user_id = usr_sarah_uc20 status = waiting priority_score = 10" },
+    { "id": "uc20-07", "name": "Create Alex queue entry", "prompt": "insert into queue_entries id = qe_alex_uc20 biz_id = biz_waitlist_uc20 queue_id = q_class_uc20 customer_user_id = usr_alex_uc20 status = waiting priority_score = 9" },
+    { "id": "uc20-08", "name": "Offer slot to both", "prompt": "update queue_entries set status = offered offered_at = 2026-02-22T10:00:00Z offer_expires_at = 2026-02-22T10:05:00Z where queue_id = q_class_uc20 and biz_id = biz_waitlist_uc20" },
+    { "id": "uc20-09", "name": "Sarah claims first", "prompt": "update queue_entries set status = claimed served_at = 2026-02-22T10:00:02Z where id = qe_sarah_uc20 and biz_id = biz_waitlist_uc20" },
+    { "id": "uc20-10", "name": "Record Sarah claim event", "prompt": "insert into queue_events id = qev_claim_sarah_uc20 biz_id = biz_waitlist_uc20 queue_entry_id = qe_sarah_uc20 event_type = claimed actor_user_id = usr_sarah_uc20 event_at = 2026-02-22T10:00:02Z" },
+    { "id": "uc20-11", "name": "Alex offer expires", "prompt": "update queue_entries set status = expired where id = qe_alex_uc20 and biz_id = biz_waitlist_uc20" },
+    { "id": "uc20-12", "name": "Record Alex expiry event", "prompt": "insert into queue_events id = qev_expire_alex_uc20 biz_id = biz_waitlist_uc20 queue_entry_id = qe_alex_uc20 event_type = expired actor_user_id = usr_alex_uc20 event_at = 2026-02-22T10:05:00Z" }
+  ]
+}

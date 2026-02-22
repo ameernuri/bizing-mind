@@ -1,0 +1,25 @@
+{
+  "defaults": {
+    "dryRun": false,
+    "scope": { "bizId": "biz_clinic_uc5" }
+  },
+  "scenarios": [
+    { "id": "uc5-01", "name": "Create business", "prompt": "insert into bizes id = biz_clinic_uc5 name = FamilyClinic slug = family-clinic-uc5 status = active timezone = America/Los_Angeles" },
+    { "id": "uc5-02", "name": "Create location", "prompt": "insert into locations id = loc_uc5 biz_id = biz_clinic_uc5 name = MainClinic slug = main-clinic timezone = America/Los_Angeles" },
+    { "id": "uc5-03", "name": "Create exam room 2 venue", "prompt": "insert into venues id = ven_room2_uc5 biz_id = biz_clinic_uc5 location_id = loc_uc5 name = ExamRoom2 slug = exam-room-2 setup_minutes = 0 teardown_minutes = 0" },
+    { "id": "uc5-04", "name": "Create exam room 2 resource", "prompt": "insert into resources id = res_room2 biz_id = biz_clinic_uc5 location_id = loc_uc5 type = venue venue_id = ven_room2_uc5 name = ExamRoom2Resource slug = exam-room-2-resource timezone = America/Los_Angeles capacity = 1 allow_simultaneous_bookings = false" },
+    { "id": "uc5-05", "name": "Create exam room 3 venue", "prompt": "insert into venues id = ven_room3_uc5 biz_id = biz_clinic_uc5 location_id = loc_uc5 name = ExamRoom3 slug = exam-room-3 setup_minutes = 0 teardown_minutes = 0" },
+    { "id": "uc5-06", "name": "Create exam room 3 resource", "prompt": "insert into resources id = res_room3 biz_id = biz_clinic_uc5 location_id = loc_uc5 type = venue venue_id = ven_room3_uc5 name = ExamRoom3Resource slug = exam-room-3-resource timezone = America/Los_Angeles capacity = 1 allow_simultaneous_bookings = false" },
+    { "id": "uc5-07", "name": "Create Dr Smith user", "prompt": "insert into users id = usr_dr_smith_uc5 email = drsmith.uc5@example.com name = DrSmith status = active" },
+    { "id": "uc5-08", "name": "Create Dr Smith resource", "prompt": "insert into resources id = res_dr_smith biz_id = biz_clinic_uc5 location_id = loc_uc5 type = host host_user_id = usr_dr_smith_uc5 name = DrSmithResource slug = dr-smith-resource timezone = America/Los_Angeles capacity = 1 allow_simultaneous_bookings = false" },
+    { "id": "uc5-09", "name": "Create Dr Jones user", "prompt": "insert into users id = usr_dr_jones_uc5 email = drjones.uc5@example.com name = DrJones status = active" },
+    { "id": "uc5-10", "name": "Create Dr Jones resource", "prompt": "insert into resources id = res_dr_jones biz_id = biz_clinic_uc5 location_id = loc_uc5 type = host host_user_id = usr_dr_jones_uc5 name = DrJonesResource slug = dr-jones-resource timezone = America/Los_Angeles capacity = 1 allow_simultaneous_bookings = false" },
+    { "id": "uc5-11", "name": "Create service group", "prompt": "insert into service_groups id = sg_med_uc5 biz_id = biz_clinic_uc5 name = MedicalServices slug = medical-services status = active" },
+    { "id": "uc5-12", "name": "Create annual physical service", "prompt": "insert into services id = svc_physical biz_id = biz_clinic_uc5 service_group_id = sg_med_uc5 name = AnnualPhysical slug = annual-physical type = appointment visibility = public min_advance_booking_hours = 48 status = active" },
+    { "id": "uc5-13", "name": "Create service product", "prompt": "insert into service_products id = sp_physical_uc5 biz_id = biz_clinic_uc5 name = AnnualPhysicalProduct slug = annual-physical-product kind = booking duration_mode = fixed default_duration_minutes = 30 base_price_amount = 25000 currency = USD status = active is_published = true" },
+    { "id": "uc5-14", "name": "Require one host", "prompt": "insert into service_product_requirement_groups id = sprg_host_uc5 biz_id = biz_clinic_uc5 service_product_id = sp_physical_uc5 name = ProviderRequired slug = provider-required target_resource_type = host requirement_mode = required min_quantity = 1 max_quantity = 1 selector_match_mode = any" },
+    { "id": "uc5-15", "name": "Require one room", "prompt": "insert into service_product_requirement_groups id = sprg_room_uc5 biz_id = biz_clinic_uc5 service_product_id = sp_physical_uc5 name = RoomRequired slug = room-required target_resource_type = venue requirement_mode = required min_quantity = 1 max_quantity = 1 selector_match_mode = any" },
+    { "id": "uc5-16", "name": "Pin provider to Dr Jones", "prompt": "insert into service_product_requirement_selectors id = sprs_host_uc5 biz_id = biz_clinic_uc5 requirement_group_id = sprg_host_uc5 selector_type = resource resource_id = res_dr_jones is_included = true" },
+    { "id": "uc5-17", "name": "Pin room to Exam Room 3", "prompt": "insert into service_product_requirement_selectors id = sprs_room_uc5 biz_id = biz_clinic_uc5 requirement_group_id = sprg_room_uc5 selector_type = resource resource_id = res_room3 is_included = true" }
+  ]
+}

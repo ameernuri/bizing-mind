@@ -1,0 +1,13 @@
+{
+  "defaults": {
+    "dryRun": false,
+    "scope": { "bizId": "biz_3A1okph4xmQ4uezzDicUOoyKQnh" }
+  },
+  "scenarios": [
+    { "id": "uc20-01", "name": "Create yoga studio", "prompt": "insert into bizes id = biz_3A1okph4xmQ4uezzDicUOoyKQnh name = Community Yoga slug = community-yoga status = active timezone = America/Los_Angeles" },
+    { "id": "uc20-02", "name": "Create location", "prompt": "insert into locations id = loc_3A1okjE4Qm5sXbWPFowtJATe92Z biz_id = biz_3A1okph4xmQ4uezzDicUOoyKQnh name = Studio slug = studio timezone = America/Los_Angeles" },
+    { "id": "uc20-03", "name": "Create instructor", "prompt": "insert into resources id = res_3A1okjXtF4ltD9w5DXghSDf35aC biz_id = biz_3A1okph4xmQ4uezzDicUOoyKQnh location_id = loc_3A1okjE4Qm5sXbWPFowtJATe92Z type = host name = Yoga Teacher slug = yoga-teacher timezone = America/Los_Angeles" },
+    { "id": "uc20-04", "name": "Create calendar", "prompt": "insert into calendars id = cal_3A1okk52Tkn7BGeUTApQsSX146A biz_id = biz_3A1okph4xmQ4uezzDicUOoyKQnh name = Class Schedule timezone = America/Los_Angeles slot_duration_min = 60 status = active" },
+    { "id": "uc20-05", "name": "Verify setup", "prompt": "list resources where biz_id = biz_3A1okph4xmQ4uezzDicUOoyKQnh" }
+  ]
+}

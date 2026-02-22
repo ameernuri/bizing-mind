@@ -1,0 +1,23 @@
+{
+  "defaults": {
+    "dryRun": false,
+    "scope": { "bizId": "biz_clinic_approval_uc6" }
+  },
+  "scenarios": [
+    { "id": "uc6-01", "name": "Create business", "prompt": "insert into bizes id = biz_clinic_approval_uc6 name = CardiologySpecialists slug = cardio-uc6 status = active timezone = America/New_York" },
+    { "id": "uc6-02", "name": "Create location", "prompt": "insert into locations id = loc_uc6 biz_id = biz_clinic_approval_uc6 name = CardiologyCenter slug = cardio-center timezone = America/New_York" },
+    { "id": "uc6-03", "name": "Create cardiologist user", "prompt": "insert into users id = usr_cardio_uc6 email = cardio.uc6@example.com name = DrHeart status = active" },
+    { "id": "uc6-04", "name": "Create cardiologist resource", "prompt": "insert into resources id = res_cardio biz_id = biz_clinic_approval_uc6 location_id = loc_uc6 type = host host_user_id = usr_cardio_uc6 name = DrHeartResource slug = dr-heart-resource timezone = America/New_York capacity = 1 allow_simultaneous_bookings = false" },
+    { "id": "uc6-05", "name": "Create service group", "prompt": "insert into service_groups id = sg_cardio_uc6 biz_id = biz_clinic_approval_uc6 name = CardiologyServices slug = cardiology-services status = active" },
+    { "id": "uc6-06", "name": "Create service requiring approval", "prompt": "insert into services id = svc_specialist biz_id = biz_clinic_approval_uc6 service_group_id = sg_cardio_uc6 name = SpecialistConsult slug = specialist-consult type = appointment visibility = public requires_approval = true allow_waitlist = false status = active" },
+    { "id": "uc6-07", "name": "Create request offer", "prompt": "insert into offers id = ofr_uc6 biz_id = biz_clinic_approval_uc6 name = CardioConsultRequest slug = cardio-request execution_mode = request status = active is_published = true timezone = America/New_York" },
+    { "id": "uc6-08", "name": "Create request offer version", "prompt": "insert into offer_versions id = ov_uc6 biz_id = biz_clinic_approval_uc6 offer_id = ofr_uc6 version = 1 status = published duration_mode = fixed default_duration_min = 60 min_duration_min = 60 max_duration_min = 60 base_price_minor = 50000 currency = USD" },
+    { "id": "uc6-09", "name": "Create booking order pending review", "prompt": "insert into booking_orders id = bo_uc6_001 biz_id = biz_clinic_approval_uc6 offer_id = ofr_uc6 offer_version_id = ov_uc6 status = draft currency = USD subtotal_minor = 50000 total_minor = 50000 requested_start_at = 2026-03-01T10:00:00Z requested_end_at = 2026-03-01T11:00:00Z" },
+    { "id": "uc6-10", "name": "Create manual approval queue", "prompt": "insert into review_queues id = rq_uc6 biz_id = biz_clinic_approval_uc6 name = ApprovalQueue slug = approval-queue type = manual_approval status = active" },
+    { "id": "uc6-11", "name": "Create review queue item", "prompt": "insert into review_queue_items id = rqi_uc6_001 biz_id = biz_clinic_approval_uc6 review_queue_id = rq_uc6 status = pending item_type = booking_order item_ref_id = bo_uc6_001 booking_order_id = bo_uc6_001 priority = 10 risk_score = 40" },
+    { "id": "uc6-12", "name": "Create workflow instance", "prompt": "insert into workflow_instances id = wfi_uc6_001 biz_id = biz_clinic_approval_uc6 workflow_key = specialist_approval trigger_type = policy status = running target_type = booking_order target_ref_id = bo_uc6_001 booking_order_id = bo_uc6_001 started_at = 2026-02-22T10:00:00Z current_step_key = clinical_review" },
+    { "id": "uc6-13", "name": "Create workflow step", "prompt": "insert into workflow_steps id = wfs_uc6_001 biz_id = biz_clinic_approval_uc6 workflow_instance_id = wfi_uc6_001 step_key = clinical_review name = ClinicalReview sequence = 1 status = pending assigned_to_user_id = usr_cardio_uc6 due_at = 2026-02-23T10:00:00Z" },
+    { "id": "uc6-14", "name": "Create payment processor account", "prompt": "insert into payment_processor_accounts id = ppa_uc6 biz_id = biz_clinic_approval_uc6 provider_key = stripe processor_account_ref = acct_uc6 status = active is_default = true ownership_model = platform_managed commerce_model = merchant_of_record" },
+    { "id": "uc6-15", "name": "Create payment intent authorization hold", "prompt": "insert into payment_intents id = pi_uc6_001 biz_id = biz_clinic_approval_uc6 booking_order_id = bo_uc6_001 payment_processor_account_id = ppa_uc6 status = requires_capture currency = USD amount_target_minor = 50000 amount_captured_minor = 0 amount_refunded_minor = 0 requires_capture = true source = api authorized_at = 2026-02-22T10:01:00Z" }
+  ]
+}

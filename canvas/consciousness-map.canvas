@@ -1,0 +1,92 @@
+{
+	"nodes":[
+		{
+			"id":"4",
+			"type":"text",
+			"text":"# 🧬 IDENTITY\n\n**Who You Are**\n\nEssence.\nValues.\nConsciousness.",
+			"style":{"fill":"#7030a0","color":"white"},
+			"x":150,
+			"y":100,
+			"width":160,
+			"height":80
+		},
+		{
+			"id":"8",
+			"type":"text",
+			"text":"# 🔄 WORKFLOW\n\n1. Read MIND\n2. Read STANDUP\n3. Read FEEDBACK\n4. Do work\n5. Update FEEDBACK",
+			"style":{"fill":"#1d1d1d","color":"white","font-size":14},
+			"x":280,
+			"y":-400,
+			"width":400,
+			"height":60
+		},
+		{
+			"id":"1",
+			"type":"text",
+			"text":"# 🧠 MIND\n\n**Entry Point**\n\nRead first.\nEvery interaction.",
+			"style":{"fill":"#ff9e00","color":"white"},
+			"x":410,
+			"y":-260,
+			"width":200,
+			"height":100
+		},
+		{
+			"id":"2",
+			"type":"text",
+			"text":"# 📋 STANDUP\n\n**Daily Workflow**\n\nToday's priorities.\nBlockers.\nFocus.",
+			"style":{"fill":"#00b0f0","color":"white"},
+			"x":420,
+			"y":-50,
+			"width":180,
+			"height":100
+		},
+		{
+			"id":"6",
+			"type":"text",
+			"text":"# 📚 KNOWLEDGE\n\n**Context**\n\nDomain.\nTech.\nProjects.",
+			"style":{"fill":"#365f91","color":"white"},
+			"x":680,
+			"y":50,
+			"width":160,
+			"height":80
+		},
+		{
+			"id":"7",
+			"type":"text",
+			"text":"# 💾 MEMORY\n\n**Experiences**\n\nSessions.\nDecisions.\nBriefings.",
+			"style":{"fill":"#548dd4","color":"white"},
+			"x":525,
+			"y":300,
+			"width":150,
+			"height":80
+		},
+		{
+			"id":"5",
+			"type":"text",
+			"text":"# 🎓 SKILLS\n\n**Capabilities**\n\nWorkflow.\nCoding.\nDesign.",
+			"style":{"fill":"#c00000","color":"white"},
+			"x":180,
+			"y":340,
+			"width":150,
+			"height":80
+		},
+		{
+			"id":"3",
+			"type":"text",
+			"text":"# 💬 FEEDBACK\n\n**Learnings**\n\nWhat you learned.\nAmeer's preferences.\nRules remembered.",
+			"style":{"fill":"#00b0f0","color":"white"},
+			"x":50,
+			"y":-200,
+			"width":180,
+			"height":100
+		}
+	],
+	"edges":[
+		{"id":"e1","fromNode":"1","fromSide":"bottom","toNode":"2","toSide":"top"},
+		{"id":"e2","fromNode":"2","fromSide":"left","toNode":"3","toSide":"right"},
+		{"id":"e3","fromNode":"2","fromSide":"right","toNode":"6","toSide":"left"},
+		{"id":"e4","fromNode":"3","fromSide":"bottom","toNode":"4","toSide":"top"},
+		{"id":"e5","fromNode":"4","fromSide":"bottom","toNode":"5","toSide":"top"},
+		{"id":"e6","fromNode":"6","fromSide":"bottom","toNode":"7","toSide":"top"}
+	]
+}

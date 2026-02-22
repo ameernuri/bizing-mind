@@ -1,0 +1,13 @@
+{
+  "defaults": {
+    "dryRun": false,
+    "scope": { "bizId": "biz_3A1oknMNUkqh1EQfAs6SOfR22Xx" }
+  },
+  "scenarios": [
+    { "id": "uc13-01", "name": "Create rental business", "prompt": "insert into bizes id = biz_3A1oknMNUkqh1EQfAs6SOfR22Xx name = Beach House Rentals slug = beach-house status = active timezone = America/Los_Angeles" },
+    { "id": "uc13-02", "name": "Create beach location", "prompt": "insert into locations id = loc_3A1okoM5n1eDqwH5KoO10LNVPrf biz_id = biz_3A1oknMNUkqh1EQfAs6SOfR22Xx name = Malibu Beach slug = malibu timezone = America/Los_Angeles" },
+    { "id": "uc13-03", "name": "Create beach house venue", "prompt": "insert into venues id = ven_3A1okiaaTlOU2mwnqJ6qJofsw7S biz_id = biz_3A1oknMNUkqh1EQfAs6SOfR22Xx location_id = loc_3A1okoM5n1eDqwH5KoO10LNVPrf name = Sunset Beach House slug = sunset-beach setup_minutes = 0 teardown_minutes = 0" },
+    { "id": "uc13-04", "name": "Create offer", "prompt": "insert into offers id = ofr_3A1okpgss1ZNkEb4NfjRI8gHTme biz_id = biz_3A1oknMNUkqh1EQfAs6SOfR22Xx name = Beach House Rental slug = beach-rental execution_mode = scheduled status = active is_published = true timezone = America/Los_Angeles" },
+    { "id": "uc13-05", "name": "Verify venue", "prompt": "list venues where id = ven_3A1okiaaTlOU2mwnqJ6qJofsw7S" }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "defaults": {
+    "dryRun": false,
+    "scope": { "bizId": "biz_reception_uc9" }
+  },
+  "scenarios": [
+    { "id": "uc9-01", "name": "Create medical business", "prompt": "insert into bizes id = biz_reception_uc9 name = MultiProviderMedical slug = multi-provider-med-uc9 status = active timezone = America/Los_Angeles" },
+    { "id": "uc9-02", "name": "Create main location", "prompt": "insert into locations id = loc_uc9 biz_id = biz_reception_uc9 name = MedicalCenter slug = medical-center timezone = America/Los_Angeles" },
+    { "id": "uc9-03", "name": "Create doctor A user", "prompt": "insert into users id = usr_dr_a_uc9 email = dra.uc9@example.com name = DoctorA status = active" },
+    { "id": "uc9-04", "name": "Create doctor A resource", "prompt": "insert into resources id = res_dr_a_uc9 biz_id = biz_reception_uc9 location_id = loc_uc9 type = host host_user_id = usr_dr_a_uc9 name = DoctorAResource slug = doctor-a-resource timezone = America/Los_Angeles capacity = 1 allow_simultaneous_bookings = false" },
+    { "id": "uc9-05", "name": "Create doctor A calendar", "prompt": "insert into calendars id = cal_dr_a biz_id = biz_reception_uc9 name = DrASchedule timezone = America/Los_Angeles slot_duration_min = 30 slot_interval_min = 30 status = active" },
+    { "id": "uc9-06", "name": "Bind doctor A calendar", "prompt": "insert into calendar_bindings id = cb_dr_a_uc9 biz_id = biz_reception_uc9 calendar_id = cal_dr_a owner_type = resource resource_id = res_dr_a_uc9 owner_ref_key = \"resource:res_dr_a_uc9\" is_primary = true is_active = true" },
+    { "id": "uc9-07", "name": "Create doctor B user", "prompt": "insert into users id = usr_dr_b_uc9 email = drb.uc9@example.com name = DoctorB status = active" },
+    { "id": "uc9-08", "name": "Create doctor B resource", "prompt": "insert into resources id = res_dr_b_uc9 biz_id = biz_reception_uc9 location_id = loc_uc9 type = host host_user_id = usr_dr_b_uc9 name = DoctorBResource slug = doctor-b-resource timezone = America/Los_Angeles capacity = 1 allow_simultaneous_bookings = false" },
+    { "id": "uc9-09", "name": "Create doctor B calendar", "prompt": "insert into calendars id = cal_dr_b biz_id = biz_reception_uc9 name = DrBSchedule timezone = America/Los_Angeles slot_duration_min = 30 slot_interval_min = 30 status = active" },
+    { "id": "uc9-10", "name": "Bind doctor B calendar", "prompt": "insert into calendar_bindings id = cb_dr_b_uc9 biz_id = biz_reception_uc9 calendar_id = cal_dr_b owner_type = resource resource_id = res_dr_b_uc9 owner_ref_key = \"resource:res_dr_b_uc9\" is_primary = true is_active = true" },
+    { "id": "uc9-11", "name": "Create doctor C user", "prompt": "insert into users id = usr_dr_c_uc9 email = drc.uc9@example.com name = DoctorC status = active" },
+    { "id": "uc9-12", "name": "Create doctor C resource", "prompt": "insert into resources id = res_dr_c_uc9 biz_id = biz_reception_uc9 location_id = loc_uc9 type = host host_user_id = usr_dr_c_uc9 name = DoctorCResource slug = doctor-c-resource timezone = America/Los_Angeles capacity = 1 allow_simultaneous_bookings = false" },
+    { "id": "uc9-13", "name": "Create doctor C calendar", "prompt": "insert into calendars id = cal_dr_c biz_id = biz_reception_uc9 name = DrCSchedule timezone = America/Los_Angeles slot_duration_min = 30 slot_interval_min = 30 status = active" },
+    { "id": "uc9-14", "name": "Bind doctor C calendar", "prompt": "insert into calendar_bindings id = cb_dr_c_uc9 biz_id = biz_reception_uc9 calendar_id = cal_dr_c owner_type = resource resource_id = res_dr_c_uc9 owner_ref_key = \"resource:res_dr_c_uc9\" is_primary = true is_active = true" },
+    { "id": "uc9-15", "name": "Create emergency overlay for Dr A", "prompt": "insert into calendar_overlays id = cov_emergency_uc9 biz_id = biz_reception_uc9 calendar_id = cal_dr_a kind = emergency name = EmergencyEveningHours priority = 1 effective_start_at = 2026-02-22T18:00:00Z effective_end_at = 2026-02-22T20:00:00Z is_active = true" },
+    { "id": "uc9-16", "name": "Create overlay availability rule", "prompt": "insert into availability_rules id = ar_override_uc9 biz_id = biz_reception_uc9 calendar_id = cal_dr_a overlay_id = cov_emergency_uc9 name = emergency_available mode = timestamp_range frequency = none start_at = 2026-02-22T18:00:00Z end_at = 2026-02-22T20:00:00Z action = available is_active = true priority = 1" },
+    { "id": "uc9-17", "name": "Query central doctor calendars", "prompt": "list calendar_bindings where biz_id = biz_reception_uc9 and owner_type = resource limit 10" }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "defaults": {
+    "dryRun": false,
+    "scope": { "bizId": "biz_mobile_uc15" }
+  },
+  "scenarios": [
+    { "id": "uc15-01", "name": "Create mobile business", "prompt": "insert into bizes id = biz_mobile_uc15 name = MikesMobileGrooming slug = mikes-mobile-uc15 status = active timezone = America/Los_Angeles" },
+    { "id": "uc15-02", "name": "Create base location", "prompt": "insert into locations id = loc_uc15 biz_id = biz_mobile_uc15 name = MobileBase slug = mobile-base timezone = America/Los_Angeles" },
+    { "id": "uc15-03", "name": "Create groomer user", "prompt": "insert into users id = usr_mike_uc15 email = mike.uc15@example.com name = MikeGroomer status = active" },
+    { "id": "uc15-04", "name": "Create groomer resource", "prompt": "insert into resources id = res_mike biz_id = biz_mobile_uc15 location_id = loc_uc15 type = host host_user_id = usr_mike_uc15 name = MikeResource slug = mike-resource timezone = America/Los_Angeles capacity = 1 allow_simultaneous_bookings = false" },
+    { "id": "uc15-05", "name": "Create host profile with travel radius", "prompt": "insert into host_users id = hu_mike_uc15 biz_id = biz_mobile_uc15 resource_id = res_mike user_id = usr_mike_uc15 travel_radius_miles = 20 max_daily_bookings = 8" },
+    { "id": "uc15-06", "name": "Create service group", "prompt": "insert into service_groups id = sg_mobile_uc15 biz_id = biz_mobile_uc15 name = MobileServices slug = mobile-services status = active" },
+    { "id": "uc15-07", "name": "Create mobile grooming service", "prompt": "insert into services id = svc_grooming_uc15 biz_id = biz_mobile_uc15 service_group_id = sg_mobile_uc15 name = MobileGrooming slug = mobile-grooming type = appointment visibility = public status = active" },
+    { "id": "uc15-08", "name": "Create transport route", "prompt": "insert into transport_routes id = tr_daily_uc15 biz_id = biz_mobile_uc15 name = DailyServiceRoute slug = daily-service-route status = active origin_location_id = loc_uc15 destination_location_id = loc_uc15 timezone = America/Los_Angeles" },
+    { "id": "uc15-09", "name": "Create pickup stop", "prompt": "insert into transport_route_stops id = trs_pickup_uc15 biz_id = biz_mobile_uc15 route_id = tr_daily_uc15 stop_order = 0 kind = depot name = BaseDepot location_id = loc_uc15 offset_from_start_min = 0 dwell_min = 10" },
+    { "id": "uc15-10", "name": "Create customer stop", "prompt": "insert into transport_route_stops id = trs_customer_uc15 biz_id = biz_mobile_uc15 route_id = tr_daily_uc15 stop_order = 1 kind = dropoff name = CustomerStop offset_from_start_min = 30 dwell_min = 45" },
+    { "id": "uc15-11", "name": "Create mobile service offer", "prompt": "insert into offers id = ofr_grooming_uc15 biz_id = biz_mobile_uc15 name = MobileGroomingOffer slug = mobile-grooming-offer execution_mode = route_trip status = active is_published = true timezone = America/Los_Angeles" },
+    { "id": "uc15-12", "name": "Create offer version", "prompt": "insert into offer_versions id = ov_grooming_uc15 biz_id = biz_mobile_uc15 offer_id = ofr_grooming_uc15 version = 1 status = published duration_mode = fixed default_duration_min = 60 min_duration_min = 60 max_duration_min = 60 base_price_minor = 8000 currency = USD" },
+    { "id": "uc15-13", "name": "Create planned trip", "prompt": "insert into transport_trips id = tt_uc15_001 biz_id = biz_mobile_uc15 route_id = tr_daily_uc15 offer_version_id = ov_grooming_uc15 driver_resource_id = res_mike status = planned departure_at = 2026-02-24T09:00:00Z arrival_at = 2026-02-24T10:00:00Z capacity_seats = 1 overbook_seats = 0" },
+    { "id": "uc15-14", "name": "Create dispatch task", "prompt": "insert into dispatch_tasks id = dt_uc15_001 biz_id = biz_mobile_uc15 trip_id = tt_uc15_001 assigned_resource_id = res_mike title = VisitCustomerHouse status = assigned due_at = 2026-02-24T10:00:00Z" },
+    { "id": "uc15-15", "name": "Log ETA event", "prompt": "insert into eta_events id = eta_uc15_001 biz_id = biz_mobile_uc15 trip_id = tt_uc15_001 route_stop_id = trs_customer_uc15 event_type = eta_updated event_at = 2026-02-24T09:40:00Z eta_at = 2026-02-24T09:52:00Z" }
+  ]
+}

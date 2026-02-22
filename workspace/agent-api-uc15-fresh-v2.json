@@ -1,0 +1,13 @@
+{
+  "defaults": {
+    "dryRun": false,
+    "scope": { "bizId": "biz_3A1oknioyTd47tjk4nVmkhuQ354" }
+  },
+  "scenarios": [
+    { "id": "uc15-01", "name": "Create mobile service business", "prompt": "insert into bizes id = biz_3A1oknioyTd47tjk4nVmkhuQ354 name = Mike's Mobile Dog Grooming slug = mikes-mobile status = active timezone = America/Los_Angeles" },
+    { "id": "uc15-02", "name": "Create location", "prompt": "insert into locations id = loc_3A1oklM75gJni1G9n4uZDyAZHRk biz_id = biz_3A1oknioyTd47tjk4nVmkhuQ354 name = Service Base slug = service-base timezone = America/Los_Angeles" },
+    { "id": "uc15-03", "name": "Create mobile groomer", "prompt": "insert into resources id = res_3A1okmwRws7kN8KxhpuB9WytSDt biz_id = biz_3A1oknioyTd47tjk4nVmkhuQ354 location_id = loc_3A1oklM75gJni1G9n4uZDyAZHRk type = host name = Mike slug = mike timezone = America/Los_Angeles" },
+    { "id": "uc15-04", "name": "Create calendar", "prompt": "insert into calendars id = cal_3A1okkPforP3pJHFFvtMygjF4Y1 biz_id = biz_3A1oknioyTd47tjk4nVmkhuQ354 name = Mobile Schedule timezone = America/Los_Angeles slot_duration_min = 60 status = active" },
+    { "id": "uc15-05", "name": "Verify groomer", "prompt": "list resources where id = res_3A1okmwRws7kN8KxhpuB9WytSDt" }
+  ]
+}

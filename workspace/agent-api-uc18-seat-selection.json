@@ -1,0 +1,22 @@
+{
+  "defaults": {
+    "dryRun": false,
+    "scope": { "bizId": "biz_seatmap_uc18" }
+  },
+  "scenarios": [
+    { "id": "uc18-01", "name": "Create theater business", "prompt": "insert into bizes id = biz_seatmap_uc18 name = DowntownTheater slug = downtown-theater-uc18 status = active timezone = America/Los_Angeles" },
+    { "id": "uc18-02", "name": "Create location", "prompt": "insert into locations id = loc_uc18 biz_id = biz_seatmap_uc18 name = TheaterBuilding slug = theater-building timezone = America/Los_Angeles" },
+    { "id": "uc18-03", "name": "Create theater venue", "prompt": "insert into venues id = ven_theater_uc18 biz_id = biz_seatmap_uc18 location_id = loc_uc18 name = TheaterHall slug = theater-hall setup_minutes = 30 teardown_minutes = 30" },
+    { "id": "uc18-04", "name": "Create theater resource", "prompt": "insert into resources id = res_theater_uc18 biz_id = biz_seatmap_uc18 location_id = loc_uc18 type = venue venue_id = ven_theater_uc18 name = TheaterHallResource slug = theater-hall-resource timezone = America/Los_Angeles capacity = 200 allow_simultaneous_bookings = true max_simultaneous_bookings = 200" },
+    { "id": "uc18-05", "name": "Create seat map", "prompt": "insert into seat_maps id = sm_theater biz_id = biz_seatmap_uc18 name = TheaterLayout slug = theater-layout status = active target_type = resource resource_id = res_theater_uc18 timezone = America/Los_Angeles" },
+    { "id": "uc18-06", "name": "Create orchestra seat", "prompt": "insert into seat_map_seats id = sm_seat_a1 biz_id = biz_seatmap_uc18 seat_map_id = sm_theater seat_key = A-1 section_key = orchestra row_label = A column_label = 1 grid_x = 1 grid_y = 1 status = active capacity = 1" },
+    { "id": "uc18-07", "name": "Create accessible seat", "prompt": "insert into seat_map_seats id = sm_seat_wc biz_id = biz_seatmap_uc18 seat_map_id = sm_theater seat_key = WC-1 section_key = orchestra row_label = W column_label = 1 grid_x = 2 grid_y = 1 is_accessible = true status = active capacity = 1" },
+    { "id": "uc18-08", "name": "Create event offer", "prompt": "insert into offers id = ofr_event_uc18 biz_id = biz_seatmap_uc18 name = EveningShowOffer slug = evening-show-offer execution_mode = slot status = active is_published = true timezone = America/Los_Angeles" },
+    { "id": "uc18-09", "name": "Create event offer version", "prompt": "insert into offer_versions id = ov_event_uc18 biz_id = biz_seatmap_uc18 offer_id = ofr_event_uc18 version = 1 status = published duration_mode = fixed default_duration_min = 120 min_duration_min = 120 max_duration_min = 120 base_price_minor = 5000 currency = USD" },
+    { "id": "uc18-10", "name": "Create service product", "prompt": "insert into service_products id = sp_event_uc18 biz_id = biz_seatmap_uc18 name = TheaterSeatProduct slug = theater-seat-product kind = booking duration_mode = fixed default_duration_minutes = 120 base_price_amount = 5000 currency = USD status = active is_published = true" },
+    { "id": "uc18-11", "name": "Create front row seat type", "prompt": "insert into service_product_seat_types id = spst_front_uc18 biz_id = biz_seatmap_uc18 service_product_id = sp_event_uc18 name = FrontRow slug = front-row is_default = true min_seats = 0 max_seats = 10 default_quantity = 1 base_price_amount = 9500 currency = USD status = active" },
+    { "id": "uc18-12", "name": "Create standard seat type", "prompt": "insert into service_product_seat_types id = spst_standard_uc18 biz_id = biz_seatmap_uc18 service_product_id = sp_event_uc18 name = Standard slug = standard is_default = false min_seats = 0 max_seats = 200 default_quantity = 1 base_price_amount = 5000 currency = USD status = active" },
+    { "id": "uc18-13", "name": "Create customer user", "prompt": "insert into users id = usr_seat_customer_uc18 email = seat.customer.uc18@example.com name = SeatCustomer status = active" },
+    { "id": "uc18-14", "name": "Create seat hold", "prompt": "insert into seat_holds id = sh_uc18_001 biz_id = biz_seatmap_uc18 seat_map_id = sm_theater seat_map_seat_id = sm_seat_a1 holder_user_id = usr_seat_customer_uc18 hold_type = checkout hold_state = held held_at = 2026-02-22T10:00:00Z expires_at = 2026-02-22T10:10:00Z" }
+  ]
+}

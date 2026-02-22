@@ -1,0 +1,65 @@
+{
+  "defaults": {
+    "dryRun": false,
+    "scope": {
+      "bizId": "biz_sarah_20250221"
+    }
+  },
+  "scenarios": [
+    {
+      "id": "uc1-01",
+      "name": "Create business",
+      "prompt": "insert into bizes id = biz_sarah_20250221 name = Sarah Coaching 2025 slug = sarah-2025 status = active timezone = America/Los_Angeles"
+    },
+    {
+      "id": "uc1-02",
+      "name": "Create location",
+      "prompt": "insert into locations id = loc_20250221 biz_id = biz_sarah_20250221 name = Office 2025 slug = office-2025 timezone = America/Los_Angeles"
+    },
+    {
+      "id": "uc1-03",
+      "name": "Create venue",
+      "prompt": "insert into venues id = ven_20250221 biz_id = biz_sarah_20250221 location_id = loc_20250221 name = Venue 2025 slug = venue-2025 setup_minutes = 5 teardown_minutes = 5"
+    },
+    {
+      "id": "uc1-03b",
+      "name": "Create host user",
+      "prompt": "insert into users id = usr_20250221_uc1 email = ts.uc1@example.com name = Sarah2025 status = active"
+    },
+    {
+      "id": "uc1-04",
+      "name": "Create resource",
+      "prompt": "insert into resources id = res_20250221 biz_id = biz_sarah_20250221 location_id = loc_20250221 type = host host_user_id = usr_20250221_uc1 name = Sarah 2025 slug = sarah-2025 timezone = America/Los_Angeles buffer_before_minutes = 10 buffer_after_minutes = 10 capacity = 1 allow_simultaneous_bookings = false"
+    },
+    {
+      "id": "uc1-05",
+      "name": "Create service group",
+      "prompt": "insert into service_groups id = sg_20250221 biz_id = biz_sarah_20250221 name = Services 2025 slug = services-2025 status = active"
+    },
+    {
+      "id": "uc1-06",
+      "name": "Create calendar",
+      "prompt": "insert into calendars id = cal_20250221 biz_id = biz_sarah_20250221 name = Calendar 2025 timezone = America/Los_Angeles slot_duration_min = 50 slot_interval_min = 50 pre_buffer_min = 10 post_buffer_min = 10 min_advance_booking_hours = 24 max_advance_booking_days = 60 status = active"
+    },
+    {
+      "id": "uc1-07",
+      "name": "Create offer",
+      "prompt": "insert into offers id = ofr_20250221 biz_id = biz_sarah_20250221 name = Coaching 2025 slug = coaching-2025 execution_mode = slot status = active is_published = true timezone = America/Los_Angeles"
+    },
+    {
+      "id": "uc1-08",
+      "name": "Query business",
+      "prompt": "list bizes where id = biz_sarah_20250221"
+    },
+    {
+      "id": "uc1-09",
+      "name": "Query resource",
+      "prompt": "list resources where id = res_20250221"
+    },
+    {
+      "id": "uc1-10",
+      "name": "Query calendar",
+      "prompt": "list calendars where id = cal_20250221"
+    }
+  ]
+}

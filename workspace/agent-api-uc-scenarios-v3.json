@@ -1,0 +1,60 @@
+{
+  "defaults": {
+    "dryRun": false,
+    "scope": {
+      "bizId": "biz_test"
+    }
+  },
+  "scenarios": [
+    {
+      "id": "uc-001",
+      "name": "Create venue",
+      "prompt": "insert into venues id = venu_8f3j2k9m biz_id = biz_test name = Venue Alpha slug = venue-alpha setup_minutes = 15 teardown_minutes = 15"
+    },
+    {
+      "id": "uc-002",
+      "name": "Create asset",
+      "prompt": "insert into assets id = asset_p7q4r1t8 biz_id = biz_test name = Asset Beta slug = asset-beta"
+    },
+    {
+      "id": "uc-003",
+      "name": "Create calendar",
+      "prompt": "insert into calendars id = cal_w5x2y9z6 biz_id = biz_test name = Calendar Gamma timezone = America/Los_Angeles slot_duration_min = 30 slot_interval_min = 30 pre_buffer_min = 5 post_buffer_min = 10 min_advance_booking_hours = 24 max_advance_booking_days = 30 status = active"
+    },
+    {
+      "id": "uc-004",
+      "name": "Create queue",
+      "prompt": "insert into queues id = queue_h3j6k9n2 biz_id = biz_test name = Queue Delta slug = queue-delta strategy = fifo status = active is_self_join_enabled = true"
+    },
+    {
+      "id": "uc-005",
+      "name": "Create resource status definition",
+      "prompt": "insert into resource_status_definitions id = rsd_b5v8c1f4 biz_id = biz_test name = Status Epsilon slug = status-epsilon is_bookable = true sort_order = 5"
+    },
+    {
+      "id": "uc-006",
+      "name": "List all venues",
+      "prompt": "list venues limit 10"
+    },
+    {
+      "id": "uc-007",
+      "name": "List all assets",
+      "prompt": "list assets limit 10"
+    },
+    {
+      "id": "uc-008",
+      "name": "List all calendars",
+      "prompt": "list calendars limit 10"
+    },
+    {
+      "id": "uc-009",
+      "name": "List all queues",
+      "prompt": "list queues limit 10"
+    },
+    {
+      "id": "uc-010",
+      "name": "Count all resources",
+      "prompt": "count resources"
+    }
+  ]
+}

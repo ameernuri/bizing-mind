@@ -1,0 +1,22 @@
+{
+  "defaults": {
+    "dryRun": false,
+    "scope": { "bizId": "biz_consultant_var_uc2" }
+  },
+  "scenarios": [
+    { "id": "uc2-01", "name": "Create business", "prompt": "insert into bizes id = biz_consultant_var_uc2 name = MarkConsulting slug = mark-consulting-uc2 status = active timezone = America/New_York" },
+    { "id": "uc2-02", "name": "Create location", "prompt": "insert into locations id = loc_uc2 biz_id = biz_consultant_var_uc2 name = MarkOffice slug = mark-office timezone = America/New_York status = active" },
+    { "id": "uc2-03", "name": "Create user identity for host", "prompt": "insert into users id = usr_mark_uc2 email = mark.uc2@example.com name = MarkJohnson status = active" },
+    { "id": "uc2-04", "name": "Create host resource", "prompt": "insert into resources id = res_mark_uc2 biz_id = biz_consultant_var_uc2 location_id = loc_uc2 type = host name = MarkHost slug = mark-host timezone = America/New_York host_user_id = usr_mark_uc2 capacity = 1 allow_simultaneous_bookings = false max_simultaneous_bookings = 1 buffer_before_minutes = 15 buffer_after_minutes = 15" },
+    { "id": "uc2-05", "name": "Create calendar", "prompt": "insert into calendars id = cal_uc2 biz_id = biz_consultant_var_uc2 name = MarkCalendar timezone = America/New_York slot_duration_min = 30 slot_interval_min = 30 pre_buffer_min = 15 post_buffer_min = 15 min_advance_booking_hours = 12 max_advance_booking_days = 90 status = active" },
+    { "id": "uc2-06", "name": "Bind resource to calendar", "prompt": "insert into calendar_bindings id = cb_uc2 biz_id = biz_consultant_var_uc2 calendar_id = cal_uc2 owner_type = resource resource_id = res_mark_uc2 owner_ref_key = \"resource:res_mark_uc2\" is_primary = true is_active = true" },
+    { "id": "uc2-07", "name": "Create recurring availability", "prompt": "insert into availability_rules id = ar_mon_uc2 biz_id = biz_consultant_var_uc2 calendar_id = cal_uc2 name = weekday_hours mode = recurring frequency = weekly day_of_week = 1 start_time = 09:00:00 end_time = 18:00:00 action = available is_active = true priority = 100" },
+    { "id": "uc2-08", "name": "Create offer shell", "prompt": "insert into offers id = ofr_uc2 biz_id = biz_consultant_var_uc2 name = VariableConsultation slug = variable-consultation execution_mode = slot status = active is_published = true timezone = America/New_York" },
+    { "id": "uc2-09", "name": "Create flexible offer version", "prompt": "insert into offer_versions id = ov_uc2 biz_id = biz_consultant_var_uc2 offer_id = ofr_uc2 version = 1 status = published duration_mode = flexible default_duration_min = 60 min_duration_min = 30 max_duration_min = 240 duration_step_min = 30 base_price_minor = 10000 currency = USD pricing_model = {\"unit_price_minor\":10000}" },
+    { "id": "uc2-10", "name": "Create booking order", "prompt": "insert into booking_orders id = bo_uc2_001 biz_id = biz_consultant_var_uc2 offer_id = ofr_uc2 offer_version_id = ov_uc2 status = draft currency = USD subtotal_minor = 25000 total_minor = 25000 requested_start_at = 2026-02-26T10:00:00Z requested_end_at = 2026-02-26T12:30:00Z" },
+    { "id": "uc2-11", "name": "Create order line", "prompt": "insert into booking_order_lines id = bol_uc2_001 biz_id = biz_consultant_var_uc2 booking_order_id = bo_uc2_001 line_type = offer_base label = VariableConsulting quantity = 1 unit_amount_minor = 25000 line_total_minor = 25000" },
+    { "id": "uc2-12", "name": "Confirm booking and create unit", "prompt": "update booking_orders set status = confirmed confirmed_start_at = 2026-02-26T10:00:00Z confirmed_end_at = 2026-02-26T12:30:00Z where id = bo_uc2_001 and biz_id = biz_consultant_var_uc2" },
+    { "id": "uc2-13", "name": "Create fulfillment unit", "prompt": "insert into fulfillment_units id = fu_uc2_001 biz_id = biz_consultant_var_uc2 booking_order_id = bo_uc2_001 kind = service_task status = planned planned_start_at = 2026-02-26T10:00:00Z planned_end_at = 2026-02-26T12:30:00Z" },
+    { "id": "uc2-14", "name": "Assign host", "prompt": "insert into fulfillment_assignments id = fa_uc2_001 biz_id = biz_consultant_var_uc2 fulfillment_unit_id = fu_uc2_001 resource_id = res_mark_uc2 status = confirmed starts_at = 2026-02-26T10:00:00Z ends_at = 2026-02-26T12:30:00Z" }
+  ]
+}

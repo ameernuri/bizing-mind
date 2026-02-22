@@ -1,0 +1,21 @@
+{
+  "defaults": {
+    "dryRun": false,
+    "scope": { "bizId": "biz_training_uc14" }
+  },
+  "scenarios": [
+    { "id": "uc14-01", "name": "Create training company", "prompt": "insert into bizes id = biz_training_uc14 name = TechCorpTraining slug = techcorp-training-uc14 status = active timezone = America/Los_Angeles" },
+    { "id": "uc14-02", "name": "Create training location", "prompt": "insert into locations id = loc_uc14 biz_id = biz_training_uc14 name = TrainingCenter slug = training-center timezone = America/Los_Angeles" },
+    { "id": "uc14-03", "name": "Create instructor user", "prompt": "insert into users id = usr_trainer_uc14 email = trainer.uc14@example.com name = LeadTrainer status = active" },
+    { "id": "uc14-04", "name": "Create instructor resource", "prompt": "insert into resources id = res_trainer_uc14 biz_id = biz_training_uc14 location_id = loc_uc14 type = host host_user_id = usr_trainer_uc14 name = LeadTrainerResource slug = lead-trainer-resource timezone = America/Los_Angeles capacity = 1 allow_simultaneous_bookings = false" },
+    { "id": "uc14-05", "name": "Create offer", "prompt": "insert into offers id = ofr_leadership_uc14 biz_id = biz_training_uc14 name = Leadership101Offer slug = leadership-101-offer execution_mode = slot status = active is_published = true timezone = America/Los_Angeles" },
+    { "id": "uc14-06", "name": "Create offer version", "prompt": "insert into offer_versions id = ov_leadership_uc14 biz_id = biz_training_uc14 offer_id = ofr_leadership_uc14 version = 1 status = published duration_mode = fixed default_duration_min = 180 min_duration_min = 180 max_duration_min = 180 base_price_minor = 150000 currency = USD" },
+    { "id": "uc14-07", "name": "Create program", "prompt": "insert into programs id = pg_leadership_uc14 biz_id = biz_training_uc14 name = Leadership101Program slug = leadership-101-program status = active offer_version_id = ov_leadership_uc14 expected_duration_days = 30 required_attendance_bps = 8000" },
+    { "id": "uc14-08", "name": "Create cohort", "prompt": "insert into program_cohorts id = pc_leadership_uc14 biz_id = biz_training_uc14 program_id = pg_leadership_uc14 name = LeadershipSpringCohort code = LEAD-2026-SPRING status = planned starts_at = 2026-03-01T09:00:00Z ends_at = 2026-03-31T18:00:00Z location_id = loc_uc14 lead_resource_id = res_trainer_uc14 capacity = 20 min_enrollment = 8" },
+    { "id": "uc14-09", "name": "Create first session", "prompt": "insert into program_cohort_sessions id = pcs_leadership_uc14_001 biz_id = biz_training_uc14 cohort_id = pc_leadership_uc14 sequence = 1 name = Session1Foundation status = scheduled starts_at = 2026-03-01T09:00:00Z ends_at = 2026-03-01T12:00:00Z location_id = loc_uc14 instructor_resource_id = res_trainer_uc14" },
+    { "id": "uc14-10", "name": "Create learner user", "prompt": "insert into users id = usr_learner_uc14 email = learner.uc14@example.com name = CorporateLearner status = active" },
+    { "id": "uc14-11", "name": "Create enrollment", "prompt": "insert into cohort_enrollments id = ce_learner_uc14 biz_id = biz_training_uc14 cohort_id = pc_leadership_uc14 learner_user_id = usr_learner_uc14 status = enrolled" },
+    { "id": "uc14-12", "name": "Create attendance record", "prompt": "insert into session_attendance_records id = sar_learner_uc14_001 biz_id = biz_training_uc14 session_id = pcs_leadership_uc14_001 enrollment_id = ce_learner_uc14 status = present checked_in_at = 2026-03-01T09:02:00Z checked_out_at = 2026-03-01T12:01:00Z attended_minutes = 179" },
+    { "id": "uc14-13", "name": "Create certificate template", "prompt": "insert into certification_templates id = ct_leadership_uc14 biz_id = biz_training_uc14 program_id = pg_leadership_uc14 name = LeadershipCertificate slug = leadership-certificate valid_for_days = 730 is_active = true" }
+  ]
+}

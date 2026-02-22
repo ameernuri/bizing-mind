@@ -1,0 +1,60 @@
+{
+  "defaults": {
+    "dryRun": false,
+    "scope": {
+      "bizId": "biz_sarah_20250221"
+    }
+  },
+  "scenarios": [
+    {
+      "id": "cancel-01",
+      "name": "Create a venue to cancel",
+      "prompt": "insert into venues id = ven_to_cancel biz_id = biz_sarah_20250221 location_id = loc_20250221 name = Venue To Cancel slug = venue-to-cancel setup_minutes = 5 teardown_minutes = 5"
+    },
+    {
+      "id": "cancel-02",
+      "name": "Verify venue exists",
+      "prompt": "list venues where id = ven_to_cancel"
+    },
+    {
+      "id": "cancel-03",
+      "name": "Soft delete the venue (cancellation)",
+      "prompt": "update venues set deleted_at = 2026-02-22T10:00:00Z where id = ven_to_cancel and biz_id = biz_sarah_20250221"
+    },
+    {
+      "id": "cancel-04",
+      "name": "Verify venue is soft deleted",
+      "prompt": "list venues where id = ven_to_cancel"
+    },
+    {
+      "id": "cancel-05",
+      "name": "Create another asset",
+      "prompt": "insert into assets id = asset_cancel_test biz_id = biz_sarah_20250221 name = Asset Cancel Test slug = asset-cancel-test"
+    },
+    {
+      "id": "cancel-06",
+      "name": "Verify asset exists",
+      "prompt": "list assets where id = asset_cancel_test"
+    },
+    {
+      "id": "cancel-07",
+      "name": "Update asset status to inactive",
+      "prompt": "update assets set deleted_at = 2026-02-22T10:00:00Z where id = asset_cancel_test and biz_id = biz_sarah_20250221"
+    },
+    {
+      "id": "cancel-08",
+      "name": "Count active venues",
+      "prompt": "count venues"
+    },
+    {
+      "id": "cancel-09",
+      "name": "Count active assets",
+      "prompt": "count assets"
+    },
+    {
+      "id": "cancel-10",
+      "name": "List all resources (check for double booking potential)",
+      "prompt": "list resources limit 5"
+    }
+  ]
+}

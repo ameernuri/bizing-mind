@@ -1,0 +1,212 @@
+{
+  "defaults": {
+    "dryRun": true,
+    "scope": {
+      "bizId": "biz_test"
+    }
+  },
+  "scenarios": [
+    {
+      "id": "core-001",
+      "name": "List booking orders",
+      "prompt": "list booking_orders limit 5"
+    },
+    {
+      "id": "core-002",
+      "name": "List booking order lines",
+      "prompt": "list booking_order_lines limit 5"
+    },
+    {
+      "id": "core-003",
+      "name": "List offers",
+      "prompt": "list offers limit 5"
+    },
+    {
+      "id": "core-004",
+      "name": "List offer versions",
+      "prompt": "list offer_versions limit 5"
+    },
+    {
+      "id": "core-005",
+      "name": "List services",
+      "prompt": "list services limit 5"
+    },
+    {
+      "id": "core-006",
+      "name": "List service products",
+      "prompt": "list service_products limit 5"
+    },
+    {
+      "id": "core-007",
+      "name": "List resources",
+      "prompt": "list resources limit 5"
+    },
+    {
+      "id": "core-008",
+      "name": "List assets",
+      "prompt": "list assets limit 5"
+    },
+    {
+      "id": "core-009",
+      "name": "List venues",
+      "prompt": "list venues limit 5"
+    },
+    {
+      "id": "calendar-001",
+      "name": "List calendars",
+      "prompt": "list calendars limit 5"
+    },
+    {
+      "id": "calendar-002",
+      "name": "List calendar bindings",
+      "prompt": "list calendar_bindings limit 5"
+    },
+    {
+      "id": "calendar-003",
+      "name": "List availability rules",
+      "prompt": "list availability_rules limit 5"
+    },
+    {
+      "id": "calendar-004",
+      "name": "List capacity holds",
+      "prompt": "list capacity_holds limit 5"
+    },
+    {
+      "id": "payments-001",
+      "name": "List payment intents",
+      "prompt": "list payment_intents limit 5"
+    },
+    {
+      "id": "payments-002",
+      "name": "List payment transactions",
+      "prompt": "list payment_transactions limit 5"
+    },
+    {
+      "id": "payments-003",
+      "name": "List payment methods",
+      "prompt": "list payment_methods limit 5"
+    },
+    {
+      "id": "payments-004",
+      "name": "List payout ledger entries",
+      "prompt": "list payout_ledger_entries limit 5"
+    },
+    {
+      "id": "gifts-001",
+      "name": "List gift instruments",
+      "prompt": "list gift_instruments limit 5"
+    },
+    {
+      "id": "gifts-002",
+      "name": "List gift redemptions",
+      "prompt": "list gift_redemptions limit 5"
+    },
+    {
+      "id": "crm-001",
+      "name": "List CRM contacts",
+      "prompt": "list crm_contacts limit 5"
+    },
+    {
+      "id": "crm-002",
+      "name": "List CRM leads",
+      "prompt": "list crm_leads limit 5"
+    },
+    {
+      "id": "crm-003",
+      "name": "List CRM opportunities",
+      "prompt": "list crm_opportunities limit 5"
+    },
+    {
+      "id": "queue-001",
+      "name": "List queues",
+      "prompt": "list queues limit 5"
+    },
+    {
+      "id": "queue-002",
+      "name": "List queue entries",
+      "prompt": "list queue_entries limit 5"
+    },
+    {
+      "id": "enterprise-001",
+      "name": "List enterprise scopes",
+      "prompt": "list enterprise_scopes limit 5"
+    },
+    {
+      "id": "enterprise-002",
+      "name": "List enterprise relationships",
+      "prompt": "list enterprise_relationships limit 5"
+    },
+    {
+      "id": "governance-001",
+      "name": "List policy templates",
+      "prompt": "list policy_templates limit 5"
+    },
+    {
+      "id": "governance-002",
+      "name": "List policy bindings",
+      "prompt": "list policy_bindings limit 5"
+    },
+    {
+      "id": "audit-001",
+      "name": "List audit events",
+      "prompt": "list audit_events limit 5"
+    },
+    {
+      "id": "extensions-001",
+      "name": "List extension definitions",
+      "prompt": "list extension_definitions limit 5"
+    },
+    {
+      "id": "extensions-002",
+      "name": "List extension installs",
+      "prompt": "list biz_extension_installs limit 5"
+    },
+    {
+      "id": "translation-only-001",
+      "name": "Translate update booking status",
+      "prompt": "update booking_orders set status = confirmed where id = bo_test",
+      "execute": false
+    },
+    {
+      "id": "translation-only-002",
+      "name": "Translate create CRM contact",
+      "prompt": "insert into crm_contacts first_name = Alex last_name = Rivera",
+      "execute": false
+    },
+    {
+      "id": "translation-only-003",
+      "name": "Translate delete queue entry",
+      "prompt": "delete from queue_entries where id = qe_test",
+      "execute": false
+    },
+    {
+      "id": "direct-batch-001",
+      "name": "Direct batch query booking and payments",
+      "request": {
+        "dryRun": true,
+        "scope": {
+          "bizId": "biz_test"
+        },
+        "command": {
+          "kind": "batch",
+          "steps": [
+            {
+              "kind": "query",
+              "table": "booking_orders",
+              "filters": [],
+              "sort": [],
+              "limit": 3
+            },
+            {
+              "kind": "query",
+              "table": "payment_transactions",
+              "filters": [],
+              "sort": [],
+              "limit": 3
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

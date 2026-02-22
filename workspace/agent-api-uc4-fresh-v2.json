@@ -1,0 +1,16 @@
+{
+  "defaults": {
+    "dryRun": false,
+    "scope": { "bizId": "biz_3A1okkfInxk8vSuYhQZHaFBhQTE" }
+  },
+  "scenarios": [
+    { "id": "uc4-01", "name": "Create business", "prompt": "insert into bizes id = biz_3A1okkfInxk8vSuYhQZHaFBhQTE name = Premium Salon slug = premium-salon status = active timezone = America/Los_Angeles" },
+    { "id": "uc4-02", "name": "Create location", "prompt": "insert into locations id = loc_3A1oknxZw6qyDmSuQA1FlQKkD1t biz_id = biz_3A1okkfInxk8vSuYhQZHaFBhQTE name = Main Location slug = main-loc timezone = America/Los_Angeles" },
+    { "id": "uc4-03", "name": "Create stylist A (high favorability)", "prompt": "insert into resources id = res_3A1okn3OLlOWBOpBRRK1A48robv biz_id = biz_3A1okkfInxk8vSuYhQZHaFBhQTE location_id = loc_3A1oknxZw6qyDmSuQA1FlQKkD1t type = host name = Stylist A - Veteran slug = stylist-a-vet timezone = America/Los_Angeles buffer_before_minutes = 5 buffer_after_minutes = 5 capacity = 1 allow_simultaneous_bookings = false" },
+    { "id": "uc4-04", "name": "Create stylist E (low favorability)", "prompt": "insert into resources id = res_3A1oko6PqRsTuVwXyZaBcDeFgHi biz_id = biz_3A1okkfInxk8vSuYhQZHaFBhQTE location_id = loc_3A1oknxZw6qyDmSuQA1FlQKkD1t type = host name = Stylist E - Junior slug = stylist-e-jr timezone = America/Los_Angeles buffer_before_minutes = 5 buffer_after_minutes = 5 capacity = 1 allow_simultaneous_bookings = false" },
+    { "id": "uc4-05", "name": "Create calendar", "prompt": "insert into calendars id = cal_3A1oknW8cYgw83dEPfKQfPILtMc biz_id = biz_3A1okkfInxk8vSuYhQZHaFBhQTE name = Salon Calendar timezone = America/Los_Angeles slot_duration_min = 60 slot_interval_min = 60 pre_buffer_min = 5 post_buffer_min = 5 status = active" },
+    { "id": "uc4-06", "name": "Create offer", "prompt": "insert into offers id = ofr_3A1okpFt2wLYmGSuCOqg87xavvG biz_id = biz_3A1okkfInxk8vSuYhQZHaFBhQTE name = Premium Styling slug = premium-styling execution_mode = scheduled status = active is_published = true timezone = America/Los_Angeles" },
+    { "id": "uc4-07", "name": "Verify resources", "prompt": "list resources where biz_id = biz_3A1okkfInxk8vSuYhQZHaFBhQTE" },
+    { "id": "uc4-08", "name": "Count resources", "prompt": "count resources where biz_id = biz_3A1okkfInxk8vSuYhQZHaFBhQTE" }
+  ]
+}

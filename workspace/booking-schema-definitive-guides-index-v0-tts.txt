@@ -1,0 +1,15 @@
+Definitive Guides Index. Version Zero.
+
+Regenerated against the current canonical schema on February twenty first twenty twenty six.
+
+Latest coverage snapshot shows use cases mapped two hundred fifty seven out of two hundred fifty seven. Full coverage one hundred forty four. Strong coverage one hundred thirteen. Partial coverage zero. Gap zero.
+
+Primary Guide is the booking schema definitive guide version zero explained like I am five.
+
+Focused Setup Guides. All focused guides follow the same section flow for consistency. Latest Schema Notes, Who This Is For, Core Backbone, Setup Playbook, High Value Patterns, Common Mistakes, and Health Checklist.
+
+One, Enterprise and Franchise Setup Guide. Two, Regulated Healthcare Setup Guide. Three, Marketplace and Gig Network Setup Guide. Four, Education and Programs Setup Guide. Five, Field Service and Dispatch Setup Guide.
+
+Coverage Artifacts include booking schema version zero coverage report and schema use case fitness version one.
+
+Source Inputs include booking use cases version three, the canonical schema barrel at packages db src schema canonical dot ts, and the schema documentation at packages db src schema SCHEMA dot md.

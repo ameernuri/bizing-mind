@@ -1,0 +1,25 @@
+{
+  "defaults": {
+    "dryRun": false,
+    "scope": { "bizId": "biz_wedding_uc11" }
+  },
+  "scenarios": [
+    { "id": "uc11-01", "name": "Create wedding business", "prompt": "insert into bizes id = biz_wedding_uc11 name = DreamWeddingPhoto slug = dream-wedding-uc11 status = active timezone = America/Los_Angeles" },
+    { "id": "uc11-02", "name": "Create location", "prompt": "insert into locations id = loc_uc11 biz_id = biz_wedding_uc11 name = StudioHQ slug = studio-hq timezone = America/Los_Angeles" },
+    { "id": "uc11-03", "name": "Create lead photographer user", "prompt": "insert into users id = usr_lead_uc11 email = lead.uc11@example.com name = LeadPhotographer status = active" },
+    { "id": "uc11-04", "name": "Create lead photographer resource", "prompt": "insert into resources id = res_lead_photo biz_id = biz_wedding_uc11 location_id = loc_uc11 type = host host_user_id = usr_lead_uc11 name = LeadPhotographerResource slug = lead-photo-resource timezone = America/Los_Angeles capacity = 1 allow_simultaneous_bookings = false" },
+    { "id": "uc11-05", "name": "Create second shooter user", "prompt": "insert into users id = usr_second_uc11 email = second.uc11@example.com name = SecondShooter status = active" },
+    { "id": "uc11-06", "name": "Create second shooter resource", "prompt": "insert into resources id = res_second_photo biz_id = biz_wedding_uc11 location_id = loc_uc11 type = host host_user_id = usr_second_uc11 name = SecondShooterResource slug = second-photo-resource timezone = America/Los_Angeles capacity = 1 allow_simultaneous_bookings = false" },
+    { "id": "uc11-07", "name": "Create assistant user", "prompt": "insert into users id = usr_assistant_uc11 email = assistant.uc11@example.com name = PhotoAssistant status = active" },
+    { "id": "uc11-08", "name": "Create assistant resource", "prompt": "insert into resources id = res_assistant biz_id = biz_wedding_uc11 location_id = loc_uc11 type = host host_user_id = usr_assistant_uc11 name = PhotoAssistantResource slug = assistant-resource timezone = America/Los_Angeles capacity = 1 allow_simultaneous_bookings = false" },
+    { "id": "uc11-09", "name": "Create service group", "prompt": "insert into service_groups id = sg_wedding_uc11 biz_id = biz_wedding_uc11 name = WeddingServices slug = wedding-services status = active" },
+    { "id": "uc11-10", "name": "Create wedding package service", "prompt": "insert into services id = svc_wedding_pkg biz_id = biz_wedding_uc11 service_group_id = sg_wedding_uc11 name = WeddingPhotography slug = wedding-photography type = appointment visibility = public status = active" },
+    { "id": "uc11-11", "name": "Create service product", "prompt": "insert into service_products id = sp_wedding_uc11 biz_id = biz_wedding_uc11 name = WeddingPhotoPackage slug = wedding-photo-package kind = booking duration_mode = fixed default_duration_minutes = 480 base_price_amount = 75000 currency = USD status = active is_published = true" },
+    { "id": "uc11-12", "name": "Create team requirement group", "prompt": "insert into service_product_requirement_groups id = sprg_wedding_uc11 biz_id = biz_wedding_uc11 service_product_id = sp_wedding_uc11 name = PhotoTeam slug = photo-team target_resource_type = host requirement_mode = required min_quantity = 3 max_quantity = 3 selector_match_mode = any allow_substitution = true" },
+    { "id": "uc11-13", "name": "Create compensation plan", "prompt": "insert into compensation_plans id = cp_uc11 biz_id = biz_wedding_uc11 name = WeddingTeamCommission slug = wedding-team-commission status = active currency = USD service_id = svc_wedding_pkg is_default = true priority = 10" },
+    { "id": "uc11-14", "name": "Create compensation plan version", "prompt": "insert into compensation_plan_versions id = cpv_uc11 biz_id = biz_wedding_uc11 compensation_plan_id = cp_uc11 version_number = 1 status = active effective_from_at = 2026-01-01T00:00:00Z is_current = true" },
+    { "id": "uc11-15", "name": "Lead flat payout rule", "prompt": "insert into compensation_plan_rules id = cpr_lead_uc11 biz_id = biz_wedding_uc11 compensation_plan_version_id = cpv_uc11 name = LeadPayout selector_type = resource resource_id = res_lead_photo calculation_mode = flat_amount flat_amount_minor = 30000 priority = 10" },
+    { "id": "uc11-16", "name": "Second shooter flat payout rule", "prompt": "insert into compensation_plan_rules id = cpr_second_uc11 biz_id = biz_wedding_uc11 compensation_plan_version_id = cpv_uc11 name = SecondPayout selector_type = resource resource_id = res_second_photo calculation_mode = flat_amount flat_amount_minor = 15000 priority = 20" },
+    { "id": "uc11-17", "name": "Assistant flat payout rule", "prompt": "insert into compensation_plan_rules id = cpr_assistant_uc11 biz_id = biz_wedding_uc11 compensation_plan_version_id = cpv_uc11 name = AssistantPayout selector_type = resource resource_id = res_assistant calculation_mode = flat_amount flat_amount_minor = 7500 priority = 30" }
+  ]
+}

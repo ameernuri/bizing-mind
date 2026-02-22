@@ -1,0 +1,297 @@
+The Definitive Guide to the Bizing Schema. Version Zero. Explained Like I'm Five plus Implementation Playbooks.
+
+What This Schema Is Trying to Do.
+
+Bizing is designed as one unified data backbone for businesses that sell and manage time, services, resources like hosts, assets, and venues, and products including physical, digital, fee-like, and bundles.
+
+Think of it this way. A haircut, a room rental, a tutoring session, and a product checkout should all feel like the same machine with different settings.
+
+The core machine works like this. First, define what can be sold using sellables and commercial layers. Second, define what can fulfill using resources and selectors. Third, define when it can happen using calendars and availability. Fourth, capture demand using booking orders, queues, or staffing demands. Fifth, execute work using fulfillment units and assignments. Sixth, settle money through payments, accounts receivable, and compensation. Seventh, keep history and projections through audit, facts, and checkpoints.
+
+The Backbone Mental Model.
+
+Think in six nouns.
+
+First, sellable. This is the commercial identity of anything purchasable. The table anchor is sellables. It bridges to products, service products, offer versions, resource rates, bundles, variants, and pricing.
+
+Second, resource. This is the supply-side thing that can be scheduled or assigned. The table anchor is resources. Types include host, company host, asset, and venue.
+
+Third, calendar. This is the time policy container. Tables include calendars, calendar bindings, calendar overlays, availability rules, availability gates, capacity holds, and dependency rules.
+
+Fourth, order. This is the commercial contract and money trace identity. Tables include booking orders, booking order lines, and booking order line sellables.
+
+Fifth, fulfillment unit. This is the executable work chunk resulting from an order. Tables include fulfillment units, fulfillment dependencies, fulfillment assignments, and fulfillment checkpoints.
+
+Sixth, ledger and event. This is immutable explainability of money, access, policy, and operations. Tables across domains include payments, compensation, access events, policy consequence events, and audit events.
+
+If a new feature does not clearly attach to these nouns, it probably belongs in an extension or plugin read model, not core.
+
+What Changed in This Refresh. Assets and venues are intentionally lean identity and profile wrappers. Operational scheduling truth is centralized in resources including status reference, capacity and overlap controls, and generic buffer before minutes and buffer after minutes. This removes duplicated operational state and makes behavior consistent across host, asset, venue, and company host supply.
+
+Layered Architecture.
+
+Layer A is transactional truth, the normalized write model. Examples include offers, offer versions, offer components, service products, requirement selectors, seat types, booking orders, fulfillment units, payment intents, and payment transactions.
+
+Layer B is policy and orchestration. Examples include workflow instances, workflow steps, and workflow decisions. Governance and policy templates, rules, and bindings. Availability dependency rules. And extension lifecycle subscriptions and deliveries.
+
+Layer C is read-model and analytics. Examples include fact revenue daily, fact sellable daily, fact operational daily, projection checkpoints, and fact refresh runs.
+
+The rule is that Layer C can be rebuilt from A and B. Layer C is for speed, not truth.
+
+Domain Atlas.
+
+Tenant and identity includes businesses, users, and authentication tables. Purpose is strict tenant boundary and identity anchor.
+
+Catalog and commercial packaging includes services, service products, offers, offer versions, and sellables. Purpose is to model what is sold and how it is presented and executed.
+
+Product commerce includes products, product bundles, product bundle components, and inventory and physical fulfillment tables. Purpose is SKU plus bundle plus inventory and physical fulfillment in same ecosystem.
+
+Variant and pricing includes sellable variant dimensions, sellable variant dimension values, sellable variants, sellable variant selections, sellable pricing modes, sellable pricing thresholds, and sellable pricing overrides. Purpose is flexible variants and robust pricing without schema hacks.
+
+Time and availability includes calendars, calendar bindings, overlays, rules, gates, holds, dependency rules, and targets. Purpose is per-entity control with composable constraints.
+
+Queue and waitlist includes queues, queue entries, queue tickets, queue events, and wait time predictions. Purpose is walk-in and asynchronous demand with deterministic traces.
+
+Fulfillment and operations includes fulfillment units, fulfillment assignments, dependencies, checkpoints, operational demands, and operational assignments. Purpose is one cross-domain dispatch and assignment backbone.
+
+Staffing and intelligence includes staffing demands, staffing demand selectors, staffing responses, staffing assignments, and ranking, favorability, and forecasting tables. Purpose is internal labor market and substitution and fairness primitives.
+
+Checkout and payments includes checkout sessions, items, events, and recovery links. Payment intents, payment intent tenders, payment transactions, disputes, settlements, and payouts. Purpose is end-to-end tender traceability and recovery flows.
+
+Access rights, the digital, ticket, and license backbone, includes access artifacts, links, events, activity logs, usage windows, and delivery links. Access action tokens, token events, transfer policies and transfers, resale listings, and security signals and decisions. Purpose is secure access governance with transfer, resale, and security lifecycle.
+
+Education and progression includes programs, cohorts, sessions, attendance, and certifications. Requirement sets, nodes, edges, evaluations, and evidence. Assessment templates, items, attempts, responses, results, and grading events. Purpose is learning, gating, assessment, and progression with auditable outcomes.
+
+Integrations and plugin framework includes channels, sync, entity links, and webhooks. Extensions, lifecycle events, deliveries, state documents, idempotency, and custom fields. Purpose is safe extensibility and external connector parity.
+
+Governance, compliance, and audit includes governance, HIPAA, immutable audit events, and notes with visibility classes. Purpose is explainability, privacy controls, and compliance evidence.
+
+Reporting includes daily and monthly facts plus projection checkpoints. Purpose is business questions answered fast and consistently.
+
+Core Invariants.
+
+First, tenant-safe foreign key pattern. Most operational tables carry business ID. Cross-table references often use composite tenant-safe foreign keys.
+
+Second, shape checks instead of ambiguous polymorphism. Selector, link, and scope tables use strict check constraints so each row has exactly one valid payload shape.
+
+Third, append-style timelines for sensitive domains. This includes access events, grading events, queue events, policy consequence events, and audit events.
+
+Fourth, status and timeline coherence. Terminal statuses require matching timestamps like completed at or revoked at.
+
+Fifth, minor-unit money. Amounts are integer minor units to avoid floating-point money bugs.
+
+Sixth, extensible without hardcoding. Custom subject and extension lifecycle and event model allows new behavior without schema forks.
+
+How a Calendar Works.
+
+A calendar is not only for hosts. It is a policy object attachable to many entities.
+
+You can bind calendars to business, location, user, resource, service, service product, offer or offer version, and custom subject.
+
+Resolution layers work like this. First, baseline mode, either available by default or unavailable by default. Second, overlays. Third, rules for recurring, date, or timestamp. Fourth, runtime gates. Fifth, capacity holds. Sixth, dependency rules, for example, host available only if front desk is also available. Seventh, resource execution buffers like buffer before minutes and buffer after minutes.
+
+Think of it this way. Availability equals default behavior plus exceptions plus temporary controls plus dependency checks.
+
+Cookbook One. Simple Fixed Appointment.
+
+Goal. Publish one fixed-duration service and allow online booking with clean financial trace.
+
+Setup writes. First, create services row for intent. Second, create service products row for commercial execution package. Third, create sellables row and bridge via sellable service products. Fourth, create offers and offer versions row. Fifth, create offer components to express required supply. Sixth, add offer component selectors, usually exact host or resource type equals host. Seventh, create calendars, calendar bindings, and availability rules.
+
+Runtime writes. First, on customer commit create booking orders. Second, create booking order lines. Third, attribute lines with booking order line sellables. Fourth, create fulfillment units from version snapshot. Fifth, create fulfillment assignments. Sixth, create payment records from payment intents to payment intent tenders to payment transactions.
+
+Runtime reads. Availability preview uses calendar stack plus holds plus dependencies. Order history uses booking orders plus lines plus line sellables. Workboard uses fulfillment units plus assignments.
+
+Guardrails. Never skip line-to-sellable attribution. Always snapshot versioned commercial context at order time.
+
+Cookbook Two. Call Fee and Arrival Fee.
+
+Goal. Charge a visit or call fee even if full work is not performed.
+
+Modeling pattern. Use fee sellables and explicit order lines.
+
+Setup writes. First, add products row with fee-like semantics. Second, add sellables and sellable products bridge. Optional, include fee as default component in offer or service flow policy.
+
+Runtime writes. First, create order with at least one fee line in booking order lines. Second, if full service proceeds, add additional service lines. Third, if service is declined on arrival, complete order with fee-only fulfillment checkpoint. Fourth, capture payment transaction for the fee line.
+
+Query play. How much did call fees generate last month? Filter line sellables where sellable belongs to fee product class.
+
+Cookbook Three. Manual Time-Window Pricing.
+
+Goal. Different price by day, hour, or holiday without hardcoded business logic.
+
+Setup writes. First, base rule in sellable pricing modes. Second, add thresholds in sellable pricing thresholds where needed. Third, add scoped overrides in sellable pricing overrides for location windows, channel windows, or special subject scopes. Fourth, use calendar rules and overlays for open and closed windows.
+
+Runtime resolution order. First, resolve active pricing mode by time and sellable. Second, resolve matching thresholds. Third, apply highest-priority active override in scope. Fourth, persist final unit and total at order-line snapshot.
+
+Guardrails. Keep mode logic in pricing tables. Do not scatter ad-hoc pricing flags in user interface payloads.
+
+Cookbook Four. Hybrid Queue and Slot with ETA Holds.
+
+Goal. Same offer can serve booked slots and walk-in queue safely.
+
+Setup writes. First, configure offer version admission modes to allow both queue and slot flows. Second, bind calendar and capacity controls. Third, configure queue for offer and location context.
+
+Runtime queue path. First, add customer to queue entries. Second, issue queue tickets and log queue events. Third, store predicted waits in wait time predictions. Fourth, for near-term candidate windows create capacity holds to protect ETA windows.
+
+Runtime slot path. First, standard slot booking flow creates order and fulfillment. Second, availability resolver sees holds and dependency rules before confirming.
+
+Guardrails. Holds must expire deterministically. Queue and slot paths must write same commercial truth in booking orders once confirmed.
+
+Cookbook Five. Reverse-Bid Internal Shift and Payroll Trace.
+
+Goal. Post internal shift demand, collect bids or claims, assign winner, trace to payroll.
+
+Setup writes. First, create staffing demands with fill mode compatible with bid flow. Second, optionally link staffing demand to auction context. Third, define selector constraints via staffing demand selectors.
+
+Runtime writes. First, workers submit staffing responses as claim or bid. Second, accept one response and create staffing assignments. Third, mirror into canonical operations using operational demands and operational assignments for unified dispatch. Fourth, during work capture work time segments and related work entries. Fifth, record compensation ledger entries and pay-run items with source linkage.
+
+Trace query. Staffing demand to staffing assignment to work time segment to compensation ledger entry.
+
+Guardrails. Keep staffing and compensation linked by source references for audit-grade explainability.
+
+Cookbook Six. User-Controlled Calendar Sharing.
+
+Goal. User shares selected availability sources with specific businesses.
+
+Setup writes. First, create share contract in calendar access grants. Second, add explicit source allowlist rows in calendar access grant sources. This includes external calendar feed or internal user calendar binding.
+
+Runtime behavior. Grant status and validity window determine visibility. Revocation or expiry stops sharing deterministically. Source provenance remains queryable.
+
+Guardrails. Enforce owner-safe source linkage. Never infer sharing from connection existence alone. Sharing must be explicit via grant rows.
+
+Cookbook Seven. Licensed Digital Product Issuance.
+
+Goal. After purchase, issue verifiable license entitlement with support-ready history.
+
+Setup writes. First, product and sellable setup for digital product. Second, optional transfer policy in access transfer policies.
+
+Runtime writes on successful purchase. First, create access artifacts row with artifact type equal to license key. Second, link to commercial context using access artifact links including sellable, order or order line, and payment transaction. Third, add timeline entry in access artifact events like issued or activated. Fourth, create access action tokens where token type can be opaque or numeric. Fifth, add token lifecycle entries in access action token events.
+
+Verification flow. Check token hash, status, expiry, and usage caps. Write attempt to access activity logs. Optionally write artifact event like verified or verification failed.
+
+Guardrails. Store only token and license hashes, not raw secrets.
+
+Cookbook Eight. Secure Download with Expiry and Caps.
+
+Goal. Offer controlled redownload and abuse-resistant delivery.
+
+Setup writes. First, access usage windows for download action limits. Second, optional delivery policy metadata in artifact policy snapshot.
+
+Runtime writes. First, issue access delivery links with token hash, expiry, and max count. Second, on each attempt write access activity logs. Third, update token and link event timelines. Fourth, on support reissue, create new link and event trail.
+
+Security enhancements. Detect suspicious behavior via access security signals. Apply policy outcomes in access security decisions like allow, challenge, deny, suspend, or revoke.
+
+Cookbook Nine. Flexible Pricing Product.
+
+Goal. One product family can be free, fixed, or pay-what-you-want style.
+
+Setup writes. First, base mode rows in sellable pricing modes. Second, threshold rows in sellable pricing thresholds for minimum, maximum, and suggested constraints. Third, optional scope overrides in sellable pricing overrides.
+
+Checkout behavior. Free means zero-price line is explicit and reportable. Fixed means snapshot fixed price into order line. Flexible means validate submitted amount against threshold policy.
+
+Analytics. Use sellable fact tables to compare free-to-paid conversion and average paid amount.
+
+Cookbook Ten. Abandoned Checkout Recovery.
+
+Goal. Recover dropped checkouts without spammy behavior.
+
+Runtime writes. First, open checkout sessions when cart starts. Second, add or update checkout session items as user edits cart. Third, write lifecycle in checkout session events. Fourth, mark abandoned via timeout policy. Fifth, issue checkout recovery links with channel and validity. Sixth, on comeback link, mark recovered and trace attribution.
+
+Guardrails. One session can reference recovered-from lineage. Deduplicate sends with request keys and status windows.
+
+Cookbook Eleven. Ticket Hold, Transfer, and Resale Governance.
+
+Goal. Control ownership changes and resale market safely.
+
+Runtime writes. First, hold capacity via capacity holds during checkout. Second, represent ownership as access artifacts with ticket entitlement. Third, transfer rules in access transfer policies. Fourth, transfer requests and results in access transfers. Fifth, secondary listings in access resale listings. Sixth, final ownership timeline in artifact and transfer events.
+
+Fraud controls. Attach suspicious patterns to access security signals. Actions captured in access security decisions.
+
+Guardrails. Enforce max transfer behavior by policy and usage windows. Prevent ambiguous buyer and seller principal shape.
+
+Cookbook Twelve. Assessment and Progression Link.
+
+Goal. Learner attempts quiz or assessment and unlocks next stage when requirements pass.
+
+Setup writes. First, define requirement graph using requirement sets, nodes, and edges. Second, define assessment templates and assessment items. Third, optionally link template to requirement set and items to requirement nodes.
+
+Runtime writes. First, create assessment attempts. Second, capture item answers in assessment responses. Third, grade and emit grading events. Fourth, finalize assessment results. Fifth, write or update requirement evaluations and evidence links.
+
+Guardrails. Use template plus attempt plus item consistency foreign keys to avoid mixed-template corruption. Keep grading timeline append-style for explainability.
+
+Cookbook Thirteen. Delivery Security Policy Pack.
+
+Goal. Detect risky access patterns and apply explainable policy outcomes.
+
+Detection path. First, access attempts logged in access activity logs. Second, detection engine writes access security signals with severity and confidence.
+
+Decision path. First, policy or reviewer writes access security decisions. Second, decision may allow, challenge, deny, suspend, or revoke. Third, affected token or artifact state changes are recorded in corresponding timelines.
+
+Recovery path. Support override creates explicit reversible decision trail.
+
+Guardrails. Decisions require anchor targets and coherent effective windows.
+
+Cross-Domain Query Playbooks.
+
+How much did we make last month? Read fact revenue monthly. Drill into booking orders and payment tables only when investigating anomalies.
+
+What is top-selling across services and products together? Read fact sellable daily joined with sellables.
+
+What is currently active on dispatch? Read operational assignments for live status windows. Optionally branch to staffing or fulfillment source.
+
+Why was this customer blocked from booking? Inspect calendar stack, availability gates, capacity holds, dependency rules, and queue ETA policy if hybrid.
+
+Which access rights were risky this week? Query access security signals plus linked decisions and activity logs.
+
+Which abandoned checkouts converted after recovery? Query checkout sessions with recovered lineage, recovery links, and conversion status.
+
+Which shifts ended in payroll lines? Trace from staffing assignment to work time segments to compensation ledger and pay-run items.
+
+Which users shared calendars with this business and what detail level? Query calendar access grants plus sources plus status and expiry.
+
+Plugin and Extension Playbook.
+
+When to extend core. Use extension primitives when behavior is vertical-specific, data is optional for most businesses, or you need custom projection or read model.
+
+Recommended path. First, register extension in extension definitions. Second, install per business in business extension installs. Third, grant permissions in business extension permission grants. Fourth, subscribe to events in lifecycle event subscriptions. Fifth, process with retries and dead letter queue in lifecycle event deliveries. Sixth, persist plugin state in extension state documents. Seventh, deduplicate side effects using idempotency keys. Eighth, add custom data with custom field definitions and custom field values.
+
+Anti-pattern. Do not add extension-specific columns to core transactional tables unless the field is universally hot and semantically core.
+
+Practical Dos and Donts.
+
+Do keep business truth in normalized write model tables. Do model money as minor units and keep currency explicit. Do keep event and decision trails append-oriented. Do enforce tenant boundaries in every new table unless intentionally global. Do use selectors and custom subject before adding vertical-specific hardcoded columns.
+
+Do not create duplicate parallel booking models for each vertical. Do not hide operationally important fields inside opaque JSON blobs. Do not read analytics tables as legal source of truth. Do not bypass status and timestamp invariants in ad-hoc scripts.
+
+What This Schema Is Excellent At.
+
+Unified commerce for time, service, and product. Robust scheduling and supply matching. Queue and slot coexistence and operational convergence. Financial traceability from split tender to line attribution. Digital access governance with tokens, transfers, resale, and security. Learning and progression foundations with assessment lifecycle. Plugin-ready extension contract with deterministic replay patterns.
+
+Known Weak Spots.
+
+Coverage status shows full one hundred twenty-three, strong one hundred seven, partial zero, gap zero. So there are no currently-rated partial or gap use cases in the catalog.
+
+Remaining high return on investment additive opportunities, not backbone failures, include deeper insurance mediation primitives like coverage policy normalization and mediation or case lifecycle. Cryptographic key-management evidence primitives like key lifecycle and rotation attestations and encryption posture proofs for high-assurance compliance operations. Deterministic optimization snapshots like persisted scoring and decision inputs for dispatch, ranking, and overbooking replay explainability.
+
+If You Are New, Where Do You Start.
+
+First, read schema barrel at packages db src schema canonical dot ts.
+
+Second, learn the six nouns. Sellable, resource, calendar, order, fulfillment, and ledger or event.
+
+Third, implement one simple use case first. Start with the solo consultant with fixed duration.
+
+Fourth, add one complex use case next. Use the hybrid queue plus online booking for the same offer, and the ETA-protected booking window with auto capacity holds.
+
+Fifth, add one modern digital use case. Use the secure download delivery with expiry and limits.
+
+Sixth, verify observability from day one. Keep projection checkpoints healthy and queryable.
+
+Final Summary.
+
+The schema now behaves like a strong unified operating system for selling and managing appointments, rentals, products, memberships, digital access, and workforce operations.
+
+It keeps simple flows simple. It supports complex flows without hacks. It is extensible through clean plugin and custom-subject patterns. It is auditable end-to-end.
+
+That combination is the backbone.

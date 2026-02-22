@@ -1,0 +1,16 @@
+{
+  "defaults": {
+    "dryRun": false,
+    "scope": { "bizId": "biz_3A1okl92C08Gmr7DK4M9YSNUUmp" }
+  },
+  "scenarios": [
+    { "id": "uc5-01", "name": "Create business", "prompt": "insert into bizes id = biz_3A1okl92C08Gmr7DK4M9YSNUUmp name = Family Medical Clinic slug = family-clinic status = active timezone = America/Los_Angeles" },
+    { "id": "uc5-02", "name": "Create location", "prompt": "insert into locations id = loc_3A1oklKQYuu1l2p4FDLuDtxd9Mu biz_id = biz_3A1okl92C08Gmr7DK4M9YSNUUmp name = Main Clinic slug = main-clinic timezone = America/Los_Angeles" },
+    { "id": "uc5-03", "name": "Create exam room 2", "prompt": "insert into resources id = res_3A1okpLMlRL1Y9Xq8iKYHbifb92 biz_id = biz_3A1okl92C08Gmr7DK4M9YSNUUmp location_id = loc_3A1oklKQYuu1l2p4FDLuDtxd9Mu type = space name = Exam Room 2 slug = exam-room-2 timezone = America/Los_Angeles capacity = 1 allow_simultaneous_bookings = false" },
+    { "id": "uc5-04", "name": "Create exam room 3", "prompt": "insert into resources id = res_3A1okq8NoPqRsTuVwXyZaBcDeFgHi biz_id = biz_3A1okl92C08Gmr7DK4M9YSNUUmp location_id = loc_3A1oklKQYuu1l2p4FDLuDtxd9Mu type = space name = Exam Room 3 slug = exam-room-3 timezone = America/Los_Angeles capacity = 1 allow_simultaneous_bookings = false" },
+    { "id": "uc5-05", "name": "Create Dr Jones", "prompt": "insert into resources id = res_3A1okr9OpQrStUvWxYzAbCdEfGhIj biz_id = biz_3A1okl92C08Gmr7DK4M9YSNUUmp location_id = loc_3A1oklKQYuu1l2p4FDLuDtxd9Mu type = host name = Dr. Jones slug = dr-jones timezone = America/Los_Angeles capacity = 1 allow_simultaneous_bookings = false" },
+    { "id": "uc5-06", "name": "Create calendar", "prompt": "insert into calendars id = cal_3A1okl4ivAZEUMCcLpgySqvumnT biz_id = biz_3A1okl92C08Gmr7DK4M9YSNUUmp name = Clinic Calendar timezone = America/Los_Angeles slot_duration_min = 30 status = active" },
+    { "id": "uc5-07", "name": "Verify resources", "prompt": "list resources where biz_id = biz_3A1okl92C08Gmr7DK4M9YSNUUmp" },
+    { "id": "uc5-08", "name": "Count exam rooms", "prompt": "count resources where biz_id = biz_3A1okl92C08Gmr7DK4M9YSNUUmp and type = space" }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "defaults": {
+    "dryRun": false,
+    "scope": { "bizId": "biz_3A1okoVRyn9HPZw45rNfim1tgtG" }
+  },
+  "scenarios": [
+    { "id": "uc1-01", "name": "Create business", "prompt": "insert into bizes id = biz_3A1okoVRyn9HPZw45rNfim1tgtG name = Sarah Career Coaching slug = sarah-career-coaching status = active timezone = America/Los_Angeles" },
+    { "id": "uc1-02", "name": "Create location", "prompt": "insert into locations id = loc_3A1oknL6oudCkiD4q1D6AngEal7 biz_id = biz_3A1okoVRyn9HPZw45rNfim1tgtG name = Sarah Office slug = sarah-office timezone = America/Los_Angeles" },
+    { "id": "uc1-03", "name": "Create venue", "prompt": "insert into venues id = ven_3A1okoVRyn9HPZw45rNfim1tgtG_01 biz_id = biz_3A1okoVRyn9HPZw45rNfim1tgtG location_id = loc_3A1oknL6oudCkiD4q1D6AngEal7 name = Coaching Office slug = coaching-office setup_minutes = 5 teardown_minutes = 5" },
+    { "id": "uc1-04", "name": "Create Sarah as resource", "prompt": "insert into resources id = res_3A1oklAetPiVx1L25FN28t3eJD5 biz_id = biz_3A1okoVRyn9HPZw45rNfim1tgtG location_id = loc_3A1oknL6oudCkiD4q1D6AngEal7 type = host name = Sarah Chen slug = sarah-chen timezone = America/Los_Angeles buffer_before_minutes = 10 buffer_after_minutes = 10 capacity = 1 allow_simultaneous_bookings = false" },
+    { "id": "uc1-05", "name": "Create service group", "prompt": "insert into service_groups id = sg_3A1okoVRyn9HPZw45rNfim1tgtG_01 biz_id = biz_3A1okoVRyn9HPZw45rNfim1tgtG name = Coaching Services slug = coaching-services status = active" },
+    { "id": "uc1-06", "name": "Create calendar", "prompt": "insert into calendars id = cal_3A1okmdX67BE4HI7oTVphN6PQFN biz_id = biz_3A1okoVRyn9HPZw45rNfim1tgtG name = Sarah Calendar timezone = America/Los_Angeles slot_duration_min = 50 slot_interval_min = 50 pre_buffer_min = 10 post_buffer_min = 10 min_advance_booking_hours = 24 max_advance_booking_days = 60 status = active" },
+    { "id": "uc1-07", "name": "Create Monday availability", "prompt": "insert into availability_rules id = ar_3A1okoVRyn9HPZw45rNfim1tgtG_01 biz_id = biz_3A1okoVRyn9HPZw45rNfim1tgtG calendar_id = cal_3A1okmdX67BE4HI7oTVphN6PQFN name = Monday Hours mode = weekly frequency = weekly day_of_week = 1 start_time = 09:00:00 end_time = 17:00:00 action = available is_active = true" },
+    { "id": "uc1-08", "name": "Create Tuesday availability", "prompt": "insert into availability_rules id = ar_3A1okoVRyn9HPZw45rNfim1tgtG_02 biz_id = biz_3A1okoVRyn9HPZw45rNfim1tgtG calendar_id = cal_3A1okmdX67BE4HI7oTVphN6PQFN name = Tuesday Hours mode = weekly frequency = weekly day_of_week = 2 start_time = 09:00:00 end_time = 17:00:00 action = available is_active = true" },
+    { "id": "uc1-09", "name": "Create Wednesday availability", "prompt": "insert into availability_rules id = ar_3A1okoVRyn9HPZw45rNfim1tgtG_03 biz_id = biz_3A1okoVRyn9HPZw45rNfim1tgtG calendar_id = cal_3A1okmdX67BE4HI7oTVphN6PQFN name = Wednesday Hours mode = weekly frequency = weekly day_of_week = 3 start_time = 09:00:00 end_time = 17:00:00 action = available is_active = true" },
+    { "id": "uc1-10", "name": "Create Thursday availability", "prompt": "insert into availability_rules id = ar_3A1okoVRyn9HPZw45rNfim1tgtG_04 biz_id = biz_3A1okoVRyn9HPZw45rNfim1tgtG calendar_id = cal_3A1okmdX67BE4HI7oTVphN6PQFN name = Thursday Hours mode = weekly frequency = weekly day_of_week = 4 start_time = 09:00:00 end_time = 17:00:00 action = available is_active = true" },
+    { "id": "uc1-11", "name": "Create Friday availability", "prompt": "insert into availability_rules id = ar_3A1okoVRyn9HPZw45rNfim1tgtG_05 biz_id = biz_3A1okoVRyn9HPZw45rNfim1tgtG calendar_id = cal_3A1okmdX67BE4HI7oTVphN6PQFN name = Friday Hours mode = weekly frequency = weekly day_of_week = 5 start_time = 09:00:00 end_time = 17:00:00 action = available is_active = true" },
+    { "id": "uc1-12", "name": "Create offer", "prompt": "insert into offers id = ofr_3A1oknFrphS8VFcw96kRPZiroUn biz_id = biz_3A1okoVRyn9HPZw45rNfim1tgtG name = Career Coaching Session slug = career-coaching-session execution_mode = scheduled status = active is_published = true timezone = America/Los_Angeles" },
+    { "id": "uc1-13", "name": "Create offer version", "prompt": "insert into offer_versions id = ov_3A1okoVRyn9HPZw45rNfim1tgtG_01 biz_id = biz_3A1okoVRyn9HPZw45rNfim1tgtG offer_id = ofr_3A1oknFrphS8VFcw96kRPZiroUn version = 1 status = active duration_mode = fixed default_duration_min = 50 min_duration_min = 50 max_duration_min = 50 base_price_minor = 15000 currency = USD" },
+    { "id": "uc1-14", "name": "Verify business created", "prompt": "list bizes where id = biz_3A1okoVRyn9HPZw45rNfim1tgtG" },
+    { "id": "uc1-15", "name": "Verify calendar created", "prompt": "list calendars where id = cal_3A1okmdX67BE4HI7oTVphN6PQFN" },
+    { "id": "uc1-16", "name": "Count availability rules", "prompt": "count availability_rules where calendar_id = cal_3A1okmdX67BE4HI7oTVphN6PQFN" }
+  ]
+}

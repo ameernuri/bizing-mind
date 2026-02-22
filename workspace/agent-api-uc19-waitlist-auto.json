@@ -1,0 +1,17 @@
+{
+  "defaults": {
+    "dryRun": false,
+    "scope": { "bizId": "biz_waitlist_uc19" }
+  },
+  "scenarios": [
+    { "id": "uc19-01", "name": "Create restaurant business", "prompt": "insert into bizes id = biz_waitlist_uc19 name = ExclusiveBistro slug = exclusive-bistro-uc19 status = active timezone = America/Los_Angeles" },
+    { "id": "uc19-02", "name": "Create location", "prompt": "insert into locations id = loc_uc19 biz_id = biz_waitlist_uc19 name = MainDining slug = main-dining timezone = America/Los_Angeles" },
+    { "id": "uc19-03", "name": "Create waitlist queue", "prompt": "insert into queues id = q_waitlist_uc19 biz_id = biz_waitlist_uc19 location_id = loc_uc19 name = DinnerWaitlist slug = dinner-waitlist strategy = priority status = active is_self_join_enabled = true" },
+    { "id": "uc19-04", "name": "Create customer user", "prompt": "insert into users id = usr_waitlist_001_uc19 email = customer1.uc19@example.com name = PriorityCustomer status = active" },
+    { "id": "uc19-05", "name": "Create waitlist entry", "prompt": "insert into queue_entries id = qe_001_uc19 biz_id = biz_waitlist_uc19 queue_id = q_waitlist_uc19 customer_user_id = usr_waitlist_001_uc19 status = waiting priority_score = 100 estimated_wait_min = 45" },
+    { "id": "uc19-06", "name": "Auto-offer queue entry", "prompt": "update queue_entries set status = offered offered_at = 2026-02-22T18:00:00Z offer_expires_at = 2026-02-22T20:00:00Z where id = qe_001_uc19 and biz_id = biz_waitlist_uc19" },
+    { "id": "uc19-07", "name": "Record auto-offer event", "prompt": "insert into queue_events id = qev_offer_uc19 biz_id = biz_waitlist_uc19 queue_entry_id = qe_001_uc19 event_type = offered actor_user_id = usr_waitlist_001_uc19 event_at = 2026-02-22T18:00:00Z" },
+    { "id": "uc19-08", "name": "Create queue ticket", "prompt": "insert into queue_tickets id = qt_uc19_001 biz_id = biz_waitlist_uc19 queue_id = q_waitlist_uc19 queue_entry_id = qe_001_uc19 ticket_number = 1001 status = issued issued_at = 2026-02-22T17:55:00Z" },
+    { "id": "uc19-09", "name": "Create wait prediction", "prompt": "insert into wait_time_predictions id = wtp_uc19_001 biz_id = biz_waitlist_uc19 queue_id = q_waitlist_uc19 queue_entry_id = qe_001_uc19 model_type = heuristic generated_at = 2026-02-22T18:00:00Z horizon_min = 45 estimated_wait_min = 45 p50_wait_min = 40 p90_wait_min = 55" }
+  ]
+}

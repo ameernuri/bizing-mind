@@ -1,0 +1,60 @@
+{
+  "defaults": {
+    "dryRun": false,
+    "scope": {
+      "bizId": "biz_sarah_20250221"
+    }
+  },
+  "scenarios": [
+    {
+      "id": "db-01",
+      "name": "Create first booking at 2pm",
+      "prompt": "insert into booking_orders id = bo_first_2pm biz_id = biz_sarah_20250221 offer_id = ofr_20250221 status = confirmed currency = USD total_minor = 15000 requested_start_at = 2026-02-25T14:00:00Z requested_end_at = 2026-02-25T14:50:00Z confirmed_start_at = 2026-02-25T14:00:00Z confirmed_end_at = 2026-02-25T14:50:00Z"
+    },
+    {
+      "id": "db-02",
+      "name": "Create fulfillment unit for first booking",
+      "prompt": "insert into fulfillment_units id = fu_first_2pm biz_id = biz_sarah_20250221 booking_order_id = bo_first_2pm resource_id = res_20250221 status = scheduled scheduled_start_at = 2026-02-25T14:00:00Z scheduled_end_at = 2026-02-25T14:50:00Z"
+    },
+    {
+      "id": "db-03",
+      "name": "Try to create double booking at same time (2pm)",
+      "prompt": "insert into booking_orders id = bo_double_2pm biz_id = biz_sarah_20250221 offer_id = ofr_20250221 status = draft currency = USD total_minor = 15000 requested_start_at = 2026-02-25T14:00:00Z requested_end_at = 2026-02-25T14:50:00Z"
+    },
+    {
+      "id": "db-04",
+      "name": "Check first booking exists",
+      "prompt": "list booking_orders where id = bo_first_2pm"
+    },
+    {
+      "id": "db-05",
+      "name": "Check fulfillment units for resource",
+      "prompt": "list fulfillment_units where resource_id = res_20250221"
+    },
+    {
+      "id": "db-06",
+      "name": "Create booking at 3pm (should work - no conflict)",
+      "prompt": "insert into booking_orders id = bo_valid_3pm biz_id = biz_sarah_20250221 offer_id = ofr_20250221 status = confirmed currency = USD total_minor = 15000 requested_start_at = 2026-02-25T15:00:00Z requested_end_at = 2026-02-25T15:50:00Z confirmed_start_at = 2026-02-25T15:00:00Z confirmed_end_at = 2026-02-25T15:50:00Z"
+    },
+    {
+      "id": "db-07",
+      "name": "Create fulfillment for 3pm booking",
+      "prompt": "insert into fulfillment_units id = fu_valid_3pm biz_id = biz_sarah_20250221 booking_order_id = bo_valid_3pm resource_id = res_20250221 status = scheduled scheduled_start_at = 2026-02-25T15:00:00Z scheduled_end_at = 2026-02-25T15:50:00Z"
+    },
+    {
+      "id": "db-08",
+      "name": "Cancel the 2pm booking",
+      "prompt": "update booking_orders set status = cancelled cancelled_at = 2026-02-22T10:00:00Z where id = bo_first_2pm and biz_id = biz_sarah_20250221"
+    },
+    {
+      "id": "db-09",
+      "name": "Update fulfillment to cancelled",
+      "prompt": "update fulfillment_units set status = cancelled where id = fu_first_2pm and biz_id = biz_sarah_20250221"
+    },
+    {
+      "id": "db-10",
+      "name": "Verify cancellation - check 2pm booking status",
+      "prompt": "list booking_orders where id = bo_first_2pm"
+    }
+  ]
+}

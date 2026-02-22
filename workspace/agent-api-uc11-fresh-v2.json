@@ -1,0 +1,14 @@
+{
+  "defaults": {
+    "dryRun": false,
+    "scope": { "bizId": "biz_3A1okn2ylOekvc1WlIDo4HIIRN6" }
+  },
+  "scenarios": [
+    { "id": "uc11-01", "name": "Create wedding business", "prompt": "insert into bizes id = biz_3A1okn2ylOekvc1WlIDo4HIIRN6 name = Dream Wedding Photography slug = dream-wedding status = active timezone = America/Los_Angeles" },
+    { "id": "uc11-02", "name": "Create location", "prompt": "insert into locations id = loc_3A1okmzkqtO6IKRfsj88QLDOJGP biz_id = biz_3A1okn2ylOekvc1WlIDo4HIIRN6 name = Studio slug = studio timezone = America/Los_Angeles" },
+    { "id": "uc11-03", "name": "Create lead photographer", "prompt": "insert into resources id = res_3A1okjsyrpZNH1KodbZSBetICsr biz_id = biz_3A1okn2ylOekvc1WlIDo4HIIRN6 location_id = loc_3A1okmzkqtO6IKRfsj88QLDOJGP type = host name = Lead Photographer slug = lead-photo timezone = America/Los_Angeles" },
+    { "id": "uc11-04", "name": "Create second shooter", "prompt": "insert into resources id = res_3A1okt3CdEfGhIjJkLmNoPqRsTuVw biz_id = biz_3A1okn2ylOekvc1WlIDo4HIIRN6 location_id = loc_3A1okmzkqtO6IKRfsj88QLDOJGP type = host name = Second Shooter slug = second-photo timezone = America/Los_Angeles" },
+    { "id": "uc11-05", "name": "Create assistant", "prompt": "insert into resources id = res_3A1oku4DeFgHiJkKlMnOpQrStUvX biz_id = biz_3A1okn2ylOekvc1WlIDo4HIIRN6 location_id = loc_3A1okmzkqtO6IKRfsj88QLDOJGP type = host name = Assistant slug = assistant timezone = America/Los_Angeles" },
+    { "id": "uc11-06", "name": "Count photo team", "prompt": "count resources where biz_id = biz_3A1okn2ylOekvc1WlIDo4HIIRN6" }
+  ]
+}

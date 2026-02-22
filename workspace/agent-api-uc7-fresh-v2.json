@@ -1,0 +1,15 @@
+{
+  "defaults": {
+    "dryRun": false,
+    "scope": { "bizId": "biz_3A1okirAP2bsgCiqPwBhwRsNwk0" }
+  },
+  "scenarios": [
+    { "id": "uc7-01", "name": "Create business", "prompt": "insert into bizes id = biz_3A1okirAP2bsgCiqPwBhwRsNwk0 name = Spin City slug = spin-city status = active timezone = America/Los_Angeles" },
+    { "id": "uc7-02", "name": "Create location", "prompt": "insert into locations id = loc_3A1okkUM8qlHP7ewDjb0eGgvdtF biz_id = biz_3A1okirAP2bsgCiqPwBhwRsNwk0 name = Main Studio slug = main-studio timezone = America/Los_Angeles" },
+    { "id": "uc7-03", "name": "Create spin studio venue", "prompt": "insert into venues id = ven_3A1okl0AbCdEfGhIjKlMnOpQrStUv biz_id = biz_3A1okirAP2bsgCiqPwBhwRsNwk0 location_id = loc_3A1okkUM8qlHP7ewDjb0eGgvdtF name = Spin Studio slug = spin-studio setup_minutes = 15 teardown_minutes = 15" },
+    { "id": "uc7-04", "name": "Create instructor resource", "prompt": "insert into resources id = res_3A1okiVRvsQNsS0Tlc70ITkOZSy biz_id = biz_3A1okirAP2bsgCiqPwBhwRsNwk0 location_id = loc_3A1okkUM8qlHP7ewDjb0eGgvdtF type = host name = Spin Instructor slug = spin-instructor timezone = America/Los_Angeles capacity = 30 allow_simultaneous_bookings = true" },
+    { "id": "uc7-05", "name": "Create calendar", "prompt": "insert into calendars id = cal_3A1okjhOW6CjD4ySuGzHR8vGIZQ biz_id = biz_3A1okirAP2bsgCiqPwBhwRsNwk0 name = Class Calendar timezone = America/Los_Angeles slot_duration_min = 60 status = active" },
+    { "id": "uc7-06", "name": "Create offer", "prompt": "insert into offers id = ofr_3A1oko8x60q1NcjNBAqhf0qLGBg biz_id = biz_3A1okirAP2bsgCiqPwBhwRsNwk0 name = Spin Class slug = spin-class execution_mode = scheduled status = active is_published = true timezone = America/Los_Angeles" },
+    { "id": "uc7-07", "name": "Verify instructor capacity", "prompt": "list resources where id = res_3A1okiVRvsQNsS0Tlc70ITkOZSy" }
+  ]
+}

@@ -1,0 +1,15 @@
+Definitive Guide for Marketplace and Gig Network Setup. Version Zero.
+
+Latest Schema Notes as of February twenty first twenty twenty six. Coverage rerun remains complete with two hundred fifty seven out of two hundred fifty seven use case lines mapped. Totals show one hundred forty four full coverage and one hundred thirteen strong coverage. Marketplace participants and customer or worker profiles now align better with the shared contact backbone using CRM contacts and CRM contact channels for cross domain identity reuse. Anchor based uniqueness hardening for conversation and audience models improves duplicate prevention when members are represented by mixed contact or subject identities.
+
+Who This Is For. Use this setup for open shifts and replacement staffing, claim, invite, and bid assignment models, worker portability across businesses, and fair ranking and payout traceability. In simple terms, post work, find qualified people, pick fairly, pay transparently.
+
+Core Backbone. First, demand and responses includes staffing demands and staffing demand selectors plus staffing responses and staffing assignments. Second, cross domain assignment board includes operational demands and operational assignments. Third, marketplace commerce includes marketplace listings, auctions, and bids plus cross business contracts and cross business orders. Fourth, trust and qualification includes resource capability templates and resource capability assignments plus user owned credential wallet and sharing. Fifth, fairness and intelligence includes staffing fairness counters plus ranking profiles, ranking scores, and ranking events. Sixth, money closure includes payment tables, settlements and payouts, and compensation tables.
+
+Setup Playbook. First, model demand type clearly including replacement, open shift, auctioned task, or invited candidate. Second, use selector constraints for required capabilities, location, and time windows plus credentials. Third, keep decisions explainable by storing score and rule context in metadata and workflow decisions. Fourth, tie assignment to execution so assignment maps to fulfillment and work timeline. Fifth, tie execution to payout connecting work evidence to compensation and payment ledgers.
+
+High Value Patterns. External candidate can prove credentials once and share selectively with many businesses. Business can post internal openings and external openings through same demand primitive. First come first serve and auction models can coexist if demand types and policies are explicit. Per business visibility and privacy is enforceable with share grants and selectors.
+
+Common Mistakes. Duplicating replacement tables instead of demand types. Ignoring fairness counters in repeated assignments. Paying without assignment or work evidence linkage. Using freeform eligibility JSON instead of selector rows.
+
+Health Checklist. Every demand has explicit selector rows. Every accepted response becomes an assignment. Every assignment links to execution and payout trails. Every credential disclosure is event logged.

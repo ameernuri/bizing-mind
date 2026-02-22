@@ -1,0 +1,23 @@
+{
+  "defaults": {
+    "dryRun": false,
+    "scope": { "bizId": "biz_tutoring_uc8" }
+  },
+  "scenarios": [
+    { "id": "uc8-01", "name": "Create business", "prompt": "insert into bizes id = biz_tutoring_uc8 name = MathExcellenceCenter slug = math-excellence-uc8 status = active timezone = America/Los_Angeles" },
+    { "id": "uc8-02", "name": "Create location", "prompt": "insert into locations id = loc_uc8 biz_id = biz_tutoring_uc8 name = MainCampus slug = main-campus timezone = America/Los_Angeles" },
+    { "id": "uc8-03", "name": "Create tutor user", "prompt": "insert into users id = usr_tutor_uc8 email = tutor.uc8@example.com name = MsRodriguez status = active" },
+    { "id": "uc8-04", "name": "Create tutor resource", "prompt": "insert into resources id = res_rodriguez_uc8 biz_id = biz_tutoring_uc8 location_id = loc_uc8 type = host host_user_id = usr_tutor_uc8 name = MsRodriguezResource slug = ms-rodriguez-resource timezone = America/Los_Angeles capacity = 1 allow_simultaneous_bookings = false" },
+    { "id": "uc8-05", "name": "Create service group", "prompt": "insert into service_groups id = sg_subjects_uc8 biz_id = biz_tutoring_uc8 name = SubjectTutoring slug = subject-tutoring status = active" },
+    { "id": "uc8-06", "name": "Create math tutoring service", "prompt": "insert into services id = svc_math_uc8 biz_id = biz_tutoring_uc8 service_group_id = sg_subjects_uc8 name = MathTutoring slug = math-tutoring type = appointment visibility = public status = active" },
+    { "id": "uc8-07", "name": "Create package-like service product", "prompt": "insert into service_products id = sp_math_20_uc8 biz_id = biz_tutoring_uc8 name = Math20SessionPack slug = math-20-session-pack kind = booking duration_mode = flexible default_duration_minutes = 60 min_duration_minutes = 30 max_duration_minutes = 120 duration_step_minutes = 30 base_price_amount = 0 currency = USD status = active is_published = true" },
+    { "id": "uc8-08", "name": "Create offer", "prompt": "insert into offers id = ofr_pkg_uc8 biz_id = biz_tutoring_uc8 name = MathPackageOffer slug = math-package-offer execution_mode = slot status = active is_published = true timezone = America/Los_Angeles" },
+    { "id": "uc8-09", "name": "Create offer version", "prompt": "insert into offer_versions id = ov_pkg_uc8 biz_id = biz_tutoring_uc8 offer_id = ofr_pkg_uc8 version = 1 status = published duration_mode = flexible default_duration_min = 60 min_duration_min = 30 max_duration_min = 120 duration_step_min = 30 base_price_minor = 0 currency = USD" },
+    { "id": "uc8-10", "name": "Create customer user", "prompt": "insert into users id = usr_johnson_uc8 email = johnson.uc8@example.com name = JohnsonFamily status = active" },
+    { "id": "uc8-11", "name": "Create entitlement wallet", "prompt": "insert into entitlement_wallets id = ew_johnson_uc8 biz_id = biz_tutoring_uc8 owner_user_id = usr_johnson_uc8 name = MathSessionWallet entitlement_type = pass unit_code = sessions balance_quantity = 20 is_active = true" },
+    { "id": "uc8-12", "name": "Create entitlement grant", "prompt": "insert into entitlement_grants id = eg_johnson_uc8 biz_id = biz_tutoring_uc8 wallet_id = ew_johnson_uc8 grant_type = pass quantity = 20 valid_from_at = 2026-02-22T00:00:00Z valid_until_at = 2026-08-15T00:00:00Z rollover_eligible = false transferable = false reason = package_purchase" },
+    { "id": "uc8-13", "name": "Create recurring booking contract", "prompt": "insert into standing_reservation_contracts id = src_johnson_uc8 biz_id = biz_tutoring_uc8 offer_id = ofr_pkg_uc8 offer_version_id = ov_pkg_uc8 location_id = loc_uc8 customer_user_id = usr_johnson_uc8 name = TuesdayMathSeries status = active timezone = America/Los_Angeles anchor_start_at = 2026-02-24T16:00:00Z default_duration_min = 60 recurrence_rule = \"FREQ=WEEKLY;BYDAY=TU;INTERVAL=1\" effective_start_date = 2026-02-24 effective_end_date = 2026-07-28 auto_create_orders = true" },
+    { "id": "uc8-14", "name": "Create booking order using package value", "prompt": "insert into booking_orders id = bo_uc8_001 biz_id = biz_tutoring_uc8 offer_id = ofr_pkg_uc8 offer_version_id = ov_pkg_uc8 customer_user_id = usr_johnson_uc8 status = confirmed currency = USD subtotal_minor = 0 total_minor = 0 requested_start_at = 2026-02-24T16:00:00Z requested_end_at = 2026-02-24T17:00:00Z confirmed_start_at = 2026-02-24T16:00:00Z confirmed_end_at = 2026-02-24T17:00:00Z" },
+    { "id": "uc8-15", "name": "Add progress note", "prompt": "insert into notes id = note_uc8_001 biz_id = biz_tutoring_uc8 target_type = booking_order booking_order_id = bo_uc8_001 visibility = private status = active source_type = user body = covered_quadratic_equations_review_factoring_next_week" }
+  ]
+}

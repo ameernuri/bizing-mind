@@ -1,0 +1,13 @@
+{
+  "defaults": {
+    "dryRun": false,
+    "scope": { "bizId": "biz_3A1okimk3DztbvyrTaO02jNJtL4" }
+  },
+  "scenarios": [
+    { "id": "uc17-01", "name": "Create celebrity stylist business", "prompt": "insert into bizes id = biz_3A1okimk3DztbvyrTaO02jNJtL4 name = Celebrity Stylist slug = celebrity-stylist status = active timezone = America/Los_Angeles" },
+    { "id": "uc17-02", "name": "Create location", "prompt": "insert into locations id = loc_3A1okjCBare6LpjNg06exKnBARv biz_id = biz_3A1okimk3DztbvyrTaO02jNJtL4 name = Private Studio slug = private-studio timezone = America/Los_Angeles" },
+    { "id": "uc17-03", "name": "Create stylist resource", "prompt": "insert into resources id = res_3A1okloiHxe971XTd5qTCUvryVG biz_id = biz_3A1okimk3DztbvyrTaO02jNJtL4 location_id = loc_3A1okjCBare6LpjNg06exKnBARv type = host name = Celebrity Stylist slug = celeb-stylist timezone = America/Los_Angeles" },
+    { "id": "uc17-04", "name": "Create calendar", "prompt": "insert into calendars id = cal_3A1okmSS1r149ZgFjvz0gj9upVi biz_id = biz_3A1okimk3DztbvyrTaO02jNJtL4 name = Stylist Calendar timezone = America/Los_Angeles slot_duration_min = 60 status = active" },
+    { "id": "uc17-05", "name": "Verify setup", "prompt": "list resources where biz_id = biz_3A1okimk3DztbvyrTaO02jNJtL4" }
+  ]
+}

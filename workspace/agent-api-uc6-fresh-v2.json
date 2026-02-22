@@ -1,0 +1,15 @@
+{
+  "defaults": {
+    "dryRun": false,
+    "scope": { "bizId": "biz_3A1okmDMh8lcdkC5Kut4pfO7eR4" }
+  },
+  "scenarios": [
+    { "id": "uc6-01", "name": "Create business", "prompt": "insert into bizes id = biz_3A1okmDMh8lcdkC5Kut4pfO7eR4 name = Cardiology Specialists slug = cardio-specialists status = active timezone = America/New_York" },
+    { "id": "uc6-02", "name": "Create location", "prompt": "insert into locations id = loc_3A1okiqv8s3OyF2NHUid4nUEiTC biz_id = biz_3A1okmDMh8lcdkC5Kut4pfO7eR4 name = Cardiology Center slug = cardio-center timezone = America/New_York" },
+    { "id": "uc6-03", "name": "Create Dr Cardiologist", "prompt": "insert into resources id = res_3A1okmhopTr6UPIscsw9J2NJA9T biz_id = biz_3A1okmDMh8lcdkC5Kut4pfO7eR4 location_id = loc_3A1okiqv8s3OyF2NHUid4nUEiTC type = host name = Dr. Heart slug = dr-heart timezone = America/New_York capacity = 1 allow_simultaneous_bookings = false" },
+    { "id": "uc6-04", "name": "Create calendar", "prompt": "insert into calendars id = cal_3A1okjvFSgmcZbY8PsIyhqZbTuG biz_id = biz_3A1okmDMh8lcdkC5Kut4pfO7eR4 name = Cardiology Calendar timezone = America/New_York slot_duration_min = 60 status = active" },
+    { "id": "uc6-05", "name": "Create offer", "prompt": "insert into offers id = ofr_3A1oki6w6GvJapoaPfUiFjRCMab biz_id = biz_3A1okmDMh8lcdkC5Kut4pfO7eR4 name = Specialist Consultation slug = specialist-consult execution_mode = scheduled status = active is_published = true timezone = America/New_York" },
+    { "id": "uc6-06", "name": "Verify business", "prompt": "list bizes where id = biz_3A1okmDMh8lcdkC5Kut4pfO7eR4" },
+    { "id": "uc6-07", "name": "Verify resource", "prompt": "list resources where id = res_3A1okmhopTr6UPIscsw9J2NJA9T" }
+  ]
+}

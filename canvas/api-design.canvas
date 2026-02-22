@@ -1,0 +1,8 @@
+{
+	"nodes":[
+		{"id":"1f2aac55323254db","type":"text","text":"Bookables\n\n- ","x":340,"y":-340,"width":250,"height":460},
+		{"id":"b98385352918c80f","x":-860,"y":-380,"width":250,"height":460,"type":"text","text":"Resources\n\n- "},
+		{"id":"984bac048d2a15ca","type":"text","text":"Booking Products\n\n- ","x":-60,"y":-380,"width":250,"height":460}
+	],
+	"edges":[]
+}

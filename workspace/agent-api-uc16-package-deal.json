@@ -1,0 +1,18 @@
+{
+  "defaults": {
+    "dryRun": false,
+    "scope": { "bizId": "biz_package_uc16" }
+  },
+  "scenarios": [
+    { "id": "uc16-01", "name": "Create yoga studio", "prompt": "insert into bizes id = biz_package_uc16 name = SerenityYoga slug = serenity-yoga-uc16 status = active timezone = America/Los_Angeles" },
+    { "id": "uc16-02", "name": "Create location", "prompt": "insert into locations id = loc_uc16 biz_id = biz_package_uc16 name = StudioLocation slug = studio-location timezone = America/Los_Angeles" },
+    { "id": "uc16-03", "name": "Create package membership plan", "prompt": "insert into membership_plans id = mp_10class_uc16 biz_id = biz_package_uc16 name = TenClassFlexPass slug = ten-class-flex-pass status = active billing_interval_count = 6 billing_interval_unit = month price_minor = 12000 currency = USD entitlement_type = pass entitlement_quantity_per_cycle = 10 allow_rollover = false allow_transfers = true transfer_fee_minor = 500" },
+    { "id": "uc16-04", "name": "Create Sarah user", "prompt": "insert into users id = usr_sarah_uc16 email = sarah.uc16@example.com name = SarahMember status = active" },
+    { "id": "uc16-05", "name": "Create Sarah membership", "prompt": "insert into memberships id = m_sarah_uc16 biz_id = biz_package_uc16 membership_plan_id = mp_10class_uc16 owner_user_id = usr_sarah_uc16 status = active starts_at = 2026-01-01T00:00:00Z current_period_start_at = 2026-01-01T00:00:00Z current_period_end_at = 2026-07-01T00:00:00Z auto_renew = false" },
+    { "id": "uc16-06", "name": "Create Sarah entitlement wallet", "prompt": "insert into entitlement_wallets id = ew_sarah_uc16 biz_id = biz_package_uc16 membership_id = m_sarah_uc16 owner_user_id = usr_sarah_uc16 name = SarahFlexPassWallet entitlement_type = pass unit_code = classes balance_quantity = 10 is_active = true" },
+    { "id": "uc16-07", "name": "Create package grant", "prompt": "insert into entitlement_grants id = eg_sarah_uc16 biz_id = biz_package_uc16 wallet_id = ew_sarah_uc16 membership_id = m_sarah_uc16 grant_type = pass quantity = 10 valid_from_at = 2026-01-01T00:00:00Z valid_until_at = 2026-07-01T00:00:00Z rollover_eligible = false transferable = true reason = package_purchase" },
+    { "id": "uc16-08", "name": "Create Emma user", "prompt": "insert into users id = usr_emma_uc16 email = emma.uc16@example.com name = EmmaFriend status = active" },
+    { "id": "uc16-09", "name": "Create Emma wallet", "prompt": "insert into entitlement_wallets id = ew_emma_uc16 biz_id = biz_package_uc16 owner_user_id = usr_emma_uc16 name = EmmaTransferWallet entitlement_type = pass unit_code = classes balance_quantity = 0 is_active = true" },
+    { "id": "uc16-10", "name": "Create transfer request", "prompt": "insert into entitlement_transfers id = et_uc16_001 biz_id = biz_package_uc16 from_wallet_id = ew_sarah_uc16 to_wallet_id = ew_emma_uc16 status = requested quantity = 1 requested_by_user_id = usr_sarah_uc16 reason = shared_household_transfer" }
+  ]
+}

@@ -1,0 +1,15 @@
+Definitive Guide for Education and Program Setup. Version Zero.
+
+Latest Schema Notes as of February twenty first twenty twenty six. Coverage rerun remains complete with two hundred fifty seven out of two hundred fifty seven use case lines mapped. Overall totals now show one hundred forty four full coverage and one hundred thirteen strong coverage. Contact identity is now centralized in CRM contacts and CRM contact channels which improves learner and contact portability across education, customer relationship management, and messaging journeys. Anchor based uniqueness constraints were hardened for conversation and audience membership models reducing duplicate active participant and member edge cases.
+
+Who This Is For. Use this setup for cohort learning and scheduled sessions, attendance and grading, requirement gating and progression, and certification outcomes with auditability. In simple terms, teach people, measure what they learned, and show trustworthy proof.
+
+Core Backbone. First, program structure includes programs, program cohorts, and program cohort sessions. Second, participation and attendance includes cohort enrollments and session attendance records. Third, the requirement graph includes requirement sets, requirement nodes, and requirement edges plus requirement evaluations and requirement evidence links. Fourth, the assessment pipeline includes assessment templates and assessment items, assessment attempts, assessment responses, and assessment results plus grading events. Fifth, the certification lifecycle includes certification templates and certification awards.
+
+Setup Playbook. First, define progression graph first by modeling prerequisites and unlock paths before launching cohorts. Second, attach assessment evidence to requirements so every pass or fail maps to explicit evidence links. Third, use append style grading events to avoid overwriting decisions and preserve grading timeline. Fourth, keep commerce and education separate but linked by selling with sellables and orders while learning happens with education and progression tables. Fifth, issue certifications from deterministic state only awarding when requirement evaluations and assessments agree.
+
+High Value Patterns. Multi path progression through graph edges instead of rigid stage columns. Mixed automatic and manual grading with full event trails. Attendance as structured evidence for progression decisions. Program level and session level analytics from reporting facts.
+
+Common Mistakes. Mixing enrollment state with competency state in one column. Replacing scores without event history. Encoding prerequisite rules in opaque blobs. Treating certification as a user interface only badge.
+
+Health Checklist. Every requirement decision has evidence rows. Every attempt references a template and item context. Every certificate is anchored to evaluated outcomes. Attendance and assessment can be joined for audits.

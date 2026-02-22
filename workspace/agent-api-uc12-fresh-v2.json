@@ -1,0 +1,13 @@
+{
+  "defaults": {
+    "dryRun": false,
+    "scope": { "bizId": "biz_3A1okjilRZP8q78uOQjCbmKrP2T" }
+  },
+  "scenarios": [
+    { "id": "uc12-01", "name": "Create imaging center", "prompt": "insert into bizes id = biz_3A1okjilRZP8q78uOQjCbmKrP2T name = Advanced Imaging Center slug = imaging-center status = active timezone = America/Los_Angeles" },
+    { "id": "uc12-02", "name": "Create location", "prompt": "insert into locations id = loc_3A1okmryWDyYVl1tHMwVidSAh8C biz_id = biz_3A1okjilRZP8q78uOQjCbmKrP2T name = Main Facility slug = main-facility timezone = America/Los_Angeles" },
+    { "id": "uc12-03", "name": "Create MRI Machine A", "prompt": "insert into resources id = res_3A1okoyk3YdviKOh8EiPMk8FWA7 biz_id = biz_3A1okjilRZP8q78uOQjCbmKrP2T location_id = loc_3A1okmryWDyYVl1tHMwVidSAh8C type = asset name = MRI Machine A slug = mri-a timezone = America/Los_Angeles" },
+    { "id": "uc12-04", "name": "Create MRI Machine B", "prompt": "insert into resources id = res_3A1okp1BcDeFgHiJkLmMnOpQrStUv biz_id = biz_3A1okjilRZP8q78uOQjCbmKrP2T location_id = loc_3A1okmryWDyYVl1tHMwVidSAh8C type = asset name = MRI Machine B slug = mri-b timezone = America/Los_Angeles" },
+    { "id": "uc12-05", "name": "Count equipment", "prompt": "count resources where biz_id = biz_3A1okjilRZP8q78uOQjCbmKrP2T and type = asset" }
+  ]
+}

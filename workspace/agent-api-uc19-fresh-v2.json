@@ -1,0 +1,13 @@
+{
+  "defaults": {
+    "dryRun": false,
+    "scope": { "bizId": "biz_3A1okjcoh3yEU6vL2XMKHtXlmvS" }
+  },
+  "scenarios": [
+    { "id": "uc19-01", "name": "Create restaurant business", "prompt": "insert into bizes id = biz_3A1okjcoh3yEU6vL2XMKHtXlmvS name = Exclusive Bistro slug = exclusive-bistro status = active timezone = America/Los_Angeles" },
+    { "id": "uc19-02", "name": "Create location", "prompt": "insert into locations id = loc_3A1okjSpSWdL1CZpeB2AM7qKK9T biz_id = biz_3A1okjcoh3yEU6vL2XMKHtXlmvS name = Main Dining slug = main-dining timezone = America/Los_Angeles" },
+    { "id": "uc19-03", "name": "Create resource", "prompt": "insert into resources id = res_3A1okjZcmGMzvdNw8eqLmw3xNYy biz_id = biz_3A1okjcoh3yEU6vL2XMKHtXlmvS location_id = loc_3A1okjSpSWdL1CZpeB2AM7qKK9T type = host name = Host Station slug = host-station timezone = America/Los_Angeles" },
+    { "id": "uc19-04", "name": "Create calendar", "prompt": "insert into calendars id = cal_3A1okihFRUZY9niHpY1tnyt5x8F biz_id = biz_3A1okjcoh3yEU6vL2XMKHtXlmvS name = Reservation Calendar timezone = America/Los_Angeles slot_duration_min = 90 status = active" },
+    { "id": "uc19-05", "name": "Verify setup", "prompt": "list locations where biz_id = biz_3A1okjcoh3yEU6vL2XMKHtXlmvS" }
+  ]
+}

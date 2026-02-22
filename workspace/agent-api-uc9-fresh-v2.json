@@ -1,0 +1,14 @@
+{
+  "defaults": {
+    "dryRun": false,
+    "scope": { "bizId": "biz_3A1oklr5lK4b38qDvCSEjGmXMlL" }
+  },
+  "scenarios": [
+    { "id": "uc9-01", "name": "Create business", "prompt": "insert into bizes id = biz_3A1oklr5lK4b38qDvCSEjGmXMlL name = Multi-Provider Medical slug = multi-provider-med status = active timezone = America/Los_Angeles" },
+    { "id": "uc9-02", "name": "Create location", "prompt": "insert into locations id = loc_3A1oklVo2YZg03eebyeYeO5AGe7 biz_id = biz_3A1oklr5lK4b38qDvCSEjGmXMlL name = Medical Center slug = medical-center timezone = America/Los_Angeles" },
+    { "id": "uc9-03", "name": "Create Dr A calendar", "prompt": "insert into calendars id = cal_3A1okoWHUrAoSowi3N3J9cb36gk biz_id = biz_3A1oklr5lK4b38qDvCSEjGmXMlL name = Dr. A Schedule timezone = America/Los_Angeles slot_duration_min = 30 status = active" },
+    { "id": "uc9-04", "name": "Create Dr B calendar", "prompt": "insert into calendars id = cal_3A1okp1BcDeFgHiJkLmNoPqRsTu biz_id = biz_3A1oklr5lK4b38qDvCSEjGmXMlL name = Dr. B Schedule timezone = America/Los_Angeles slot_duration_min = 30 status = active" },
+    { "id": "uc9-05", "name": "Create Dr C calendar", "prompt": "insert into calendars id = cal_3A1okq2CdEfGhIjKlMnOpQrStUv biz_id = biz_3A1oklr5lK4b38qDvCSEjGmXMlL name = Dr. C Schedule timezone = America/Los_Angeles slot_duration_min = 30 status = active" },
+    { "id": "uc9-06", "name": "Count calendars", "prompt": "count calendars where biz_id = biz_3A1oklr5lK4b38qDvCSEjGmXMlL" }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "defaults": {
+    "dryRun": false,
+    "scope": { "bizId": "biz_equipment_uc12" }
+  },
+  "scenarios": [
+    { "id": "uc12-01", "name": "Create imaging center", "prompt": "insert into bizes id = biz_equipment_uc12 name = AdvancedImagingCenter slug = imaging-center-uc12 status = active timezone = America/Los_Angeles" },
+    { "id": "uc12-02", "name": "Create location", "prompt": "insert into locations id = loc_uc12 biz_id = biz_equipment_uc12 name = MainFacility slug = main-facility timezone = America/Los_Angeles" },
+    { "id": "uc12-03", "name": "Create MRI machine A asset", "prompt": "insert into assets id = asset_mri_a_uc12 biz_id = biz_equipment_uc12 location_id = loc_uc12 name = MRIMachineA slug = mri-machine-a" },
+    { "id": "uc12-04", "name": "Create MRI machine A resource", "prompt": "insert into resources id = res_mri_a biz_id = biz_equipment_uc12 location_id = loc_uc12 type = asset asset_id = asset_mri_a_uc12 name = MRIMachineAResource slug = mri-a-resource timezone = America/Los_Angeles capacity = 1 allow_simultaneous_bookings = false" },
+    { "id": "uc12-05", "name": "Create MRI machine B asset", "prompt": "insert into assets id = asset_mri_b_uc12 biz_id = biz_equipment_uc12 location_id = loc_uc12 name = MRIMachineB slug = mri-machine-b" },
+    { "id": "uc12-06", "name": "Create MRI machine B resource", "prompt": "insert into resources id = res_mri_b biz_id = biz_equipment_uc12 location_id = loc_uc12 type = asset asset_id = asset_mri_b_uc12 name = MRIMachineBResource slug = mri-b-resource timezone = America/Los_Angeles capacity = 1 allow_simultaneous_bookings = false" },
+    { "id": "uc12-07", "name": "Create service group", "prompt": "insert into service_groups id = sg_imaging_uc12 biz_id = biz_equipment_uc12 name = ImagingServices slug = imaging-services status = active" },
+    { "id": "uc12-08", "name": "Create MRI scan service", "prompt": "insert into services id = svc_mri_uc12 biz_id = biz_equipment_uc12 service_group_id = sg_imaging_uc12 name = MRIScan slug = mri-scan type = appointment visibility = public status = active" },
+    { "id": "uc12-09", "name": "Create usage counter", "prompt": "insert into resource_usage_counters id = ruc_mri_a_uc12 biz_id = biz_equipment_uc12 resource_id = res_mri_a counter_key = usage_hours unit = hours current_value = 35 last_increment_at = 2026-02-22T00:00:00Z" },
+    { "id": "uc12-10", "name": "Create maintenance policy", "prompt": "insert into resource_maintenance_policies id = rmp_mri_a_uc12 biz_id = biz_equipment_uc12 resource_id = res_mri_a name = MRIA100HourCheck slug = mri-a-100hr-check trigger_type = usage_hours threshold_value = 100 action_type = create_work_order auto_create_work_order = true block_until_completed = false is_active = true" },
+    { "id": "uc12-11", "name": "Create maintenance work order", "prompt": "insert into resource_maintenance_work_orders id = rmwo_mri_a_uc12 biz_id = biz_equipment_uc12 resource_id = res_mri_a policy_id = rmp_mri_a_uc12 title = MRIAQuarterlyMaintenance status = scheduled priority = 10 scheduled_start_at = 2026-03-15T08:00:00Z scheduled_end_at = 2026-03-15T10:00:00Z blocks_availability = false" }
+  ]
+}

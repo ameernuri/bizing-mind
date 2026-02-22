@@ -1,0 +1,60 @@
+{
+  "defaults": {
+    "dryRun": false,
+    "scope": {
+      "bizId": "biz_sarah_uc1"
+    }
+  },
+  "scenarios": [
+    {
+      "id": "uc1-01",
+      "name": "Query Sarah's business",
+      "prompt": "list bizes where id = biz_sarah_uc1"
+    },
+    {
+      "id": "uc1-02",
+      "name": "Query Sarah's location",
+      "prompt": "list locations where biz_id = biz_sarah_uc1"
+    },
+    {
+      "id": "uc1-03",
+      "name": "Query Sarah's venue",
+      "prompt": "list venues where biz_id = biz_sarah_uc1"
+    },
+    {
+      "id": "uc1-04",
+      "name": "Query Sarah as resource",
+      "prompt": "list resources where id = res_sarah_uc1"
+    },
+    {
+      "id": "uc1-05",
+      "name": "Query service groups",
+      "prompt": "list service_groups where biz_id = biz_sarah_uc1"
+    },
+    {
+      "id": "uc1-06",
+      "name": "Query Sarah's calendar",
+      "prompt": "list calendars where id = cal_sarah_uc1"
+    },
+    {
+      "id": "uc1-07",
+      "name": "Query availability rules",
+      "prompt": "list availability_rules where calendar_id = cal_sarah_uc1"
+    },
+    {
+      "id": "uc1-08",
+      "name": "Query offers",
+      "prompt": "list offers where biz_id = biz_sarah_uc1"
+    },
+    {
+      "id": "uc1-09",
+      "name": "Query booking orders",
+      "prompt": "list booking_orders where biz_id = biz_sarah_uc1"
+    },
+    {
+      "id": "uc1-10",
+      "name": "Count all Sarah's data",
+      "prompt": "count venues"
+    }
+  ]
+}

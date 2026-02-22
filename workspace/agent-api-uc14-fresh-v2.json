@@ -1,0 +1,13 @@
+{
+  "defaults": {
+    "dryRun": false,
+    "scope": { "bizId": "biz_3A1okijx8HKE1euJELUc5s3DdqQ" }
+  },
+  "scenarios": [
+    { "id": "uc14-01", "name": "Create training company", "prompt": "insert into bizes id = biz_3A1okijx8HKE1euJELUc5s3DdqQ name = TechCorp Training slug = techcorp-training status = active timezone = America/Los_Angeles" },
+    { "id": "uc14-02", "name": "Create training location", "prompt": "insert into locations id = loc_3A1oklkN9HvkhjgZ99TC85SuUOg biz_id = biz_3A1okijx8HKE1euJELUc5s3DdqQ name = Training Center slug = training-center timezone = America/Los_Angeles" },
+    { "id": "uc14-03", "name": "Create instructor", "prompt": "insert into resources id = res_3A1okjVXJliZ8M61bVrGETU4Txv biz_id = biz_3A1okijx8HKE1euJELUc5s3DdqQ location_id = loc_3A1oklkN9HvkhjgZ99TC85SuUOg type = host name = Lead Trainer slug = lead-trainer timezone = America/Los_Angeles" },
+    { "id": "uc14-04", "name": "Create calendar", "prompt": "insert into calendars id = cal_3A1okmPNS5jG9h8VicZFSrE9ooL biz_id = biz_3A1okijx8HKE1euJELUc5s3DdqQ name = Training Calendar timezone = America/Los_Angeles slot_duration_min = 180 status = active" },
+    { "id": "uc14-05", "name": "Verify setup", "prompt": "list resources where biz_id = biz_3A1okijx8HKE1euJELUc5s3DdqQ" }
+  ]
+}

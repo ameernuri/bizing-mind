@@ -1,0 +1,18 @@
+{
+  "defaults": {
+    "dryRun": false,
+    "scope": { "bizId": "biz_3A1okpDnKHY2wgSMUpDpFwDteZN" }
+  },
+  "scenarios": [
+    { "id": "uc3-01", "name": "Create business", "prompt": "insert into bizes id = biz_3A1okpDnKHY2wgSMUpDpFwDteZN name = Maria Salon slug = maria-salon status = active timezone = America/Los_Angeles" },
+    { "id": "uc3-02", "name": "Create location", "prompt": "insert into locations id = loc_3A1oklPWF5Gvoh9Cc1Tzal1ErbY biz_id = biz_3A1okpDnKHY2wgSMUpDpFwDteZN name = Downtown Salon slug = downtown-salon timezone = America/Los_Angeles" },
+    { "id": "uc3-03", "name": "Create venue", "prompt": "insert into venues id = ven_3A1okm9QrStUvWxYzAbCdEfGhIj biz_id = biz_3A1okpDnKHY2wgSMUpDpFwDteZN location_id = loc_3A1oklPWF5Gvoh9Cc1Tzal1ErbY name = Main Salon Floor slug = main-salon setup_minutes = 10 teardown_minutes = 10" },
+    { "id": "uc3-04", "name": "Create stylist A (senior)", "prompt": "insert into resources id = res_3A1okkRjEV219y63wZOcxzsrEm9 biz_id = biz_3A1okpDnKHY2wgSMUpDpFwDteZN location_id = loc_3A1oklPWF5Gvoh9Cc1Tzal1ErbY type = host name = Stylist A slug = stylist-a timezone = America/Los_Angeles buffer_before_minutes = 5 buffer_after_minutes = 10 capacity = 1 allow_simultaneous_bookings = false" },
+    { "id": "uc3-05", "name": "Create stylist B (junior)", "prompt": "insert into resources id = res_3A1okn2BcDeFgHiJkLmNoPqRsTu biz_id = biz_3A1okpDnKHY2wgSMUpDpFwDteZN location_id = loc_3A1oklPWF5Gvoh9Cc1Tzal1ErbY type = host name = Stylist B slug = stylist-b timezone = America/Los_Angeles buffer_before_minutes = 5 buffer_after_minutes = 10 capacity = 1 allow_simultaneous_bookings = false" },
+    { "id": "uc3-06", "name": "Create service group", "prompt": "insert into service_groups id = sg_3A1oko3CdEfGhIjKlMnOpQrStUv biz_id = biz_3A1okpDnKHY2wgSMUpDpFwDteZN name = Salon Services slug = salon-services status = active" },
+    { "id": "uc3-07", "name": "Create haircut service", "prompt": "insert into services id = svc_3A1okp4DeFgHiJkLmMnOpQrStUvW biz_id = biz_3A1okpDnKHY2wgSMUpDpFwDteZN service_group_id = sg_3A1oko3CdEfGhIjKlMnOpQrStUv name = Haircut slug = haircut type = appointment visibility = public min_advance_booking_hours = 2 requires_approval = false allow_waitlist = true status = active" },
+    { "id": "uc3-08", "name": "Create color service", "prompt": "insert into services id = svc_3A1okq5EfGhIjJkLmNoPqRsTuVwX biz_id = biz_3A1okpDnKHY2wgSMUpDpFwDteZN service_group_id = sg_3A1oko3CdEfGhIjKlMnOpQrStUv name = Color Treatment slug = color-treatment type = appointment visibility = public min_advance_booking_hours = 24 requires_approval = false allow_waitlist = true status = active" },
+    { "id": "uc3-09", "name": "Verify resources created", "prompt": "list resources where biz_id = biz_3A1okpDnKHY2wgSMUpDpFwDteZN" },
+    { "id": "uc3-10", "name": "Verify services created", "prompt": "list services where service_group_id = sg_3A1oko3CdEfGhIjKlMnOpQrStUv" }
+  ]
+}

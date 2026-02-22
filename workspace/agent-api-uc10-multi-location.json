@@ -1,0 +1,20 @@
+{
+  "defaults": {
+    "dryRun": false,
+    "scope": { "bizId": "biz_chain_uc10" }
+  },
+  "scenarios": [
+    { "id": "uc10-01", "name": "Create chain business", "prompt": "insert into bizes id = biz_chain_uc10 name = CleanTeethDental slug = clean-teeth-uc10 status = active timezone = America/Los_Angeles" },
+    { "id": "uc10-02", "name": "Create downtown location", "prompt": "insert into locations id = loc_downtown biz_id = biz_chain_uc10 name = DowntownOffice slug = downtown-office timezone = America/Los_Angeles" },
+    { "id": "uc10-03", "name": "Create suburban location", "prompt": "insert into locations id = loc_suburban biz_id = biz_chain_uc10 name = SuburbanOffice slug = suburban-office timezone = America/Los_Angeles" },
+    { "id": "uc10-04", "name": "Create provider user", "prompt": "insert into users id = usr_williams_uc10 email = williams.uc10@example.com name = DrWilliams status = active" },
+    { "id": "uc10-05", "name": "Create provider resource", "prompt": "insert into resources id = res_williams biz_id = biz_chain_uc10 location_id = loc_downtown type = host host_user_id = usr_williams_uc10 name = DrWilliamsResource slug = dr-williams-resource timezone = America/Los_Angeles capacity = 1 allow_simultaneous_bookings = false" },
+    { "id": "uc10-06", "name": "Create service group", "prompt": "insert into service_groups id = sg_chain_uc10 biz_id = biz_chain_uc10 name = DentalServices slug = dental-services status = active" },
+    { "id": "uc10-07", "name": "Create cleaning service", "prompt": "insert into services id = svc_cleaning_uc10 biz_id = biz_chain_uc10 service_group_id = sg_chain_uc10 name = TeethCleaning slug = teeth-cleaning type = appointment visibility = public status = active" },
+    { "id": "uc10-08", "name": "Register service subject", "prompt": "insert into subjects id = sub_svc_cleaning_uc10 biz_id = biz_chain_uc10 subject_type = service subject_id = svc_cleaning_uc10 display_name = TeethCleaning status = active is_linkable = true" },
+    { "id": "uc10-09", "name": "Bind service to downtown", "prompt": "insert into subject_location_bindings id = slb_svc_dt_uc10 biz_id = biz_chain_uc10 subject_type = service subject_id = svc_cleaning_uc10 location_id = loc_downtown is_active = true is_primary = true priority = 10" },
+    { "id": "uc10-10", "name": "Bind service to suburban", "prompt": "insert into subject_location_bindings id = slb_svc_sub_uc10 biz_id = biz_chain_uc10 subject_type = service subject_id = svc_cleaning_uc10 location_id = loc_suburban is_active = true is_primary = false priority = 20" },
+    { "id": "uc10-11", "name": "Create downtown demand pricing policy", "prompt": "insert into demand_pricing_policies id = dpp_dt_uc10 biz_id = biz_chain_uc10 name = DowntownPremium slug = downtown-premium status = active target_type = location location_id = loc_downtown scoring_mode = weighted_sum score_floor = 0 score_ceiling = 10000 default_adjustment_type = fixed_amount default_apply_as = surcharge default_adjustment_value = 0 min_adjustment_minor = 0 max_adjustment_minor = 10000 min_final_unit_price_minor = 0 max_final_unit_price_minor = 200000 cooldown_min = 15 priority = 10 is_enabled = true" },
+    { "id": "uc10-12", "name": "Create suburban demand pricing policy", "prompt": "insert into demand_pricing_policies id = dpp_sub_uc10 biz_id = biz_chain_uc10 name = SuburbanStandard slug = suburban-standard status = active target_type = location location_id = loc_suburban scoring_mode = weighted_sum score_floor = 0 score_ceiling = 10000 default_adjustment_type = fixed_amount default_apply_as = surcharge default_adjustment_value = 0 min_adjustment_minor = 0 max_adjustment_minor = 5000 min_final_unit_price_minor = 0 max_final_unit_price_minor = 200000 cooldown_min = 15 priority = 20 is_enabled = true" }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "defaults": {
+    "dryRun": false,
+    "scope": {
+      "bizId": "biz_sarah_fresh"
+    }
+  },
+  "scenarios": [
+    {
+      "id": "uc1-01",
+      "name": "Create fresh business",
+      "prompt": "insert into bizes id = biz_sarah_fresh name = Sarah Fresh Coaching slug = sarah-fresh status = active timezone = America/Los_Angeles"
+    },
+    {
+      "id": "uc1-02",
+      "name": "Create location",
+      "prompt": "insert into locations id = loc_fresh biz_id = biz_sarah_fresh name = Fresh Office slug = fresh-office timezone = America/Los_Angeles"
+    },
+    {
+      "id": "uc1-03",
+      "name": "Create venue",
+      "prompt": "insert into venues id = ven_fresh biz_id = biz_sarah_fresh location_id = loc_fresh name = Fresh Venue slug = fresh-venue setup_minutes = 5 teardown_minutes = 5"
+    },
+    {
+      "id": "uc1-03b",
+      "name": "Create host user",
+      "prompt": "insert into users id = usr_fresh_uc1 email = fresh.uc1@example.com name = SarahFresh status = active"
+    },
+    {
+      "id": "uc1-04",
+      "name": "Create resource",
+      "prompt": "insert into resources id = res_fresh biz_id = biz_sarah_fresh location_id = loc_fresh type = host host_user_id = usr_fresh_uc1 name = Sarah Fresh slug = sarah-fresh timezone = America/Los_Angeles buffer_before_minutes = 10 buffer_after_minutes = 10 capacity = 1 allow_simultaneous_bookings = false"
+    },
+    {
+      "id": "uc1-05",
+      "name": "Create service group",
+      "prompt": "insert into service_groups id = sg_fresh biz_id = biz_sarah_fresh name = Fresh Services slug = fresh-services status = active"
+    },
+    {
+      "id": "uc1-06",
+      "name": "Create calendar",
+      "prompt": "insert into calendars id = cal_fresh biz_id = biz_sarah_fresh name = Fresh Calendar timezone = America/Los_Angeles slot_duration_min = 50 slot_interval_min = 50 pre_buffer_min = 10 post_buffer_min = 10 min_advance_booking_hours = 24 max_advance_booking_days = 60 status = active"
+    },
+    {
+      "id": "uc1-07",
+      "name": "Create offer",
+      "prompt": "insert into offers id = ofr_fresh biz_id = biz_sarah_fresh name = Fresh Coaching slug = fresh-coaching execution_mode = slot status = active is_published = true timezone = America/Los_Angeles"
+    },
+    {
+      "id": "uc1-08",
+      "name": "Query the business",
+      "prompt": "list bizes where id = biz_sarah_fresh"
+    },
+    {
+      "id": "uc1-09",
+      "name": "Query the resource",
+      "prompt": "list resources where id = res_fresh"
+    },
+    {
+      "id": "uc1-10",
+      "name": "Query the calendar",
+      "prompt": "list calendars where id = cal_fresh"
+    }
+  ]
+}

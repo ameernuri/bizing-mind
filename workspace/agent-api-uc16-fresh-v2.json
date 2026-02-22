@@ -1,0 +1,13 @@
+{
+  "defaults": {
+    "dryRun": false,
+    "scope": { "bizId": "biz_3A1oknehEhyi6ywwhhXvPL7GRo4" }
+  },
+  "scenarios": [
+    { "id": "uc16-01", "name": "Create yoga studio", "prompt": "insert into bizes id = biz_3A1oknehEhyi6ywwhhXvPL7GRo4 name = Serenity Yoga slug = serenity-yoga status = active timezone = America/Los_Angeles" },
+    { "id": "uc16-02", "name": "Create location", "prompt": "insert into locations id = loc_3A1okmuo1h8GikvZB13NZTh9lNP biz_id = biz_3A1oknehEhyi6ywwhhXvPL7GRo4 name = Studio slug = studio timezone = America/Los_Angeles" },
+    { "id": "uc16-03", "name": "Create instructor", "prompt": "insert into resources id = res_3A1okkDHadwdinaX1dMwuJwzWqZ biz_id = biz_3A1oknehEhyi6ywwhhXvPL7GRo4 location_id = loc_3A1okmuo1h8GikvZB13NZTh9lNP type = host name = Yoga Instructor slug = yoga-instructor timezone = America/Los_Angeles" },
+    { "id": "uc16-04", "name": "Create calendar", "prompt": "insert into calendars id = cal_3A1oknF3WebczWk7btJY1tDwRXU biz_id = biz_3A1oknehEhyi6ywwhhXvPL7GRo4 name = Yoga Schedule timezone = America/Los_Angeles slot_duration_min = 60 status = active" },
+    { "id": "uc16-05", "name": "Verify studio", "prompt": "list bizes where id = biz_3A1oknehEhyi6ywwhhXvPL7GRo4" }
+  ]
+}

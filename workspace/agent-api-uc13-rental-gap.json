@@ -1,0 +1,18 @@
+{
+  "defaults": {
+    "dryRun": false,
+    "scope": { "bizId": "biz_rental_uc13" }
+  },
+  "scenarios": [
+    { "id": "uc13-01", "name": "Create rental business", "prompt": "insert into bizes id = biz_rental_uc13 name = BeachHouseRentals slug = beach-house-uc13 status = active timezone = America/Los_Angeles" },
+    { "id": "uc13-02", "name": "Create beach location", "prompt": "insert into locations id = loc_uc13 biz_id = biz_rental_uc13 name = MalibuBeach slug = malibu-beach timezone = America/Los_Angeles" },
+    { "id": "uc13-03", "name": "Create beach house venue", "prompt": "insert into venues id = ven_beach_house biz_id = biz_rental_uc13 location_id = loc_uc13 name = SunsetBeachHouse slug = sunset-beach-house setup_minutes = 0 teardown_minutes = 0" },
+    { "id": "uc13-04", "name": "Create beach house resource", "prompt": "insert into resources id = res_beach_house biz_id = biz_rental_uc13 location_id = loc_uc13 type = venue venue_id = ven_beach_house name = BeachHouseResource slug = beach-house-resource timezone = America/Los_Angeles capacity = 8 allow_simultaneous_bookings = false buffer_before_minutes = 300 buffer_after_minutes = 300" },
+    { "id": "uc13-05", "name": "Create rental service group", "prompt": "insert into service_groups id = sg_rental_uc13 biz_id = biz_rental_uc13 name = RentalServices slug = rental-services status = active" },
+    { "id": "uc13-06", "name": "Create rental service", "prompt": "insert into services id = svc_rental_uc13 biz_id = biz_rental_uc13 service_group_id = sg_rental_uc13 name = BeachHouseRentalService slug = beach-house-rental-service type = rental visibility = public status = active min_advance_booking_hours = 24 min_cancellation_notice_hours = 48" },
+    { "id": "uc13-07", "name": "Create rental offer", "prompt": "insert into offers id = ofr_rental_uc13 biz_id = biz_rental_uc13 name = BeachHouseRentalOffer slug = beach-rental-offer execution_mode = slot status = active is_published = true timezone = America/Los_Angeles" },
+    { "id": "uc13-08", "name": "Create rental offer version", "prompt": "insert into offer_versions id = ov_rental_uc13 biz_id = biz_rental_uc13 offer_id = ofr_rental_uc13 version = 1 status = published duration_mode = fixed default_duration_min = 1440 min_duration_min = 1440 max_duration_min = 20160 base_price_minor = 80000 currency = USD" },
+    { "id": "uc13-09", "name": "Create weekly discount pricing policy", "prompt": "insert into demand_pricing_policies id = dpp_weekly_uc13 biz_id = biz_rental_uc13 name = WeeklyStayDiscount slug = weekly-stay-discount status = active target_type = offer_version offer_version_id = ov_rental_uc13 scoring_mode = weighted_sum score_floor = 0 score_ceiling = 10000 default_adjustment_type = percentage default_apply_as = discount default_adjustment_value = 0 min_adjustment_minor = 0 max_adjustment_minor = 50000 min_final_unit_price_minor = 0 max_final_unit_price_minor = 500000 cooldown_min = 60 priority = 10 is_enabled = true" },
+    { "id": "uc13-10", "name": "Create weekly tier rule", "prompt": "insert into demand_pricing_policy_tiers id = dppt_weekly_uc13 biz_id = biz_rental_uc13 demand_pricing_policy_id = dpp_weekly_uc13 name = SevenDayDiscount min_score = 7000 max_score = 10000 adjustment_type = percentage apply_as = discount adjustment_value = 2000 sort_order = 1 is_active = true" }
+  ]
+}

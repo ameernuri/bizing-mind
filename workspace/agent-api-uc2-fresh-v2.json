@@ -1,0 +1,18 @@
+{
+  "defaults": {
+    "dryRun": false,
+    "scope": { "bizId": "biz_3A1oknrefAL0nxhFQRb1rjjVuba" }
+  },
+  "scenarios": [
+    { "id": "uc2-01", "name": "Create business", "prompt": "insert into bizes id = biz_3A1oknrefAL0nxhFQRb1rjjVuba name = Mark Business Consulting slug = mark-consulting status = active timezone = America/New_York" },
+    { "id": "uc2-02", "name": "Create location", "prompt": "insert into locations id = loc_3A1okjq8Qs5aqK0FOfkBopJen2e biz_id = biz_3A1oknrefAL0nxhFQRb1rjjVuba name = Mark Office slug = mark-office timezone = America/New_York" },
+    { "id": "uc2-03", "name": "Create resource", "prompt": "insert into resources id = res_3A1okp4HYjBCWR1MxiCMo7Vw5tN biz_id = biz_3A1oknrefAL0nxhFQRb1rjjVuba location_id = loc_3A1okjq8Qs5aqK0FOfkBopJen2e type = host name = Mark Johnson slug = mark-johnson timezone = America/New_York buffer_before_minutes = 15 buffer_after_minutes = 15 capacity = 1 allow_simultaneous_bookings = false" },
+    { "id": "uc2-04", "name": "Create calendar with variable duration", "prompt": "insert into calendars id = cal_3A1okp7fCkWAYyBGQ85ZPNNXS1r biz_id = biz_3A1oknrefAL0nxhFQRb1rjjVuba name = Mark Variable Calendar timezone = America/New_York slot_duration_min = 30 slot_interval_min = 30 pre_buffer_min = 15 post_buffer_min = 15 min_advance_booking_hours = 12 max_advance_booking_days = 90 status = active" },
+    { "id": "uc2-05", "name": "Create availability rule", "prompt": "insert into availability_rules id = ar_3A1oknrefAL0nxhFQRb1rjjVuba_01 biz_id = biz_3A1oknrefAL0nxhFQRb1rjjVuba calendar_id = cal_3A1okp7fCkWAYyBGQ85ZPNNXS1r name = Weekday Hours mode = weekly frequency = weekly day_of_week = 1 start_time = 09:00:00 end_time = 18:00:00 action = available is_active = true" },
+    { "id": "uc2-06", "name": "Create variable duration offer", "prompt": "insert into offers id = ofr_3A1oklG3DhgGIx7YaMa13TLaZf5 biz_id = biz_3A1oknrefAL0nxhFQRb1rjjVuba name = Variable Consultation slug = variable-consultation execution_mode = scheduled status = active is_published = true timezone = America/New_York" },
+    { "id": "uc2-07", "name": "Create variable duration offer version", "prompt": "insert into offer_versions id = ov_3A1oknrefAL0nxhFQRb1rjjVuba_01 biz_id = biz_3A1oknrefAL0nxhFQRb1rjjVuba offer_id = ofr_3A1oklG3DhgGIx7YaMa13TLaZf5 version = 1 status = active duration_mode = variable default_duration_min = 60 min_duration_min = 30 max_duration_min = 240 duration_step_min = 30 base_price_minor = 10000 currency = USD" },
+    { "id": "uc2-08", "name": "Verify resource created", "prompt": "list resources where id = res_3A1okp4HYjBCWR1MxiCMo7Vw5tN" },
+    { "id": "uc2-09", "name": "Verify offer version", "prompt": "list offer_versions where id = ov_3A1oknrefAL0nxhFQRb1rjjVuba_01" },
+    { "id": "uc2-10", "name": "Check variable duration settings", "prompt": "list offer_versions where id = ov_3A1oknrefAL0nxhFQRb1rjjVuba_01 and duration_mode = variable" }
+  ]
+}

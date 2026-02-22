@@ -1,0 +1,13 @@
+{
+  "defaults": {
+    "dryRun": false,
+    "scope": { "bizId": "biz_3A1okjynONJMTDbUgWjXCc3lvaL" }
+  },
+  "scenarios": [
+    { "id": "uc18-01", "name": "Create theater business", "prompt": "insert into bizes id = biz_3A1okjynONJMTDbUgWjXCc3lvaL name = Downtown Theater slug = downtown-theater status = active timezone = America/Los_Angeles" },
+    { "id": "uc18-02", "name": "Create location", "prompt": "insert into locations id = loc_3A1okjY2ULYThEtNOrbnHf8D7Xe biz_id = biz_3A1okjynONJMTDbUgWjXCc3lvaL name = Theater Building slug = theater-building timezone = America/Los_Angeles" },
+    { "id": "uc18-03", "name": "Create venue", "prompt": "insert into venues id = ven_3A1okpVBGh2FvTtDSW5wXQSdTyG biz_id = biz_3A1okjynONJMTDbUgWjXCc3lvaL location_id = loc_3A1okjY2ULYThEtNOrbnHf8D7Xe name = Main Auditorium slug = main-auditorium setup_minutes = 30 teardown_minutes = 30" },
+    { "id": "uc18-04", "name": "Create calendar", "prompt": "insert into calendars id = cal_3A1okkJHTOp294ZxBGxZBF5ovaU biz_id = biz_3A1okjynONJMTDbUgWjXCc3lvaL name = Show Calendar timezone = America/Los_Angeles slot_duration_min = 120 status = active" },
+    { "id": "uc18-05", "name": "Verify venue", "prompt": "list venues where id = ven_3A1okpVBGh2FvTtDSW5wXQSdTyG" }
+  ]
+}
