@@ -1,0 +1,50 @@
+{
+  "defaults": {
+    "dryRun": false,
+    "scope": {
+      "bizId": "biz_3A23yR4axlqc59ngVvdWjHRRa8I"
+    }
+  },
+  "scenarios": [
+    {
+      "id": "uc22-01",
+      "name": "Create Private Chef business",
+      "prompt": "insert into bizes id = biz_3A23yR4axlqc59ngVvdWjHRRa8I name = Marco Kitchen slug = marcos-kitchen-202502220816 status = active timezone = America/Los_Angeles"
+    },
+    {
+      "id": "uc22-02",
+      "name": "Create location",
+      "prompt": "insert into locations id = loc_3A23yRnIl1ua9WPrDcFwGVl9XsO biz_id = biz_3A23yR4axlqc59ngVvdWjHRRa8I name = Main Location slug = main-22-202502220816 timezone = America/Los_Angeles"
+    },
+    {
+      "id": "uc22-03",
+      "name": "Create Chef Marco as resource",
+      "prompt": "insert into resources id = res_3A23yQyT30NypWPn6Im8XI4pvSR biz_id = biz_3A23yR4axlqc59ngVvdWjHRRa8I location_id = loc_3A23yRnIl1ua9WPrDcFwGVl9XsO type = host name = Chef Marco slug = marcos-kitchen-resource-202502220816 timezone = America/Los_Angeles capacity = 1"
+    },
+    {
+      "id": "uc22-04",
+      "name": "Create calendar",
+      "prompt": "insert into calendars id = cal_3A23yQnO0mci8DVUHVhY6UbXVnY biz_id = biz_3A23yR4axlqc59ngVvdWjHRRa8I name = Booking Calendar timezone = America/Los_Angeles slot_duration_min = 60 status = active"
+    },
+    {
+      "id": "uc22-05",
+      "name": "Create service offer",
+      "prompt": "insert into offers id = ofr_3A23yRQH8krWqVvT9AJA9sLAJwP biz_id = biz_3A23yR4axlqc59ngVvdWjHRRa8I type = service name = Private Chef Service slug = marcos-kitchen-offer-202502220816 status = active"
+    },
+    {
+      "id": "uc22-06",
+      "name": "Query business",
+      "prompt": "list bizes where id = biz_3A23yR4axlqc59ngVvdWjHRRa8I"
+    },
+    {
+      "id": "uc22-07",
+      "name": "Query resources",
+      "prompt": "list resources where biz_id = biz_3A23yR4axlqc59ngVvdWjHRRa8I"
+    },
+    {
+      "id": "uc22-08",
+      "name": "Count offers",
+      "prompt": "count offers where biz_id = biz_3A23yR4axlqc59ngVvdWjHRRa8I"
+    }
+  ]
+}

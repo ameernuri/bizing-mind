@@ -1,0 +1,50 @@
+{
+  "defaults": {
+    "dryRun": false,
+    "scope": {
+      "bizId": "biz_3A23yOYp0fwqPaAGQ6YLWOgKhbJ"
+    }
+  },
+  "scenarios": [
+    {
+      "id": "uc32-01",
+      "name": "Create Wellness business",
+      "prompt": "insert into bizes id = biz_3A23yOYp0fwqPaAGQ6YLWOgKhbJ name = Serenity Touch slug = serenity-touch-202502220816 status = active timezone = America/Los_Angeles"
+    },
+    {
+      "id": "uc32-02",
+      "name": "Create location",
+      "prompt": "insert into locations id = loc_3A23yPC0vlQwrvs1QXL7Z8UfsJC biz_id = biz_3A23yOYp0fwqPaAGQ6YLWOgKhbJ name = Main Location slug = main-32-202502220816 timezone = America/Los_Angeles"
+    },
+    {
+      "id": "uc32-03",
+      "name": "Create Massage Spa as resource",
+      "prompt": "insert into resources id = res_3A23yQsBOqlR3v4oL9bqOVqK8ZC biz_id = biz_3A23yOYp0fwqPaAGQ6YLWOgKhbJ location_id = loc_3A23yPC0vlQwrvs1QXL7Z8UfsJC type = host name = Massage Spa slug = serenity-touch-resource-202502220816 timezone = America/Los_Angeles capacity = 1"
+    },
+    {
+      "id": "uc32-04",
+      "name": "Create calendar",
+      "prompt": "insert into calendars id = cal_3A23yPFjdG5TkXL2SjCcearAo2A biz_id = biz_3A23yOYp0fwqPaAGQ6YLWOgKhbJ name = Booking Calendar timezone = America/Los_Angeles slot_duration_min = 60 status = active"
+    },
+    {
+      "id": "uc32-05",
+      "name": "Create service offer",
+      "prompt": "insert into offers id = ofr_3A23yPk9MMBQdkZzTRMlYAV1jHv biz_id = biz_3A23yOYp0fwqPaAGQ6YLWOgKhbJ type = service name = Wellness Service slug = serenity-touch-offer-202502220816 status = active"
+    },
+    {
+      "id": "uc32-06",
+      "name": "Query business",
+      "prompt": "list bizes where id = biz_3A23yOYp0fwqPaAGQ6YLWOgKhbJ"
+    },
+    {
+      "id": "uc32-07",
+      "name": "Query resources",
+      "prompt": "list resources where biz_id = biz_3A23yOYp0fwqPaAGQ6YLWOgKhbJ"
+    },
+    {
+      "id": "uc32-08",
+      "name": "Count offers",
+      "prompt": "count offers where biz_id = biz_3A23yOYp0fwqPaAGQ6YLWOgKhbJ"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "defaults": {
+    "dryRun": false,
+    "scope": { "bizId": "biz_3A21SHiQyPNJ2Gaf7RsupVGfFhs" }
+  },
+  "scenarios": [
+    { "id": "uc8-01", "name": "Create business", "prompt": "insert into bizes id = biz_3A21SHiQyPNJ2Gaf7RsupVGfFhs name = Math Excellence slug = math-excellence-202502220807 status = active timezone = America/Los_Angeles" },
+    { "id": "uc8-02", "name": "Create location", "prompt": "insert into locations id = loc_3A21SHQ2Nbhf8Zk3abZfPOCoLzw biz_id = biz_3A21SHiQyPNJ2Gaf7RsupVGfFhs name = Main Campus slug = main-campus-202502220807 timezone = America/Los_Angeles" },
+    { "id": "uc8-03", "name": "Create resource", "prompt": "insert into resources id = res_3A21SNtpxFGxyx61YpJDctR5zgR biz_id = biz_3A21SHiQyPNJ2Gaf7RsupVGfFhs location_id = loc_3A21SHQ2Nbhf8Zk3abZfPOCoLzw type = host name = Ms Rodriguez slug = ms-rodriguez-202502220807 timezone = America/Los_Angeles capacity = 1" },
+    { "id": "uc8-04", "name": "Create calendar", "prompt": "insert into calendars id = cal_3A21SMayWUUreNH2x2OYyrcHVlO biz_id = biz_3A21SHiQyPNJ2Gaf7RsupVGfFhs name = Tutoring Calendar timezone = America/Los_Angeles slot_duration_min = 60 status = active" },
+    { "id": "uc8-05", "name": "Verify tutor", "prompt": "list resources where id = res_3A21SNtpxFGxyx61YpJDctR5zgR" }
+  ]
+}

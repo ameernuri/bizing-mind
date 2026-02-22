@@ -1,0 +1,13 @@
+{
+  "defaults": {
+    "dryRun": false,
+    "scope": { "bizId": "biz_3A21SMckUdJ5qTdUMefgv7SCAdf" }
+  },
+  "scenarios": [
+    { "id": "uc3-01", "name": "Create business", "prompt": "insert into bizes id = biz_3A21SMckUdJ5qTdUMefgv7SCAdf name = Maria Salon slug = maria-salon-202502220807 status = active timezone = America/Los_Angeles" },
+    { "id": "uc3-02", "name": "Create location", "prompt": "insert into locations id = loc_3A21SOI0e5nF3Gmla1mzyyrl7Ql biz_id = biz_3A21SMckUdJ5qTdUMefgv7SCAdf name = Downtown Salon slug = downtown-salon-202502220807 timezone = America/Los_Angeles" },
+    { "id": "uc3-03", "name": "Create resource A", "prompt": "insert into resources id = res_3A21SHdiNurfRJIwbHGv1nZnsrI biz_id = biz_3A21SMckUdJ5qTdUMefgv7SCAdf location_id = loc_3A21SOI0e5nF3Gmla1mzyyrl7Ql type = host name = Stylist A slug = stylist-a-202502220807 timezone = America/Los_Angeles buffer_before_minutes = 5 buffer_after_minutes = 10 capacity = 1" },
+    { "id": "uc3-04", "name": "Create resource B", "prompt": "insert into resources id = res_3A21SOFPIUDOedFltJ3Wd9JASlh biz_id = biz_3A21SMckUdJ5qTdUMefgv7SCAdf location_id = loc_3A21SOI0e5nF3Gmla1mzyyrl7Ql type = host name = Stylist B slug = stylist-b-202502220807 timezone = America/Los_Angeles buffer_before_minutes = 5 buffer_after_minutes = 10 capacity = 1" },
+    { "id": "uc3-05", "name": "Count resources", "prompt": "count resources where biz_id = biz_3A21SMckUdJ5qTdUMefgv7SCAdf" }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "defaults": {
+    "dryRun": false,
+    "scope": { "bizId": "biz_3A21SLbfcaUMbIxVkaDdo2ZqLao" }
+  },
+  "scenarios": [
+    { "id": "uc7-01", "name": "Create business", "prompt": "insert into bizes id = biz_3A21SLbfcaUMbIxVkaDdo2ZqLao name = Spin City slug = spin-city-202502220807 status = active timezone = America/Los_Angeles" },
+    { "id": "uc7-02", "name": "Create location", "prompt": "insert into locations id = loc_3A21SLXzS1B5uPaLPTn2FeGOtdX biz_id = biz_3A21SLbfcaUMbIxVkaDdo2ZqLao name = Main Studio slug = main-studio-202502220807 timezone = America/Los_Angeles" },
+    { "id": "uc7-03", "name": "Create resource", "prompt": "insert into resources id = res_3A21SGfFzh6ruvIgpWk0ulngxdb biz_id = biz_3A21SLbfcaUMbIxVkaDdo2ZqLao location_id = loc_3A21SLXzS1B5uPaLPTn2FeGOtdX type = host name = Spin Instructor slug = spin-instructor-202502220807 timezone = America/Los_Angeles capacity = 30" },
+    { "id": "uc7-04", "name": "Create calendar", "prompt": "insert into calendars id = cal_3A21SJH5yi4PVftW6km96I7mF3A biz_id = biz_3A21SLbfcaUMbIxVkaDdo2ZqLao name = Class Calendar timezone = America/Los_Angeles slot_duration_min = 60 status = active" },
+    { "id": "uc7-05", "name": "Verify resource", "prompt": "list resources where id = res_3A21SGfFzh6ruvIgpWk0ulngxdb" }
+  ]
+}

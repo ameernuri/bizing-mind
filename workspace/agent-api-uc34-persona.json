@@ -1,0 +1,50 @@
+{
+  "defaults": {
+    "dryRun": false,
+    "scope": {
+      "bizId": "biz_3A23yMDUtfobFlrsyUI8xdMp2xL"
+    }
+  },
+  "scenarios": [
+    {
+      "id": "uc34-01",
+      "name": "Create Arts business",
+      "prompt": "insert into bizes id = biz_3A23yMDUtfobFlrsyUI8xdMp2xL name = Rhythm Nation slug = rhythm-nation-202502220816 status = active timezone = America/Los_Angeles"
+    },
+    {
+      "id": "uc34-02",
+      "name": "Create location",
+      "prompt": "insert into locations id = loc_3A23yShT1Ht3SfEef5rX8Gdpt4D biz_id = biz_3A23yMDUtfobFlrsyUI8xdMp2xL name = Main Location slug = main-34-202502220816 timezone = America/Los_Angeles"
+    },
+    {
+      "id": "uc34-03",
+      "name": "Create Dance Studio as resource",
+      "prompt": "insert into resources id = res_3A23yNQAAL9o7skaqj20OEe2mB4 biz_id = biz_3A23yMDUtfobFlrsyUI8xdMp2xL location_id = loc_3A23yShT1Ht3SfEef5rX8Gdpt4D type = host name = Dance Studio slug = rhythm-nation-resource-202502220816 timezone = America/Los_Angeles capacity = 1"
+    },
+    {
+      "id": "uc34-04",
+      "name": "Create calendar",
+      "prompt": "insert into calendars id = cal_3A23ySQoYekJtc88Cia7ElKYwuz biz_id = biz_3A23yMDUtfobFlrsyUI8xdMp2xL name = Booking Calendar timezone = America/Los_Angeles slot_duration_min = 60 status = active"
+    },
+    {
+      "id": "uc34-05",
+      "name": "Create service offer",
+      "prompt": "insert into offers id = ofr_3A23yPqnq9VVT1T22LNveeD2IaK biz_id = biz_3A23yMDUtfobFlrsyUI8xdMp2xL type = service name = Arts Service slug = rhythm-nation-offer-202502220816 status = active"
+    },
+    {
+      "id": "uc34-06",
+      "name": "Query business",
+      "prompt": "list bizes where id = biz_3A23yMDUtfobFlrsyUI8xdMp2xL"
+    },
+    {
+      "id": "uc34-07",
+      "name": "Query resources",
+      "prompt": "list resources where biz_id = biz_3A23yMDUtfobFlrsyUI8xdMp2xL"
+    },
+    {
+      "id": "uc34-08",
+      "name": "Count offers",
+      "prompt": "count offers where biz_id = biz_3A23yMDUtfobFlrsyUI8xdMp2xL"
+    }
+  ]
+}

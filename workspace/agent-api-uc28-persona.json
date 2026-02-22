@@ -1,0 +1,50 @@
+{
+  "defaults": {
+    "dryRun": false,
+    "scope": {
+      "bizId": "biz_3A23yOuR3pXivV3hD4ftQngRwHF"
+    }
+  },
+  "scenarios": [
+    {
+      "id": "uc28-01",
+      "name": "Create Education business",
+      "prompt": "insert into bizes id = biz_3A23yOuR3pXivV3hD4ftQngRwHF name = Harmony Academy slug = harmony-academy-202502220816 status = active timezone = America/Los_Angeles"
+    },
+    {
+      "id": "uc28-02",
+      "name": "Create location",
+      "prompt": "insert into locations id = loc_3A23yMoIuqOvDl43kcXPQBGcNmL biz_id = biz_3A23yOuR3pXivV3hD4ftQngRwHF name = Main Location slug = main-28-202502220816 timezone = America/Los_Angeles"
+    },
+    {
+      "id": "uc28-03",
+      "name": "Create Music School as resource",
+      "prompt": "insert into resources id = res_3A23yR9AZiVxqD66MJNqelSI4oO biz_id = biz_3A23yOuR3pXivV3hD4ftQngRwHF location_id = loc_3A23yMoIuqOvDl43kcXPQBGcNmL type = host name = Music School slug = harmony-academy-resource-202502220816 timezone = America/Los_Angeles capacity = 1"
+    },
+    {
+      "id": "uc28-04",
+      "name": "Create calendar",
+      "prompt": "insert into calendars id = cal_3A23yRAa8cAEJqA7d6y5VfnWiXU biz_id = biz_3A23yOuR3pXivV3hD4ftQngRwHF name = Booking Calendar timezone = America/Los_Angeles slot_duration_min = 60 status = active"
+    },
+    {
+      "id": "uc28-05",
+      "name": "Create service offer",
+      "prompt": "insert into offers id = ofr_3A23yQlKP1NIl1a9Pp2RwDOh9RF biz_id = biz_3A23yOuR3pXivV3hD4ftQngRwHF type = service name = Education Service slug = harmony-academy-offer-202502220816 status = active"
+    },
+    {
+      "id": "uc28-06",
+      "name": "Query business",
+      "prompt": "list bizes where id = biz_3A23yOuR3pXivV3hD4ftQngRwHF"
+    },
+    {
+      "id": "uc28-07",
+      "name": "Query resources",
+      "prompt": "list resources where biz_id = biz_3A23yOuR3pXivV3hD4ftQngRwHF"
+    },
+    {
+      "id": "uc28-08",
+      "name": "Count offers",
+      "prompt": "count offers where biz_id = biz_3A23yOuR3pXivV3hD4ftQngRwHF"
+    }
+  ]
+}

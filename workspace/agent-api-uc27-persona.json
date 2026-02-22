@@ -1,0 +1,50 @@
+{
+  "defaults": {
+    "dryRun": false,
+    "scope": {
+      "bizId": "biz_3A23yR1q54Lcunq9tQAoiwGMJGc"
+    }
+  },
+  "scenarios": [
+    {
+      "id": "uc27-01",
+      "name": "Create Pet Care business",
+      "prompt": "insert into bizes id = biz_3A23yR1q54Lcunq9tQAoiwGMJGc name = Paws and Claws slug = paws-claws-202502220816 status = active timezone = America/Los_Angeles"
+    },
+    {
+      "id": "uc27-02",
+      "name": "Create location",
+      "prompt": "insert into locations id = loc_3A23yNI8gSEDx8lTvQMMviKtmfa biz_id = biz_3A23yR1q54Lcunq9tQAoiwGMJGc name = Main Location slug = main-27-202502220816 timezone = America/Los_Angeles"
+    },
+    {
+      "id": "uc27-03",
+      "name": "Create Vet Clinic as resource",
+      "prompt": "insert into resources id = res_3A23yQ8Qmc4X5bkeOECSpSvSiWZ biz_id = biz_3A23yR1q54Lcunq9tQAoiwGMJGc location_id = loc_3A23yNI8gSEDx8lTvQMMviKtmfa type = host name = Vet Clinic slug = paws-claws-resource-202502220816 timezone = America/Los_Angeles capacity = 1"
+    },
+    {
+      "id": "uc27-04",
+      "name": "Create calendar",
+      "prompt": "insert into calendars id = cal_3A23yS59zaM1k4mPLUl9n1b8jdV biz_id = biz_3A23yR1q54Lcunq9tQAoiwGMJGc name = Booking Calendar timezone = America/Los_Angeles slot_duration_min = 60 status = active"
+    },
+    {
+      "id": "uc27-05",
+      "name": "Create service offer",
+      "prompt": "insert into offers id = ofr_3A23yPvcSA8KThY9JY3zZFHKNyu biz_id = biz_3A23yR1q54Lcunq9tQAoiwGMJGc type = service name = Pet Care Service slug = paws-claws-offer-202502220816 status = active"
+    },
+    {
+      "id": "uc27-06",
+      "name": "Query business",
+      "prompt": "list bizes where id = biz_3A23yR1q54Lcunq9tQAoiwGMJGc"
+    },
+    {
+      "id": "uc27-07",
+      "name": "Query resources",
+      "prompt": "list resources where biz_id = biz_3A23yR1q54Lcunq9tQAoiwGMJGc"
+    },
+    {
+      "id": "uc27-08",
+      "name": "Count offers",
+      "prompt": "count offers where biz_id = biz_3A23yR1q54Lcunq9tQAoiwGMJGc"
+    }
+  ]
+}

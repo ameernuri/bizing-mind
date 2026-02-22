@@ -1,0 +1,13 @@
+{
+  "defaults": {
+    "dryRun": false,
+    "scope": { "bizId": "biz_3A21SKUxjVA0rOn0oLEWN3TjDyR" }
+  },
+  "scenarios": [
+    { "id": "uc2-01", "name": "Create business", "prompt": "insert into bizes id = biz_3A21SKUxjVA0rOn0oLEWN3TjDyR name = Mark Consulting slug = mark-consulting-202502220807 status = active timezone = America/New_York" },
+    { "id": "uc2-02", "name": "Create location", "prompt": "insert into locations id = loc_3A21SMVbIFGFCtbk2OJAAMj6u1d biz_id = biz_3A21SKUxjVA0rOn0oLEWN3TjDyR name = Mark Office slug = mark-office-202502220807 timezone = America/New_York" },
+    { "id": "uc2-03", "name": "Create resource", "prompt": "insert into resources id = res_3A21SL7i3jlPIZcobSE0otMMKVP biz_id = biz_3A21SKUxjVA0rOn0oLEWN3TjDyR location_id = loc_3A21SMVbIFGFCtbk2OJAAMj6u1d type = host name = Mark Johnson slug = mark-johnson-202502220807 timezone = America/New_York buffer_before_minutes = 15 buffer_after_minutes = 15 capacity = 1" },
+    { "id": "uc2-04", "name": "Create calendar", "prompt": "insert into calendars id = cal_3A21SKVcxanNatqaUv0HIbtBJjt biz_id = biz_3A21SKUxjVA0rOn0oLEWN3TjDyR name = Mark Calendar timezone = America/New_York slot_duration_min = 30 slot_interval_min = 30 status = active" },
+    { "id": "uc2-05", "name": "Verify resource", "prompt": "list resources where id = res_3A21SL7i3jlPIZcobSE0otMMKVP" }
+  ]
+}

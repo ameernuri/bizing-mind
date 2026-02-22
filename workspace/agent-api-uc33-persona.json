@@ -1,0 +1,50 @@
+{
+  "defaults": {
+    "dryRun": false,
+    "scope": {
+      "bizId": "biz_3A23yQyxUn6r30mUJUdnZCpAUsm"
+    }
+  },
+  "scenarios": [
+    {
+      "id": "uc33-01",
+      "name": "Create Financial business",
+      "prompt": "insert into bizes id = biz_3A23yQyxUn6r30mUJUdnZCpAUsm name = Number Crunchers slug = number-crunchers-202502220816 status = active timezone = America/Los_Angeles"
+    },
+    {
+      "id": "uc33-02",
+      "name": "Create location",
+      "prompt": "insert into locations id = loc_3A23yPtDpUCq0bRqghJy3KRTW8l biz_id = biz_3A23yQyxUn6r30mUJUdnZCpAUsm name = Main Location slug = main-33-202502220816 timezone = America/Los_Angeles"
+    },
+    {
+      "id": "uc33-03",
+      "name": "Create Tax Accountant as resource",
+      "prompt": "insert into resources id = res_3A23yRMKFbHmpqsXOwPAYSFWYBD biz_id = biz_3A23yQyxUn6r30mUJUdnZCpAUsm location_id = loc_3A23yPtDpUCq0bRqghJy3KRTW8l type = host name = Tax Accountant slug = number-crunchers-resource-202502220816 timezone = America/Los_Angeles capacity = 1"
+    },
+    {
+      "id": "uc33-04",
+      "name": "Create calendar",
+      "prompt": "insert into calendars id = cal_3A23yORQ2yfXffMYQXQ6rkTDJaY biz_id = biz_3A23yQyxUn6r30mUJUdnZCpAUsm name = Booking Calendar timezone = America/Los_Angeles slot_duration_min = 60 status = active"
+    },
+    {
+      "id": "uc33-05",
+      "name": "Create service offer",
+      "prompt": "insert into offers id = ofr_3A23yRfEFbnokwhswgjHluJzGuf biz_id = biz_3A23yQyxUn6r30mUJUdnZCpAUsm type = service name = Financial Service slug = number-crunchers-offer-202502220816 status = active"
+    },
+    {
+      "id": "uc33-06",
+      "name": "Query business",
+      "prompt": "list bizes where id = biz_3A23yQyxUn6r30mUJUdnZCpAUsm"
+    },
+    {
+      "id": "uc33-07",
+      "name": "Query resources",
+      "prompt": "list resources where biz_id = biz_3A23yQyxUn6r30mUJUdnZCpAUsm"
+    },
+    {
+      "id": "uc33-08",
+      "name": "Count offers",
+      "prompt": "count offers where biz_id = biz_3A23yQyxUn6r30mUJUdnZCpAUsm"
+    }
+  ]
+}

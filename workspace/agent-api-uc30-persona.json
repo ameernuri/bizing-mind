@@ -1,0 +1,50 @@
+{
+  "defaults": {
+    "dryRun": false,
+    "scope": {
+      "bizId": "biz_3A23ySsVjpczTlHRatZWMpinDai"
+    }
+  },
+  "scenarios": [
+    {
+      "id": "uc30-01",
+      "name": "Create Home Services business",
+      "prompt": "insert into bizes id = biz_3A23ySsVjpczTlHRatZWMpinDai name = Sparkle Clean slug = sparkle-clean-202502220816 status = active timezone = America/Los_Angeles"
+    },
+    {
+      "id": "uc30-02",
+      "name": "Create location",
+      "prompt": "insert into locations id = loc_3A23yMV3ZA5ZUevJjWMuxjOBBoC biz_id = biz_3A23ySsVjpczTlHRatZWMpinDai name = Main Location slug = main-30-202502220816 timezone = America/Los_Angeles"
+    },
+    {
+      "id": "uc30-03",
+      "name": "Create Cleaning Co as resource",
+      "prompt": "insert into resources id = res_3A23ySWNF8B6Ged0e8h5auVrDil biz_id = biz_3A23ySsVjpczTlHRatZWMpinDai location_id = loc_3A23yMV3ZA5ZUevJjWMuxjOBBoC type = host name = Cleaning Co slug = sparkle-clean-resource-202502220816 timezone = America/Los_Angeles capacity = 1"
+    },
+    {
+      "id": "uc30-04",
+      "name": "Create calendar",
+      "prompt": "insert into calendars id = cal_3A23yPR3id4kPD47y9CY1binnwp biz_id = biz_3A23ySsVjpczTlHRatZWMpinDai name = Booking Calendar timezone = America/Los_Angeles slot_duration_min = 60 status = active"
+    },
+    {
+      "id": "uc30-05",
+      "name": "Create service offer",
+      "prompt": "insert into offers id = ofr_3A23yMo8HegWOJMDt8ZOMO6g0UR biz_id = biz_3A23ySsVjpczTlHRatZWMpinDai type = service name = Home Services Service slug = sparkle-clean-offer-202502220816 status = active"
+    },
+    {
+      "id": "uc30-06",
+      "name": "Query business",
+      "prompt": "list bizes where id = biz_3A23ySsVjpczTlHRatZWMpinDai"
+    },
+    {
+      "id": "uc30-07",
+      "name": "Query resources",
+      "prompt": "list resources where biz_id = biz_3A23ySsVjpczTlHRatZWMpinDai"
+    },
+    {
+      "id": "uc30-08",
+      "name": "Count offers",
+      "prompt": "count offers where biz_id = biz_3A23ySsVjpczTlHRatZWMpinDai"
+    }
+  ]
+}

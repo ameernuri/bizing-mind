@@ -1,0 +1,50 @@
+{
+  "defaults": {
+    "dryRun": false,
+    "scope": {
+      "bizId": "biz_3A23yQ2HDFnBcXrCKgSmU9g3Jh1"
+    }
+  },
+  "scenarios": [
+    {
+      "id": "uc31-01",
+      "name": "Create Education business",
+      "prompt": "insert into bizes id = biz_3A23yQ2HDFnBcXrCKgSmU9g3Jh1 name = Global Tongues slug = global-tongues-202502220816 status = active timezone = America/Los_Angeles"
+    },
+    {
+      "id": "uc31-02",
+      "name": "Create location",
+      "prompt": "insert into locations id = loc_3A23yLQXbR1YzcqBCBsueZFKcTT biz_id = biz_3A23yQ2HDFnBcXrCKgSmU9g3Jh1 name = Main Location slug = main-31-202502220816 timezone = America/Los_Angeles"
+    },
+    {
+      "id": "uc31-03",
+      "name": "Create Language Tutor as resource",
+      "prompt": "insert into resources id = res_3A23yNHmOzqf6pUQhtMhmH3cB7S biz_id = biz_3A23yQ2HDFnBcXrCKgSmU9g3Jh1 location_id = loc_3A23yLQXbR1YzcqBCBsueZFKcTT type = host name = Language Tutor slug = global-tongues-resource-202502220816 timezone = America/Los_Angeles capacity = 1"
+    },
+    {
+      "id": "uc31-04",
+      "name": "Create calendar",
+      "prompt": "insert into calendars id = cal_3A23yRCckqC4FSSH8fccSIwZu0S biz_id = biz_3A23yQ2HDFnBcXrCKgSmU9g3Jh1 name = Booking Calendar timezone = America/Los_Angeles slot_duration_min = 60 status = active"
+    },
+    {
+      "id": "uc31-05",
+      "name": "Create service offer",
+      "prompt": "insert into offers id = ofr_3A23ySG8BuJ8qM9ul4KZcDuLxLO biz_id = biz_3A23yQ2HDFnBcXrCKgSmU9g3Jh1 type = service name = Education Service slug = global-tongues-offer-202502220816 status = active"
+    },
+    {
+      "id": "uc31-06",
+      "name": "Query business",
+      "prompt": "list bizes where id = biz_3A23yQ2HDFnBcXrCKgSmU9g3Jh1"
+    },
+    {
+      "id": "uc31-07",
+      "name": "Query resources",
+      "prompt": "list resources where biz_id = biz_3A23yQ2HDFnBcXrCKgSmU9g3Jh1"
+    },
+    {
+      "id": "uc31-08",
+      "name": "Count offers",
+      "prompt": "count offers where biz_id = biz_3A23yQ2HDFnBcXrCKgSmU9g3Jh1"
+    }
+  ]
+}

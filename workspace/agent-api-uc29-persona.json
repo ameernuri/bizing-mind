@@ -1,0 +1,50 @@
+{
+  "defaults": {
+    "dryRun": false,
+    "scope": {
+      "bizId": "biz_3A23yMJhbSROkbITO5oNB8HVO3x"
+    }
+  },
+  "scenarios": [
+    {
+      "id": "uc29-01",
+      "name": "Create Space Rental business",
+      "prompt": "insert into bizes id = biz_3A23yMJhbSROkbITO5oNB8HVO3x name = The Hub slug = the-hub-coworking-202502220816 status = active timezone = America/Los_Angeles"
+    },
+    {
+      "id": "uc29-02",
+      "name": "Create location",
+      "prompt": "insert into locations id = loc_3A23yMCrUOzTuLdkvUtmafA1FgS biz_id = biz_3A23yMJhbSROkbITO5oNB8HVO3x name = Main Location slug = main-29-202502220816 timezone = America/Los_Angeles"
+    },
+    {
+      "id": "uc29-03",
+      "name": "Create Coworking as resource",
+      "prompt": "insert into resources id = res_3A23yRvPFkXvDdEZKQaQzjpxhEU biz_id = biz_3A23yMJhbSROkbITO5oNB8HVO3x location_id = loc_3A23yMCrUOzTuLdkvUtmafA1FgS type = host name = Coworking slug = the-hub-coworking-resource-202502220816 timezone = America/Los_Angeles capacity = 1"
+    },
+    {
+      "id": "uc29-04",
+      "name": "Create calendar",
+      "prompt": "insert into calendars id = cal_3A23yLutvdzv1soWNLP5IoBrUSd biz_id = biz_3A23yMJhbSROkbITO5oNB8HVO3x name = Booking Calendar timezone = America/Los_Angeles slot_duration_min = 60 status = active"
+    },
+    {
+      "id": "uc29-05",
+      "name": "Create service offer",
+      "prompt": "insert into offers id = ofr_3A23yOW5uJe3NIjb4f986T0JbGB biz_id = biz_3A23yMJhbSROkbITO5oNB8HVO3x type = service name = Space Rental Service slug = the-hub-coworking-offer-202502220816 status = active"
+    },
+    {
+      "id": "uc29-06",
+      "name": "Query business",
+      "prompt": "list bizes where id = biz_3A23yMJhbSROkbITO5oNB8HVO3x"
+    },
+    {
+      "id": "uc29-07",
+      "name": "Query resources",
+      "prompt": "list resources where biz_id = biz_3A23yMJhbSROkbITO5oNB8HVO3x"
+    },
+    {
+      "id": "uc29-08",
+      "name": "Count offers",
+      "prompt": "count offers where biz_id = biz_3A23yMJhbSROkbITO5oNB8HVO3x"
+    }
+  ]
+}

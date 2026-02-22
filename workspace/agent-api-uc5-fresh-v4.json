@@ -1,0 +1,13 @@
+{
+  "defaults": {
+    "dryRun": false,
+    "scope": { "bizId": "biz_3A21SNTJXt6uKm9DA43zXyO8iIS" }
+  },
+  "scenarios": [
+    { "id": "uc5-01", "name": "Create business", "prompt": "insert into bizes id = biz_3A21SNTJXt6uKm9DA43zXyO8iIS name = Medical Clinic slug = medical-clinic-202502220807 status = active timezone = America/Los_Angeles" },
+    { "id": "uc5-02", "name": "Create location", "prompt": "insert into locations id = loc_3A21SGj4LLhOnD2rJiqN4hhrAqT biz_id = biz_3A21SNTJXt6uKm9DA43zXyO8iIS name = Main Clinic slug = main-clinic-202502220807 timezone = America/Los_Angeles" },
+    { "id": "uc5-03", "name": "Create exam room", "prompt": "insert into resources id = res_3A21SLLUDrdgyPgREo1d7mNcDAo biz_id = biz_3A21SNTJXt6uKm9DA43zXyO8iIS location_id = loc_3A21SGj4LLhOnD2rJiqN4hhrAqT type = space name = Exam Room 1 slug = exam-room-1-202502220807 timezone = America/Los_Angeles capacity = 1" },
+    { "id": "uc5-04", "name": "Create Dr", "prompt": "insert into resources id = res_3A21SLQYleGp4iawlFgeNM6Qe5t biz_id = biz_3A21SNTJXt6uKm9DA43zXyO8iIS location_id = loc_3A21SGj4LLhOnD2rJiqN4hhrAqT type = host name = Dr Jones slug = dr-jones-202502220807 timezone = America/Los_Angeles capacity = 1" },
+    { "id": "uc5-05", "name": "Count resources", "prompt": "count resources where biz_id = biz_3A21SNTJXt6uKm9DA43zXyO8iIS" }
+  ]
+}

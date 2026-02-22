@@ -1,0 +1,50 @@
+{
+  "defaults": {
+    "dryRun": false,
+    "scope": {
+      "bizId": "biz_3A23yO7tHguiRXe4dMXd16SdMSM"
+    }
+  },
+  "scenarios": [
+    {
+      "id": "uc23-01",
+      "name": "Create Wellness Center business",
+      "prompt": "insert into bizes id = biz_3A23yO7tHguiRXe4dMXd16SdMSM name = Zen Flow Yoga slug = zen-flow-yoga-202502220816 status = active timezone = America/Los_Angeles"
+    },
+    {
+      "id": "uc23-02",
+      "name": "Create location",
+      "prompt": "insert into locations id = loc_3A23yRrlHu9CZLgX2MK5aquolWV biz_id = biz_3A23yO7tHguiRXe4dMXd16SdMSM name = Main Location slug = main-23-202502220816 timezone = America/Los_Angeles"
+    },
+    {
+      "id": "uc23-03",
+      "name": "Create Yoga Studio as resource",
+      "prompt": "insert into resources id = res_3A23yRDB2ASluiEAqGSj24LuxBQ biz_id = biz_3A23yO7tHguiRXe4dMXd16SdMSM location_id = loc_3A23yRrlHu9CZLgX2MK5aquolWV type = host name = Yoga Studio slug = zen-flow-yoga-resource-202502220816 timezone = America/Los_Angeles capacity = 1"
+    },
+    {
+      "id": "uc23-04",
+      "name": "Create calendar",
+      "prompt": "insert into calendars id = cal_3A23ySXOISLfaqZwjBCDBgNrEea biz_id = biz_3A23yO7tHguiRXe4dMXd16SdMSM name = Booking Calendar timezone = America/Los_Angeles slot_duration_min = 60 status = active"
+    },
+    {
+      "id": "uc23-05",
+      "name": "Create service offer",
+      "prompt": "insert into offers id = ofr_3A23yQC05xOYnc7T95bwVh1kYW7 biz_id = biz_3A23yO7tHguiRXe4dMXd16SdMSM type = service name = Wellness Center Service slug = zen-flow-yoga-offer-202502220816 status = active"
+    },
+    {
+      "id": "uc23-06",
+      "name": "Query business",
+      "prompt": "list bizes where id = biz_3A23yO7tHguiRXe4dMXd16SdMSM"
+    },
+    {
+      "id": "uc23-07",
+      "name": "Query resources",
+      "prompt": "list resources where biz_id = biz_3A23yO7tHguiRXe4dMXd16SdMSM"
+    },
+    {
+      "id": "uc23-08",
+      "name": "Count offers",
+      "prompt": "count offers where biz_id = biz_3A23yO7tHguiRXe4dMXd16SdMSM"
+    }
+  ]
+}

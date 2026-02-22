@@ -1,0 +1,50 @@
+{
+  "defaults": {
+    "dryRun": false,
+    "scope": {
+      "bizId": "biz_3A23yRJ2eRRoXid0LAIPsxojZYb"
+    }
+  },
+  "scenarios": [
+    {
+      "id": "uc25-01",
+      "name": "Create Creative business",
+      "prompt": "insert into bizes id = biz_3A23yRJ2eRRoXid0LAIPsxojZYb name = Lens and Light slug = lens-light-202502220816 status = active timezone = America/Los_Angeles"
+    },
+    {
+      "id": "uc25-02",
+      "name": "Create location",
+      "prompt": "insert into locations id = loc_3A23ySQWe4kHdn7UwT2rioqfdLD biz_id = biz_3A23yRJ2eRRoXid0LAIPsxojZYb name = Main Location slug = main-25-202502220816 timezone = America/Los_Angeles"
+    },
+    {
+      "id": "uc25-03",
+      "name": "Create Photographer as resource",
+      "prompt": "insert into resources id = res_3A23yS9gRBUc2ahy7rqg1oFs37A biz_id = biz_3A23yRJ2eRRoXid0LAIPsxojZYb location_id = loc_3A23ySQWe4kHdn7UwT2rioqfdLD type = host name = Photographer slug = lens-light-resource-202502220816 timezone = America/Los_Angeles capacity = 1"
+    },
+    {
+      "id": "uc25-04",
+      "name": "Create calendar",
+      "prompt": "insert into calendars id = cal_3A23yM3Y9ttPmxwHYanRAo1gZjl biz_id = biz_3A23yRJ2eRRoXid0LAIPsxojZYb name = Booking Calendar timezone = America/Los_Angeles slot_duration_min = 60 status = active"
+    },
+    {
+      "id": "uc25-05",
+      "name": "Create service offer",
+      "prompt": "insert into offers id = ofr_3A23ySvyCIL8sg8VwfhVSsp4SXX biz_id = biz_3A23yRJ2eRRoXid0LAIPsxojZYb type = service name = Creative Service slug = lens-light-offer-202502220816 status = active"
+    },
+    {
+      "id": "uc25-06",
+      "name": "Query business",
+      "prompt": "list bizes where id = biz_3A23yRJ2eRRoXid0LAIPsxojZYb"
+    },
+    {
+      "id": "uc25-07",
+      "name": "Query resources",
+      "prompt": "list resources where biz_id = biz_3A23yRJ2eRRoXid0LAIPsxojZYb"
+    },
+    {
+      "id": "uc25-08",
+      "name": "Count offers",
+      "prompt": "count offers where biz_id = biz_3A23yRJ2eRRoXid0LAIPsxojZYb"
+    }
+  ]
+}

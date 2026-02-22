@@ -1,0 +1,30 @@
+{
+  "defaults": {
+    "dryRun": false,
+    "scope": {
+      "bizId": "biz_3A23BYGZ9CYW4iKmAzTTcKWm4pg"
+    }
+  },
+  "scenarios": [
+    {
+      "id": "uc14-01",
+      "name": "Create business",
+      "prompt": "insert into bizes id = biz_3A23BYGZ9CYW4iKmAzTTcKWm4pg name = Test Business UC14 slug = test-uc14-202502220807 status = active timezone = America/Los_Angeles"
+    },
+    {
+      "id": "uc14-02",
+      "name": "Create location",
+      "prompt": "insert into locations id = loc_3A23BZEQ6g1oAhXgbE1iEiKQVHx biz_id = biz_3A23BYGZ9CYW4iKmAzTTcKWm4pg name = Test Location slug = test-loc-14-202502220807 timezone = America/Los_Angeles"
+    },
+    {
+      "id": "uc14-03",
+      "name": "Create resource",
+      "prompt": "insert into resources id = res_3A23BYIiYmhGlhkxtOzz49bBDXq biz_id = biz_3A23BYGZ9CYW4iKmAzTTcKWm4pg location_id = loc_3A23BZEQ6g1oAhXgbE1iEiKQVHx type = host name = Test Resource slug = test-res-14-202502220807 timezone = America/Los_Angeles capacity = 1"
+    },
+    {
+      "id": "uc14-04",
+      "name": "Verify",
+      "prompt": "list bizes where id = biz_3A23BYGZ9CYW4iKmAzTTcKWm4pg"
+    }
+  ]
+}

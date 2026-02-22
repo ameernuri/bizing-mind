@@ -1,0 +1,13 @@
+{
+  "defaults": {
+    "dryRun": false,
+    "scope": { "bizId": "biz_3A21SKgGWeL2eSal36WZL9FYs70" }
+  },
+  "scenarios": [
+    { "id": "uc1-01", "name": "Create business", "prompt": "insert into bizes id = biz_3A21SKgGWeL2eSal36WZL9FYs70 name = Sarah Career Coaching slug = sarah-career-coaching-202502220807 status = active timezone = America/Los_Angeles" },
+    { "id": "uc1-02", "name": "Create location", "prompt": "insert into locations id = loc_3A21SHRIL9afMCiw5gu3QMQOiQK biz_id = biz_3A21SKgGWeL2eSal36WZL9FYs70 name = Sarah Office slug = sarah-office-202502220807 timezone = America/Los_Angeles" },
+    { "id": "uc1-03", "name": "Create resource", "prompt": "insert into resources id = res_3A21SM11P7UkQyKmEqhdVHCk0dJ biz_id = biz_3A21SKgGWeL2eSal36WZL9FYs70 location_id = loc_3A21SHRIL9afMCiw5gu3QMQOiQK type = host name = Sarah Chen slug = sarah-chen-202502220807 timezone = America/Los_Angeles buffer_before_minutes = 10 buffer_after_minutes = 10 capacity = 1" },
+    { "id": "uc1-04", "name": "Create calendar", "prompt": "insert into calendars id = cal_3A21SIhskeWfiqFv8GbV9n0hwOu biz_id = biz_3A21SKgGWeL2eSal36WZL9FYs70 name = Sarah Calendar timezone = America/Los_Angeles slot_duration_min = 50 slot_interval_min = 50 status = active" },
+    { "id": "uc1-05", "name": "Verify business", "prompt": "list bizes where id = biz_3A21SKgGWeL2eSal36WZL9FYs70" }
+  ]
+}
