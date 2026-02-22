@@ -1,0 +1,13 @@
+{
+  "defaults": {
+    "dryRun": false,
+    "scope": { "bizId": "biz_3A21SIPpv14hsNVL7pgNH6Qj547" }
+  },
+  "scenarios": [
+    { "id": "uc4-01", "name": "Create business", "prompt": "insert into bizes id = biz_3A21SIPpv14hsNVL7pgNH6Qj547 name = Premium Salon slug = premium-salon status = active timezone = America/Los_Angeles" },
+    { "id": "uc4-02", "name": "Create location", "prompt": "insert into locations id = loc_3A21SO2GSUNoYuLMjoxv9K1Laxe biz_id = biz_3A21SIPpv14hsNVL7pgNH6Qj547 name = Main Location slug = main-loc timezone = America/Los_Angeles" },
+    { "id": "uc4-03", "name": "Create resource", "prompt": "insert into resources id = res_3A21SLVuWrlcNF4CppstgB1y1r0 biz_id = biz_3A21SIPpv14hsNVL7pgNH6Qj547 location_id = loc_3A21SO2GSUNoYuLMjoxv9K1Laxe type = host name = Stylist A slug = stylist-a timezone = America/Los_Angeles buffer_before_minutes = 5 buffer_after_minutes = 5 capacity = 1" },
+    { "id": "uc4-04", "name": "Create calendar", "prompt": "insert into calendars id = cal_3A21SGtrPR3nHUbWziq1vKlEqhq biz_id = biz_3A21SIPpv14hsNVL7pgNH6Qj547 name = Salon Calendar timezone = America/Los_Angeles slot_duration_min = 60 slot_interval_min = 60 status = active" },
+    { "id": "uc4-05", "name": "Verify setup", "prompt": "list resources where biz_id = biz_3A21SIPpv14hsNVL7pgNH6Qj547" }
+  ]
+}
