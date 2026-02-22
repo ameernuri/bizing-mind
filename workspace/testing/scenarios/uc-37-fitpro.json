@@ -1,0 +1,40 @@
+{
+  "defaults": {
+    "dryRun": false,
+    "scope": {
+      "bizId": "biz_3A2Phms4EX7kzZPxIW9oUz6mIxS"
+    }
+  },
+  "scenarios": [
+    {
+      "id": "uc37-01",
+      "name": "Create personal_training business",
+      "prompt": "insert into bizes id = biz_3A2Phms4EX7kzZPxIW9oUz6mIxS name = FitPro Training slug = fitpro-202502221116 status = active timezone = America/Los_Angeles"
+    },
+    {
+      "id": "uc37-02",
+      "name": "Create location",
+      "prompt": "insert into locations id = loc_3A2Phl64Q9YIRcJArY4yDwA8PdF biz_id = biz_3A2Phms4EX7kzZPxIW9oUz6mIxS name = Main Location slug = main-37-202502221116 timezone = America/Los_Angeles"
+    },
+    {
+      "id": "uc37-03",
+      "name": "Create resource",
+      "prompt": "insert into resources id = res_3A2Pho6SO8dHmoVscxCTadfF5Pu biz_id = biz_3A2Phms4EX7kzZPxIW9oUz6mIxS location_id = loc_3A2Phl64Q9YIRcJArY4yDwA8PdF type = host name = Personal Training Resource slug = res-37-202502221116 timezone = America/Los_Angeles capacity = 1"
+    },
+    {
+      "id": "uc37-04",
+      "name": "Create calendar",
+      "prompt": "insert into calendars id = cal_3A2PhlzbxnnNRhEaSXjKtlZMMVH biz_id = biz_3A2Phms4EX7kzZPxIW9oUz6mIxS name = Booking Calendar timezone = America/Los_Angeles slot_duration_min = 60 status = active"
+    },
+    {
+      "id": "uc37-05",
+      "name": "Create offer",
+      "prompt": "insert into offers id = ofr_3A2PhklKIOCaQMuhuvCnE1LrO7a biz_id = biz_3A2Phms4EX7kzZPxIW9oUz6mIxS name = Personal Training Service slug = offer-37-202502221116 status = active execution_mode = request"
+    },
+    {
+      "id": "uc37-06",
+      "name": "Verify setup",
+      "prompt": "list bizes where id = biz_3A2Phms4EX7kzZPxIW9oUz6mIxS"
+    }
+  ]
+}

@@ -1,0 +1,3055 @@
+{
+  "summary": {
+    "runId": "9e867d16-0407-4df5-aa0a-84ad7eeba37f",
+    "startedAt": "2026-02-22T19:17:11.382Z",
+    "endedAt": "2026-02-22T19:17:14.079Z",
+    "durationMs": 2697,
+    "success": true,
+    "totals": {
+      "suites": 5,
+      "suitesPassed": 5,
+      "suitesFailed": 0,
+      "checks": 30,
+      "checksPassed": 30,
+      "checksFailed": 0
+    }
+  },
+  "suites": [
+    {
+      "id": "uc_36_event_venue",
+      "name": "UC-36: Event Venue Rental",
+      "kind": "scenario",
+      "success": true,
+      "total": 6,
+      "passed": 6,
+      "failed": 0,
+      "durationMs": 789,
+      "warnings": [],
+      "issueCount": 0,
+      "details": {
+        "success": true,
+        "total": 6,
+        "succeeded": 6,
+        "failed": 0,
+        "results": [
+          {
+            "id": "uc36-01",
+            "name": "Create space_rental business",
+            "prompt": "insert into bizes id = biz_3A2Phq5eS0U52YQ2xIObVXARWIS name = Grand Hall Events slug = grand-hall-202502221116 status = active timezone = America/Los_Angeles",
+            "success": true,
+            "translation": {
+              "success": true,
+              "confidence": 0.8,
+              "notes": [],
+              "inferred": {
+                "action": "insert",
+                "table": "bizes"
+              },
+              "pseudoRequest": {
+                "requestId": "b7d008c2-3cef-4902-b803-e17d660beaac",
+                "dryRun": false,
+                "scope": {
+                  "bizId": "biz_3A2Phq5eS0U52YQ2xIObVXARWIS"
+                },
+                "command": {
+                  "kind": "mutate",
+                  "action": "insert",
+                  "table": "bizes",
+                  "values": {
+                    "id": "biz_3A2Phq5eS0U52YQ2xIObVXARWIS",
+                    "name": "Grand",
+                    "slug": "grand-hall-202502221116",
+                    "status": "active",
+                    "timezone": "America/Los_Angeles"
+                  },
+                  "filters": [],
+                  "returning": [
+                    "id"
+                  ]
+                }
+              }
+            },
+            "request": {
+              "requestId": "b7d008c2-3cef-4902-b803-e17d660beaac",
+              "dryRun": false,
+              "scope": {
+                "bizId": "biz_3A2Phq5eS0U52YQ2xIObVXARWIS"
+              },
+              "command": {
+                "kind": "mutate",
+                "action": "insert",
+                "table": "bizes",
+                "values": {
+                  "id": "biz_3A2Phq5eS0U52YQ2xIObVXARWIS",
+                  "name": "Grand",
+                  "slug": "grand-hall-202502221116",
+                  "status": "active",
+                  "timezone": "America/Los_Angeles"
+                },
+                "filters": [],
+                "returning": [
+                  "id"
+                ]
+              }
+            },
+            "response": {
+              "requestId": "b7d008c2-3cef-4902-b803-e17d660beaac",
+              "dryRun": false,
+              "success": true,
+              "commandKind": "mutate",
+              "warnings": [],
+              "trace": [
+                {
+                  "stepIndex": 0,
+                  "kind": "mutate",
+                  "table": "bizes",
+                  "sqlPreview": "INSERT INTO \"bizes\" (\"id\", \"name\", \"slug\", \"status\", \"timezone\") VALUES ($1, $2, $3, $4, $5) RETURNING \"id\"",
+                  "params": [
+                    "biz_3A2Phq5eS0U52YQ2xIObVXARWIS",
+                    "Grand",
+                    "grand-hall-202502221116",
+                    "active",
+                    "America/Los_Angeles"
+                  ],
+                  "rowCount": 1,
+                  "dryRun": false
+                }
+              ],
+              "result": {
+                "table": "bizes",
+                "action": "insert",
+                "rowCount": 1,
+                "rows": [
+                  {
+                    "id": "biz_3A2Phq5eS0U52YQ2xIObVXARWIS"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "id": "uc36-02",
+            "name": "Create location",
+            "prompt": "insert into locations id = loc_3A2Phkznnt9L2m4tJBYsNmafTWB biz_id = biz_3A2Phq5eS0U52YQ2xIObVXARWIS name = Main Location slug = main-36-202502221116 timezone = America/Los_Angeles",
+            "success": true,
+            "translation": {
+              "success": true,
+              "confidence": 0.8,
+              "notes": [],
+              "inferred": {
+                "action": "insert",
+                "table": "locations"
+              },
+              "pseudoRequest": {
+                "requestId": "07efa19c-ddba-489f-b49e-3e42d491f790",
+                "dryRun": false,
+                "scope": {
+                  "bizId": "biz_3A2Phq5eS0U52YQ2xIObVXARWIS"
+                },
+                "command": {
+                  "kind": "mutate",
+                  "action": "insert",
+                  "table": "locations",
+                  "values": {
+                    "id": "loc_3A2Phkznnt9L2m4tJBYsNmafTWB",
+                    "biz_id": "biz_3A2Phq5eS0U52YQ2xIObVXARWIS",
+                    "name": "Main",
+                    "slug": "main-36-202502221116",
+                    "timezone": "America/Los_Angeles"
+                  },
+                  "filters": [],
+                  "returning": [
+                    "id"
+                  ]
+                }
+              }
+            },
+            "request": {
+              "requestId": "07efa19c-ddba-489f-b49e-3e42d491f790",
+              "dryRun": false,
+              "scope": {
+                "bizId": "biz_3A2Phq5eS0U52YQ2xIObVXARWIS"
+              },
+              "command": {
+                "kind": "mutate",
+                "action": "insert",
+                "table": "locations",
+                "values": {
+                  "id": "loc_3A2Phkznnt9L2m4tJBYsNmafTWB",
+                  "biz_id": "biz_3A2Phq5eS0U52YQ2xIObVXARWIS",
+                  "name": "Main",
+                  "slug": "main-36-202502221116",
+                  "timezone": "America/Los_Angeles"
+                },
+                "filters": [],
+                "returning": [
+                  "id"
+                ]
+              }
+            },
+            "response": {
+              "requestId": "07efa19c-ddba-489f-b49e-3e42d491f790",
+              "dryRun": false,
+              "success": true,
+              "commandKind": "mutate",
+              "warnings": [],
+              "trace": [
+                {
+                  "stepIndex": 0,
+                  "kind": "mutate",
+                  "table": "locations",
+                  "sqlPreview": "INSERT INTO \"locations\" (\"id\", \"biz_id\", \"name\", \"slug\", \"timezone\") VALUES ($1, $2, $3, $4, $5) RETURNING \"id\"",
+                  "params": [
+                    "loc_3A2Phkznnt9L2m4tJBYsNmafTWB",
+                    "biz_3A2Phq5eS0U52YQ2xIObVXARWIS",
+                    "Main",
+                    "main-36-202502221116",
+                    "America/Los_Angeles"
+                  ],
+                  "rowCount": 1,
+                  "dryRun": false
+                }
+              ],
+              "result": {
+                "table": "locations",
+                "action": "insert",
+                "rowCount": 1,
+                "rows": [
+                  {
+                    "id": "loc_3A2Phkznnt9L2m4tJBYsNmafTWB"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "id": "uc36-03",
+            "name": "Create resource",
+            "prompt": "insert into resources id = res_3A2Pho9Sc5nrpD1F9NGkwoa9OA7 biz_id = biz_3A2Phq5eS0U52YQ2xIObVXARWIS location_id = loc_3A2Phkznnt9L2m4tJBYsNmafTWB type = host name = Event Venue Rental Resource slug = res-36-202502221116 timezone = America/Los_Angeles capacity = 1",
+            "success": true,
+            "translation": {
+              "success": true,
+              "confidence": 0.8,
+              "notes": [],
+              "inferred": {
+                "action": "insert",
+                "table": "resources"
+              },
+              "pseudoRequest": {
+                "requestId": "93806f37-fa96-4e39-be38-351e393d5861",
+                "dryRun": false,
+                "scope": {
+                  "bizId": "biz_3A2Phq5eS0U52YQ2xIObVXARWIS"
+                },
+                "command": {
+                  "kind": "mutate",
+                  "action": "insert",
+                  "table": "resources",
+                  "values": {
+                    "id": "res_3A2Pho9Sc5nrpD1F9NGkwoa9OA7",
+                    "biz_id": "biz_3A2Phq5eS0U52YQ2xIObVXARWIS",
+                    "location_id": "loc_3A2Phkznnt9L2m4tJBYsNmafTWB",
+                    "type": "host",
+                    "name": "Event",
+                    "slug": "res-36-202502221116",
+                    "timezone": "America/Los_Angeles",
+                    "capacity": 1
+                  },
+                  "filters": [],
+                  "returning": [
+                    "id"
+                  ]
+                }
+              }
+            },
+            "request": {
+              "requestId": "93806f37-fa96-4e39-be38-351e393d5861",
+              "dryRun": false,
+              "scope": {
+                "bizId": "biz_3A2Phq5eS0U52YQ2xIObVXARWIS"
+              },
+              "command": {
+                "kind": "mutate",
+                "action": "insert",
+                "table": "resources",
+                "values": {
+                  "id": "res_3A2Pho9Sc5nrpD1F9NGkwoa9OA7",
+                  "biz_id": "biz_3A2Phq5eS0U52YQ2xIObVXARWIS",
+                  "location_id": "loc_3A2Phkznnt9L2m4tJBYsNmafTWB",
+                  "type": "host",
+                  "name": "Event",
+                  "slug": "res-36-202502221116",
+                  "timezone": "America/Los_Angeles",
+                  "capacity": 1
+                },
+                "filters": [],
+                "returning": [
+                  "id"
+                ]
+              }
+            },
+            "response": {
+              "requestId": "93806f37-fa96-4e39-be38-351e393d5861",
+              "dryRun": false,
+              "success": true,
+              "commandKind": "mutate",
+              "warnings": [],
+              "trace": [
+                {
+                  "stepIndex": 0,
+                  "kind": "mutate",
+                  "table": "resources",
+                  "sqlPreview": "INSERT INTO \"resources\" (\"id\", \"biz_id\", \"location_id\", \"type\", \"name\", \"slug\", \"timezone\", \"capacity\") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING \"id\"",
+                  "params": [
+                    "res_3A2Pho9Sc5nrpD1F9NGkwoa9OA7",
+                    "biz_3A2Phq5eS0U52YQ2xIObVXARWIS",
+                    "loc_3A2Phkznnt9L2m4tJBYsNmafTWB",
+                    "host",
+                    "Event",
+                    "res-36-202502221116",
+                    "America/Los_Angeles",
+                    1
+                  ],
+                  "rowCount": 1,
+                  "dryRun": false
+                }
+              ],
+              "result": {
+                "table": "resources",
+                "action": "insert",
+                "rowCount": 1,
+                "rows": [
+                  {
+                    "id": "res_3A2Pho9Sc5nrpD1F9NGkwoa9OA7"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "id": "uc36-04",
+            "name": "Create calendar",
+            "prompt": "insert into calendars id = cal_3A2PhnoC5CMVp8jegaXdWKuRzpe biz_id = biz_3A2Phq5eS0U52YQ2xIObVXARWIS name = Booking Calendar timezone = America/Los_Angeles slot_duration_min = 60 status = active",
+            "success": true,
+            "translation": {
+              "success": true,
+              "confidence": 0.8,
+              "notes": [],
+              "inferred": {
+                "action": "insert",
+                "table": "calendars"
+              },
+              "pseudoRequest": {
+                "requestId": "b8c7a7bf-aaab-44af-815b-821a9ce49bd9",
+                "dryRun": false,
+                "scope": {
+                  "bizId": "biz_3A2Phq5eS0U52YQ2xIObVXARWIS"
+                },
+                "command": {
+                  "kind": "mutate",
+                  "action": "insert",
+                  "table": "calendars",
+                  "values": {
+                    "id": "cal_3A2PhnoC5CMVp8jegaXdWKuRzpe",
+                    "biz_id": "biz_3A2Phq5eS0U52YQ2xIObVXARWIS",
+                    "name": "Booking",
+                    "timezone": "America/Los_Angeles",
+                    "slot_duration_min": 60,
+                    "status": "active"
+                  },
+                  "filters": [],
+                  "returning": [
+                    "id"
+                  ]
+                }
+              }
+            },
+            "request": {
+              "requestId": "b8c7a7bf-aaab-44af-815b-821a9ce49bd9",
+              "dryRun": false,
+              "scope": {
+                "bizId": "biz_3A2Phq5eS0U52YQ2xIObVXARWIS"
+              },
+              "command": {
+                "kind": "mutate",
+                "action": "insert",
+                "table": "calendars",
+                "values": {
+                  "id": "cal_3A2PhnoC5CMVp8jegaXdWKuRzpe",
+                  "biz_id": "biz_3A2Phq5eS0U52YQ2xIObVXARWIS",
+                  "name": "Booking",
+                  "timezone": "America/Los_Angeles",
+                  "slot_duration_min": 60,
+                  "status": "active"
+                },
+                "filters": [],
+                "returning": [
+                  "id"
+                ]
+              }
+            },
+            "response": {
+              "requestId": "b8c7a7bf-aaab-44af-815b-821a9ce49bd9",
+              "dryRun": false,
+              "success": true,
+              "commandKind": "mutate",
+              "warnings": [],
+              "trace": [
+                {
+                  "stepIndex": 0,
+                  "kind": "mutate",
+                  "table": "calendars",
+                  "sqlPreview": "INSERT INTO \"calendars\" (\"id\", \"biz_id\", \"name\", \"timezone\", \"slot_duration_min\", \"status\") VALUES ($1, $2, $3, $4, $5, $6) RETURNING \"id\"",
+                  "params": [
+                    "cal_3A2PhnoC5CMVp8jegaXdWKuRzpe",
+                    "biz_3A2Phq5eS0U52YQ2xIObVXARWIS",
+                    "Booking",
+                    "America/Los_Angeles",
+                    60,
+                    "active"
+                  ],
+                  "rowCount": 1,
+                  "dryRun": false
+                }
+              ],
+              "result": {
+                "table": "calendars",
+                "action": "insert",
+                "rowCount": 1,
+                "rows": [
+                  {
+                    "id": "cal_3A2PhnoC5CMVp8jegaXdWKuRzpe"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "id": "uc36-05",
+            "name": "Create offer",
+            "prompt": "insert into offers id = ofr_3A2PhqbHOlb3CuKlnGvtYfLjpeP biz_id = biz_3A2Phq5eS0U52YQ2xIObVXARWIS name = Event Venue Rental Service slug = offer-36-202502221116 status = active execution_mode = request",
+            "success": true,
+            "translation": {
+              "success": true,
+              "confidence": 0.8,
+              "notes": [],
+              "inferred": {
+                "action": "insert",
+                "table": "offers"
+              },
+              "pseudoRequest": {
+                "requestId": "5cbae1a2-2800-420d-9e6b-8f216a9ce831",
+                "dryRun": false,
+                "scope": {
+                  "bizId": "biz_3A2Phq5eS0U52YQ2xIObVXARWIS"
+                },
+                "command": {
+                  "kind": "mutate",
+                  "action": "insert",
+                  "table": "offers",
+                  "values": {
+                    "id": "ofr_3A2PhqbHOlb3CuKlnGvtYfLjpeP",
+                    "biz_id": "biz_3A2Phq5eS0U52YQ2xIObVXARWIS",
+                    "name": "Event",
+                    "slug": "offer-36-202502221116",
+                    "status": "active",
+                    "execution_mode": "request"
+                  },
+                  "filters": [],
+                  "returning": [
+                    "id"
+                  ]
+                }
+              }
+            },
+            "request": {
+              "requestId": "5cbae1a2-2800-420d-9e6b-8f216a9ce831",
+              "dryRun": false,
+              "scope": {
+                "bizId": "biz_3A2Phq5eS0U52YQ2xIObVXARWIS"
+              },
+              "command": {
+                "kind": "mutate",
+                "action": "insert",
+                "table": "offers",
+                "values": {
+                  "id": "ofr_3A2PhqbHOlb3CuKlnGvtYfLjpeP",
+                  "biz_id": "biz_3A2Phq5eS0U52YQ2xIObVXARWIS",
+                  "name": "Event",
+                  "slug": "offer-36-202502221116",
+                  "status": "active",
+                  "execution_mode": "request"
+                },
+                "filters": [],
+                "returning": [
+                  "id"
+                ]
+              }
+            },
+            "response": {
+              "requestId": "5cbae1a2-2800-420d-9e6b-8f216a9ce831",
+              "dryRun": false,
+              "success": true,
+              "commandKind": "mutate",
+              "warnings": [],
+              "trace": [
+                {
+                  "stepIndex": 0,
+                  "kind": "mutate",
+                  "table": "offers",
+                  "sqlPreview": "INSERT INTO \"offers\" (\"id\", \"biz_id\", \"name\", \"slug\", \"status\", \"execution_mode\") VALUES ($1, $2, $3, $4, $5, $6) RETURNING \"id\"",
+                  "params": [
+                    "ofr_3A2PhqbHOlb3CuKlnGvtYfLjpeP",
+                    "biz_3A2Phq5eS0U52YQ2xIObVXARWIS",
+                    "Event",
+                    "offer-36-202502221116",
+                    "active",
+                    "request"
+                  ],
+                  "rowCount": 1,
+                  "dryRun": false
+                }
+              ],
+              "result": {
+                "table": "offers",
+                "action": "insert",
+                "rowCount": 1,
+                "rows": [
+                  {
+                    "id": "ofr_3A2PhqbHOlb3CuKlnGvtYfLjpeP"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "id": "uc36-06",
+            "name": "Verify setup",
+            "prompt": "list bizes where id = biz_3A2Phq5eS0U52YQ2xIObVXARWIS",
+            "success": true,
+            "translation": {
+              "success": true,
+              "confidence": 0.7,
+              "notes": [],
+              "inferred": {
+                "action": "query",
+                "table": "bizes"
+              },
+              "pseudoRequest": {
+                "requestId": "f4dce00d-c272-4d4d-b218-9382751e639a",
+                "dryRun": false,
+                "scope": {
+                  "bizId": "biz_3A2Phq5eS0U52YQ2xIObVXARWIS"
+                },
+                "command": {
+                  "kind": "query",
+                  "table": "bizes",
+                  "filters": [
+                    {
+                      "column": "id",
+                      "op": "eq",
+                      "value": "biz_3A2Phq5eS0U52YQ2xIObVXARWIS"
+                    }
+                  ],
+                  "sort": []
+                }
+              }
+            },
+            "request": {
+              "requestId": "f4dce00d-c272-4d4d-b218-9382751e639a",
+              "dryRun": false,
+              "scope": {
+                "bizId": "biz_3A2Phq5eS0U52YQ2xIObVXARWIS"
+              },
+              "command": {
+                "kind": "query",
+                "table": "bizes",
+                "filters": [
+                  {
+                    "column": "id",
+                    "op": "eq",
+                    "value": "biz_3A2Phq5eS0U52YQ2xIObVXARWIS"
+                  }
+                ],
+                "sort": []
+              }
+            },
+            "response": {
+              "requestId": "f4dce00d-c272-4d4d-b218-9382751e639a",
+              "dryRun": false,
+              "success": true,
+              "commandKind": "query",
+              "warnings": [],
+              "trace": [
+                {
+                  "stepIndex": 0,
+                  "kind": "query",
+                  "table": "bizes",
+                  "sqlPreview": "SELECT \"id\", \"name\", \"slug\", \"type\", \"logo_url\", \"timezone\", \"currency\", \"status\", \"metadata\", \"created_at\", \"updated_at\", \"deleted_at\", \"created_by\", \"updated_by\", \"deleted_by\" FROM \"bizes\" WHERE \"id\" = $1 LIMIT 100",
+                  "params": [
+                    "biz_3A2Phq5eS0U52YQ2xIObVXARWIS"
+                  ],
+                  "rowCount": 1,
+                  "dryRun": false
+                }
+              ],
+              "result": {
+                "table": "bizes",
+                "rowCount": 1,
+                "rows": [
+                  {
+                    "id": "biz_3A2Phq5eS0U52YQ2xIObVXARWIS",
+                    "name": "Grand",
+                    "slug": "grand-hall-202502221116",
+                    "type": "small_business",
+                    "logo_url": null,
+                    "timezone": "America/Los_Angeles",
+                    "currency": "USD",
+                    "status": "active",
+                    "metadata": {},
+                    "created_at": "2026-02-22 19:17:11.658623+00",
+                    "updated_at": "2026-02-22 19:17:11.658623+00",
+                    "deleted_at": null,
+                    "created_by": null,
+                    "updated_by": null,
+                    "deleted_by": null
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "uc_37_personal_training",
+      "name": "UC-37: Personal Training",
+      "kind": "scenario",
+      "success": true,
+      "total": 6,
+      "passed": 6,
+      "failed": 0,
+      "durationMs": 469,
+      "warnings": [],
+      "issueCount": 0,
+      "details": {
+        "success": true,
+        "total": 6,
+        "succeeded": 6,
+        "failed": 0,
+        "results": [
+          {
+            "id": "uc37-01",
+            "name": "Create personal_training business",
+            "prompt": "insert into bizes id = biz_3A2Phms4EX7kzZPxIW9oUz6mIxS name = FitPro Training slug = fitpro-202502221116 status = active timezone = America/Los_Angeles",
+            "success": true,
+            "translation": {
+              "success": true,
+              "confidence": 0.8,
+              "notes": [],
+              "inferred": {
+                "action": "insert",
+                "table": "bizes"
+              },
+              "pseudoRequest": {
+                "requestId": "699ff3e8-66e3-4bde-950e-1e04619813a3",
+                "dryRun": false,
+                "scope": {
+                  "bizId": "biz_3A2Phms4EX7kzZPxIW9oUz6mIxS"
+                },
+                "command": {
+                  "kind": "mutate",
+                  "action": "insert",
+                  "table": "bizes",
+                  "values": {
+                    "id": "biz_3A2Phms4EX7kzZPxIW9oUz6mIxS",
+                    "name": "FitPro",
+                    "slug": "fitpro-202502221116",
+                    "status": "active",
+                    "timezone": "America/Los_Angeles"
+                  },
+                  "filters": [],
+                  "returning": [
+                    "id"
+                  ]
+                }
+              }
+            },
+            "request": {
+              "requestId": "699ff3e8-66e3-4bde-950e-1e04619813a3",
+              "dryRun": false,
+              "scope": {
+                "bizId": "biz_3A2Phms4EX7kzZPxIW9oUz6mIxS"
+              },
+              "command": {
+                "kind": "mutate",
+                "action": "insert",
+                "table": "bizes",
+                "values": {
+                  "id": "biz_3A2Phms4EX7kzZPxIW9oUz6mIxS",
+                  "name": "FitPro",
+                  "slug": "fitpro-202502221116",
+                  "status": "active",
+                  "timezone": "America/Los_Angeles"
+                },
+                "filters": [],
+                "returning": [
+                  "id"
+                ]
+              }
+            },
+            "response": {
+              "requestId": "699ff3e8-66e3-4bde-950e-1e04619813a3",
+              "dryRun": false,
+              "success": true,
+              "commandKind": "mutate",
+              "warnings": [],
+              "trace": [
+                {
+                  "stepIndex": 0,
+                  "kind": "mutate",
+                  "table": "bizes",
+                  "sqlPreview": "INSERT INTO \"bizes\" (\"id\", \"name\", \"slug\", \"status\", \"timezone\") VALUES ($1, $2, $3, $4, $5) RETURNING \"id\"",
+                  "params": [
+                    "biz_3A2Phms4EX7kzZPxIW9oUz6mIxS",
+                    "FitPro",
+                    "fitpro-202502221116",
+                    "active",
+                    "America/Los_Angeles"
+                  ],
+                  "rowCount": 1,
+                  "dryRun": false
+                }
+              ],
+              "result": {
+                "table": "bizes",
+                "action": "insert",
+                "rowCount": 1,
+                "rows": [
+                  {
+                    "id": "biz_3A2Phms4EX7kzZPxIW9oUz6mIxS"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "id": "uc37-02",
+            "name": "Create location",
+            "prompt": "insert into locations id = loc_3A2Phl64Q9YIRcJArY4yDwA8PdF biz_id = biz_3A2Phms4EX7kzZPxIW9oUz6mIxS name = Main Location slug = main-37-202502221116 timezone = America/Los_Angeles",
+            "success": true,
+            "translation": {
+              "success": true,
+              "confidence": 0.8,
+              "notes": [],
+              "inferred": {
+                "action": "insert",
+                "table": "locations"
+              },
+              "pseudoRequest": {
+                "requestId": "e569c142-2347-43e5-8215-88b715874481",
+                "dryRun": false,
+                "scope": {
+                  "bizId": "biz_3A2Phms4EX7kzZPxIW9oUz6mIxS"
+                },
+                "command": {
+                  "kind": "mutate",
+                  "action": "insert",
+                  "table": "locations",
+                  "values": {
+                    "id": "loc_3A2Phl64Q9YIRcJArY4yDwA8PdF",
+                    "biz_id": "biz_3A2Phms4EX7kzZPxIW9oUz6mIxS",
+                    "name": "Main",
+                    "slug": "main-37-202502221116",
+                    "timezone": "America/Los_Angeles"
+                  },
+                  "filters": [],
+                  "returning": [
+                    "id"
+                  ]
+                }
+              }
+            },
+            "request": {
+              "requestId": "e569c142-2347-43e5-8215-88b715874481",
+              "dryRun": false,
+              "scope": {
+                "bizId": "biz_3A2Phms4EX7kzZPxIW9oUz6mIxS"
+              },
+              "command": {
+                "kind": "mutate",
+                "action": "insert",
+                "table": "locations",
+                "values": {
+                  "id": "loc_3A2Phl64Q9YIRcJArY4yDwA8PdF",
+                  "biz_id": "biz_3A2Phms4EX7kzZPxIW9oUz6mIxS",
+                  "name": "Main",
+                  "slug": "main-37-202502221116",
+                  "timezone": "America/Los_Angeles"
+                },
+                "filters": [],
+                "returning": [
+                  "id"
+                ]
+              }
+            },
+            "response": {
+              "requestId": "e569c142-2347-43e5-8215-88b715874481",
+              "dryRun": false,
+              "success": true,
+              "commandKind": "mutate",
+              "warnings": [],
+              "trace": [
+                {
+                  "stepIndex": 0,
+                  "kind": "mutate",
+                  "table": "locations",
+                  "sqlPreview": "INSERT INTO \"locations\" (\"id\", \"biz_id\", \"name\", \"slug\", \"timezone\") VALUES ($1, $2, $3, $4, $5) RETURNING \"id\"",
+                  "params": [
+                    "loc_3A2Phl64Q9YIRcJArY4yDwA8PdF",
+                    "biz_3A2Phms4EX7kzZPxIW9oUz6mIxS",
+                    "Main",
+                    "main-37-202502221116",
+                    "America/Los_Angeles"
+                  ],
+                  "rowCount": 1,
+                  "dryRun": false
+                }
+              ],
+              "result": {
+                "table": "locations",
+                "action": "insert",
+                "rowCount": 1,
+                "rows": [
+                  {
+                    "id": "loc_3A2Phl64Q9YIRcJArY4yDwA8PdF"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "id": "uc37-03",
+            "name": "Create resource",
+            "prompt": "insert into resources id = res_3A2Pho6SO8dHmoVscxCTadfF5Pu biz_id = biz_3A2Phms4EX7kzZPxIW9oUz6mIxS location_id = loc_3A2Phl64Q9YIRcJArY4yDwA8PdF type = host name = Personal Training Resource slug = res-37-202502221116 timezone = America/Los_Angeles capacity = 1",
+            "success": true,
+            "translation": {
+              "success": true,
+              "confidence": 0.8,
+              "notes": [],
+              "inferred": {
+                "action": "insert",
+                "table": "resources"
+              },
+              "pseudoRequest": {
+                "requestId": "4ed560c9-8ad4-4130-aa04-589b27c189aa",
+                "dryRun": false,
+                "scope": {
+                  "bizId": "biz_3A2Phms4EX7kzZPxIW9oUz6mIxS"
+                },
+                "command": {
+                  "kind": "mutate",
+                  "action": "insert",
+                  "table": "resources",
+                  "values": {
+                    "id": "res_3A2Pho6SO8dHmoVscxCTadfF5Pu",
+                    "biz_id": "biz_3A2Phms4EX7kzZPxIW9oUz6mIxS",
+                    "location_id": "loc_3A2Phl64Q9YIRcJArY4yDwA8PdF",
+                    "type": "host",
+                    "name": "Personal",
+                    "slug": "res-37-202502221116",
+                    "timezone": "America/Los_Angeles",
+                    "capacity": 1
+                  },
+                  "filters": [],
+                  "returning": [
+                    "id"
+                  ]
+                }
+              }
+            },
+            "request": {
+              "requestId": "4ed560c9-8ad4-4130-aa04-589b27c189aa",
+              "dryRun": false,
+              "scope": {
+                "bizId": "biz_3A2Phms4EX7kzZPxIW9oUz6mIxS"
+              },
+              "command": {
+                "kind": "mutate",
+                "action": "insert",
+                "table": "resources",
+                "values": {
+                  "id": "res_3A2Pho6SO8dHmoVscxCTadfF5Pu",
+                  "biz_id": "biz_3A2Phms4EX7kzZPxIW9oUz6mIxS",
+                  "location_id": "loc_3A2Phl64Q9YIRcJArY4yDwA8PdF",
+                  "type": "host",
+                  "name": "Personal",
+                  "slug": "res-37-202502221116",
+                  "timezone": "America/Los_Angeles",
+                  "capacity": 1
+                },
+                "filters": [],
+                "returning": [
+                  "id"
+                ]
+              }
+            },
+            "response": {
+              "requestId": "4ed560c9-8ad4-4130-aa04-589b27c189aa",
+              "dryRun": false,
+              "success": true,
+              "commandKind": "mutate",
+              "warnings": [],
+              "trace": [
+                {
+                  "stepIndex": 0,
+                  "kind": "mutate",
+                  "table": "resources",
+                  "sqlPreview": "INSERT INTO \"resources\" (\"id\", \"biz_id\", \"location_id\", \"type\", \"name\", \"slug\", \"timezone\", \"capacity\") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING \"id\"",
+                  "params": [
+                    "res_3A2Pho6SO8dHmoVscxCTadfF5Pu",
+                    "biz_3A2Phms4EX7kzZPxIW9oUz6mIxS",
+                    "loc_3A2Phl64Q9YIRcJArY4yDwA8PdF",
+                    "host",
+                    "Personal",
+                    "res-37-202502221116",
+                    "America/Los_Angeles",
+                    1
+                  ],
+                  "rowCount": 1,
+                  "dryRun": false
+                }
+              ],
+              "result": {
+                "table": "resources",
+                "action": "insert",
+                "rowCount": 1,
+                "rows": [
+                  {
+                    "id": "res_3A2Pho6SO8dHmoVscxCTadfF5Pu"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "id": "uc37-04",
+            "name": "Create calendar",
+            "prompt": "insert into calendars id = cal_3A2PhlzbxnnNRhEaSXjKtlZMMVH biz_id = biz_3A2Phms4EX7kzZPxIW9oUz6mIxS name = Booking Calendar timezone = America/Los_Angeles slot_duration_min = 60 status = active",
+            "success": true,
+            "translation": {
+              "success": true,
+              "confidence": 0.8,
+              "notes": [],
+              "inferred": {
+                "action": "insert",
+                "table": "calendars"
+              },
+              "pseudoRequest": {
+                "requestId": "ffe3d390-a8d1-4133-9577-26118973be63",
+                "dryRun": false,
+                "scope": {
+                  "bizId": "biz_3A2Phms4EX7kzZPxIW9oUz6mIxS"
+                },
+                "command": {
+                  "kind": "mutate",
+                  "action": "insert",
+                  "table": "calendars",
+                  "values": {
+                    "id": "cal_3A2PhlzbxnnNRhEaSXjKtlZMMVH",
+                    "biz_id": "biz_3A2Phms4EX7kzZPxIW9oUz6mIxS",
+                    "name": "Booking",
+                    "timezone": "America/Los_Angeles",
+                    "slot_duration_min": 60,
+                    "status": "active"
+                  },
+                  "filters": [],
+                  "returning": [
+                    "id"
+                  ]
+                }
+              }
+            },
+            "request": {
+              "requestId": "ffe3d390-a8d1-4133-9577-26118973be63",
+              "dryRun": false,
+              "scope": {
+                "bizId": "biz_3A2Phms4EX7kzZPxIW9oUz6mIxS"
+              },
+              "command": {
+                "kind": "mutate",
+                "action": "insert",
+                "table": "calendars",
+                "values": {
+                  "id": "cal_3A2PhlzbxnnNRhEaSXjKtlZMMVH",
+                  "biz_id": "biz_3A2Phms4EX7kzZPxIW9oUz6mIxS",
+                  "name": "Booking",
+                  "timezone": "America/Los_Angeles",
+                  "slot_duration_min": 60,
+                  "status": "active"
+                },
+                "filters": [],
+                "returning": [
+                  "id"
+                ]
+              }
+            },
+            "response": {
+              "requestId": "ffe3d390-a8d1-4133-9577-26118973be63",
+              "dryRun": false,
+              "success": true,
+              "commandKind": "mutate",
+              "warnings": [],
+              "trace": [
+                {
+                  "stepIndex": 0,
+                  "kind": "mutate",
+                  "table": "calendars",
+                  "sqlPreview": "INSERT INTO \"calendars\" (\"id\", \"biz_id\", \"name\", \"timezone\", \"slot_duration_min\", \"status\") VALUES ($1, $2, $3, $4, $5, $6) RETURNING \"id\"",
+                  "params": [
+                    "cal_3A2PhlzbxnnNRhEaSXjKtlZMMVH",
+                    "biz_3A2Phms4EX7kzZPxIW9oUz6mIxS",
+                    "Booking",
+                    "America/Los_Angeles",
+                    60,
+                    "active"
+                  ],
+                  "rowCount": 1,
+                  "dryRun": false
+                }
+              ],
+              "result": {
+                "table": "calendars",
+                "action": "insert",
+                "rowCount": 1,
+                "rows": [
+                  {
+                    "id": "cal_3A2PhlzbxnnNRhEaSXjKtlZMMVH"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "id": "uc37-05",
+            "name": "Create offer",
+            "prompt": "insert into offers id = ofr_3A2PhklKIOCaQMuhuvCnE1LrO7a biz_id = biz_3A2Phms4EX7kzZPxIW9oUz6mIxS name = Personal Training Service slug = offer-37-202502221116 status = active execution_mode = request",
+            "success": true,
+            "translation": {
+              "success": true,
+              "confidence": 0.8,
+              "notes": [],
+              "inferred": {
+                "action": "insert",
+                "table": "offers"
+              },
+              "pseudoRequest": {
+                "requestId": "9841e2b4-5d99-4e99-b808-8c966a0e246e",
+                "dryRun": false,
+                "scope": {
+                  "bizId": "biz_3A2Phms4EX7kzZPxIW9oUz6mIxS"
+                },
+                "command": {
+                  "kind": "mutate",
+                  "action": "insert",
+                  "table": "offers",
+                  "values": {
+                    "id": "ofr_3A2PhklKIOCaQMuhuvCnE1LrO7a",
+                    "biz_id": "biz_3A2Phms4EX7kzZPxIW9oUz6mIxS",
+                    "name": "Personal",
+                    "slug": "offer-37-202502221116",
+                    "status": "active",
+                    "execution_mode": "request"
+                  },
+                  "filters": [],
+                  "returning": [
+                    "id"
+                  ]
+                }
+              }
+            },
+            "request": {
+              "requestId": "9841e2b4-5d99-4e99-b808-8c966a0e246e",
+              "dryRun": false,
+              "scope": {
+                "bizId": "biz_3A2Phms4EX7kzZPxIW9oUz6mIxS"
+              },
+              "command": {
+                "kind": "mutate",
+                "action": "insert",
+                "table": "offers",
+                "values": {
+                  "id": "ofr_3A2PhklKIOCaQMuhuvCnE1LrO7a",
+                  "biz_id": "biz_3A2Phms4EX7kzZPxIW9oUz6mIxS",
+                  "name": "Personal",
+                  "slug": "offer-37-202502221116",
+                  "status": "active",
+                  "execution_mode": "request"
+                },
+                "filters": [],
+                "returning": [
+                  "id"
+                ]
+              }
+            },
+            "response": {
+              "requestId": "9841e2b4-5d99-4e99-b808-8c966a0e246e",
+              "dryRun": false,
+              "success": true,
+              "commandKind": "mutate",
+              "warnings": [],
+              "trace": [
+                {
+                  "stepIndex": 0,
+                  "kind": "mutate",
+                  "table": "offers",
+                  "sqlPreview": "INSERT INTO \"offers\" (\"id\", \"biz_id\", \"name\", \"slug\", \"status\", \"execution_mode\") VALUES ($1, $2, $3, $4, $5, $6) RETURNING \"id\"",
+                  "params": [
+                    "ofr_3A2PhklKIOCaQMuhuvCnE1LrO7a",
+                    "biz_3A2Phms4EX7kzZPxIW9oUz6mIxS",
+                    "Personal",
+                    "offer-37-202502221116",
+                    "active",
+                    "request"
+                  ],
+                  "rowCount": 1,
+                  "dryRun": false
+                }
+              ],
+              "result": {
+                "table": "offers",
+                "action": "insert",
+                "rowCount": 1,
+                "rows": [
+                  {
+                    "id": "ofr_3A2PhklKIOCaQMuhuvCnE1LrO7a"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "id": "uc37-06",
+            "name": "Verify setup",
+            "prompt": "list bizes where id = biz_3A2Phms4EX7kzZPxIW9oUz6mIxS",
+            "success": true,
+            "translation": {
+              "success": true,
+              "confidence": 0.7,
+              "notes": [],
+              "inferred": {
+                "action": "query",
+                "table": "bizes"
+              },
+              "pseudoRequest": {
+                "requestId": "ccc2bde6-3aae-4d4f-8382-3adb4dcfdcdb",
+                "dryRun": false,
+                "scope": {
+                  "bizId": "biz_3A2Phms4EX7kzZPxIW9oUz6mIxS"
+                },
+                "command": {
+                  "kind": "query",
+                  "table": "bizes",
+                  "filters": [
+                    {
+                      "column": "id",
+                      "op": "eq",
+                      "value": "biz_3A2Phms4EX7kzZPxIW9oUz6mIxS"
+                    }
+                  ],
+                  "sort": []
+                }
+              }
+            },
+            "request": {
+              "requestId": "ccc2bde6-3aae-4d4f-8382-3adb4dcfdcdb",
+              "dryRun": false,
+              "scope": {
+                "bizId": "biz_3A2Phms4EX7kzZPxIW9oUz6mIxS"
+              },
+              "command": {
+                "kind": "query",
+                "table": "bizes",
+                "filters": [
+                  {
+                    "column": "id",
+                    "op": "eq",
+                    "value": "biz_3A2Phms4EX7kzZPxIW9oUz6mIxS"
+                  }
+                ],
+                "sort": []
+              }
+            },
+            "response": {
+              "requestId": "ccc2bde6-3aae-4d4f-8382-3adb4dcfdcdb",
+              "dryRun": false,
+              "success": true,
+              "commandKind": "query",
+              "warnings": [],
+              "trace": [
+                {
+                  "stepIndex": 0,
+                  "kind": "query",
+                  "table": "bizes",
+                  "sqlPreview": "SELECT \"id\", \"name\", \"slug\", \"type\", \"logo_url\", \"timezone\", \"currency\", \"status\", \"metadata\", \"created_at\", \"updated_at\", \"deleted_at\", \"created_by\", \"updated_by\", \"deleted_by\" FROM \"bizes\" WHERE \"id\" = $1 LIMIT 100",
+                  "params": [
+                    "biz_3A2Phms4EX7kzZPxIW9oUz6mIxS"
+                  ],
+                  "rowCount": 1,
+                  "dryRun": false
+                }
+              ],
+              "result": {
+                "table": "bizes",
+                "rowCount": 1,
+                "rows": [
+                  {
+                    "id": "biz_3A2Phms4EX7kzZPxIW9oUz6mIxS",
+                    "name": "FitPro",
+                    "slug": "fitpro-202502221116",
+                    "type": "small_business",
+                    "logo_url": null,
+                    "timezone": "America/Los_Angeles",
+                    "currency": "USD",
+                    "status": "active",
+                    "metadata": {},
+                    "created_at": "2026-02-22 19:17:12.198662+00",
+                    "updated_at": "2026-02-22 19:17:12.198662+00",
+                    "deleted_at": null,
+                    "created_by": null,
+                    "updated_by": null,
+                    "deleted_by": null
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "uc_38_car_detailing",
+      "name": "UC-38: Car Detailing",
+      "kind": "scenario",
+      "success": true,
+      "total": 6,
+      "passed": 6,
+      "failed": 0,
+      "durationMs": 465,
+      "warnings": [],
+      "issueCount": 0,
+      "details": {
+        "success": true,
+        "total": 6,
+        "succeeded": 6,
+        "failed": 0,
+        "results": [
+          {
+            "id": "uc38-01",
+            "name": "Create auto_service business",
+            "prompt": "insert into bizes id = biz_3A2PhlIS03130uBeUNIjNJEWY43 name = Sparkle Auto Detail slug = sparkle-auto-202502221116 status = active timezone = America/Los_Angeles",
+            "success": true,
+            "translation": {
+              "success": true,
+              "confidence": 0.8,
+              "notes": [],
+              "inferred": {
+                "action": "insert",
+                "table": "bizes"
+              },
+              "pseudoRequest": {
+                "requestId": "10a0247a-071f-4f83-9b8d-617ffdd74242",
+                "dryRun": false,
+                "scope": {
+                  "bizId": "biz_3A2PhlIS03130uBeUNIjNJEWY43"
+                },
+                "command": {
+                  "kind": "mutate",
+                  "action": "insert",
+                  "table": "bizes",
+                  "values": {
+                    "id": "biz_3A2PhlIS03130uBeUNIjNJEWY43",
+                    "name": "Sparkle",
+                    "slug": "sparkle-auto-202502221116",
+                    "status": "active",
+                    "timezone": "America/Los_Angeles"
+                  },
+                  "filters": [],
+                  "returning": [
+                    "id"
+                  ]
+                }
+              }
+            },
+            "request": {
+              "requestId": "10a0247a-071f-4f83-9b8d-617ffdd74242",
+              "dryRun": false,
+              "scope": {
+                "bizId": "biz_3A2PhlIS03130uBeUNIjNJEWY43"
+              },
+              "command": {
+                "kind": "mutate",
+                "action": "insert",
+                "table": "bizes",
+                "values": {
+                  "id": "biz_3A2PhlIS03130uBeUNIjNJEWY43",
+                  "name": "Sparkle",
+                  "slug": "sparkle-auto-202502221116",
+                  "status": "active",
+                  "timezone": "America/Los_Angeles"
+                },
+                "filters": [],
+                "returning": [
+                  "id"
+                ]
+              }
+            },
+            "response": {
+              "requestId": "10a0247a-071f-4f83-9b8d-617ffdd74242",
+              "dryRun": false,
+              "success": true,
+              "commandKind": "mutate",
+              "warnings": [],
+              "trace": [
+                {
+                  "stepIndex": 0,
+                  "kind": "mutate",
+                  "table": "bizes",
+                  "sqlPreview": "INSERT INTO \"bizes\" (\"id\", \"name\", \"slug\", \"status\", \"timezone\") VALUES ($1, $2, $3, $4, $5) RETURNING \"id\"",
+                  "params": [
+                    "biz_3A2PhlIS03130uBeUNIjNJEWY43",
+                    "Sparkle",
+                    "sparkle-auto-202502221116",
+                    "active",
+                    "America/Los_Angeles"
+                  ],
+                  "rowCount": 1,
+                  "dryRun": false
+                }
+              ],
+              "result": {
+                "table": "bizes",
+                "action": "insert",
+                "rowCount": 1,
+                "rows": [
+                  {
+                    "id": "biz_3A2PhlIS03130uBeUNIjNJEWY43"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "id": "uc38-02",
+            "name": "Create location",
+            "prompt": "insert into locations id = loc_3A2Phq1egkdXjWfdymKpxvGJygl biz_id = biz_3A2PhlIS03130uBeUNIjNJEWY43 name = Main Location slug = main-38-202502221116 timezone = America/Los_Angeles",
+            "success": true,
+            "translation": {
+              "success": true,
+              "confidence": 0.8,
+              "notes": [],
+              "inferred": {
+                "action": "insert",
+                "table": "locations"
+              },
+              "pseudoRequest": {
+                "requestId": "594122e2-b772-45a0-a83f-319219a14860",
+                "dryRun": false,
+                "scope": {
+                  "bizId": "biz_3A2PhlIS03130uBeUNIjNJEWY43"
+                },
+                "command": {
+                  "kind": "mutate",
+                  "action": "insert",
+                  "table": "locations",
+                  "values": {
+                    "id": "loc_3A2Phq1egkdXjWfdymKpxvGJygl",
+                    "biz_id": "biz_3A2PhlIS03130uBeUNIjNJEWY43",
+                    "name": "Main",
+                    "slug": "main-38-202502221116",
+                    "timezone": "America/Los_Angeles"
+                  },
+                  "filters": [],
+                  "returning": [
+                    "id"
+                  ]
+                }
+              }
+            },
+            "request": {
+              "requestId": "594122e2-b772-45a0-a83f-319219a14860",
+              "dryRun": false,
+              "scope": {
+                "bizId": "biz_3A2PhlIS03130uBeUNIjNJEWY43"
+              },
+              "command": {
+                "kind": "mutate",
+                "action": "insert",
+                "table": "locations",
+                "values": {
+                  "id": "loc_3A2Phq1egkdXjWfdymKpxvGJygl",
+                  "biz_id": "biz_3A2PhlIS03130uBeUNIjNJEWY43",
+                  "name": "Main",
+                  "slug": "main-38-202502221116",
+                  "timezone": "America/Los_Angeles"
+                },
+                "filters": [],
+                "returning": [
+                  "id"
+                ]
+              }
+            },
+            "response": {
+              "requestId": "594122e2-b772-45a0-a83f-319219a14860",
+              "dryRun": false,
+              "success": true,
+              "commandKind": "mutate",
+              "warnings": [],
+              "trace": [
+                {
+                  "stepIndex": 0,
+                  "kind": "mutate",
+                  "table": "locations",
+                  "sqlPreview": "INSERT INTO \"locations\" (\"id\", \"biz_id\", \"name\", \"slug\", \"timezone\") VALUES ($1, $2, $3, $4, $5) RETURNING \"id\"",
+                  "params": [
+                    "loc_3A2Phq1egkdXjWfdymKpxvGJygl",
+                    "biz_3A2PhlIS03130uBeUNIjNJEWY43",
+                    "Main",
+                    "main-38-202502221116",
+                    "America/Los_Angeles"
+                  ],
+                  "rowCount": 1,
+                  "dryRun": false
+                }
+              ],
+              "result": {
+                "table": "locations",
+                "action": "insert",
+                "rowCount": 1,
+                "rows": [
+                  {
+                    "id": "loc_3A2Phq1egkdXjWfdymKpxvGJygl"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "id": "uc38-03",
+            "name": "Create resource",
+            "prompt": "insert into resources id = res_3A2Phpknp29xXs73PXpYORMKTR2 biz_id = biz_3A2PhlIS03130uBeUNIjNJEWY43 location_id = loc_3A2Phq1egkdXjWfdymKpxvGJygl type = host name = Car Detailing Resource slug = res-38-202502221116 timezone = America/Los_Angeles capacity = 1",
+            "success": true,
+            "translation": {
+              "success": true,
+              "confidence": 0.8,
+              "notes": [],
+              "inferred": {
+                "action": "insert",
+                "table": "resources"
+              },
+              "pseudoRequest": {
+                "requestId": "626898f6-a1d5-404a-bdc0-316923c7936c",
+                "dryRun": false,
+                "scope": {
+                  "bizId": "biz_3A2PhlIS03130uBeUNIjNJEWY43"
+                },
+                "command": {
+                  "kind": "mutate",
+                  "action": "insert",
+                  "table": "resources",
+                  "values": {
+                    "id": "res_3A2Phpknp29xXs73PXpYORMKTR2",
+                    "biz_id": "biz_3A2PhlIS03130uBeUNIjNJEWY43",
+                    "location_id": "loc_3A2Phq1egkdXjWfdymKpxvGJygl",
+                    "type": "host",
+                    "name": "Car",
+                    "slug": "res-38-202502221116",
+                    "timezone": "America/Los_Angeles",
+                    "capacity": 1
+                  },
+                  "filters": [],
+                  "returning": [
+                    "id"
+                  ]
+                }
+              }
+            },
+            "request": {
+              "requestId": "626898f6-a1d5-404a-bdc0-316923c7936c",
+              "dryRun": false,
+              "scope": {
+                "bizId": "biz_3A2PhlIS03130uBeUNIjNJEWY43"
+              },
+              "command": {
+                "kind": "mutate",
+                "action": "insert",
+                "table": "resources",
+                "values": {
+                  "id": "res_3A2Phpknp29xXs73PXpYORMKTR2",
+                  "biz_id": "biz_3A2PhlIS03130uBeUNIjNJEWY43",
+                  "location_id": "loc_3A2Phq1egkdXjWfdymKpxvGJygl",
+                  "type": "host",
+                  "name": "Car",
+                  "slug": "res-38-202502221116",
+                  "timezone": "America/Los_Angeles",
+                  "capacity": 1
+                },
+                "filters": [],
+                "returning": [
+                  "id"
+                ]
+              }
+            },
+            "response": {
+              "requestId": "626898f6-a1d5-404a-bdc0-316923c7936c",
+              "dryRun": false,
+              "success": true,
+              "commandKind": "mutate",
+              "warnings": [],
+              "trace": [
+                {
+                  "stepIndex": 0,
+                  "kind": "mutate",
+                  "table": "resources",
+                  "sqlPreview": "INSERT INTO \"resources\" (\"id\", \"biz_id\", \"location_id\", \"type\", \"name\", \"slug\", \"timezone\", \"capacity\") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING \"id\"",
+                  "params": [
+                    "res_3A2Phpknp29xXs73PXpYORMKTR2",
+                    "biz_3A2PhlIS03130uBeUNIjNJEWY43",
+                    "loc_3A2Phq1egkdXjWfdymKpxvGJygl",
+                    "host",
+                    "Car",
+                    "res-38-202502221116",
+                    "America/Los_Angeles",
+                    1
+                  ],
+                  "rowCount": 1,
+                  "dryRun": false
+                }
+              ],
+              "result": {
+                "table": "resources",
+                "action": "insert",
+                "rowCount": 1,
+                "rows": [
+                  {
+                    "id": "res_3A2Phpknp29xXs73PXpYORMKTR2"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "id": "uc38-04",
+            "name": "Create calendar",
+            "prompt": "insert into calendars id = cal_3A2PhlcP5YLHRLj7j760DGpE56v biz_id = biz_3A2PhlIS03130uBeUNIjNJEWY43 name = Booking Calendar timezone = America/Los_Angeles slot_duration_min = 60 status = active",
+            "success": true,
+            "translation": {
+              "success": true,
+              "confidence": 0.8,
+              "notes": [],
+              "inferred": {
+                "action": "insert",
+                "table": "calendars"
+              },
+              "pseudoRequest": {
+                "requestId": "40565c4f-8c8b-496d-a29d-206bbaa31f48",
+                "dryRun": false,
+                "scope": {
+                  "bizId": "biz_3A2PhlIS03130uBeUNIjNJEWY43"
+                },
+                "command": {
+                  "kind": "mutate",
+                  "action": "insert",
+                  "table": "calendars",
+                  "values": {
+                    "id": "cal_3A2PhlcP5YLHRLj7j760DGpE56v",
+                    "biz_id": "biz_3A2PhlIS03130uBeUNIjNJEWY43",
+                    "name": "Booking",
+                    "timezone": "America/Los_Angeles",
+                    "slot_duration_min": 60,
+                    "status": "active"
+                  },
+                  "filters": [],
+                  "returning": [
+                    "id"
+                  ]
+                }
+              }
+            },
+            "request": {
+              "requestId": "40565c4f-8c8b-496d-a29d-206bbaa31f48",
+              "dryRun": false,
+              "scope": {
+                "bizId": "biz_3A2PhlIS03130uBeUNIjNJEWY43"
+              },
+              "command": {
+                "kind": "mutate",
+                "action": "insert",
+                "table": "calendars",
+                "values": {
+                  "id": "cal_3A2PhlcP5YLHRLj7j760DGpE56v",
+                  "biz_id": "biz_3A2PhlIS03130uBeUNIjNJEWY43",
+                  "name": "Booking",
+                  "timezone": "America/Los_Angeles",
+                  "slot_duration_min": 60,
+                  "status": "active"
+                },
+                "filters": [],
+                "returning": [
+                  "id"
+                ]
+              }
+            },
+            "response": {
+              "requestId": "40565c4f-8c8b-496d-a29d-206bbaa31f48",
+              "dryRun": false,
+              "success": true,
+              "commandKind": "mutate",
+              "warnings": [],
+              "trace": [
+                {
+                  "stepIndex": 0,
+                  "kind": "mutate",
+                  "table": "calendars",
+                  "sqlPreview": "INSERT INTO \"calendars\" (\"id\", \"biz_id\", \"name\", \"timezone\", \"slot_duration_min\", \"status\") VALUES ($1, $2, $3, $4, $5, $6) RETURNING \"id\"",
+                  "params": [
+                    "cal_3A2PhlcP5YLHRLj7j760DGpE56v",
+                    "biz_3A2PhlIS03130uBeUNIjNJEWY43",
+                    "Booking",
+                    "America/Los_Angeles",
+                    60,
+                    "active"
+                  ],
+                  "rowCount": 1,
+                  "dryRun": false
+                }
+              ],
+              "result": {
+                "table": "calendars",
+                "action": "insert",
+                "rowCount": 1,
+                "rows": [
+                  {
+                    "id": "cal_3A2PhlcP5YLHRLj7j760DGpE56v"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "id": "uc38-05",
+            "name": "Create offer",
+            "prompt": "insert into offers id = ofr_3A2PhmH28XFzBynFBtlHT6hG3yJ biz_id = biz_3A2PhlIS03130uBeUNIjNJEWY43 name = Car Detailing Service slug = offer-38-202502221116 status = active execution_mode = request",
+            "success": true,
+            "translation": {
+              "success": true,
+              "confidence": 0.8,
+              "notes": [],
+              "inferred": {
+                "action": "insert",
+                "table": "offers"
+              },
+              "pseudoRequest": {
+                "requestId": "d24b5abe-e5f7-4f77-a911-a0bbc47b0538",
+                "dryRun": false,
+                "scope": {
+                  "bizId": "biz_3A2PhlIS03130uBeUNIjNJEWY43"
+                },
+                "command": {
+                  "kind": "mutate",
+                  "action": "insert",
+                  "table": "offers",
+                  "values": {
+                    "id": "ofr_3A2PhmH28XFzBynFBtlHT6hG3yJ",
+                    "biz_id": "biz_3A2PhlIS03130uBeUNIjNJEWY43",
+                    "name": "Car",
+                    "slug": "offer-38-202502221116",
+                    "status": "active",
+                    "execution_mode": "request"
+                  },
+                  "filters": [],
+                  "returning": [
+                    "id"
+                  ]
+                }
+              }
+            },
+            "request": {
+              "requestId": "d24b5abe-e5f7-4f77-a911-a0bbc47b0538",
+              "dryRun": false,
+              "scope": {
+                "bizId": "biz_3A2PhlIS03130uBeUNIjNJEWY43"
+              },
+              "command": {
+                "kind": "mutate",
+                "action": "insert",
+                "table": "offers",
+                "values": {
+                  "id": "ofr_3A2PhmH28XFzBynFBtlHT6hG3yJ",
+                  "biz_id": "biz_3A2PhlIS03130uBeUNIjNJEWY43",
+                  "name": "Car",
+                  "slug": "offer-38-202502221116",
+                  "status": "active",
+                  "execution_mode": "request"
+                },
+                "filters": [],
+                "returning": [
+                  "id"
+                ]
+              }
+            },
+            "response": {
+              "requestId": "d24b5abe-e5f7-4f77-a911-a0bbc47b0538",
+              "dryRun": false,
+              "success": true,
+              "commandKind": "mutate",
+              "warnings": [],
+              "trace": [
+                {
+                  "stepIndex": 0,
+                  "kind": "mutate",
+                  "table": "offers",
+                  "sqlPreview": "INSERT INTO \"offers\" (\"id\", \"biz_id\", \"name\", \"slug\", \"status\", \"execution_mode\") VALUES ($1, $2, $3, $4, $5, $6) RETURNING \"id\"",
+                  "params": [
+                    "ofr_3A2PhmH28XFzBynFBtlHT6hG3yJ",
+                    "biz_3A2PhlIS03130uBeUNIjNJEWY43",
+                    "Car",
+                    "offer-38-202502221116",
+                    "active",
+                    "request"
+                  ],
+                  "rowCount": 1,
+                  "dryRun": false
+                }
+              ],
+              "result": {
+                "table": "offers",
+                "action": "insert",
+                "rowCount": 1,
+                "rows": [
+                  {
+                    "id": "ofr_3A2PhmH28XFzBynFBtlHT6hG3yJ"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "id": "uc38-06",
+            "name": "Verify setup",
+            "prompt": "list bizes where id = biz_3A2PhlIS03130uBeUNIjNJEWY43",
+            "success": true,
+            "translation": {
+              "success": true,
+              "confidence": 0.7,
+              "notes": [],
+              "inferred": {
+                "action": "query",
+                "table": "bizes"
+              },
+              "pseudoRequest": {
+                "requestId": "6a79e91f-cbd7-441d-9d91-dca370e614ae",
+                "dryRun": false,
+                "scope": {
+                  "bizId": "biz_3A2PhlIS03130uBeUNIjNJEWY43"
+                },
+                "command": {
+                  "kind": "query",
+                  "table": "bizes",
+                  "filters": [
+                    {
+                      "column": "id",
+                      "op": "eq",
+                      "value": "biz_3A2PhlIS03130uBeUNIjNJEWY43"
+                    }
+                  ],
+                  "sort": []
+                }
+              }
+            },
+            "request": {
+              "requestId": "6a79e91f-cbd7-441d-9d91-dca370e614ae",
+              "dryRun": false,
+              "scope": {
+                "bizId": "biz_3A2PhlIS03130uBeUNIjNJEWY43"
+              },
+              "command": {
+                "kind": "query",
+                "table": "bizes",
+                "filters": [
+                  {
+                    "column": "id",
+                    "op": "eq",
+                    "value": "biz_3A2PhlIS03130uBeUNIjNJEWY43"
+                  }
+                ],
+                "sort": []
+              }
+            },
+            "response": {
+              "requestId": "6a79e91f-cbd7-441d-9d91-dca370e614ae",
+              "dryRun": false,
+              "success": true,
+              "commandKind": "query",
+              "warnings": [],
+              "trace": [
+                {
+                  "stepIndex": 0,
+                  "kind": "query",
+                  "table": "bizes",
+                  "sqlPreview": "SELECT \"id\", \"name\", \"slug\", \"type\", \"logo_url\", \"timezone\", \"currency\", \"status\", \"metadata\", \"created_at\", \"updated_at\", \"deleted_at\", \"created_by\", \"updated_by\", \"deleted_by\" FROM \"bizes\" WHERE \"id\" = $1 LIMIT 100",
+                  "params": [
+                    "biz_3A2PhlIS03130uBeUNIjNJEWY43"
+                  ],
+                  "rowCount": 1,
+                  "dryRun": false
+                }
+              ],
+              "result": {
+                "table": "bizes",
+                "rowCount": 1,
+                "rows": [
+                  {
+                    "id": "biz_3A2PhlIS03130uBeUNIjNJEWY43",
+                    "name": "Sparkle",
+                    "slug": "sparkle-auto-202502221116",
+                    "type": "small_business",
+                    "logo_url": null,
+                    "timezone": "America/Los_Angeles",
+                    "currency": "USD",
+                    "status": "active",
+                    "metadata": {},
+                    "created_at": "2026-02-22 19:17:12.674352+00",
+                    "updated_at": "2026-02-22 19:17:12.674352+00",
+                    "deleted_at": null,
+                    "created_by": null,
+                    "updated_by": null,
+                    "deleted_by": null
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "uc_39_language_immersion",
+      "name": "UC-39: Language Immersion",
+      "kind": "scenario",
+      "success": true,
+      "total": 6,
+      "passed": 6,
+      "failed": 0,
+      "durationMs": 503,
+      "warnings": [],
+      "issueCount": 0,
+      "details": {
+        "success": true,
+        "total": 6,
+        "succeeded": 6,
+        "failed": 0,
+        "results": [
+          {
+            "id": "uc39-01",
+            "name": "Create education business",
+            "prompt": "insert into bizes id = biz_3A2PhrJI4WR1k4fDahrvPqjkbNH name = Global Speak Academy slug = global-speak-202502221116 status = active timezone = America/Los_Angeles",
+            "success": true,
+            "translation": {
+              "success": true,
+              "confidence": 0.8,
+              "notes": [],
+              "inferred": {
+                "action": "insert",
+                "table": "bizes"
+              },
+              "pseudoRequest": {
+                "requestId": "956e91a4-c224-4c10-af07-069546233e14",
+                "dryRun": false,
+                "scope": {
+                  "bizId": "biz_3A2PhrJI4WR1k4fDahrvPqjkbNH"
+                },
+                "command": {
+                  "kind": "mutate",
+                  "action": "insert",
+                  "table": "bizes",
+                  "values": {
+                    "id": "biz_3A2PhrJI4WR1k4fDahrvPqjkbNH",
+                    "name": "Global",
+                    "slug": "global-speak-202502221116",
+                    "status": "active",
+                    "timezone": "America/Los_Angeles"
+                  },
+                  "filters": [],
+                  "returning": [
+                    "id"
+                  ]
+                }
+              }
+            },
+            "request": {
+              "requestId": "956e91a4-c224-4c10-af07-069546233e14",
+              "dryRun": false,
+              "scope": {
+                "bizId": "biz_3A2PhrJI4WR1k4fDahrvPqjkbNH"
+              },
+              "command": {
+                "kind": "mutate",
+                "action": "insert",
+                "table": "bizes",
+                "values": {
+                  "id": "biz_3A2PhrJI4WR1k4fDahrvPqjkbNH",
+                  "name": "Global",
+                  "slug": "global-speak-202502221116",
+                  "status": "active",
+                  "timezone": "America/Los_Angeles"
+                },
+                "filters": [],
+                "returning": [
+                  "id"
+                ]
+              }
+            },
+            "response": {
+              "requestId": "956e91a4-c224-4c10-af07-069546233e14",
+              "dryRun": false,
+              "success": true,
+              "commandKind": "mutate",
+              "warnings": [],
+              "trace": [
+                {
+                  "stepIndex": 0,
+                  "kind": "mutate",
+                  "table": "bizes",
+                  "sqlPreview": "INSERT INTO \"bizes\" (\"id\", \"name\", \"slug\", \"status\", \"timezone\") VALUES ($1, $2, $3, $4, $5) RETURNING \"id\"",
+                  "params": [
+                    "biz_3A2PhrJI4WR1k4fDahrvPqjkbNH",
+                    "Global",
+                    "global-speak-202502221116",
+                    "active",
+                    "America/Los_Angeles"
+                  ],
+                  "rowCount": 1,
+                  "dryRun": false
+                }
+              ],
+              "result": {
+                "table": "bizes",
+                "action": "insert",
+                "rowCount": 1,
+                "rows": [
+                  {
+                    "id": "biz_3A2PhrJI4WR1k4fDahrvPqjkbNH"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "id": "uc39-02",
+            "name": "Create location",
+            "prompt": "insert into locations id = loc_3A2PhmBGtHytSQTTEyKbRCZgS5x biz_id = biz_3A2PhrJI4WR1k4fDahrvPqjkbNH name = Main Location slug = main-39-202502221116 timezone = America/Los_Angeles",
+            "success": true,
+            "translation": {
+              "success": true,
+              "confidence": 0.8,
+              "notes": [],
+              "inferred": {
+                "action": "insert",
+                "table": "locations"
+              },
+              "pseudoRequest": {
+                "requestId": "6d23475c-a7d6-4503-91c7-c422270eb574",
+                "dryRun": false,
+                "scope": {
+                  "bizId": "biz_3A2PhrJI4WR1k4fDahrvPqjkbNH"
+                },
+                "command": {
+                  "kind": "mutate",
+                  "action": "insert",
+                  "table": "locations",
+                  "values": {
+                    "id": "loc_3A2PhmBGtHytSQTTEyKbRCZgS5x",
+                    "biz_id": "biz_3A2PhrJI4WR1k4fDahrvPqjkbNH",
+                    "name": "Main",
+                    "slug": "main-39-202502221116",
+                    "timezone": "America/Los_Angeles"
+                  },
+                  "filters": [],
+                  "returning": [
+                    "id"
+                  ]
+                }
+              }
+            },
+            "request": {
+              "requestId": "6d23475c-a7d6-4503-91c7-c422270eb574",
+              "dryRun": false,
+              "scope": {
+                "bizId": "biz_3A2PhrJI4WR1k4fDahrvPqjkbNH"
+              },
+              "command": {
+                "kind": "mutate",
+                "action": "insert",
+                "table": "locations",
+                "values": {
+                  "id": "loc_3A2PhmBGtHytSQTTEyKbRCZgS5x",
+                  "biz_id": "biz_3A2PhrJI4WR1k4fDahrvPqjkbNH",
+                  "name": "Main",
+                  "slug": "main-39-202502221116",
+                  "timezone": "America/Los_Angeles"
+                },
+                "filters": [],
+                "returning": [
+                  "id"
+                ]
+              }
+            },
+            "response": {
+              "requestId": "6d23475c-a7d6-4503-91c7-c422270eb574",
+              "dryRun": false,
+              "success": true,
+              "commandKind": "mutate",
+              "warnings": [],
+              "trace": [
+                {
+                  "stepIndex": 0,
+                  "kind": "mutate",
+                  "table": "locations",
+                  "sqlPreview": "INSERT INTO \"locations\" (\"id\", \"biz_id\", \"name\", \"slug\", \"timezone\") VALUES ($1, $2, $3, $4, $5) RETURNING \"id\"",
+                  "params": [
+                    "loc_3A2PhmBGtHytSQTTEyKbRCZgS5x",
+                    "biz_3A2PhrJI4WR1k4fDahrvPqjkbNH",
+                    "Main",
+                    "main-39-202502221116",
+                    "America/Los_Angeles"
+                  ],
+                  "rowCount": 1,
+                  "dryRun": false
+                }
+              ],
+              "result": {
+                "table": "locations",
+                "action": "insert",
+                "rowCount": 1,
+                "rows": [
+                  {
+                    "id": "loc_3A2PhmBGtHytSQTTEyKbRCZgS5x"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "id": "uc39-03",
+            "name": "Create resource",
+            "prompt": "insert into resources id = res_3A2PhpkyiAEeVRZeUnKtukasbXW biz_id = biz_3A2PhrJI4WR1k4fDahrvPqjkbNH location_id = loc_3A2PhmBGtHytSQTTEyKbRCZgS5x type = host name = Language Immersion Resource slug = res-39-202502221116 timezone = America/Los_Angeles capacity = 1",
+            "success": true,
+            "translation": {
+              "success": true,
+              "confidence": 0.8,
+              "notes": [],
+              "inferred": {
+                "action": "insert",
+                "table": "resources"
+              },
+              "pseudoRequest": {
+                "requestId": "84a16e5d-0c46-4336-bde2-76634373976d",
+                "dryRun": false,
+                "scope": {
+                  "bizId": "biz_3A2PhrJI4WR1k4fDahrvPqjkbNH"
+                },
+                "command": {
+                  "kind": "mutate",
+                  "action": "insert",
+                  "table": "resources",
+                  "values": {
+                    "id": "res_3A2PhpkyiAEeVRZeUnKtukasbXW",
+                    "biz_id": "biz_3A2PhrJI4WR1k4fDahrvPqjkbNH",
+                    "location_id": "loc_3A2PhmBGtHytSQTTEyKbRCZgS5x",
+                    "type": "host",
+                    "name": "Language",
+                    "slug": "res-39-202502221116",
+                    "timezone": "America/Los_Angeles",
+                    "capacity": 1
+                  },
+                  "filters": [],
+                  "returning": [
+                    "id"
+                  ]
+                }
+              }
+            },
+            "request": {
+              "requestId": "84a16e5d-0c46-4336-bde2-76634373976d",
+              "dryRun": false,
+              "scope": {
+                "bizId": "biz_3A2PhrJI4WR1k4fDahrvPqjkbNH"
+              },
+              "command": {
+                "kind": "mutate",
+                "action": "insert",
+                "table": "resources",
+                "values": {
+                  "id": "res_3A2PhpkyiAEeVRZeUnKtukasbXW",
+                  "biz_id": "biz_3A2PhrJI4WR1k4fDahrvPqjkbNH",
+                  "location_id": "loc_3A2PhmBGtHytSQTTEyKbRCZgS5x",
+                  "type": "host",
+                  "name": "Language",
+                  "slug": "res-39-202502221116",
+                  "timezone": "America/Los_Angeles",
+                  "capacity": 1
+                },
+                "filters": [],
+                "returning": [
+                  "id"
+                ]
+              }
+            },
+            "response": {
+              "requestId": "84a16e5d-0c46-4336-bde2-76634373976d",
+              "dryRun": false,
+              "success": true,
+              "commandKind": "mutate",
+              "warnings": [],
+              "trace": [
+                {
+                  "stepIndex": 0,
+                  "kind": "mutate",
+                  "table": "resources",
+                  "sqlPreview": "INSERT INTO \"resources\" (\"id\", \"biz_id\", \"location_id\", \"type\", \"name\", \"slug\", \"timezone\", \"capacity\") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING \"id\"",
+                  "params": [
+                    "res_3A2PhpkyiAEeVRZeUnKtukasbXW",
+                    "biz_3A2PhrJI4WR1k4fDahrvPqjkbNH",
+                    "loc_3A2PhmBGtHytSQTTEyKbRCZgS5x",
+                    "host",
+                    "Language",
+                    "res-39-202502221116",
+                    "America/Los_Angeles",
+                    1
+                  ],
+                  "rowCount": 1,
+                  "dryRun": false
+                }
+              ],
+              "result": {
+                "table": "resources",
+                "action": "insert",
+                "rowCount": 1,
+                "rows": [
+                  {
+                    "id": "res_3A2PhpkyiAEeVRZeUnKtukasbXW"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "id": "uc39-04",
+            "name": "Create calendar",
+            "prompt": "insert into calendars id = cal_3A2Phmn21myr2lQvATvjwWt42Fh biz_id = biz_3A2PhrJI4WR1k4fDahrvPqjkbNH name = Booking Calendar timezone = America/Los_Angeles slot_duration_min = 60 status = active",
+            "success": true,
+            "translation": {
+              "success": true,
+              "confidence": 0.8,
+              "notes": [],
+              "inferred": {
+                "action": "insert",
+                "table": "calendars"
+              },
+              "pseudoRequest": {
+                "requestId": "1529360a-23de-45c6-aa88-57eca39813d9",
+                "dryRun": false,
+                "scope": {
+                  "bizId": "biz_3A2PhrJI4WR1k4fDahrvPqjkbNH"
+                },
+                "command": {
+                  "kind": "mutate",
+                  "action": "insert",
+                  "table": "calendars",
+                  "values": {
+                    "id": "cal_3A2Phmn21myr2lQvATvjwWt42Fh",
+                    "biz_id": "biz_3A2PhrJI4WR1k4fDahrvPqjkbNH",
+                    "name": "Booking",
+                    "timezone": "America/Los_Angeles",
+                    "slot_duration_min": 60,
+                    "status": "active"
+                  },
+                  "filters": [],
+                  "returning": [
+                    "id"
+                  ]
+                }
+              }
+            },
+            "request": {
+              "requestId": "1529360a-23de-45c6-aa88-57eca39813d9",
+              "dryRun": false,
+              "scope": {
+                "bizId": "biz_3A2PhrJI4WR1k4fDahrvPqjkbNH"
+              },
+              "command": {
+                "kind": "mutate",
+                "action": "insert",
+                "table": "calendars",
+                "values": {
+                  "id": "cal_3A2Phmn21myr2lQvATvjwWt42Fh",
+                  "biz_id": "biz_3A2PhrJI4WR1k4fDahrvPqjkbNH",
+                  "name": "Booking",
+                  "timezone": "America/Los_Angeles",
+                  "slot_duration_min": 60,
+                  "status": "active"
+                },
+                "filters": [],
+                "returning": [
+                  "id"
+                ]
+              }
+            },
+            "response": {
+              "requestId": "1529360a-23de-45c6-aa88-57eca39813d9",
+              "dryRun": false,
+              "success": true,
+              "commandKind": "mutate",
+              "warnings": [],
+              "trace": [
+                {
+                  "stepIndex": 0,
+                  "kind": "mutate",
+                  "table": "calendars",
+                  "sqlPreview": "INSERT INTO \"calendars\" (\"id\", \"biz_id\", \"name\", \"timezone\", \"slot_duration_min\", \"status\") VALUES ($1, $2, $3, $4, $5, $6) RETURNING \"id\"",
+                  "params": [
+                    "cal_3A2Phmn21myr2lQvATvjwWt42Fh",
+                    "biz_3A2PhrJI4WR1k4fDahrvPqjkbNH",
+                    "Booking",
+                    "America/Los_Angeles",
+                    60,
+                    "active"
+                  ],
+                  "rowCount": 1,
+                  "dryRun": false
+                }
+              ],
+              "result": {
+                "table": "calendars",
+                "action": "insert",
+                "rowCount": 1,
+                "rows": [
+                  {
+                    "id": "cal_3A2Phmn21myr2lQvATvjwWt42Fh"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "id": "uc39-05",
+            "name": "Create offer",
+            "prompt": "insert into offers id = ofr_3A2PhrlKqWEqnN6CrDYsBCrnKdi biz_id = biz_3A2PhrJI4WR1k4fDahrvPqjkbNH name = Language Immersion Service slug = offer-39-202502221116 status = active execution_mode = request",
+            "success": true,
+            "translation": {
+              "success": true,
+              "confidence": 0.8,
+              "notes": [],
+              "inferred": {
+                "action": "insert",
+                "table": "offers"
+              },
+              "pseudoRequest": {
+                "requestId": "d6602c85-dba4-4100-8dda-11cca1fc17cd",
+                "dryRun": false,
+                "scope": {
+                  "bizId": "biz_3A2PhrJI4WR1k4fDahrvPqjkbNH"
+                },
+                "command": {
+                  "kind": "mutate",
+                  "action": "insert",
+                  "table": "offers",
+                  "values": {
+                    "id": "ofr_3A2PhrlKqWEqnN6CrDYsBCrnKdi",
+                    "biz_id": "biz_3A2PhrJI4WR1k4fDahrvPqjkbNH",
+                    "name": "Language",
+                    "slug": "offer-39-202502221116",
+                    "status": "active",
+                    "execution_mode": "request"
+                  },
+                  "filters": [],
+                  "returning": [
+                    "id"
+                  ]
+                }
+              }
+            },
+            "request": {
+              "requestId": "d6602c85-dba4-4100-8dda-11cca1fc17cd",
+              "dryRun": false,
+              "scope": {
+                "bizId": "biz_3A2PhrJI4WR1k4fDahrvPqjkbNH"
+              },
+              "command": {
+                "kind": "mutate",
+                "action": "insert",
+                "table": "offers",
+                "values": {
+                  "id": "ofr_3A2PhrlKqWEqnN6CrDYsBCrnKdi",
+                  "biz_id": "biz_3A2PhrJI4WR1k4fDahrvPqjkbNH",
+                  "name": "Language",
+                  "slug": "offer-39-202502221116",
+                  "status": "active",
+                  "execution_mode": "request"
+                },
+                "filters": [],
+                "returning": [
+                  "id"
+                ]
+              }
+            },
+            "response": {
+              "requestId": "d6602c85-dba4-4100-8dda-11cca1fc17cd",
+              "dryRun": false,
+              "success": true,
+              "commandKind": "mutate",
+              "warnings": [],
+              "trace": [
+                {
+                  "stepIndex": 0,
+                  "kind": "mutate",
+                  "table": "offers",
+                  "sqlPreview": "INSERT INTO \"offers\" (\"id\", \"biz_id\", \"name\", \"slug\", \"status\", \"execution_mode\") VALUES ($1, $2, $3, $4, $5, $6) RETURNING \"id\"",
+                  "params": [
+                    "ofr_3A2PhrlKqWEqnN6CrDYsBCrnKdi",
+                    "biz_3A2PhrJI4WR1k4fDahrvPqjkbNH",
+                    "Language",
+                    "offer-39-202502221116",
+                    "active",
+                    "request"
+                  ],
+                  "rowCount": 1,
+                  "dryRun": false
+                }
+              ],
+              "result": {
+                "table": "offers",
+                "action": "insert",
+                "rowCount": 1,
+                "rows": [
+                  {
+                    "id": "ofr_3A2PhrlKqWEqnN6CrDYsBCrnKdi"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "id": "uc39-06",
+            "name": "Verify setup",
+            "prompt": "list bizes where id = biz_3A2PhrJI4WR1k4fDahrvPqjkbNH",
+            "success": true,
+            "translation": {
+              "success": true,
+              "confidence": 0.7,
+              "notes": [],
+              "inferred": {
+                "action": "query",
+                "table": "bizes"
+              },
+              "pseudoRequest": {
+                "requestId": "14bdfe60-7596-458e-81bb-1d7e4d8e9ca6",
+                "dryRun": false,
+                "scope": {
+                  "bizId": "biz_3A2PhrJI4WR1k4fDahrvPqjkbNH"
+                },
+                "command": {
+                  "kind": "query",
+                  "table": "bizes",
+                  "filters": [
+                    {
+                      "column": "id",
+                      "op": "eq",
+                      "value": "biz_3A2PhrJI4WR1k4fDahrvPqjkbNH"
+                    }
+                  ],
+                  "sort": []
+                }
+              }
+            },
+            "request": {
+              "requestId": "14bdfe60-7596-458e-81bb-1d7e4d8e9ca6",
+              "dryRun": false,
+              "scope": {
+                "bizId": "biz_3A2PhrJI4WR1k4fDahrvPqjkbNH"
+              },
+              "command": {
+                "kind": "query",
+                "table": "bizes",
+                "filters": [
+                  {
+                    "column": "id",
+                    "op": "eq",
+                    "value": "biz_3A2PhrJI4WR1k4fDahrvPqjkbNH"
+                  }
+                ],
+                "sort": []
+              }
+            },
+            "response": {
+              "requestId": "14bdfe60-7596-458e-81bb-1d7e4d8e9ca6",
+              "dryRun": false,
+              "success": true,
+              "commandKind": "query",
+              "warnings": [],
+              "trace": [
+                {
+                  "stepIndex": 0,
+                  "kind": "query",
+                  "table": "bizes",
+                  "sqlPreview": "SELECT \"id\", \"name\", \"slug\", \"type\", \"logo_url\", \"timezone\", \"currency\", \"status\", \"metadata\", \"created_at\", \"updated_at\", \"deleted_at\", \"created_by\", \"updated_by\", \"deleted_by\" FROM \"bizes\" WHERE \"id\" = $1 LIMIT 100",
+                  "params": [
+                    "biz_3A2PhrJI4WR1k4fDahrvPqjkbNH"
+                  ],
+                  "rowCount": 1,
+                  "dryRun": false
+                }
+              ],
+              "result": {
+                "table": "bizes",
+                "rowCount": 1,
+                "rows": [
+                  {
+                    "id": "biz_3A2PhrJI4WR1k4fDahrvPqjkbNH",
+                    "name": "Global",
+                    "slug": "global-speak-202502221116",
+                    "type": "small_business",
+                    "logo_url": null,
+                    "timezone": "America/Los_Angeles",
+                    "currency": "USD",
+                    "status": "active",
+                    "metadata": {},
+                    "created_at": "2026-02-22 19:17:13.146446+00",
+                    "updated_at": "2026-02-22 19:17:13.146446+00",
+                    "deleted_at": null,
+                    "created_by": null,
+                    "updated_by": null,
+                    "deleted_by": null
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "uc_40_legal_consultation",
+      "name": "UC-40: Legal Consultation",
+      "kind": "scenario",
+      "success": true,
+      "total": 6,
+      "passed": 6,
+      "failed": 0,
+      "durationMs": 471,
+      "warnings": [],
+      "issueCount": 0,
+      "details": {
+        "success": true,
+        "total": 6,
+        "succeeded": 6,
+        "failed": 0,
+        "results": [
+          {
+            "id": "uc40-01",
+            "name": "Create professional business",
+            "prompt": "insert into bizes id = biz_3A2PhlAw4ubnEkFf8zIY2kfzuKU name = Justice Law Partners slug = justice-law-202502221116 status = active timezone = America/Los_Angeles",
+            "success": true,
+            "translation": {
+              "success": true,
+              "confidence": 0.8,
+              "notes": [],
+              "inferred": {
+                "action": "insert",
+                "table": "bizes"
+              },
+              "pseudoRequest": {
+                "requestId": "55a16c8d-36e6-43e7-8ea8-5cd274558bee",
+                "dryRun": false,
+                "scope": {
+                  "bizId": "biz_3A2PhlAw4ubnEkFf8zIY2kfzuKU"
+                },
+                "command": {
+                  "kind": "mutate",
+                  "action": "insert",
+                  "table": "bizes",
+                  "values": {
+                    "id": "biz_3A2PhlAw4ubnEkFf8zIY2kfzuKU",
+                    "name": "Justice",
+                    "slug": "justice-law-202502221116",
+                    "status": "active",
+                    "timezone": "America/Los_Angeles"
+                  },
+                  "filters": [],
+                  "returning": [
+                    "id"
+                  ]
+                }
+              }
+            },
+            "request": {
+              "requestId": "55a16c8d-36e6-43e7-8ea8-5cd274558bee",
+              "dryRun": false,
+              "scope": {
+                "bizId": "biz_3A2PhlAw4ubnEkFf8zIY2kfzuKU"
+              },
+              "command": {
+                "kind": "mutate",
+                "action": "insert",
+                "table": "bizes",
+                "values": {
+                  "id": "biz_3A2PhlAw4ubnEkFf8zIY2kfzuKU",
+                  "name": "Justice",
+                  "slug": "justice-law-202502221116",
+                  "status": "active",
+                  "timezone": "America/Los_Angeles"
+                },
+                "filters": [],
+                "returning": [
+                  "id"
+                ]
+              }
+            },
+            "response": {
+              "requestId": "55a16c8d-36e6-43e7-8ea8-5cd274558bee",
+              "dryRun": false,
+              "success": true,
+              "commandKind": "mutate",
+              "warnings": [],
+              "trace": [
+                {
+                  "stepIndex": 0,
+                  "kind": "mutate",
+                  "table": "bizes",
+                  "sqlPreview": "INSERT INTO \"bizes\" (\"id\", \"name\", \"slug\", \"status\", \"timezone\") VALUES ($1, $2, $3, $4, $5) RETURNING \"id\"",
+                  "params": [
+                    "biz_3A2PhlAw4ubnEkFf8zIY2kfzuKU",
+                    "Justice",
+                    "justice-law-202502221116",
+                    "active",
+                    "America/Los_Angeles"
+                  ],
+                  "rowCount": 1,
+                  "dryRun": false
+                }
+              ],
+              "result": {
+                "table": "bizes",
+                "action": "insert",
+                "rowCount": 1,
+                "rows": [
+                  {
+                    "id": "biz_3A2PhlAw4ubnEkFf8zIY2kfzuKU"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "id": "uc40-02",
+            "name": "Create location",
+            "prompt": "insert into locations id = loc_3A2PhnLtzkPmohjqbwVTlKlpMUl biz_id = biz_3A2PhlAw4ubnEkFf8zIY2kfzuKU name = Main Location slug = main-40-202502221116 timezone = America/Los_Angeles",
+            "success": true,
+            "translation": {
+              "success": true,
+              "confidence": 0.8,
+              "notes": [],
+              "inferred": {
+                "action": "insert",
+                "table": "locations"
+              },
+              "pseudoRequest": {
+                "requestId": "67691fc3-eebe-4308-9483-0b064034bd25",
+                "dryRun": false,
+                "scope": {
+                  "bizId": "biz_3A2PhlAw4ubnEkFf8zIY2kfzuKU"
+                },
+                "command": {
+                  "kind": "mutate",
+                  "action": "insert",
+                  "table": "locations",
+                  "values": {
+                    "id": "loc_3A2PhnLtzkPmohjqbwVTlKlpMUl",
+                    "biz_id": "biz_3A2PhlAw4ubnEkFf8zIY2kfzuKU",
+                    "name": "Main",
+                    "slug": "main-40-202502221116",
+                    "timezone": "America/Los_Angeles"
+                  },
+                  "filters": [],
+                  "returning": [
+                    "id"
+                  ]
+                }
+              }
+            },
+            "request": {
+              "requestId": "67691fc3-eebe-4308-9483-0b064034bd25",
+              "dryRun": false,
+              "scope": {
+                "bizId": "biz_3A2PhlAw4ubnEkFf8zIY2kfzuKU"
+              },
+              "command": {
+                "kind": "mutate",
+                "action": "insert",
+                "table": "locations",
+                "values": {
+                  "id": "loc_3A2PhnLtzkPmohjqbwVTlKlpMUl",
+                  "biz_id": "biz_3A2PhlAw4ubnEkFf8zIY2kfzuKU",
+                  "name": "Main",
+                  "slug": "main-40-202502221116",
+                  "timezone": "America/Los_Angeles"
+                },
+                "filters": [],
+                "returning": [
+                  "id"
+                ]
+              }
+            },
+            "response": {
+              "requestId": "67691fc3-eebe-4308-9483-0b064034bd25",
+              "dryRun": false,
+              "success": true,
+              "commandKind": "mutate",
+              "warnings": [],
+              "trace": [
+                {
+                  "stepIndex": 0,
+                  "kind": "mutate",
+                  "table": "locations",
+                  "sqlPreview": "INSERT INTO \"locations\" (\"id\", \"biz_id\", \"name\", \"slug\", \"timezone\") VALUES ($1, $2, $3, $4, $5) RETURNING \"id\"",
+                  "params": [
+                    "loc_3A2PhnLtzkPmohjqbwVTlKlpMUl",
+                    "biz_3A2PhlAw4ubnEkFf8zIY2kfzuKU",
+                    "Main",
+                    "main-40-202502221116",
+                    "America/Los_Angeles"
+                  ],
+                  "rowCount": 1,
+                  "dryRun": false
+                }
+              ],
+              "result": {
+                "table": "locations",
+                "action": "insert",
+                "rowCount": 1,
+                "rows": [
+                  {
+                    "id": "loc_3A2PhnLtzkPmohjqbwVTlKlpMUl"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "id": "uc40-03",
+            "name": "Create resource",
+            "prompt": "insert into resources id = res_3A2Phpx6f2BwpFhFc42eVBVbjKX biz_id = biz_3A2PhlAw4ubnEkFf8zIY2kfzuKU location_id = loc_3A2PhnLtzkPmohjqbwVTlKlpMUl type = host name = Legal Consultation Resource slug = res-40-202502221116 timezone = America/Los_Angeles capacity = 1",
+            "success": true,
+            "translation": {
+              "success": true,
+              "confidence": 0.8,
+              "notes": [],
+              "inferred": {
+                "action": "insert",
+                "table": "resources"
+              },
+              "pseudoRequest": {
+                "requestId": "bbaf4c39-c395-4005-a4e2-0fedb28c7f6c",
+                "dryRun": false,
+                "scope": {
+                  "bizId": "biz_3A2PhlAw4ubnEkFf8zIY2kfzuKU"
+                },
+                "command": {
+                  "kind": "mutate",
+                  "action": "insert",
+                  "table": "resources",
+                  "values": {
+                    "id": "res_3A2Phpx6f2BwpFhFc42eVBVbjKX",
+                    "biz_id": "biz_3A2PhlAw4ubnEkFf8zIY2kfzuKU",
+                    "location_id": "loc_3A2PhnLtzkPmohjqbwVTlKlpMUl",
+                    "type": "host",
+                    "name": "Legal",
+                    "slug": "res-40-202502221116",
+                    "timezone": "America/Los_Angeles",
+                    "capacity": 1
+                  },
+                  "filters": [],
+                  "returning": [
+                    "id"
+                  ]
+                }
+              }
+            },
+            "request": {
+              "requestId": "bbaf4c39-c395-4005-a4e2-0fedb28c7f6c",
+              "dryRun": false,
+              "scope": {
+                "bizId": "biz_3A2PhlAw4ubnEkFf8zIY2kfzuKU"
+              },
+              "command": {
+                "kind": "mutate",
+                "action": "insert",
+                "table": "resources",
+                "values": {
+                  "id": "res_3A2Phpx6f2BwpFhFc42eVBVbjKX",
+                  "biz_id": "biz_3A2PhlAw4ubnEkFf8zIY2kfzuKU",
+                  "location_id": "loc_3A2PhnLtzkPmohjqbwVTlKlpMUl",
+                  "type": "host",
+                  "name": "Legal",
+                  "slug": "res-40-202502221116",
+                  "timezone": "America/Los_Angeles",
+                  "capacity": 1
+                },
+                "filters": [],
+                "returning": [
+                  "id"
+                ]
+              }
+            },
+            "response": {
+              "requestId": "bbaf4c39-c395-4005-a4e2-0fedb28c7f6c",
+              "dryRun": false,
+              "success": true,
+              "commandKind": "mutate",
+              "warnings": [],
+              "trace": [
+                {
+                  "stepIndex": 0,
+                  "kind": "mutate",
+                  "table": "resources",
+                  "sqlPreview": "INSERT INTO \"resources\" (\"id\", \"biz_id\", \"location_id\", \"type\", \"name\", \"slug\", \"timezone\", \"capacity\") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING \"id\"",
+                  "params": [
+                    "res_3A2Phpx6f2BwpFhFc42eVBVbjKX",
+                    "biz_3A2PhlAw4ubnEkFf8zIY2kfzuKU",
+                    "loc_3A2PhnLtzkPmohjqbwVTlKlpMUl",
+                    "host",
+                    "Legal",
+                    "res-40-202502221116",
+                    "America/Los_Angeles",
+                    1
+                  ],
+                  "rowCount": 1,
+                  "dryRun": false
+                }
+              ],
+              "result": {
+                "table": "resources",
+                "action": "insert",
+                "rowCount": 1,
+                "rows": [
+                  {
+                    "id": "res_3A2Phpx6f2BwpFhFc42eVBVbjKX"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "id": "uc40-04",
+            "name": "Create calendar",
+            "prompt": "insert into calendars id = cal_3A2Phrrbgy1jyXZfhI2DoZbezZ8 biz_id = biz_3A2PhlAw4ubnEkFf8zIY2kfzuKU name = Booking Calendar timezone = America/Los_Angeles slot_duration_min = 60 status = active",
+            "success": true,
+            "translation": {
+              "success": true,
+              "confidence": 0.8,
+              "notes": [],
+              "inferred": {
+                "action": "insert",
+                "table": "calendars"
+              },
+              "pseudoRequest": {
+                "requestId": "da7ac82e-0832-470a-9b05-1cb64aac82cb",
+                "dryRun": false,
+                "scope": {
+                  "bizId": "biz_3A2PhlAw4ubnEkFf8zIY2kfzuKU"
+                },
+                "command": {
+                  "kind": "mutate",
+                  "action": "insert",
+                  "table": "calendars",
+                  "values": {
+                    "id": "cal_3A2Phrrbgy1jyXZfhI2DoZbezZ8",
+                    "biz_id": "biz_3A2PhlAw4ubnEkFf8zIY2kfzuKU",
+                    "name": "Booking",
+                    "timezone": "America/Los_Angeles",
+                    "slot_duration_min": 60,
+                    "status": "active"
+                  },
+                  "filters": [],
+                  "returning": [
+                    "id"
+                  ]
+                }
+              }
+            },
+            "request": {
+              "requestId": "da7ac82e-0832-470a-9b05-1cb64aac82cb",
+              "dryRun": false,
+              "scope": {
+                "bizId": "biz_3A2PhlAw4ubnEkFf8zIY2kfzuKU"
+              },
+              "command": {
+                "kind": "mutate",
+                "action": "insert",
+                "table": "calendars",
+                "values": {
+                  "id": "cal_3A2Phrrbgy1jyXZfhI2DoZbezZ8",
+                  "biz_id": "biz_3A2PhlAw4ubnEkFf8zIY2kfzuKU",
+                  "name": "Booking",
+                  "timezone": "America/Los_Angeles",
+                  "slot_duration_min": 60,
+                  "status": "active"
+                },
+                "filters": [],
+                "returning": [
+                  "id"
+                ]
+              }
+            },
+            "response": {
+              "requestId": "da7ac82e-0832-470a-9b05-1cb64aac82cb",
+              "dryRun": false,
+              "success": true,
+              "commandKind": "mutate",
+              "warnings": [],
+              "trace": [
+                {
+                  "stepIndex": 0,
+                  "kind": "mutate",
+                  "table": "calendars",
+                  "sqlPreview": "INSERT INTO \"calendars\" (\"id\", \"biz_id\", \"name\", \"timezone\", \"slot_duration_min\", \"status\") VALUES ($1, $2, $3, $4, $5, $6) RETURNING \"id\"",
+                  "params": [
+                    "cal_3A2Phrrbgy1jyXZfhI2DoZbezZ8",
+                    "biz_3A2PhlAw4ubnEkFf8zIY2kfzuKU",
+                    "Booking",
+                    "America/Los_Angeles",
+                    60,
+                    "active"
+                  ],
+                  "rowCount": 1,
+                  "dryRun": false
+                }
+              ],
+              "result": {
+                "table": "calendars",
+                "action": "insert",
+                "rowCount": 1,
+                "rows": [
+                  {
+                    "id": "cal_3A2Phrrbgy1jyXZfhI2DoZbezZ8"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "id": "uc40-05",
+            "name": "Create offer",
+            "prompt": "insert into offers id = ofr_3A2PhmayBCeDgEQwqz4Xt59LjHC biz_id = biz_3A2PhlAw4ubnEkFf8zIY2kfzuKU name = Legal Consultation Service slug = offer-40-202502221116 status = active execution_mode = request",
+            "success": true,
+            "translation": {
+              "success": true,
+              "confidence": 0.8,
+              "notes": [],
+              "inferred": {
+                "action": "insert",
+                "table": "offers"
+              },
+              "pseudoRequest": {
+                "requestId": "4fc0f3dd-b8fe-4dd1-ac96-82770940d1fe",
+                "dryRun": false,
+                "scope": {
+                  "bizId": "biz_3A2PhlAw4ubnEkFf8zIY2kfzuKU"
+                },
+                "command": {
+                  "kind": "mutate",
+                  "action": "insert",
+                  "table": "offers",
+                  "values": {
+                    "id": "ofr_3A2PhmayBCeDgEQwqz4Xt59LjHC",
+                    "biz_id": "biz_3A2PhlAw4ubnEkFf8zIY2kfzuKU",
+                    "name": "Legal",
+                    "slug": "offer-40-202502221116",
+                    "status": "active",
+                    "execution_mode": "request"
+                  },
+                  "filters": [],
+                  "returning": [
+                    "id"
+                  ]
+                }
+              }
+            },
+            "request": {
+              "requestId": "4fc0f3dd-b8fe-4dd1-ac96-82770940d1fe",
+              "dryRun": false,
+              "scope": {
+                "bizId": "biz_3A2PhlAw4ubnEkFf8zIY2kfzuKU"
+              },
+              "command": {
+                "kind": "mutate",
+                "action": "insert",
+                "table": "offers",
+                "values": {
+                  "id": "ofr_3A2PhmayBCeDgEQwqz4Xt59LjHC",
+                  "biz_id": "biz_3A2PhlAw4ubnEkFf8zIY2kfzuKU",
+                  "name": "Legal",
+                  "slug": "offer-40-202502221116",
+                  "status": "active",
+                  "execution_mode": "request"
+                },
+                "filters": [],
+                "returning": [
+                  "id"
+                ]
+              }
+            },
+            "response": {
+              "requestId": "4fc0f3dd-b8fe-4dd1-ac96-82770940d1fe",
+              "dryRun": false,
+              "success": true,
+              "commandKind": "mutate",
+              "warnings": [],
+              "trace": [
+                {
+                  "stepIndex": 0,
+                  "kind": "mutate",
+                  "table": "offers",
+                  "sqlPreview": "INSERT INTO \"offers\" (\"id\", \"biz_id\", \"name\", \"slug\", \"status\", \"execution_mode\") VALUES ($1, $2, $3, $4, $5, $6) RETURNING \"id\"",
+                  "params": [
+                    "ofr_3A2PhmayBCeDgEQwqz4Xt59LjHC",
+                    "biz_3A2PhlAw4ubnEkFf8zIY2kfzuKU",
+                    "Legal",
+                    "offer-40-202502221116",
+                    "active",
+                    "request"
+                  ],
+                  "rowCount": 1,
+                  "dryRun": false
+                }
+              ],
+              "result": {
+                "table": "offers",
+                "action": "insert",
+                "rowCount": 1,
+                "rows": [
+                  {
+                    "id": "ofr_3A2PhmayBCeDgEQwqz4Xt59LjHC"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "id": "uc40-06",
+            "name": "Verify setup",
+            "prompt": "list bizes where id = biz_3A2PhlAw4ubnEkFf8zIY2kfzuKU",
+            "success": true,
+            "translation": {
+              "success": true,
+              "confidence": 0.7,
+              "notes": [],
+              "inferred": {
+                "action": "query",
+                "table": "bizes"
+              },
+              "pseudoRequest": {
+                "requestId": "282c0ee6-8801-4a66-9ed4-86a523c82c78",
+                "dryRun": false,
+                "scope": {
+                  "bizId": "biz_3A2PhlAw4ubnEkFf8zIY2kfzuKU"
+                },
+                "command": {
+                  "kind": "query",
+                  "table": "bizes",
+                  "filters": [
+                    {
+                      "column": "id",
+                      "op": "eq",
+                      "value": "biz_3A2PhlAw4ubnEkFf8zIY2kfzuKU"
+                    }
+                  ],
+                  "sort": []
+                }
+              }
+            },
+            "request": {
+              "requestId": "282c0ee6-8801-4a66-9ed4-86a523c82c78",
+              "dryRun": false,
+              "scope": {
+                "bizId": "biz_3A2PhlAw4ubnEkFf8zIY2kfzuKU"
+              },
+              "command": {
+                "kind": "query",
+                "table": "bizes",
+                "filters": [
+                  {
+                    "column": "id",
+                    "op": "eq",
+                    "value": "biz_3A2PhlAw4ubnEkFf8zIY2kfzuKU"
+                  }
+                ],
+                "sort": []
+              }
+            },
+            "response": {
+              "requestId": "282c0ee6-8801-4a66-9ed4-86a523c82c78",
+              "dryRun": false,
+              "success": true,
+              "commandKind": "query",
+              "warnings": [],
+              "trace": [
+                {
+                  "stepIndex": 0,
+                  "kind": "query",
+                  "table": "bizes",
+                  "sqlPreview": "SELECT \"id\", \"name\", \"slug\", \"type\", \"logo_url\", \"timezone\", \"currency\", \"status\", \"metadata\", \"created_at\", \"updated_at\", \"deleted_at\", \"created_by\", \"updated_by\", \"deleted_by\" FROM \"bizes\" WHERE \"id\" = $1 LIMIT 100",
+                  "params": [
+                    "biz_3A2PhlAw4ubnEkFf8zIY2kfzuKU"
+                  ],
+                  "rowCount": 1,
+                  "dryRun": false
+                }
+              ],
+              "result": {
+                "table": "bizes",
+                "rowCount": 1,
+                "rows": [
+                  {
+                    "id": "biz_3A2PhlAw4ubnEkFf8zIY2kfzuKU",
+                    "name": "Justice",
+                    "slug": "justice-law-202502221116",
+                    "type": "small_business",
+                    "logo_url": null,
+                    "timezone": "America/Los_Angeles",
+                    "currency": "USD",
+                    "status": "active",
+                    "metadata": {},
+                    "created_at": "2026-02-22 19:17:13.634336+00",
+                    "updated_at": "2026-02-22 19:17:13.634336+00",
+                    "deleted_at": null,
+                    "created_by": null,
+                    "updated_by": null,
+                    "deleted_by": null
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "issues": [],
+  "variables": {
+    "timezone": "America/Los_Angeles",
+    "runId": "9e867d16-0407-4df5-aa0a-84ad7eeba37f",
+    "runStartedAt": "2026-02-22T19:17:11.382Z"
+  }
+}

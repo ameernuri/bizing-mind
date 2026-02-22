@@ -1,0 +1,40 @@
+{
+  "defaults": {
+    "dryRun": false,
+    "scope": {
+      "bizId": "biz_3A2PhrJI4WR1k4fDahrvPqjkbNH"
+    }
+  },
+  "scenarios": [
+    {
+      "id": "uc39-01",
+      "name": "Create education business",
+      "prompt": "insert into bizes id = biz_3A2PhrJI4WR1k4fDahrvPqjkbNH name = Global Speak Academy slug = global-speak-202502221116 status = active timezone = America/Los_Angeles"
+    },
+    {
+      "id": "uc39-02",
+      "name": "Create location",
+      "prompt": "insert into locations id = loc_3A2PhmBGtHytSQTTEyKbRCZgS5x biz_id = biz_3A2PhrJI4WR1k4fDahrvPqjkbNH name = Main Location slug = main-39-202502221116 timezone = America/Los_Angeles"
+    },
+    {
+      "id": "uc39-03",
+      "name": "Create resource",
+      "prompt": "insert into resources id = res_3A2PhpkyiAEeVRZeUnKtukasbXW biz_id = biz_3A2PhrJI4WR1k4fDahrvPqjkbNH location_id = loc_3A2PhmBGtHytSQTTEyKbRCZgS5x type = host name = Language Immersion Resource slug = res-39-202502221116 timezone = America/Los_Angeles capacity = 1"
+    },
+    {
+      "id": "uc39-04",
+      "name": "Create calendar",
+      "prompt": "insert into calendars id = cal_3A2Phmn21myr2lQvATvjwWt42Fh biz_id = biz_3A2PhrJI4WR1k4fDahrvPqjkbNH name = Booking Calendar timezone = America/Los_Angeles slot_duration_min = 60 status = active"
+    },
+    {
+      "id": "uc39-05",
+      "name": "Create offer",
+      "prompt": "insert into offers id = ofr_3A2PhrlKqWEqnN6CrDYsBCrnKdi biz_id = biz_3A2PhrJI4WR1k4fDahrvPqjkbNH name = Language Immersion Service slug = offer-39-202502221116 status = active execution_mode = request"
+    },
+    {
+      "id": "uc39-06",
+      "name": "Verify setup",
+      "prompt": "list bizes where id = biz_3A2PhrJI4WR1k4fDahrvPqjkbNH"
+    }
+  ]
+}

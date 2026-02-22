@@ -1,0 +1,47 @@
+{
+  "defaults": {
+    "dryRun": true,
+    "continueOnFailure": true
+  },
+  "variables": {
+    "timezone": "America/Los_Angeles"
+  },
+  "suites": [
+    {
+      "id": "lifecycle_slot_booking",
+      "name": "Lifecycle 01 - Slot Booking",
+      "kind": "lifecycle",
+      "source": {
+        "filePath": "testing/lifecycle/lifecycle-01-slot-booking.json"
+      }
+    },
+    {
+      "id": "lifecycle_queue_walkin",
+      "name": "Lifecycle 02 - Queue Walk-in",
+      "kind": "lifecycle",
+      "source": {
+        "filePath": "testing/lifecycle/lifecycle-02-queue-walkin.json"
+      }
+    },
+    {
+      "id": "lifecycle_gift_transfer",
+      "name": "Lifecycle 03 - Gift Transfer",
+      "kind": "lifecycle",
+      "source": {
+        "filePath": "testing/lifecycle/lifecycle-03-gift-transfer.json"
+      }
+    },
+    {
+      "id": "lifecycle_class_group",
+      "name": "Lifecycle 04 - Class Group Booking",
+      "kind": "lifecycle",
+      "source": {
+        "filePath": "testing/lifecycle/lifecycle-04-class-group-waitlist.json"
+      }
+    }
+  ],
+  "output": {
+    "writeJsonPath": "reports/lifecycle-examples-v4-agent-fitness.json",
+    "writeMarkdownPath": "reports/lifecycle-examples-v4-agent-fitness.md"
+  }
+}

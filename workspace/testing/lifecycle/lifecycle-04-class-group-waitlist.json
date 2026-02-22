@@ -1,0 +1,178 @@
+{
+  "defaults": {
+    "dryRun": true,
+    "scope": {
+      "bizId": "{{id:biz_class}}"
+    },
+    "continueOnFailure": true
+  },
+  "variables": {
+    "timezone": "America/Los_Angeles"
+  },
+  "options": {
+    "rollbackOnFailure": false,
+    "includeStepTrace": true
+  },
+  "phases": [
+    {
+      "id": "class-setup",
+      "name": "Setup Class Infrastructure",
+      "continueOnFailure": false,
+      "steps": [
+        {
+          "id": "class-01",
+          "name": "Create instructor user",
+          "prompt": "insert into users id = {{id:instructor_user}} email = instructor.{{runId}}@example.com name = YogaInstructor status = active",
+          "expect": { "success": true, "rowCountEq": 1 }
+        },
+        {
+          "id": "class-02",
+          "name": "Create student users",
+          "prompt": "insert into users id = {{id:student1_user}} email = student1.{{runId}}@example.com name = StudentOne status = active",
+          "expect": { "success": true }
+        },
+        {
+          "id": "class-03",
+          "name": "Create second student",
+          "prompt": "insert into users id = {{id:student2_user}} email = student2.{{runId}}@example.com name = StudentTwo status = active",
+          "expect": { "success": true }
+        },
+        {
+          "id": "class-04",
+          "name": "Create third student",
+          "prompt": "insert into users id = {{id:student3_user}} email = student3.{{runId}}@example.com name = StudentThree status = active",
+          "expect": { "success": true }
+        },
+        {
+          "id": "class-05",
+          "name": "Create business",
+          "prompt": "insert into bizes id = {{id:biz_class}} name = Yoga Studio Classes slug = yoga-classes-{{runId}} status = active timezone = {{timezone}}",
+          "scope": { "actorUserId": "{{id:instructor_user}}" },
+          "expect": { "success": true }
+        },
+        {
+          "id": "class-06",
+          "name": "Create studio location",
+          "prompt": "insert into locations id = {{id:location}} biz_id = {{id:biz_class}} name = Main Studio slug = main-studio-{{runId}} timezone = {{timezone}}",
+          "scope": { "actorUserId": "{{id:instructor_user}}" },
+          "expect": { "success": true }
+        },
+        {
+          "id": "class-07",
+          "name": "Create instructor resource",
+          "prompt": "insert into resources id = {{id:instructor_resource}} biz_id = {{id:biz_class}} location_id = {{id:location}} type = host name = Yoga Instructor slug = yoga-instructor-{{runId}} timezone = {{timezone}} capacity = 2",
+          "scope": { "actorUserId": "{{id:instructor_user}}" },
+          "expect": { "success": true }
+        },
+        {
+          "id": "class-08",
+          "name": "Create class calendar",
+          "prompt": "insert into calendars id = {{id:class_calendar}} biz_id = {{id:biz_class}} name = Yoga Class Calendar timezone = {{timezone}} slot_duration_min = 60 slot_interval_min = 60 status = active",
+          "scope": { "actorUserId": "{{id:instructor_user}}" },
+          "expect": { "success": true }
+        },
+        {
+          "id": "class-09",
+          "name": "Bind calendar to instructor",
+          "prompt": "insert into calendar_bindings id = {{id:binding}} biz_id = {{id:biz_class}} calendar_id = {{id:class_calendar}} owner_type = resource resource_id = {{id:instructor_resource}} owner_ref_key = resource:{{id:instructor_resource}} is_primary = true is_active = true",
+          "scope": { "actorUserId": "{{id:instructor_user}}" },
+          "expect": { "success": true }
+        }
+      ]
+    },
+    {
+      "id": "class-catalog",
+      "name": "Publish Class Offer",
+      "steps": [
+        {
+          "id": "class-10",
+          "name": "Create class offer",
+          "prompt": "insert into offers id = {{id:offer}} biz_id = {{id:biz_class}} name = Morning Vinyasa Class slug = vinyasa-class-{{runId}} execution_mode = slot status = active is_published = true timezone = {{timezone}}",
+          "scope": { "actorUserId": "{{id:instructor_user}}" },
+          "expect": { "success": true }
+        },
+        {
+          "id": "class-11",
+          "name": "Create offer version",
+          "prompt": "insert into offer_versions id = {{id:offer_version}} biz_id = {{id:biz_class}} offer_id = {{id:offer}} version = 1 status = published duration_mode = fixed default_duration_min = 60 base_price_minor = 2500 currency = USD",
+          "scope": { "actorUserId": "{{id:instructor_user}}" },
+          "expect": { "success": true }
+        }
+      ]
+    },
+    {
+      "id": "class-register",
+      "name": "Student Registers for Class",
+      "steps": [
+        {
+          "id": "class-12",
+          "name": "Student books class",
+          "prompt": "insert into booking_orders id = {{id:booking1}} biz_id = {{id:biz_class}} offer_id = {{id:offer}} offer_version_id = {{id:offer_version}} customer_user_id = {{id:student1_user}} status = confirmed currency = USD subtotal_minor = 2500 total_minor = 2500 requested_start_at = 2026-03-15T09:00:00Z requested_end_at = 2026-03-15T10:00:00Z confirmed_start_at = 2026-03-15T09:00:00Z confirmed_end_at = 2026-03-15T10:00:00Z",
+          "scope": { "actorUserId": "{{id:student1_user}}" },
+          "expect": { "success": true }
+        },
+        {
+          "id": "class-13",
+          "name": "Create fulfillment unit",
+          "prompt": "insert into fulfillment_units id = {{id:unit1}} biz_id = {{id:biz_class}} booking_order_id = {{id:booking1}} kind = service_task status = planned planned_start_at = 2026-03-15T09:00:00Z planned_end_at = 2026-03-15T10:00:00Z location_id = {{id:location}}",
+          "scope": { "actorUserId": "{{id:instructor_user}}" },
+          "expect": { "success": true }
+        },
+        {
+          "id": "class-14",
+          "name": "Assign instructor to student",
+          "prompt": "insert into fulfillment_assignments id = {{id:assign1}} biz_id = {{id:biz_class}} fulfillment_unit_id = {{id:unit1}} resource_id = {{id:instructor_resource}} status = confirmed starts_at = 2026-03-15T09:00:00Z ends_at = 2026-03-15T10:00:00Z is_primary = true",
+          "scope": { "actorUserId": "{{id:instructor_user}}" },
+          "expect": { "success": true }
+        }
+      ]
+    },
+    {
+      "id": "class-edge",
+      "name": "Edge Case: Overlap Guard Demonstrates Capacity",
+      "steps": [
+        {
+          "id": "class-18",
+          "name": "Verify first assignment exists",
+          "prompt": "list fulfillment_assignments where biz_id = {{id:biz_class}} and resource_id = {{id:instructor_resource}} and status = confirmed",
+          "scope": { "actorUserId": "{{id:instructor_user}}" },
+          "expect": { "success": true, "rowCountEq": 1 }
+        },
+        {
+          "id": "class-19",
+          "name": "Attempt conflicting assignment (same time, same resource)",
+          "prompt": "insert into fulfillment_assignments id = {{id:assign_conflict}} biz_id = {{id:biz_class}} fulfillment_unit_id = {{id:unit1}} resource_id = {{id:instructor_resource}} status = confirmed starts_at = 2026-03-15T09:00:00Z ends_at = 2026-03-15T10:00:00Z is_primary = false",
+          "scope": { "actorUserId": "{{id:instructor_user}}" },
+          "expect": { "success": false, "errorContains": ["overlap"] }
+        }
+      ]
+    },
+    {
+      "id": "class-verify",
+      "name": "Verify Class State",
+      "steps": [
+        {
+          "id": "class-20",
+          "name": "Exactly 1 confirmed assignment",
+          "prompt": "list fulfillment_assignments where biz_id = {{id:biz_class}} and resource_id = {{id:instructor_resource}} and status = confirmed",
+          "scope": { "actorUserId": "{{id:instructor_user}}" },
+          "expect": { "success": true, "rowCountEq": 1 }
+        },
+        {
+          "id": "class-21",
+          "name": "1 booking order exists",
+          "prompt": "list booking_orders where biz_id = {{id:biz_class}} and offer_id = {{id:offer}}",
+          "scope": { "actorUserId": "{{id:instructor_user}}" },
+          "expect": { "success": true, "rowCountEq": 1 }
+        },
+        {
+          "id": "class-22",
+          "name": "Calendar binding still active",
+          "prompt": "list calendar_bindings where biz_id = {{id:biz_class}} and resource_id = {{id:instructor_resource}} and is_active = true",
+          "scope": { "actorUserId": "{{id:instructor_user}}" },
+          "expect": { "success": true, "rowCountEq": 1 }
+        }
+      ]
+    }
+  ]
+}

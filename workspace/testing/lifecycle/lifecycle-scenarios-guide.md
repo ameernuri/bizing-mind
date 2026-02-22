@@ -16,7 +16,7 @@ Use this kit to answer: "Does the schema support real lifecycle behavior?"
 ## Included Scenarios
 
 1. **Slot Booking Lifecycle**
-- File: `/Users/ameer/projects/bizing-mind/workspace/agent-api-lifecycle-example-01-slot-booking-v0.json`
+- File: `/Users/ameer/projects/bizing-mind/workspace/testing/lifecycle/lifecycle-01-slot-booking.json`
 - What it covers:
   - host/resource setup
   - calendar + availability binding
@@ -26,7 +26,7 @@ Use this kit to answer: "Does the schema support real lifecycle behavior?"
   - final state verification
 
 2. **Queue Walk-in Lifecycle**
-- File: `/Users/ameer/projects/bizing-mind/workspace/agent-api-lifecycle-example-02-queue-walkin-v0.json`
+- File: `/Users/ameer/projects/bizing-mind/workspace/testing/lifecycle/lifecycle-02-queue-walkin.json`
 - What it covers:
   - queue setup
   - customer join + ticket issue
@@ -35,12 +35,23 @@ Use this kit to answer: "Does the schema support real lifecycle behavior?"
   - final served-state verification
 
 3. **Gift Transfer Lifecycle**
-- File: `/Users/ameer/projects/bizing-mind/workspace/agent-api-lifecycle-example-03-gift-transfer-v0.json`
+- File: `/Users/ameer/projects/bizing-mind/workspace/testing/lifecycle/lifecycle-03-gift-transfer.json`
 - What it covers:
   - gift issuance
   - transfer intent row
   - completion + ownership transfer
   - transfer traceability checks
+
+4. **Class Group Booking Lifecycle (NEW)**
+- File: `/Users/ameer/projects/bizing-mind/workspace/testing/lifecycle/lifecycle-04-class-group-waitlist.json`
+- What it covers:
+  - class schedule + occurrence setup
+  - multiple student registrations (capacity limit)
+  - waitlist when capacity full
+  - cancellation opens spot
+  - auto-promotion from waitlist
+  - attendance tracking
+  - final state verification
 
 ---
 
@@ -123,24 +134,39 @@ Replace the file path with any of the other two examples.
 - one served entry exists
 - ticket is completed
 
-### Scenario 3: Gift Transfer
+### Scenario 4: Class Group Booking
 
-1. **Setup Identities + Biz**
-- creates issuer and recipient users
-- creates biz
+1. **Setup Class Infrastructure**
+- creates instructor and multiple student identities
+- creates biz/location/instructor resource
+- creates class schedule with capacity limit (2 students)
+- schedules class occurrence
 
-2. **Issue Gift Instrument**
-- creates active gift instrument with owner = issuer
-- verifies ownership row
+2. **Publish Class Offer**
+- creates offer shell for class
+- creates immutable published offer version with max_participants
 
-3. **Transfer Gift Ownership**
-- creates pending transfer row
-- marks transfer completed with timestamp
-- updates instrument owner to recipient
+3. **Students Register (Fill Capacity)**
+- first student registers and gets attendance record
+- second student registers (fills capacity to 2/2)
+- both have "registered" status
 
-4. **Verify Traceability**
-- verifies new owner
-- verifies completed transfer row
+4. **Waitlist When Full**
+- third student attempts to register
+- booking created with "waitlisted" status
+- queue entry created for class waitlist
+
+5. **Edge Case: Cancellation Opens Spot**
+- first student cancels registration
+- attendance marked cancelled
+- waitlisted student auto-promoted to "offered"
+- student accepts spot, booking confirmed
+- new attendance record created
+
+6. **Verify Class State**
+- confirms exactly 2 registered students (at capacity)
+- confirms 1 cancelled registration
+- confirms class occurrence still scheduled
 
 ---
 
@@ -162,13 +188,16 @@ Replace the file path with any of the other two examples.
 They are intentionally complementary:
 - **slot** tests scheduling + assignment invariants,
 - **queue** tests non-slot operational flow,
-- **gift** tests financial ownership/traceability flow.
+- **gift** tests financial ownership/traceability flow,
+- **class** tests capacity-limited group events + waitlist promotion.
 
 Together they exercise:
 - setup and configuration,
 - lifecycle transitions,
 - strict invariants,
-- audit-friendly verification.
+- audit-friendly verification,
+- capacity management,
+- waitlist auto-promotion.
 
 ---
 

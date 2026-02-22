@@ -1,0 +1,55 @@
+{
+  "defaults": {
+    "dryRun": false,
+    "continueOnFailure": true
+  },
+  "variables": {
+    "timezone": "America/Los_Angeles"
+  },
+  "suites": [
+    {
+      "id": "uc_36_event_venue",
+      "name": "UC-36: Event Venue Rental",
+      "kind": "scenario",
+      "source": {
+        "filePath": "testing/scenarios/uc-36-grand-hall.json"
+      }
+    },
+    {
+      "id": "uc_37_personal_training",
+      "name": "UC-37: Personal Training",
+      "kind": "scenario",
+      "source": {
+        "filePath": "testing/scenarios/uc-37-fitpro.json"
+      }
+    },
+    {
+      "id": "uc_38_car_detailing",
+      "name": "UC-38: Car Detailing",
+      "kind": "scenario",
+      "source": {
+        "filePath": "testing/scenarios/uc-38-sparkle-auto.json"
+      }
+    },
+    {
+      "id": "uc_39_language_immersion",
+      "name": "UC-39: Language Immersion",
+      "kind": "scenario",
+      "source": {
+        "filePath": "testing/scenarios/uc-39-global-speak.json"
+      }
+    },
+    {
+      "id": "uc_40_legal_consultation",
+      "name": "UC-40: Legal Consultation",
+      "kind": "scenario",
+      "source": {
+        "filePath": "testing/scenarios/uc-40-justice-law.json"
+      }
+    }
+  ],
+  "output": {
+    "writeJsonPath": "reports/new-uc-36-40-agent-fitness.json",
+    "writeMarkdownPath": "reports/new-uc-36-40-agent-fitness.md"
+  }
+}
